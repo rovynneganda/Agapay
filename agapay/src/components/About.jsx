@@ -128,7 +128,7 @@ const About = () => {
                       </svg>
                       GIS.
                     </dt>
-                    <dd className="inline font-poppins">
+                    <dd className="inline font-poppins ">
                       {" "}
                       Anim aute id magna aliqua ad ad non deserunt sunt. Qui
                       irure qui lorem cupidatat commodo.
