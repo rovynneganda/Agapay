@@ -88,7 +88,7 @@ const About = () => {
                   safety concerns. Your vigilance contributes to a safer
                   environment for everyone.{" "}
                 </p>
-                <dl className="mt-10 max-w-xl space-y-8 text-base leading-7  lg:max-w-none">
+                <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 lg:max-w-none">
                   <div className="relative pl-9">
                     <dt className="inline font-semibold text-tertiary">
                       <svg
