@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { logo } from "../assets";
 import styles from "../style";
-import { menu } from "../assets";
+import { menu, assistance } from "../assets";
 import Login from "./Login";
 const Navbar = () => {
   const [isLoginModalVisible, setLoginModalVisible] = useState(false);
@@ -18,13 +18,17 @@ const Navbar = () => {
     <>
       <nav className="fixed top-0 w-full bg-white border-gray-200 z-10">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-          <img src={logo} className="h-24  flex items-center" alt="Logo" />
+        <a href="#" className="flex items-center">
+        <img src={logo} className="h-24  flex items-center" alt="Logo" />
+          <img src={assistance} className="h-10  hidden sm:block" alt="Logo" />
+        </a>
+         
           <div className="flex items-center">
             <h1 className="mr-6 text-sm  text-gray-500 font-poppins hidden sm:block">
               (888) 25664
             </h1>
             <button
-              className="text-md font-poppins font-semibold text-secondary mr-3 hover:bg-lightgray px-2 py-2 rounded-lg"
+              className="text-md font-poppins font-semibold transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  text-secondary mr-3 hover:bg-lightgray px-2 py-2 rounded-lg"
               onClick={handleLoginModalToggle}
             >
               Login
@@ -45,7 +49,7 @@ const Navbar = () => {
             </button>
             {isLoginModalVisible && <Login onClose={handleLoginModalToggle} />}
             <Link
-              className="text-md font-poppins font-semibold text-primary mr-3 hover:bg-lightgray px-2 py-2 rounded-lg "
+              className="text-md font-poppins transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  font-semibold text-primary mr-3 hover:bg-lightgray px-2 py-2 rounded-lg "
               to=""
             >
               Download
@@ -125,6 +129,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+      
     </>
   );
 };

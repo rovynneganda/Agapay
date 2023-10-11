@@ -18,7 +18,7 @@ const Footer = () => {
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
-              <h2 className="mb-6 text-md font-semibold text-primary opacity-80 font-poppins uppercase ">
+              <h2 className="mb-6 text-md font-semibold text-primary opacity-80 font-inter uppercase  ">
                 Resources
               </h2>
               <ul className="text-gray-500  font-medium">
@@ -41,7 +41,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-md font-semibold text-primary opacity-80 font-poppins uppercase">
+              <h2 className="mb-6 text-md font-semibold text-primary opacity-80 font-inter uppercase">
                 Follow us
               </h2>
               <ul className="text-gray-500  font-medium">
@@ -64,7 +64,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-md font-semibold text-primary opacity-80 font-poppins uppercase">
+              <h2 className="mb-6 text-md font-semibold text-primary opacity-80 font-inter uppercase">
                 Legal
               </h2>
               <ul className="text-gray-500  font-medium">
@@ -90,7 +90,7 @@ const Footer = () => {
         </div>
         <hr className="my-6 border-gray-200 sm:mx-auto  lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm text-gray-500 sm:text-center font-poppins">
+          <span className="text-sm text-gray-500 sm:text-center font-inter">
             © 2023 Agapay. All Rights Reserved.
           </span>
         </div>

@@ -1,7 +1,10 @@
-import React from "react";
-import { logo } from "../assets";
+import React, { useEffect } from "react";
+import { logo, weather, alerts } from "../assets";
 import Footer from "./Footer";
 const About = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <section className="py-5 p-4 mb-3 mt-32 ">
@@ -10,7 +13,7 @@ const About = () => {
             <span className="inline-flex items-center rounded-full font-poppins px-2 py-1 text-xs font-medium mb-5  ring-1 ring-primary text-secondary ring-inset ">
               Community Safety Advocate
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight font-inter">
               Assistance Given Amidst <br className="hidden md:inline" /> Plight
               and Yields
             </h1>
@@ -23,7 +26,7 @@ const About = () => {
             <div className="mt-5 flex items-center sm:justify-start justify-center">
               <button
                 type="button"
-                className="text-white bg-primary hover:bg-primarydark font-poppins font-semibold  rounded-full text-sm px-5 py-2.5 mr-2"
+                className="text-white bg-primary transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  hover:bg-primarydark font-poppins font-semibold  rounded-full text-sm px-5 py-2.5 mr-2"
               >
                 Download
                 <svg
@@ -43,7 +46,7 @@ const About = () => {
               </button>
               <a
                 href="#asd"
-                className="text-white bg-secondary hover:bg-tertiary  font-poppins font-semibold  rounded-full text-sm px-5 py-2.5 mr-2"
+                className="text-white bg-secondary transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  hover:bg-tertiary  font-poppins font-semibold  rounded-full text-sm px-5 py-2.5 mr-2"
               >
                 Learn more
                 <svg
@@ -77,13 +80,13 @@ const About = () => {
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
             <div className="lg:pr-8 lg:pt-4">
               <div className="lg:max-w-lg">
-                <h2 className="text-base font-semibold leading-7 text-secondary">
+                <h2 className="text-base font-semibold leading-7 text-secondary font-poppins">
                   Report Incidents
                 </h2>
-                <p className="mt-2 text-3xl font-bold capitalize tracking-tight text-primary sm:text-4xl">
+                <p className="mt-2 text-3xl font-bold capitalize tracking-tight text-primary sm:text-4xl font-inter">
                   Enhance Community Safety
                 </p>
-                <p className="mt-6 text-lg leading-8 font-poppins text-secondary">
+                <p className="mt-6 text-lg leading-8 font-poppins text-dark">
                   Empower your community by reporting incidents, accidents, or
                   safety concerns. Your vigilance contributes to a safer
                   environment for everyone.{" "}
@@ -173,15 +176,15 @@ const About = () => {
       <section className="bg-white ">
         <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6 flex flex-col-reverse">
           <img
-            className="w-full "
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg"
-            alt="dashboard image"
+            className="w-full rounded-xl shadow-xl"
+            src={weather}
+            alt="Weather Updates"
           />
           <div className="mt-4 md:mt-0">
-            <h2 className="mb-4 text-3xl tracking-tight font-bold text-primary">
+            <h2 className="mb-4 text-3xl tracking-tight font-bold text-primary font-inter">
               Real-Time Weather Updates
             </h2>
-            <p className="mb-6 font-light  font-poppins md:text-lg text-secondary ">
+            <p className="mb-6 font-light  font-poppins md:text-lg text-dark ">
               {" "}
               Stay informed with up-to-the-minute weather forecasts and alerts.
               Our weather updates provide accurate and timely information,
@@ -195,10 +198,10 @@ const About = () => {
       <section className="bg-white ">
         <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6 ">
           <div className="mt-4 md:mt-0">
-            <h2 className="mb-4 text-3xl tracking-tight font-bold text-primary">
+            <h2 className="mb-4 text-3xl tracking-tight font-bold text-primary font-inter">
               Real Time Alerts
             </h2>
-            <p className="mb-6 font-light  font-poppins md:text-lg text-secondary ">
+            <p className="mb-6 font-light  font-poppins md:text-lg text-dark ">
               {" "}
               Receive instant notifications and updates on emergencies,
               disasters, and important community events. Our real-time alerts
@@ -208,16 +211,16 @@ const About = () => {
             </p>
           </div>
           <img
-            className="w-full "
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg"
-            alt="dashboard image"
+            className="w-full rounded-xl shadow-xl"
+            src={alerts}
+            alt="Alert Image"
           />
         </div>
       </section>
       <section className="bg-white ">
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
           <div className="mx-auto max-w-screen-sm">
-            <h2 className="mb-4 text-4xl tracking-tight font-bold text-primary  ">
+            <h2 className="mb-4 text-4xl tracking-tight font-bold text-primary font-inter  ">
               Our Mission and Vision
             </h2>
             <p className="font-light  lg:mb-16 sm:text-xl font-poppins">
@@ -228,10 +231,10 @@ const About = () => {
           <div className="grid mb-8 lg:mb-12 lg:grid-cols-2 gap-3">
             <figure className="flex flex-col justify-center items-center p-8 text-center bg-white rounded-lg shadow-lg hover:bg-lightgray cursor-pointer">
               <blockquote className="mx-auto mb-8 max-w-2xl">
-                <h3 className="text-3xl font-semibold text-primary mb-4">
+                <h3 className="text-3xl font-semibold text-primary mb-4 font-inter">
                   Our Mission
                 </h3>
-                <p className=" leading-relaxed  font-poppins text-secondary">
+                <p className=" leading-relaxed  font-poppins text-dark">
                   "Our mission is to empower communities by providing a seamless
                   platform for reporting incidents, accidents, and safety
                   concerns. We believe in fostering vigilance, collaboration,
@@ -240,12 +243,12 @@ const About = () => {
                 </p>
               </blockquote>
             </figure>
-            <figure className="flex flex-col justify-center items-center p-8 text-center bg-white rounded-lg shadow-lg hover:bg-lightgray cursor-pointer">
+            <figure className="flex flex-col justify-center items-center  p-8 text-center bg-white rounded-lg shadow-lg hover:bg-lightgray cursor-pointer">
               <blockquote className="mx-auto mb-8 max-w-2xl">
-                <h3 className="text-3xl font-semibold text-primary mb-4">
+                <h3 className="text-3xl font-semibold text-primary mb-4 font-inter">
                   Our Vision
                 </h3>
-                <p className=" leading-relaxed font-poppins text-secondary">
+                <p className=" leading-relaxed font-poppins text-dark ">
                   "Our vision is to build resilient and aware communities where
                   safety is a shared responsibility. We aim to create a future
                   where incidents are minimized, response is swift, and everyone
@@ -257,6 +260,7 @@ const About = () => {
           </div>
         </div>
       </section>
+
       <Footer />
     </>
   );
