@@ -29,7 +29,7 @@ export const disasterCards = [
     id: 2,
     logo: logo,
     title: 'Storm Surge',
-    description: 'swift seawater rise during storms, flooding coasts due to intense wind and pressure.',
+    description: 'Coastal flooding caused by strong winds, pushing ocean water onto land during storms.',
   },
   {
     id: 3,
@@ -41,7 +41,7 @@ export const disasterCards = [
     id: 4,
     logo: logo,
     title: 'Landslide',
-    description: 'rapid downhill movement of rock, soil, or debris, often triggered by heavy rainfall.'
+    description: 'Rapid downhill movement of soil, rock, and debris, often triggered by heavy rain or earthquakes.'
   },
   {
     id: 5,
@@ -67,4 +67,52 @@ export const disasterCards = [
     title: 'Fire',
     description: 'rapid combustion of materials, releasing heat, light, and often causing destruction and emergencies.'
   }
+];
+export const emergencyResources = [
+  
+{
+    id:1,
+    name:"Click and Search",
+    description:"Simply click the 'Find Nearby Services' button, and our integrated Google Maps API will pinpoint the nearby hospitals, police stations, and fire stations in your vicinity.",
+    icon: `
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59" />
+</svg>
+
+  `
+  
+},
+{
+    id:2,
+    name:"Real-Time Data",
+    description:"Access up-to-date information, including contact details and addresses, ensuring you can quickly reach out to emergency services.",
+    icon: `
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+      <path strokeLinecap="round" strokeLinejoin="round" stroke-width="1.5" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25M9 16.5v.75m3-3v3M15 12v5.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+    </svg>
+  `  
+      
+},
+{
+    id:3,
+    name:"Emergency-Ready Details",
+    description:"Get critical information about the nearby facilities,These insights empower you to make informed decisions swiftly during emergencies.",
+    icon: `
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+</svg>
+
+  `
+},
+{
+  id:4,
+  name:"User-Friendly Interface",
+  description:"Our intuitive design ensures accessibility for everyone. you can quickly navigate the map and access essential details with just a few clicks.",
+  icon: `
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+</svg>
+
+`
+}
 ];

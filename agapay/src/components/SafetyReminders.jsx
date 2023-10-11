@@ -11,9 +11,7 @@ const SafetyReminders = () => {
       <section className="bg-white  mt-32">
         <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
           <div className="font-light  sm:text-lg ">
-            <span className="inline-flex items-center rounded-full font-poppins px-2 py-1 text-xs font-medium mb-5  ring-1 ring-primary text-secondary ring-inset ">
-              Your Safety, Our Priority
-            </span>
+          <h2 className="text-base font-semibold leading-7 text-secondary font-poppins">Your Safety, Our Priority</h2>
             <h1 className="mb-4 text-5xl tracking-tight font-extrabold  font-inter">
               Safety Reminders
             </h1>
@@ -44,7 +42,7 @@ const SafetyReminders = () => {
         </div>
       </section>
       <div className="flex justify-center p-4">
-        <div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-3 grid-cols-1 items-center">
+      <div className="flex flex-wrap justify-center lg:grid lg:grid-cols-4 sm:grid-cols-2 gap-3 grid-cols-1 items-center">
           {disasterCards.map((card) => (
             <div
               className="max-w-sm bg-white border  rounded-lg hover:shadow-xl shadow transition ease-in-out hover:-translate-y-1 hover:scale-100 duration-300"
