@@ -36,7 +36,7 @@ const Login = ({ onClose }) => {
                 <h2 className="text-center text-4xl font-semibold text-primary opacity-80 font-inter leading-9 mb-5 tracking-tight mt-5  ">
                   Welcome to Agapay
                 </h2>
-                <p className="text-gray-700 mb-2 text-center font-poppins">
+                <p className=" mb-2 text-center font-poppins">
                   Your login is essential to access our services and contribute
                   to disaster reporting and travel assistance requests.
                 </p>
@@ -51,7 +51,7 @@ const Login = ({ onClose }) => {
                       />
                       <label
                         htmlFor="floating_outlined1"
-                        className="absolute text-sm text-gray-500 font-poppins cursor-text  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
+                        className="absolute text-sm  font-poppins cursor-text  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
                       >
                         Username
                       </label>
@@ -67,12 +67,12 @@ const Login = ({ onClose }) => {
                       />
                       <label
                         htmlFor="floating_outlined"
-                        className="absolute text-sm text-gray-500 font-poppins cursor-text  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
+                        className="absolute text-sm  font-poppins cursor-text  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
                       >
                         Password
                       </label>
                       <i
-                        className="bi bi-eye-slash eye-icon absolute inset-y-0 right-0 flex items-center pr-3 text-gray-500 cursor-pointer"
+                        className="bi bi-eye-slash eye-icon absolute inset-y-0 right-0 flex items-center pr-3  cursor-pointer"
                         id="add_admin_confirm_password_toggle"
                       >
                         s
@@ -100,7 +100,7 @@ const Login = ({ onClose }) => {
 
                     <div className="mb-3 flex items-center">
                       <hr className="flex-grow border-t border-gray-300 mr-2" />
-                      <span className="text-gray-400">or</span>
+                      <span >or</span>
                       <hr className="flex-grow border-t border-gray-300 ml-2" />
                     </div>
                     <div className="mb-3">
@@ -158,7 +158,7 @@ const Login = ({ onClose }) => {
             </div>
             <button
               type="button"
-              className="text-gray-400 bg-transparent hover:bg-gray-200 rounded-lg text-sm w-8 h-8 absolute top-4 right-4 md:hidden"
+              className=" bg-transparent hover:bg-gray-200 rounded-lg text-sm w-8 h-8 absolute top-4 right-4 md:hidden"
               onClick={onClose}
             >
               <svg
@@ -193,7 +193,7 @@ const Login = ({ onClose }) => {
             <h2 className="text-center text-4xl font-bold text-black font-inter leading-9 mb-5 tracking-tight mt-5  ">
                   Existing User?
                 </h2>
-                <p className="text-gray-700 mb-2 text-center font-poppins font-medium">
+                <p className=" mb-2 text-center font-poppins font-medium">
                   Your login is essential to access our services and contribute
                   to disaster reporting and travel assistance requests.
                 </p>
@@ -225,7 +225,7 @@ const Login = ({ onClose }) => {
                     />
                     <label
                       htmlFor="floating_outlined1"
-                      className="absolute text-sm text-gray-500 font-poppins  cursor-text  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
+                      className="absolute text-sm  font-poppins  cursor-text  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
                     >
                       First Name
                     </label>
@@ -239,7 +239,7 @@ const Login = ({ onClose }) => {
                     />
                     <label
                       htmlFor="floating_outlined2"
-                      className="absolute text-sm text-gray-500 font-poppins cursor-text  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
+                      className="absolute text-sm  font-poppins cursor-text  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
                     >
                       Last Name
                     </label>
@@ -253,20 +253,20 @@ const Login = ({ onClose }) => {
                     />
                     <label
                       htmlFor="floating_outlined3"
-                      className="absolute text-sm text-gray-500 font-poppins  cursor-text duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
+                      className="absolute text-sm  font-poppins  cursor-text duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
                     >
                       Email
                     </label>
                   </div>
                   <div>
                     <label
-                      class="block mb-2 text-sm font-medium text-gray-900 font-poppins dark:text-white"
+                      class="block mb-2 text-sm font-medium font-poppins "
                       for="large_size"
                     >
                       Please Attach Your ID
                     </label>
                     <input
-                      class="block w-full text-md text-gray-900 border border-black rounded-lg cursor-pointer  font-poppins"
+                      class="block w-full text-md  border border-black rounded-lg cursor-pointer  font-poppins"
                       id="large_size"
                       type="file"
                     />
@@ -303,14 +303,14 @@ const Login = ({ onClose }) => {
                     />
                     <label
                       htmlFor="floating_outlined4"
-                      className="absolute text-sm text-gray-500 font-poppins  cursor-text duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
+                      className="absolute text-sm  font-poppins  cursor-text duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
                     >
                       House Number and Street Name
                     </label>
                   </div>
                   <select
                     id="countries"
-                    class="border font-poppins bg-white  text-gray-900 text-sm rounded-lg outline-none  focus:ring-primary focus:border-primary block w-full p-2.5 "
+                    class="border font-poppins bg-white   text-sm rounded-lg outline-none  focus:ring-primary focus:border-primary block w-full p-2.5 "
                   >
                     <option selected>Choose a Barangay</option>
                     <option value="US">United States</option>
@@ -325,7 +325,7 @@ const Login = ({ onClose }) => {
                     />
                     <label
                       htmlFor="floating_outlined5"
-                      className="absolute text-sm text-gray-500 font-poppins cursor-not-allowed duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-secondary peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
+                      className="absolute text-sm  font-poppins cursor-not-allowed duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-secondary peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
                     >
                       Postal Code
                     </label>
@@ -361,20 +361,20 @@ const Login = ({ onClose }) => {
                 </h2>
                 <div className="space-y-6 p-4 ">
                   <div class="relative flex items-center mt-3">
-                    <div class="flex-shrink-0 inline-flex items-center py-2.5 px-4 text-sm font-medium text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600">
+                    <div class="flex-shrink-0 inline-flex items-center py-2.5 px-4 text-sm font-medium  bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100   ">
                       +63
                     </div>
                     <div class="relative w-full">
                       <input
                         type="search"
                         id="search-dropdown"
-                        class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500 peer"
+                        class="block p-2.5 w-full z-20 text-sm bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500     peer"
                         placeholder=" "
                         required
                       />
                       <label
                         for="search-dropdown"
-                        class="absolute text-sm text-gray-500 font-poppins cursor-text  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
+                        class="absolute text-sm  font-poppins cursor-text  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
                       >
                         Contact Number
                       </label>
@@ -390,7 +390,7 @@ const Login = ({ onClose }) => {
                     />
                     <label
                       htmlFor="floating_outlined4"
-                      className="absolute text-sm text-gray-500 font-poppins  cursor-text duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
+                      className="absolute text-sm  font-poppins  cursor-text duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
                     >
                       Verification Code
                     </label>
@@ -442,7 +442,7 @@ const Login = ({ onClose }) => {
                     />
                     <label
                       htmlFor="floating_outlined4"
-                      className="absolute text-sm text-gray-500 font-poppins  cursor-text duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
+                      className="absolute text-sm  font-poppins  cursor-text duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
                     >
                       Username
                     </label>
@@ -456,7 +456,7 @@ const Login = ({ onClose }) => {
                     />
                     <label
                       htmlFor="floating_outlined4"
-                      className="absolute text-sm text-gray-500 font-poppins  cursor-text duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
+                      className="absolute text-sm  font-poppins  cursor-text duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
                     >
                       Password
                     </label>
@@ -471,7 +471,7 @@ const Login = ({ onClose }) => {
                     />
                     <label
                       htmlFor="floating_outlined4"
-                      className="absolute text-sm text-gray-500 font-poppins  cursor-text duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
+                      className="absolute text-sm  font-poppins  cursor-text duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
                     >
                       Confirm Password
                     </label>
@@ -501,7 +501,7 @@ const Login = ({ onClose }) => {
 
             <button
               type="button"
-              className="text-gray-400 bg-transparent hover:bg-gray-200 rounded-lg text-sm w-8 h-8 absolute top-4 right-4 md:hidden"
+              className=" bg-transparent hover:bg-gray-200 rounded-lg text-sm w-8 h-8 absolute top-4 right-4 md:hidden"
               onClick={onClose}
             >
               <svg

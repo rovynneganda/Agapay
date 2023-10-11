@@ -8,26 +8,26 @@ const SafetyReminders = () => {
       }, []);
   return (
     <> 
-<section class="bg-white dark:bg-gray-900 mt-32">
-    <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
-        <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
+<section className="bg-white  mt-32">
+    <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
+        <div className="font-light  sm:text-lg ">
             <span className="inline-flex items-center rounded-full font-poppins px-2 py-1 text-xs font-medium mb-5  ring-1 ring-primary text-secondary ring-inset ">
                 Your Safety, Our Priority
             </span>
-            <h1 class="mb-4 text-5xl tracking-tight font-extrabold text-gray-900 font-inter">Safety Reminders</h1>
-            <p class="mb-4 font-poppins">Explore our disaster cards to stay informed. Click <span className='text-primary'>Read More</span> for in-depth information on each topic, empowering you with knowledge and preparedness.</p>
+            <h1 className="mb-4 text-5xl tracking-tight font-extrabold  font-inter">Safety Reminders</h1>
+            <p className="mb-4 font-poppins">Explore our disaster cards to stay informed. Click <span className='text-primary'>Read More</span> for in-depth information on each topic, empowering you with knowledge and preparedness.</p>
             <p className='font-inter'>Explore with confidence. Your safety is our unwavering commitment and top priority. Discover valuable resources and gain knowledge, knowing that your safety is our constant focus. </p>
         </div>
-        <div class="grid grid-cols-2 gap-4 mt-8">
-            <img class="w-full rounded-lg transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png" alt="office content 1"/>
-            <img class="mt-4 w-full lg:mt-10 rounded-lg transition ease-in-out hover:-translate-y-1 hover:scale-105  duration-300" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png" alt="office content 2"/>
+        <div className="grid grid-cols-2 gap-4 mt-8">
+            <img className="w-full rounded-lg transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png" alt="office content 1"/>
+            <img className="mt-4 w-full lg:mt-10 rounded-lg transition ease-in-out hover:-translate-y-1 hover:scale-105  duration-300" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png" alt="office content 2"/>
         </div>
     </div>
 </section>
   <div className='flex justify-center p-4'>
         <div className='grid lg:grid-cols-4 sm:grid-cols-2 gap-3 grid-cols-1 items-center'>
           {disasterCards.map((card) => (
-            <div className="max-w-sm bg-white border border-gray-200 rounded-lg hover:shadow-xl shadow dark:bg-gray-800 dark:border-gray-700 transition ease-in-out hover:-translate-y-1 hover:scale-100 duration-300" key={card.id}>
+            <div className="max-w-sm bg-white border  rounded-lg hover:shadow-xl shadow transition ease-in-out hover:-translate-y-1 hover:scale-100 duration-300" key={card.id}>
               <a href="#" className="flex justify-center items-center">
                 <img className="rounded-t-lg h-40" src={card.logo} alt={card.title} />
               </a>

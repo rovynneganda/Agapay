@@ -27,14 +27,14 @@ const DisasterInformation = () => {
 </svg>
 Go back to Safety Reminders</button>
 </Link>
-<h1 class="mb-4 text-4xl font-bold font-inter leading-none tracking-tight text-primary md:text-5xl lg:text-6xl text-center">{selectedCard.title}</h1>
-<p class="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400 font-poppins">{selectedCard.longerdescription}</p>
+<h1 className="mb-4 text-4xl font-bold font-inter leading-none tracking-tight text-primary md:text-5xl lg:text-6xl text-center">{selectedCard.title}</h1>
+<p className="mb-6 text-lg font-normal  lg:text-xl sm:px-16 xl:px-48  font-poppins">{selectedCard.longerdescription}</p>
 </header>
-   <section class="bg-white dark:bg-gray-900">
-    <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
-        <div class="mt-4 md:mt-0">
-            <h2 class="mb-4 text-3xl tracking-tight font-extrabold text-primary opacity-80 font-inter">{selectedCard.beforetitle}</h2>
-            <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400 font-poppins">
+   <section className="bg-white ">
+    <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
+        <div className="mt-4 md:mt-0">
+            <h2 className="mb-4 text-3xl tracking-tight font-extrabold text-primary opacity-80 font-inter">{selectedCard.beforetitle}</h2>
+            <ul className="max-w-md space-y-1  list-disc list-inside  font-poppins">
                 {beforedescription1 && <li>{selectedCard.beforedescription1}</li>}
                 {beforedescription2 && <li>{selectedCard.beforedescription2}</li>}
                 {beforedescription3 && <li>{selectedCard.beforedescription3}</li>}
@@ -42,16 +42,16 @@ Go back to Safety Reminders</button>
             </ul>
           
         </div>
-        <img class="w-full dark:hidden" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg" alt="dashboard image"/>
+        <img className="w-full " src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg" alt="dashboard image"/>
     </div>
 </section>
-   <section class="bg-white dark:bg-gray-900">
-    <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
-        <img class="w-full dark:hidden" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg" alt="dashboard image"/>
-        <img class="w-full hidden dark:block" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup-dark.svg" alt="dashboard image"/>
-        <div class="mt-4 md:mt-0">
-        <h2 class="mb-4 text-3xl tracking-tight font-extrabold text-primary opacity-80 font-inter">{selectedCard.duringtitle}</h2>
-        <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400 font-poppins">
+   <section className="bg-white ">
+    <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
+        <img className="w-full " src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg" alt="dashboard image"/>
+        <img className="w-full hidden dark:block" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup-dark.svg" alt="dashboard image"/>
+        <div className="mt-4 md:mt-0">
+        <h2 className="mb-4 text-3xl tracking-tight font-extrabold text-primary opacity-80 font-inter">{selectedCard.duringtitle}</h2>
+        <ul className="max-w-md space-y-1  list-disc list-inside  font-poppins">
                 {duringdescription1 && <li>{selectedCard.duringdescription1}</li>}
                 {duringdescription2 && <li>{selectedCard.duringdescription2}</li>}
                 {duringdescription3 && <li>{selectedCard.duringdescription3}</li>}
@@ -61,18 +61,18 @@ Go back to Safety Reminders</button>
         </div>
     </div>
 </section>
-<section class="bg-white dark:bg-gray-900">
-    <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
-        <div class="mt-4 md:mt-0">
-        <h2 class="mb-4 text-3xl tracking-tight font-extrabold text-primary opacity-80 font-inter">{selectedCard.aftertitle}</h2>
-        <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400 font-poppins">
+<section className="bg-white ">
+    <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
+        <div className="mt-4 md:mt-0">
+        <h2 className="mb-4 text-3xl tracking-tight font-extrabold text-primary opacity-80 font-inter">{selectedCard.aftertitle}</h2>
+        <ul className="max-w-md space-y-1  list-disc list-inside  font-poppins">
                 {afterdescription1 && <li>{selectedCard.afterdescription1}</li>}
                 {afterdescription2 && <li>{selectedCard.afterdescription2}</li>}
                 {afterdescription3 && <li>{selectedCard.afterdescription3}</li>}
                 {afterdescription4 && <li>{selectedCard.afterdescription4}</li>}
             </ul>
         </div>
-        <img class="w-full dark:hidden" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg" alt="dashboard image"/>
+        <img className="w-full " src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg" alt="dashboard image"/>
     </div>
 </section>
 <Footer />
