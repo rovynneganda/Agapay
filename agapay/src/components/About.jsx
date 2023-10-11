@@ -95,7 +95,7 @@ const About = () => {
                   <div className="relative pl-9">
                     <dt className="inline font-semibold text-tertiary">
                       <svg
-                        className="absolute left-1 top-1 h-5 w-5 text-primary opacity-80"
+                        className="absolute left-1 top-1 h-5 w-5 text-primary "
                         viewBox="0 0 20 20"
                         fill="currentColor"
                         aria-hidden="true"
@@ -117,18 +117,11 @@ const About = () => {
                   </div>
                   <div className="relative pl-9">
                     <dt className="inline font-semibold text-tertiary">
-                      <svg
-                        className="absolute left-1 top-1 h-5 w-5 text-primary opacity-80"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="absolute left-1 top-1 h-5 w-5 text-primary ">
+  <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+</svg>
+
+
                       GIS.
                     </dt>
                     <dd className="inline font-poppins ">
@@ -140,7 +133,7 @@ const About = () => {
                   <div className="relative pl-9">
                     <dt className="inline font-semibold text-tertiary">
                       <svg
-                        className="absolute left-1 top-1 h-5 w-5 text-primary opacity-80"
+                        className="absolute left-1 top-1 h-5 w-5 text-primary "
                         viewBox="0 0 20 20"
                         fill="currentColor"
                         aria-hidden="true"
@@ -181,7 +174,7 @@ const About = () => {
             alt="Weather Updates"
           />
           <div className="mt-4 md:mt-0">
-            <h2 className="mb-4 text-3xl tracking-tight font-bold text-primary font-inter">
+            <h2 className="mb-4 text-3xl tracking-tight font-bold text-primary font-inter ">
               Real-Time Weather Updates
             </h2>
             <p className="mb-6 font-light  font-poppins md:text-lg text-dark ">
@@ -198,7 +191,7 @@ const About = () => {
       <section className="bg-white ">
         <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6 ">
           <div className="mt-4 md:mt-0">
-            <h2 className="mb-4 text-3xl tracking-tight font-bold text-primary font-inter">
+            <h2 className="mb-4 text-3xl tracking-tight font-bold text-primary font-inter ">
               Real Time Alerts
             </h2>
             <p className="mb-6 font-light  font-poppins md:text-lg text-dark ">

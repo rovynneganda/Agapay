@@ -33,7 +33,7 @@ const Login = ({ onClose }) => {
           <div className="flex sm:flex-row flex-col items-center w-full max-w-4xl  lg:max-h-[85%] md:max-h-[90%] sm:max-h-[85%]  h-full ">
             <div className="w-full h-full p-4   sm:rounded-l-lg   bg-white ">
               <div className="flex flex-col h-full align-center  justify-center">
-                <h2 className="text-center text-4xl font-semibold text-primary opacity-80 font-inter leading-9 mb-5 tracking-tight mt-5  ">
+                <h2 className="text-center text-4xl font-semibold text-primary  font-inter leading-9 mb-5 tracking-tight mt-5  ">
                   Welcome to Agapay
                 </h2>
                 <p className=" mb-2 text-center font-poppins">
@@ -212,7 +212,7 @@ const Login = ({ onClose }) => {
                 id="step-1"
                 style={{ display: currentStep === 1 ? "flex" : "none" }}
               >
-                <h2 className="text-center text-4xl font-semibold text-primary opacity-80 font-inter leading-9 mb-2 tracking-tight   ">
+                <h2 className="text-center text-4xl font-semibold text-primary  font-inter leading-9 mb-2 tracking-tight   ">
                   Personal Information
                 </h2>
                 <div className="space-y-6 p-4 ">
@@ -260,13 +260,13 @@ const Login = ({ onClose }) => {
                   </div>
                   <div>
                     <label
-                      class="block mb-2 text-sm font-medium font-poppins "
-                      for="large_size"
+                      className="block mb-2 text-sm font-medium font-poppins "
+                      htmlFor="large_size"
                     >
                       Please Attach Your ID
                     </label>
                     <input
-                      class="block w-full text-md  border border-black rounded-lg cursor-pointer  font-poppins"
+                      className="block w-full text-md  border border-black rounded-lg cursor-pointer  font-poppins"
                       id="large_size"
                       type="file"
                     />
@@ -290,7 +290,7 @@ const Login = ({ onClose }) => {
                 id="step-2"
                 style={{ display: currentStep === 2 ? "flex" : "none" }}
               >
-                <h2 className="text-center text-4xl font-semibold text-primary opacity-80 font-inter leading-9 mb-2 tracking-tight   ">
+                <h2 className="text-center text-4xl font-semibold text-primary  font-inter leading-9 mb-2 tracking-tight   ">
                   Address Verification
                 </h2>
                 <div className="space-y-6 p-4 ">
@@ -310,9 +310,9 @@ const Login = ({ onClose }) => {
                   </div>
                   <select
                     id="countries"
-                    class="border font-poppins bg-white   text-sm rounded-lg outline-none  focus:ring-primary focus:border-primary block w-full p-2.5 "
+                    className="border font-poppins bg-white   text-sm rounded-lg outline-none  focus:ring-primary focus:border-primary block w-full p-2.5 "
                   >
-                    <option selected>Choose a Barangay</option>
+                    <option defaultValue="Choose a Barangay">Choose a Barangay</option>
                     <option value="US">United States</option>
                   </select>
                   <div className="relative">
@@ -356,25 +356,25 @@ const Login = ({ onClose }) => {
                 id="step-3"
                 style={{ display: currentStep === 3 ? "flex" : "none" }}
               >
-                <h2 className="text-center text-4xl font-semibold text-primary opacity-80 font-inter leading-9 mb-2 tracking-tight   ">
+                <h2 className="text-center text-4xl font-semibold text-primary  font-inter leading-9 mb-2 tracking-tight   ">
                   Contact Number Verification
                 </h2>
                 <div className="space-y-6 p-4 ">
-                  <div class="relative flex items-center mt-3">
-                    <div class="flex-shrink-0 inline-flex items-center py-2.5 px-4 text-sm font-medium  bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100   ">
+                  <div className="relative flex items-center mt-3">
+                    <div className="flex-shrink-0 inline-flex items-center py-2.5 px-4 text-sm font-medium  bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100   ">
                       +63
                     </div>
-                    <div class="relative w-full">
+                    <div className="relative w-full">
                       <input
                         type="search"
                         id="search-dropdown"
-                        class="block p-2.5 w-full z-20 text-sm bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500     peer"
+                        className="block p-2.5 w-full z-20 text-sm bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500     peer"
                         placeholder=" "
                         required
                       />
                       <label
-                        for="search-dropdown"
-                        class="absolute text-sm  font-poppins cursor-text  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
+                        htmlFor="search-dropdown"
+                        className="absolute text-sm  font-poppins cursor-text  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
                       >
                         Contact Number
                       </label>
@@ -429,7 +429,7 @@ const Login = ({ onClose }) => {
                 id="step-4"
                 style={{ display: currentStep === 4 ? "flex" : "none" }}
               >
-                <h2 className="text-center text-4xl font-semibold text-primary opacity-80 font-inter leading-9 mb-2 tracking-tight   ">
+                <h2 className="text-center text-4xl font-semibold text-primary  font-inter leading-9 mb-2 tracking-tight   ">
                   Account Information
                 </h2>
                 <div className="space-y-6 p-4 ">
@@ -481,7 +481,6 @@ const Login = ({ onClose }) => {
                     <div className="mb-3 mt-5">
                       <button
                         type="button"
-                        onClick=""
                         className="flex w-full justify-center font-poppins   bg-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primarydark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded-full mb-3"
                       >
                         Submit

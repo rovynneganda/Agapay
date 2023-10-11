@@ -10,7 +10,7 @@ const Navbar = () => {
     setLoginModalVisible(!isLoginModalVisible);
   };
   const [isOpen, setIsOpen] = useState(false);
-
+  const [isPopoverHovered, setIsPopoverHovered] = useState(false);
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
@@ -23,10 +23,20 @@ const Navbar = () => {
           <img src={assistance} className="h-10  hidden sm:block" alt="Logo" />
         </a>
          
-          <div className="flex items-center">
-            <h1 className="mr-6 text-sm  text-gray-500 font-poppins hidden sm:block">
-              (888) 25664
-            </h1>
+        <div
+          className={`flex items-center popoverHotline relative ${
+            isPopoverHovered ? "z-0" : "z-10"
+          }`}
+          onMouseEnter={() => setIsPopoverHovered(true)}
+          onMouseLeave={() => setIsPopoverHovered(false)}
+        >
+          <div className="group relative inline-block cursor-pointer">
+  <h1 className="mr-6 text-sm  text-gray-500 font-poppins hidden sm:block">(888) 25664</h1>
+  <div className="invisible absolute z-10 mt-2 w-52 text-center  rounded-lg border border-gray-300 bg-white py-2  opacity-0 shadow-lg group-hover:visible group-hover:opacity-100">
+    <p className="px-4 py-2 text-primary relative text-xl font-poppins">Along Malapitan Hotline</p>
+  </div>
+</div>
+
             <button
               className="text-md font-poppins font-semibold transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  text-secondary mr-3 hover:bg-lightgray px-2 py-2 rounded-lg"
               onClick={handleLoginModalToggle}
@@ -73,7 +83,7 @@ const Navbar = () => {
       </nav>
       <nav
         className={`fixed top-0 w-full bg-primary ${
-          isLoginModalVisible ? "z-0" : "z-10"
+          isLoginModalVisible || isPopoverHovered ? "z-0" : "z-10"
         } mt-24`}
       >
         <div className="max-w-screen-xl px-4 py-3 mx-auto">

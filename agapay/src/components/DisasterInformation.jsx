@@ -56,7 +56,7 @@ const DisasterInformation = () => {
             Go back to Safety Reminders
           </button>
         </Link>
-        <h1 className="mb-4 text-4xl font-bold font-inter leading-none tracking-tight text-primary md:text-5xl lg:text-6xl text-center">
+        <h1 className="mb-4 text-4xl font-bold font-inter leading-none tracking-tight  md:text-5xl lg:text-6xl text-center">
           {selectedCard.title}
         </h1>
         <p className="mb-6 text-lg font-normal  lg:text-xl sm:px-16 xl:px-48  font-poppins">
@@ -66,7 +66,7 @@ const DisasterInformation = () => {
       <section className="bg-white ">
         <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
           <div className="mt-4 md:mt-0">
-            <h2 className="mb-4 text-3xl tracking-tight font-extrabold text-primary opacity-80 font-inter">
+            <h2 className="mb-4 text-3xl tracking-tight font-extrabold text-primary  font-inter">
               {selectedCard.beforetitle}
             </h2>
             <ul className="max-w-md space-y-1  list-disc list-inside  font-poppins">
@@ -96,7 +96,7 @@ const DisasterInformation = () => {
             alt="dashboard image"
           />
           <div className="mt-4 md:mt-0">
-            <h2 className="mb-4 text-3xl tracking-tight font-extrabold text-primary opacity-80 font-inter">
+            <h2 className="mb-4 text-3xl tracking-tight font-extrabold text-primary  font-inter">
               {selectedCard.duringtitle}
             </h2>
             <ul className="max-w-md space-y-1  list-disc list-inside  font-poppins">
@@ -111,7 +111,7 @@ const DisasterInformation = () => {
       <section className="bg-white ">
         <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
           <div className="mt-4 md:mt-0">
-            <h2 className="mb-4 text-3xl tracking-tight font-extrabold text-primary opacity-80 font-inter">
+            <h2 className="mb-4 text-3xl tracking-tight font-extrabold text-primary  font-inter">
               {selectedCard.aftertitle}
             </h2>
             <ul className="max-w-md space-y-1  list-disc list-inside  font-poppins">
