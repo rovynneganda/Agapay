@@ -41,11 +41,11 @@ const SafetyReminders = () => {
           </div>
         </div>
       </section>
-      <div className="flex justify-center p-4">
+      <div className="flex justify-center p-4 ">
       <div className="flex flex-wrap justify-center lg:grid lg:grid-cols-4 sm:grid-cols-2 gap-3 grid-cols-1 items-center">
           {disasterCards.map((card) => (
             <div
-              className="max-w-sm bg-white border  rounded-lg hover:shadow-xl shadow transition ease-in-out hover:-translate-y-1 hover:scale-100 duration-300"
+              className="max-w-sm bg-white border  rounded-lg hover:shadow-xl shadow transition ease-in-out hover:-translate-y-1 hover:scale-100 duration-300 h-auto "
               key={card.id}
             >
               <a href="#" className="flex justify-center items-center">

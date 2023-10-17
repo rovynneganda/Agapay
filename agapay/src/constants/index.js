@@ -1,5 +1,4 @@
 import { logo } from "../assets";
-
 export const disasterCards = [
   {
     id: 1,
@@ -29,13 +28,13 @@ export const disasterCards = [
     id: 2,
     logo: logo,
     title: 'Storm Surge',
-    description: 'Coastal flooding caused by strong winds, pushing ocean water onto land during storms.',
+    description: 'is a rapid and abnormal rise in sea level during a storm, particularly a tropical cyclone or a hurricane.',
   },
   {
     id: 3,
     logo: logo,
     title: 'Flood',
-    description: 'overflow of water submerging land, often causing damage, displacement, and environmental disruption.'
+    description: 'overflow of water submerging land, often causing damage, and environmental disruption.'
   },
   {
     id: 4,
@@ -53,13 +52,13 @@ export const disasterCards = [
     id: 6,
     logo: logo,
     title: 'Tsunami',
-    description: 'immense ocean waves triggered by undersea disturbances, causing catastrophic inundation on coastlines.'
+    description: 'immense ocean waves triggered by undersea disturbances, causing catastrophic damages.'
   },
   {
     id: 7,
     logo: logo,
     title: 'Volcanic Eruption',
-    description: 'explosive release of magma, ash, and gases from a volcano, often causing devastation.'
+    description: 'explosive release of magma, ash, and gases from a volcano, often causing devastation and damages.'
   },
   {
     id: 8,
@@ -74,11 +73,9 @@ export const emergencyResources = [
     id:1,
     name:"Click and Search",
     description:"Simply click the 'Find Nearby Services' button, and our integrated Google Maps API will pinpoint the nearby hospitals, police stations, and fire stations in your vicinity.",
-    icon: `
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59" />
-</svg>
-
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59" />
+  </svg>
   `
   
 },
@@ -115,4 +112,24 @@ export const emergencyResources = [
 
 `
 }
+];
+export const questionData = [
+  {
+    question: "What are the common causes of fires?",
+    answer: [
+      "Electrical Faults: Malfunctioning electrical systems and appliances can lead to short circuits and fires.",
+      "Open Flames: Unattended candles, matches, or lit gas stoves can easily ignite nearby materials.",
+      "Smoking: Improperly discarded cigarettes or careless smoking can cause fires, especially in dry conditions.",
+      "Faulty Appliances: Defective or poorly maintained household appliances pose a fire hazard.",
+      "Human Negligence: Inattentive cooking, leaving flammable materials near heat sources, or improper use of fire-related items.",
+      "Weather Conditions: Dry and hot weather can create a conducive environment for wildfires, leading to their rapid spread."
+    
+    ],
+    logo: `
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
+  </svg>
+    `,
+  }
 ];

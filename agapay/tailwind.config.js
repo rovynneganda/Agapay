@@ -10,10 +10,13 @@ export default {
       secondary: "#065F46", //green 065F46
       tertiary: "#263A29", // dark green
       white: "#FFFFFF", // white
+      variantwhite:"#f9f9f9",//white na may pagkablue slight
+      graybg:'#f3f4f6',
+      bordergray:'#e5e7eb',
       black: "#000000", // black
-      gray: "#e5e7eb ", //gray
-      lightgray:"#E5E7EB", //light gray 
-      subtlegray:"##f9fafb", // super light na gray, ideal for bg
+      gray: "#455a64", //gray
+      lightgray:"#90a4ae", //light gray 
+      subtlegray:"#f9fafb", // super light na gray, ideal for bg
       blue:"#93C5FD", //blue
       darkblue:"#3B82F6", //dark blue
       red:"#DC2626", //red
