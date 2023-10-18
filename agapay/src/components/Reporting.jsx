@@ -14,7 +14,7 @@ const Reporting = () => {
   return (
     <>
     <div className="bg-accent">
-    <section className="p-5 rounded-xl mx-auto mt-36 sm:w-full md:w-[80%] lg:w-[90%] xl:w-[90%] ">
+    <section className="p-5 rounded-xl mx-auto sm:w-full md:w-[80%] lg:w-[90%] xl:w-[90%] ">
     <div className="p-5">
           <p className="text-2xl font-semibold mb-3 font-poppins text-primary">
             How Can We Assist You Today?
