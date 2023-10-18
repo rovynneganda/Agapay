@@ -40,7 +40,7 @@ const Carousel = () => {
     if (autoplay) {
       interval = setInterval(() => {
         nextSlide();
-      }, 3000); // 3 seconds ang autoplay
+      }, 3000); // 3 seconds auto
     };
     return () => {
       clearInterval(interval);
