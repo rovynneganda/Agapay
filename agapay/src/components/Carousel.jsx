@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect } from 'react'
 import { ArrowRightIcon, ArrowLeftIcon, StopCircleIcon } from '@heroicons/react/24/outline'
 
 const Carousel = () => {
@@ -34,6 +34,18 @@ const Carousel = () => {
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
   };
+  const [autoplay, setAutoplay] = useState(true);
+  useEffect(() => {
+    let interval;
+    if (autoplay) {
+      interval = setInterval(() => {
+        nextSlide();
+      }, 3000); // 3 seconds ang autoplay
+    };
+    return () => {
+      clearInterval(interval);
+    };
+  }, [currentIndex, autoplay]);
 
   const goToSlide = (slideIndex) => {
     setCurrentIndex(slideIndex);
