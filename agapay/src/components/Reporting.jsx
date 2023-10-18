@@ -13,10 +13,9 @@ const Reporting = () => {
 
   return (
     <>
-    <div className="bg-primary/10">
+    <div className="bg-accent">
     <section className="p-5 rounded-xl mx-auto mt-36 sm:w-full md:w-[80%] lg:w-[90%] xl:w-[90%] ">
-      <div className="bg-white rounded-xl p-5">
-        <div className="p-5">
+    <div className="p-5">
           <p className="text-2xl font-semibold mb-3 font-poppins text-primary">
             How Can We Assist You Today?
           </p>
@@ -24,8 +23,9 @@ const Reporting = () => {
             Feel free to select the option that suits your current needs.
           </p>
         </div>
+      <div className=" rounded-xl p-5">
         <div className="flex sm:flex-row flex-col gap-10 justify-center items-center">
-          <div className="max-w-sm bg-white border border-gray/20 rounded-lg shadow-lg  ">
+          <div className="max-w-sm bg-white border border-gray/20 rounded-lg shadow-lg transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300  ">
             <img
               className="rounded-t-lg  h-40 mx-auto mt-2"
               src={logo}
@@ -50,7 +50,7 @@ const Reporting = () => {
               </button>
             </div>
           </div>
-          <div className="max-w-sm bg-white border border-gray/20 rounded-lg shadow-lg  ">
+          <div className="max-w-sm bg-white border border-gray/20 rounded-lg shadow-lg  transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
             <img className="rounded-t-lg h-40 mx-auto mt-2" src={logo} alt="" />
             <div className="p-5">
               <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 font-inter">

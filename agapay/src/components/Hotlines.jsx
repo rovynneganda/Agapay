@@ -3,7 +3,7 @@ import { FireIcon, BuildingOffice2Icon, ShieldExclamationIcon } from "@heroicons
 const Hotlines = () => {
   return (
     <>
-      <section className=" bg-gray">
+      <section className="bg-subtlegray">
         <div className="container px-5 py-12 mx-auto ">
           <div className="flex flex-wrap w-full mb-10 flex-col items-center text-center">
             <h1 className="sm:text-3xl text-2xl font-semibold text-primary mb-2 font-inter">
@@ -13,9 +13,9 @@ const Hotlines = () => {
               Emergency Contacts and Support Helplines
             </p>
           </div>
-          <div className="flex flex-wrap -m-4 bg-white rounded-xl">
+          <div className="flex flex-wrap -m-4  rounded-xl">
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
-              <div className="border border-gray/20 shadow p-6 rounded-lg ">
+              <div className="border border-gray/20 shadow p-6 rounded-lg bg-white">
               <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-primary/20 text-primary mb-4">
                  <FireIcon className='w-6 h-6' />
                 </div>
@@ -33,7 +33,7 @@ const Hotlines = () => {
               </div>
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
-              <div className="border border-gray/20 shadow p-6 rounded-lg">
+              <div className="border border-gray/20 shadow p-6 rounded-lg bg-white">
                 <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-primary/20 text-primary mb-4">
                  <FireIcon className='w-6 h-6' />
                 </div>
@@ -66,7 +66,7 @@ const Hotlines = () => {
               </div>
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
-              <div className="border border-gray/20 shadow p-6 rounded-lg">
+              <div className="border border-gray/20 shadow p-6 rounded-lg bg-white">
                 <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-primary/20 text-primary mb-4">
                   <ShieldExclamationIcon className='w-6 h-6' />
                 </div>
@@ -84,7 +84,7 @@ const Hotlines = () => {
               </div>
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
-              <div className="border border-gray/20 shadow p-6 rounded-lg">
+              <div className="border border-gray/20 shadow p-6 rounded-lg bg-white">
                 <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-primary/20 text-primary mb-4">
                   <BuildingOffice2Icon className='w-6 h-6' />
                 </div>
@@ -100,7 +100,7 @@ const Hotlines = () => {
               </div>
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
-              <div className="border border-gray/20 shadow p-6 rounded-lg">
+              <div className="border border-gray/20 shadow p-6 rounded-lg bg-white">
                 <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-primary/20 text-primary mb-4">
                   <BuildingOffice2Icon className='w-6 h-6' />
                 </div>

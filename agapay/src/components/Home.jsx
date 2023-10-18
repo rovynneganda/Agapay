@@ -5,6 +5,7 @@ import Hotlines from "./Hotlines"
 import PersuadingUsers from "./PersuadingUsers"
 import Guidelines from "./Guidelines"
 import Carousel from "./Carousel"
+import Weather from "./Weather"
 export default function Home() {
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -14,6 +15,7 @@ export default function Home() {
 
         <Carousel />
         <Reporting />
+        <Weather />
         <Hotlines />
         <Guidelines />
         <PersuadingUsers />

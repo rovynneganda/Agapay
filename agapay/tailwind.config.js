@@ -4,7 +4,7 @@ export default {
   theme: {
     colors: {
       primary: "#FC6A03", //orange
-      accent:"#d53a00", // orange ng microsoft, mas maganda huhu
+      accent:"#fef4ea", // orange ng microsoft, mas maganda huhu
       primarydark:"#e35f03", //dark orange
       primaryhover:"#315E26", //hover darker green E55D00 subtle orange to
       secondary: "#065F46", //green 065F46
@@ -20,7 +20,7 @@ export default {
       blue:"#93C5FD", //blue
       darkblue:"#3B82F6", //dark blue
       red:"#DC2626", //red
-
+      lightblue:'#f6f9fc',
     },
     fontFamily: {
       poppins: ["Poppins", "sans-serif"],

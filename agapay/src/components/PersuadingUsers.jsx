@@ -3,13 +3,13 @@ import { logo } from "../assets";
 const PersuadingUsers = () => {
   return (
     <>
-      <section className="bg-primary/10">
+      <section className="bg-accent">
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
           <div className="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
-            <h2 className="mb-4 text-4xl tracking-tight font-semibold font-inter ">
+            <h2 className="mb-4 text-4xl tracking-tight font-semibold font-inter text-primary ">
               Why should I login?
             </h2>
-            <p className="mb-5 font-light text-gray-500 sm:text-xl font-poppins">
+            <p className="mb-5 font-light text-gray sm:text-xl font-poppins">
               Seamless Access to Reporting and Assistance
             </p>
           </div>
