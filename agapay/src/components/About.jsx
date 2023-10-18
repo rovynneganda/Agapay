@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { logo, weather, alerts } from "../assets";
+import { ArrowDownCircleIcon, ChevronDoubleDownIcon } from "@heroicons/react/24/outline";
 import Footer from "./Footer";
 const About = () => {
   useEffect(() => {
@@ -29,40 +30,15 @@ const About = () => {
                 className="text-white bg-primary transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  hover:bg-primarydark font-poppins font-semibold  rounded-full text-sm px-5 py-2.5 mr-2"
               >
                 Download
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6  ml-2 hidden sm:inline-block"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
+                <ArrowDownCircleIcon className="w-6 h-6 ml-2 hidden sm:inline-block"/>
               </button>
               <a
                 href="#asd"
                 className="text-white bg-secondary transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  hover:bg-tertiary  font-poppins font-semibold  rounded-full text-sm px-5 py-2.5 mr-2"
               >
                 Learn more
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6 hidden sm:inline-block  ml-2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5"
-                  />
-                </svg>
+                <ChevronDoubleDownIcon className="w-6 h-6 hidden sm:inline-block  ml-2" />
+                
               </a>
             </div>
           </div>
@@ -117,8 +93,8 @@ const About = () => {
                   </div>
                   <div className="relative pl-9">
                     <dt className="inline font-semibold text-tertiary">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="absolute left-1 top-1 h-5 w-5 text-primary ">
-  <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="absolute left-1 top-1 h-5 w-5 text-primary ">
+  <path fillRule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
 </svg>
 
 
@@ -222,7 +198,7 @@ const About = () => {
             </p>
           </div>
           <div className="grid mb-8 lg:mb-12 lg:grid-cols-2 gap-3">
-            <figure className="flex flex-col justify-center items-center p-8 text-center bg-white rounded-lg shadow-lg hover:bg-lightgray cursor-pointer">
+            <figure className="flex flex-col justify-center items-center p-8 text-center bg-white rounded-lg shadow-lg hover:bg-subtlegray cursor-pointer">
               <blockquote className="mx-auto mb-8 max-w-2xl">
                 <h3 className="text-3xl font-semibold text-primary mb-4 font-inter">
                   Our Mission
@@ -236,7 +212,7 @@ const About = () => {
                 </p>
               </blockquote>
             </figure>
-            <figure className="flex flex-col justify-center items-center  p-8 text-center bg-white rounded-lg shadow-lg hover:bg-lightgray cursor-pointer">
+            <figure className="flex flex-col justify-center items-center  p-8 text-center bg-white rounded-lg shadow-lg hover:bg-subtlegray cursor-pointer">
               <blockquote className="mx-auto mb-8 max-w-2xl">
                 <h3 className="text-3xl font-semibold text-primary mb-4 font-inter">
                   Our Vision

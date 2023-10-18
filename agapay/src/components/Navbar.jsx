@@ -4,7 +4,9 @@ import { logo } from "../assets";
 import styles from "../style";
 import { menu, assistance } from "../assets";
 import Login from "./Login";
+import { ArrowRightCircleIcon, ArrowDownCircleIcon } from '@heroicons/react/24/outline'
 const Navbar = () => {
+   
   const [isLoginModalVisible, setLoginModalVisible] = useState(false);
   const handleLoginModalToggle = () => {
     setLoginModalVisible(!isLoginModalVisible);
@@ -14,6 +16,7 @@ const Navbar = () => {
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
+  
   return (
     <>
       <nav className="fixed top-0 w-full bg-white border-gray-200 z-10">
@@ -31,60 +34,39 @@ const Navbar = () => {
           onMouseLeave={() => setIsPopoverHovered(false)}
         >
           <div className="group relative inline-block cursor-pointer">
-  <h1 className="mr-6 text-sm  text-gray-500 font-poppins hidden sm:block">(888) 25664</h1>
-  <div className="invisible absolute z-10 mt-2 w-52 text-center  rounded-lg border border-gray-300 bg-white py-2  opacity-0 shadow-lg group-hover:visible group-hover:opacity-100">
-    <p className="px-4 py-2 text-primary relative text-xl font-poppins">Along Malapitan Hotline</p>
+  <h1 className="mr-6 text-sm  font-poppins hidden sm:block">(888) 25664</h1>
+  <div className="invisible absolute z-10 mt-2  text-center  rounded-lg  right-32 -bottom-5   opacity-0 group-hover:visible group-hover:opacity-100 transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300">
+    <p className=" py-4 px-2 text-primary relative text-xl font-semibold font-poppins whitespace-nowrap   shadow-md rounded-xl ">Along Malapitan Hotline</p>
   </div>
 </div>
 
             <button
-              className="text-md font-poppins font-semibold transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  text-secondary mr-3 hover:bg-lightgray px-2 py-2 rounded-lg"
+              className="text-md font-poppins font-semibold transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  text-secondary mr-3 hover:bg-secondary hover:text-white px-2 py-2 rounded-lg"
               onClick={handleLoginModalToggle}
             >
               Login
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6 inline-block ml-1"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
+              <ArrowRightCircleIcon    className="w-6 h-6 inline-block ml-1" />
             </button>
             {isLoginModalVisible && <Login onClose={handleLoginModalToggle} />}
             <Link
-              className="text-md font-poppins transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  font-semibold text-primary mr-3 hover:bg-lightgray px-2 py-2 rounded-lg "
+              className="text-md font-poppins transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  font-semibold text-primary mr-3 hover:bg-primary hover:text-white px-2 py-2 rounded-lg "
               to=""
             >
               Download
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6 inline-block ml-1"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
+             <ArrowDownCircleIcon className="w-6 h-6 inline-block ml-1" />
             </Link>
           </div>
         </div>
       </nav>
       <nav
-        className={`fixed top-0 w-full bg-primary ${
-          isLoginModalVisible || isPopoverHovered ? "z-0" : "z-10"
-        } mt-24`}
+        className={`fixed top-0 w-full bg-primary
+        ${
+          isLoginModalVisible || isPopoverHovered? "z-0" : "z-10"
+        }
+        ${
+          isLoginModalVisible? "z-0" : "z-10"
+        }
+        mt-24`}
       >
         <div className="max-w-screen-xl px-4 py-3 mx-auto">
           <button
@@ -115,15 +97,6 @@ const Navbar = () => {
                   onClick={toggleNavbar}
                 >
                   Emergency Resources
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className={`${styles.navLinks}`}
-                  to="/safety-reminders"
-                  onClick={toggleNavbar}
-                >
-                  Safety Reminders
                 </Link>
               </li>
               <li>

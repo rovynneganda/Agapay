@@ -7,6 +7,12 @@ import alerts from "./alerts.png"
 import bgcover from "./bgcover.png"
 import assistance from "./assistance.png"
 import loginbg from "./loginbg.jpg"
+import volcano from "./volcano.svg"
+import flood from"./flood.svg"
+import tsunami from"./tsunami.svg"
+import landslide from"./landslide.svg"
+import cyclone from"./cyclone.svg"
+import stormsurge from"./stormsurge.svg"
 export {
     logo,
     next,
@@ -16,5 +22,11 @@ export {
     alerts,
     bgcover,
     assistance,
-    loginbg
+    loginbg,
+    volcano,
+    flood,
+    tsunami,
+    landslide,
+    cyclone,
+    stormsurge
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import { logo } from "../assets";
-
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="bg-white ">
@@ -21,7 +21,7 @@ const Footer = () => {
               <h2 className="mb-6 text-md font-semibold text-primary opacity-80 font-inter uppercase  ">
                 Resources
               </h2>
-              <ul className="text-gray-500  font-medium">
+              <ul className="font-medium">
                 <li className="mb-4">
                   <a
                     href=""
@@ -44,7 +44,7 @@ const Footer = () => {
               <h2 className="mb-6 text-md font-semibold text-primary opacity-80 font-inter uppercase">
                 Follow us
               </h2>
-              <ul className="text-gray-500  font-medium">
+              <ul className="font-medium">
                 <li className="mb-4">
                   <a
                     href=""
@@ -67,7 +67,7 @@ const Footer = () => {
               <h2 className="mb-6 text-md font-semibold text-primary opacity-80 font-inter uppercase">
                 Legal
               </h2>
-              <ul className="text-gray-500  font-medium">
+              <ul className="font-medium">
                 <li className="mb-4">
                   <a
                     href="#"
@@ -76,7 +76,7 @@ const Footer = () => {
                     Privacy Policy
                   </a>
                 </li>
-                <li>
+                <li className="mb-4">
                   <a
                     href="#"
                     className="hover:underline font-poppins text-secondary text-sm"
@@ -84,13 +84,18 @@ const Footer = () => {
                     Terms &amp; Conditions
                   </a>
                 </li>
+                <li>
+                  <Link className="hover:underline font-poppins text-secondary text-sm" to="/contact-us">
+                    Contact Us
+                    </Link>
+                </li>
               </ul>
             </div>
           </div>
         </div>
-        <hr className="my-6 border-gray-200 sm:mx-auto  lg:my-8" />
+        <hr className="my-6  sm:mx-auto  lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm text-gray-500 sm:text-center font-inter">
+          <span className="text-sm  sm:text-center font-inter">
             © 2023 Agapay. All Rights Reserved.
           </span>
         </div>

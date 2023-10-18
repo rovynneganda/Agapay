@@ -84,7 +84,7 @@ const DisasterInformation = () => {
         </div>
       </section>
       <section className="bg-white ">
-        <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
+      <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6 flex flex-col-reverse">
           <img
             className="w-full "
             src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg"
@@ -109,7 +109,7 @@ const DisasterInformation = () => {
         </div>
       </section>
       <section className="bg-white ">
-        <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
+        <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6 ">
           <div className="mt-4 md:mt-0">
             <h2 className="mb-4 text-3xl tracking-tight font-extrabold text-primary  font-inter">
               {selectedCard.aftertitle}
