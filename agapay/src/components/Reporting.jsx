@@ -126,8 +126,7 @@ const Reporting = () => {
             <div>
               <p className="font-inter">Name: Joko Gadingan</p>
               <p className="font-inter">Contact Number: 0920-303-3229</p>
-              <p className="font-inter" >Address:</p>
-              <p class="status2"></p>
+              <p className="font-inter" >Address: <span className="status2"></span></p>
             </div>
             <div className="flex items-center justify-center mt-3 mb-3">
               <button onClick={handleClick} className="bg-primary px-2  py-2 font-poppins text-white text-semibold text-sm rounded-full hover:bg-primarydark">
@@ -217,8 +216,7 @@ const Reporting = () => {
             <div>
               <p className="font-inter">Name: Joko Gadingan</p>
               <p className="font-inter">Contact Number: 0920-303-3229</p>
-              <p className="font-inter">Address:</p>
-              <p class="status2"></p>
+              <p className="font-inter">Address: <span className="status2"></span></p>
             </div>
             <div className="flex items-center justify-center mt-3 mb-3">
               <button onClick={handleClick} className="bg-primary px-2  py-2 font-poppins text-white text-semibold text-sm rounded-full hover:bg-primarydark">
