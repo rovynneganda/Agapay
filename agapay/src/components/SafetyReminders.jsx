@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Footer from "./Footer";
 import { disasterCards } from "../constants";
 import { Link } from "react-router-dom";
+
 const SafetyReminders = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
