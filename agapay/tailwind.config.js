@@ -21,6 +21,7 @@ export default {
       darkblue:"#3B82F6", //dark blue
       red:"#DC2626", //red
       lightblue:'#f6f9fc',
+      overlay:'#888b93', //gray overlay
     },
     fontFamily: {
       poppins: ["Poppins", "sans-serif"],
