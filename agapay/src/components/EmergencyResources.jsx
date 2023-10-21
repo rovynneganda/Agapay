@@ -1,7 +1,10 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { emergencyResources } from "../constants";
 import Footer from "./Footer";
 const EmergencyResources = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <div className="bg-white py-16 mt-24">
@@ -51,27 +54,27 @@ const EmergencyResources = () => {
         <h3 className="text-xl font-semibold mb-4  font-poppins">
           Find Hospitals, Police Stations, and Fire Stations
         </h3>
+        <div className="font-poppins">
+            Discover nearby hospitals, police stations, and fire stations to
+            ensure you know where to find help when you need it.
+          </div>
       </div>
-      <div className="mx-auto max-w-2xl lg:max-w-4xl grid sm:grid-cols-2 gap-6 p-5 mb-10">
-        <div className="flex flex-col justify-center items-center sm:items-start gap-3">
-          <div className="relative mb-4">
+      <div className="mx-auto max-w-2xl lg:max-w-4xl gap-2 p-5 mb-5">
+        <div className="flex sm:flex-row flex-col justify-center items-center  gap-3">
+          <div className="relative mb-2">
             <button className="px-4 py-2 bg-primary font-poppins text-white font-semibold hover:bg-primarydark rounded-lg">
               Nearby Hospitals
             </button>
           </div>
-          <div className="relative mb-4">
+          <div className="relative mb-2">
             <button className="px-4 py-2 bg-primary font-poppins text-white font-semibold hover:bg-primarydark rounded-lg">
               Nearby Police Stations
             </button>
           </div>
-          <div className="relative mb-4">
+          <div className="relative mb-2">
             <button className="px-4 py-2 bg-primary font-poppins text-white font-semibold hover:bg-primarydark rounded-lg">
               Nearby Fire Stations
             </button>
-          </div>
-          <div className="font-poppins">
-            Discover nearby hospitals, police stations, and fire stations to
-            ensure you know where to find help when you need it.
           </div>
         </div>
         <div>

@@ -74,7 +74,7 @@ const Reporting = () => {
               onClick={handleSelectButtonClickReport}
                 className="inline-flex items-center w-full justify-center rounded-full  px-3 py-2 text-md font-poppins font-medium text-center text-white bg-primary  hover:bg-primarydark focus:ring-4 focus:outline-none focus:ring-white  "
               >
-              Select
+              Proceed
               </button>
             </div>
           </div>
@@ -96,7 +96,7 @@ const Reporting = () => {
               onClick={handleSelectButtonClickAssistance}
                 className="inline-flex items-center w-full justify-center rounded-full  px-3 py-2 text-md font-poppins font-medium text-center text-white bg-primary  hover:bg-primarydark focus:ring-4 focus:outline-none focus:ring-white  "
               >
-               Select
+               Proceed
               </button>
             </div>
           </div>

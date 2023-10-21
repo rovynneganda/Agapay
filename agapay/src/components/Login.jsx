@@ -4,11 +4,21 @@ import { loginbg } from "../assets";
 import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/outline";
 const Login = ({ onClose }) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [isPasswordVisible1, setIsPasswordVisible1] = useState(false);
+  const [isPasswordVisible2, setIsPasswordVisible2] = useState(false);
   const [inputType, setInputType] = useState("password");
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
     setInputType(isPasswordVisible ? "password" : "text");
+  };
+  const togglePasswordVisibility1 = () => {
+    setIsPasswordVisible1(!isPasswordVisible1);
+    setInputType(isPasswordVisible1 ? "password" : "text");
+  };
+  const togglePasswordVisibility2 = () => {
+    setIsPasswordVisible2(!isPasswordVisible2);
+    setInputType(isPasswordVisible2 ? "password" : "text");
   };
   const [currentStep, setCurrentStep] = useState(1);
 
@@ -545,7 +555,7 @@ const Login = ({ onClose }) => {
                   </div>
                   <div className="relative">
                     <input
-                      type="text"
+                      type={inputType}
                       id="floating_outlined4"
                       className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
                       placeholder=""
@@ -556,11 +566,21 @@ const Login = ({ onClose }) => {
                     >
                       Password
                     </label>
+                    <i
+                        className="bi bi-eye-slash eye-icon absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
+                        onClick={togglePasswordVisibility1}
+                      >
+                        {isPasswordVisible1 ? (
+                          <EyeIcon className="w-6 h-6" />
+                        ) : (
+                          <EyeSlashIcon className="w-6 h-6" />
+                        )}
+                      </i>
                   </div>
 
                   <div className="relative">
                     <input
-                      type="text"
+                      type={inputType}
                       id="floating_outlined4"
                       className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
                       placeholder=""
@@ -571,6 +591,16 @@ const Login = ({ onClose }) => {
                     >
                       Confirm Password
                     </label>
+                    <i
+                        className="bi bi-eye-slash eye-icon absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
+                        onClick={togglePasswordVisibility2}
+                      >
+                        {isPasswordVisible2 ? (
+                          <EyeIcon className="w-6 h-6" />
+                        ) : (
+                          <EyeSlashIcon className="w-6 h-6" />
+                        )}
+                      </i>
                   </div>
 
                   <div>

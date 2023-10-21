@@ -19,7 +19,7 @@ const Hotlines = () => {
               <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-primary/20 text-primary mb-4">
                  <FireIcon className='w-6 h-6' />
                 </div>
-                <h2 className="text-lg text-primary font-medium  mb-2 font-inter">
+                <h2 className="text-lg text-primary font-medium  mb-2 font-inter cursor-pointer">
                   4th Avenue Fire Station
                 </h2>
                 <h3 className="text-md text-gray/70 font-medium font-poppins mb-2">
@@ -37,7 +37,7 @@ const Hotlines = () => {
                 <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-primary/20 text-primary mb-4">
                  <FireIcon className='w-6 h-6' />
                 </div>
-                <h2 className="text-lg text-primary font-medium  mb-2 font-inter">
+                <h2 className="text-lg text-primary font-medium  mb-2 font-inter cursor-pointer">
                   Caloocan City Central Fire Station
                 </h2>
                 <h3 className="text-md text-gray/70 font-medium font-poppins mb-2">
@@ -53,7 +53,7 @@ const Hotlines = () => {
                 <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-primary/20 text-primary mb-4">
                   <ShieldExclamationIcon className='w-6 h-6' />
                 </div>
-                <h2 className="text-lg text-primary font-medium  mb-2 font-inter">
+                <h2 className="text-lg text-primary font-medium  mb-2 font-inter cursor-pointer">
                   Northern Police District - Station 1
                 </h2>
                 <h3 className="text-md text-gray/70 font-medium font-poppins mb-2">
@@ -70,7 +70,7 @@ const Hotlines = () => {
                 <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-primary/20 text-primary mb-4">
                   <ShieldExclamationIcon className='w-6 h-6' />
                 </div>
-                <h2 className="text-lg text-primary font-medium  mb-2 font-inter">
+                <h2 className="text-lg text-primary font-medium  mb-2 font-inter cursor-pointer">
                   PNP NPD
                 </h2>
                 <h3 className="text-md text-gray/70 font-medium font-poppins mb-2">
@@ -88,7 +88,7 @@ const Hotlines = () => {
                 <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-primary/20 text-primary mb-4">
                   <BuildingOffice2Icon className='w-6 h-6' />
                 </div>
-                <h2 className="text-lg text-primary font-medium  mb-2 font-inter">
+                <h2 className="text-lg text-primary font-medium  mb-2 font-inter cursor-pointer">
                   Caloocan City North Medical Center
                 </h2>
                 <h3 className="text-md text-gray/70 font-medium font-poppins mb-2">
@@ -104,7 +104,7 @@ const Hotlines = () => {
                 <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-primary/20 text-primary mb-4">
                   <BuildingOffice2Icon className='w-6 h-6' />
                 </div>
-                <h2 className="text-lg text-primary font-medium  mb-2 font-inter">
+                <h2 className="text-lg text-primary font-medium  mb-2 font-inter cursor-pointer">
                   Caloocan City Medical Center
                 </h2>
                 <h3 className="text-md text-gray/70 font-medium font-poppins mb-2">
