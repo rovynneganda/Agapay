@@ -1,12 +1,16 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Home, EmergencyResources, SafetyReminders, About } from './components';
-import DisasterInformation from './components/DisasterInformation';
-import ContactUs from './components/ContactUs';
-import ResponderDashboard from './components/ResponderDashboard';
-import ResponderRecords from './components/ResponderRecords';
-import ResponderReports from './components/ResponderReports';
-import ResponderUserSettings from './components/ResponderUserSettings';
+import { Home, EmergencyResources, About } from './components/User';
+import ContactUs from './components/User/ContactUs';
+import ResponderDashboard from './components/Responder/Dashboard';
+import ResponderRecords from './components/Responder/Records';
+import ResponderReports from './components/Responder/Reports';
+import ResponderUserSettings from './components/Responder/UserSettings';
+import AdminDashboard from './components/Admin/Dashboard';
+import AdminRecords from './components/Admin/Records';
+import CreateAccount from './components/Admin/CreateAccount';
+import CreateAlert from './components/Admin/CreateAlert';
+import CreateAnnouncement from './components/Admin/CreateAnnouncement';
 const AppRoutes = () => {
   return (
     <Routes>
@@ -18,6 +22,11 @@ const AppRoutes = () => {
       <Route path="/responder/records" element={<ResponderRecords />}/>
       <Route path="/responder/reports" element={<ResponderReports />}/>
       <Route path="/responder/usersettings" element={<ResponderUserSettings />}/>
+      <Route path="/admin" element={<AdminDashboard />}/>
+      <Route path="/admin/records" element={<AdminRecords />}/>
+      <Route path="/admin/createaccount" element={<CreateAccount />}/>
+      <Route path="/admin/createalert" element={<CreateAlert />}/>
+      <Route path="/admin/createannouncement" element={<CreateAnnouncement />}/>
     </Routes>
   );
 };
