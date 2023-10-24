@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { loginbg } from "../../assets";
 import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/outline";
+
 const Login = ({ onClose }) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isPasswordVisible1, setIsPasswordVisible1] = useState(false);
@@ -41,6 +42,38 @@ const Login = ({ onClose }) => {
     setLoginModalVisible(false);
     setRegisterModalVisible(true);
   };
+  const handleClick = (e) => {
+    e.preventDefault();
+    const status = document.querySelector(".registrationAddress");
+    const success = (position) => {
+      // console.log(position)
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      // console.log(latitude +  '' + longitude)
+
+      const geoApiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyDzzi_VBcf2Oef6LTViLU767UPNHlnIze4`;
+      fetch(geoApiUrl)
+        .then((res) => res.json())
+        .then((data) => {
+          const address = data.results[0].formatted_address;
+          const addressArray = address.split(', ');
+          console.log(data.results[0].formatted_address);
+          const selectedStreetBrgy = [];
+          for (let i = addressArray.length - 4; i >= 0; i--) {
+            selectedStreetBrgy.push(addressArray[i]);
+          }
+          document.querySelector("#regStreetBrgy").value = selectedStreetBrgy.join(', ');
+          document.querySelector("#regCity").value = addressArray[addressArray.length - 3];       
+          status.textContent = data.results[0].formatted_address;
+        });
+    };
+    const error = () => {
+      status.textContent = "Unable to retrieve your location";
+    };
+
+    navigator.geolocation.getCurrentPosition(success, error);
+  };
+  // console.log(document.querySelector(".registrationAddress"));
   return (
     <>
       <div className={`LoginModal ${isLoginModalVisible ? "" : "hidden"}`}>
@@ -401,33 +434,49 @@ const Login = ({ onClose }) => {
                   <div className="relative">
                     <input
                       type="text"
-                      id="floating_outlined4"
+                      id="regStreetBrgy"
                       className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
                       placeholder=""
                     />
                     <label
-                      htmlFor="floating_outlined4"
+                      htmlFor="regStreetBrgy"
                       className="absolute text-sm  font-poppins  cursor-text duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
                     >
-                      House Number and Street Name
+                      House Number, Street Name, Baranggay
                     </label>
                   </div>
-                  <select
+                  <div className="relative">
+                    <input
+                      type="text"
+                      id="regCity"
+                      className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
+                      placeholder=""
+                    />
+                    <label
+                      htmlFor="regCity"
+                      className="absolute text-sm  font-poppins  cursor-text duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
+                    >
+                      City
+                    </label>
+                  </div>  
+                  {/* <select
                     id="countries"
                     className="border font-poppins bg-white   text-sm rounded-lg outline-none  focus:ring-primary focus:border-primary block w-full p-2.5 "
                   >
                     <option defaultValue="Choose a Barangay">
-                      Choose a Barangay
+                      Choose a Baranggay
                     </option>
                     <option value="US">United States</option>
-                  </select>
+                  </select> */}
+                  <button onClick={handleClick}>eme lang</button>
+                  <p className="registrationAddress"></p>
                   <div className="relative">
                     <input
                       type="text"
                       id="floating_outlined5"
                       className="block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border disabled peer"
                       placeholder=""
-                      disabled // Add the disabled attribute here
+                      // disabled // Add the disabled attribute here
                     />
                     <label
                       htmlFor="floating_outlined5"
