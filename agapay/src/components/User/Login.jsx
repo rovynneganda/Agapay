@@ -1,9 +1,93 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { loginbg } from "../../assets";
 import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/outline";
+import axios from 'axios';
 
 const Login = ({ onClose }) => {
+  const [formData, setFormData] = useState({
+    regFirstName: '',
+    regLastName: ''
+    // ... other form fields
+  });
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+  const submitRegBtn = () => {
+    // Validate form data here if needed
+    sendDataToAPI();
+  };
+
+  const sendDataToAPI = () => {
+    const formDataToSend = new URLSearchParams();
+    formDataToSend.append('regFirstName', formData.regFirstName);
+    formDataToSend.append('regLastName', formData.regLastName);
+    formDataToSend.append('regEmail', formData.regEmail);
+    formDataToSend.append('regStreetBrgy', formData.regStreetBrgy);
+    formDataToSend.append('regCity', formData.regCity);
+    formDataToSend.append('regPostalCode', formData.regPostalCode);
+    formDataToSend.append('regContactNum', formData.regContactNum);
+    formDataToSend.append('regVerificationCode', formData.regVerificationCode);
+    formDataToSend.append('regUsername', formData.regUsername);
+    formDataToSend.append('regPassword1', formData.regPassword1);
+    formDataToSend.append('regPassword2', formData.regPassword2);
+    // ... append other form fields
+    const formDataToObject = {};
+      formDataToSend.forEach(function(value, key) {
+      formDataToObject[key] = value;
+    });
+  
+    console.log(formDataToObject); // Check if form data is correctly formatted
+    axios.post('http://localhost/aa/Register.php', formDataToObject, {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    })
+    .then(response => {
+      // Handle the response from the API
+      console.log(response.data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  };
+
+
+  // function submitRegBtn() {
+  //   const regFirstName = document.getElementById('regFirstName').value;
+  //   const regLastName = document.getElementById('regLastName').value;
+  //   const regEmail = document.getElementById('regEmail').value;
+  //   const regStreetBrgy = document.getElementById('regStreetBrgy').value;
+  //   const regCity = document.getElementById('regCity').value;
+  //   const regPostalCode = document.getElementById('regPostalCode').value;
+  //   const regContactNum = document.getElementById('regContactNum').value;
+  //   const regVerificationCode = document.getElementById('regVerificationCode').value;
+  //   const regUsername = document.getElementById('regUsername').value;
+  //   const regPassword1 = document.getElementById('regPassword1').value;
+  //   const regPassword2 = document.getElementById('regPassword2').value;
+
+  //   const sendDataToAPI = () => {
+  //     axios.post('http://localhost:5173/src/components/User/PhpFiles/Register.php', {
+  //       regFirstName: regFirstName
+  //     }, {
+  //       headers: {
+  //         'Content-Type': 'application/x-www-form-urlencoded'
+  //       }
+  //     })
+  //     .then(response => {
+  //       // Handle the response from the API
+  //       console.log(response.data);
+  //     })
+  //     .catch(error => {
+  //       console.error('Error:', error);
+  //     });
+  //   };
+  //   sendDataToAPI();
+  // }
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isPasswordVisible1, setIsPasswordVisible1] = useState(false);
   const [isPasswordVisible2, setIsPasswordVisible2] = useState(false);
@@ -63,7 +147,7 @@ const Login = ({ onClose }) => {
             selectedStreetBrgy.push(addressArray[i]);
           }
           document.querySelector("#regStreetBrgy").value = selectedStreetBrgy.join(', ');
-          document.querySelector("#regCity").value = addressArray[addressArray.length - 3];       
+          document.querySelector("#regCity").value = addressArray[addressArray.length - 3];
           status.textContent = data.results[0].formatted_address;
         });
     };
@@ -349,7 +433,7 @@ const Login = ({ onClose }) => {
                 id="step-1"
                 style={{ display: currentStep === 1 ? "flex" : "none" }}
               >
-                <h2 className="text-center text-4xl font-semibold text-primary  font-inter leading-9 mb-2 tracking-tight   ">
+                <h2 className="text-center text-xl sm:text-4xl font-semibold text-primary  font-inter leading-9 mb-2 tracking-tight   ">
                   Personal Information
                 </h2>
                 <div className="space-y-6 p-4 ">
@@ -357,6 +441,9 @@ const Login = ({ onClose }) => {
                     <input
                       type="text"
                       id="regFirstName"
+                      name="regFirstName"
+                      value={formData.regFirstName}
+                      onChange={handleInputChange}
                       className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
                       placeholder=""
                     />
@@ -371,6 +458,9 @@ const Login = ({ onClose }) => {
                     <input
                       type="text"
                       id="regLastName"
+                      name="regLastName"
+                      value={formData.regLastName}
+                      onChange={handleInputChange}
                       className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
                       placeholder=""
                     />
@@ -385,6 +475,9 @@ const Login = ({ onClose }) => {
                     <input
                       type="text"
                       id="regEmail"
+                      name="regEmail"
+                      value={formData.regEmail}
+                      onChange={handleInputChange}
                       className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
                       placeholder=""
                     />
@@ -427,7 +520,7 @@ const Login = ({ onClose }) => {
                 id="step-2"
                 style={{ display: currentStep === 2 ? "flex" : "none" }}
               >
-                <h2 className="text-center text-4xl font-semibold text-primary  font-inter leading-9 mb-2 tracking-tight   ">
+                <h2 className="text-center text-xl sm:text-4xl font-semibold text-primary  font-inter leading-9 mb-2 tracking-tight   ">
                   Address Verification
                 </h2>
                 <div className="space-y-6 p-4 ">
@@ -435,20 +528,26 @@ const Login = ({ onClose }) => {
                     <input
                       type="text"
                       id="regStreetBrgy"
+                      name="regStreetBrgy"
+                      value={formData.regStreetBrgy}
+                      onChange={handleInputChange}
                       className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
                       placeholder=""
                     />
                     <label
                       htmlFor="regStreetBrgy"
-                      className="absolute text-sm  font-poppins  cursor-text duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
+                      className="absolute text-xs sm:text-sm whitespace-nowrap  font-poppins  cursor-text duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
                     >
-                      House Number, Street Name, Baranggay
+                      House Number, Street Name, Barangay
                     </label>
                   </div>
                   <div className="relative">
                     <input
                       type="text"
                       id="regCity"
+                      name="regCity"
+                      value={formData.regCity}
+                      onChange={handleInputChange}
                       className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
                       placeholder=""
                     />
@@ -473,13 +572,16 @@ const Login = ({ onClose }) => {
                   <div className="relative">
                     <input
                       type="text"
-                      id="floating_outlined5"
+                      id="regPostalCode"
+                      name="regPostalCode"
+                      value={formData.regPostalCode}
+                      onChange={handleInputChange}
                       className="block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border disabled peer"
                       placeholder=""
                       // disabled // Add the disabled attribute here
                     />
                     <label
-                      htmlFor="floating_outlined5"
+                      htmlFor="regPostalCode"
                       className="absolute text-sm  font-poppins cursor-not-allowed duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-secondary peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
                     >
                       Postal Code
@@ -511,7 +613,7 @@ const Login = ({ onClose }) => {
                 id="step-3"
                 style={{ display: currentStep === 3 ? "flex" : "none" }}
               >
-                <h2 className="text-center text-4xl font-semibold text-primary  font-inter leading-9 mb-2 tracking-tight   ">
+                <h2 className="text-center text-xl sm:text-4xl font-semibold text-primary  font-inter leading-9 mb-2 tracking-tight   ">
                   Contact Number Verification
                 </h2>
                 <div className="space-y-6 p-4 ">
@@ -522,13 +624,16 @@ const Login = ({ onClose }) => {
                     <div className="relative w-full">
                       <input
                         type="search"
-                        id="search-dropdown"
+                        id="regContactNum"
+                        name="regContactNum"
+                        value={formData.regContactNum}
+                        onChange={handleInputChange}
                         className="block p-2.5 w-full z-20 text-sm bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500     peer"
-                        placeholder=" "
+                        placeholder=""
                         required
                       />
                       <label
-                        htmlFor="search-dropdown"
+                        htmlFor="regContactNum"
                         className="absolute text-sm  font-poppins cursor-text  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
                       >
                         Contact Number
@@ -539,12 +644,15 @@ const Login = ({ onClose }) => {
                   <div className="relative">
                     <input
                       type="text"
-                      id="floating_outlined4"
+                      id="regVerificationCode"
+                      name="regVerificationCode"
+                      value={formData.regVerificationCode}
+                      onChange={handleInputChange}
                       className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
                       placeholder=""
                     />
                     <label
-                      htmlFor="floating_outlined4"
+                      htmlFor="regVerificationCode"
                       className="absolute text-sm  font-poppins  cursor-text duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
                     >
                       Verification Code
@@ -584,19 +692,22 @@ const Login = ({ onClose }) => {
                 id="step-4"
                 style={{ display: currentStep === 4 ? "flex" : "none" }}
               >
-                <h2 className="text-center text-4xl font-semibold text-primary  font-inter leading-9 mb-2 tracking-tight   ">
+                <h2 className="text-center text-xl sm:text-4xl font-semibold text-primary  font-inter leading-9 mb-2 tracking-tight   ">
                   Account Information
                 </h2>
                 <div className="space-y-6 p-4 ">
                   <div className="relative">
                     <input
                       type="text"
-                      id="floating_outlined4"
+                      id="regUsername"
+                      name="regUsername"
+                      value={formData.regUsername}
+                      onChange={handleInputChange}
                       className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
                       placeholder=""
                     />
                     <label
-                      htmlFor="floating_outlined4"
+                      htmlFor="regUsername"
                       className="absolute text-sm  font-poppins  cursor-text duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
                     >
                       Username
@@ -605,12 +716,15 @@ const Login = ({ onClose }) => {
                   <div className="relative">
                     <input
                       type={inputType}
-                      id="floating_outlined4"
+                      id="regPassword1"
+                      name="regPassword1"
+                      value={formData.regPassword1}
+                      onChange={handleInputChange}
                       className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
                       placeholder=""
                     />
                     <label
-                      htmlFor="floating_outlined4"
+                      htmlFor="regPassword1"
                       className="absolute text-sm  font-poppins  cursor-text duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
                     >
                       Password
@@ -630,12 +744,15 @@ const Login = ({ onClose }) => {
                   <div className="relative">
                     <input
                       type={inputType}
-                      id="floating_outlined4"
+                      id="regPassword2"
+                      name="regPassword2"
+                      value={formData.regPassword2}
+                      onChange={handleInputChange}
                       className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
                       placeholder=""
                     />
                     <label
-                      htmlFor="floating_outlined4"
+                      htmlFor="regPassword2"
                       className="absolute text-sm  font-poppins  cursor-text duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
                     >
                       Confirm Password
@@ -656,6 +773,7 @@ const Login = ({ onClose }) => {
                     <div className="mb-3 mt-5">
                       <button
                         type="button"
+                        onClick={submitRegBtn}
                         className="flex w-full justify-center font-poppins   bg-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primarydark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded-full mb-3"
                       >
                         Submit
