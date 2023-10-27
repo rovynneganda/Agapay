@@ -3,7 +3,7 @@ import { logo } from "../../assets";
 const PersuadingUsers = () => {
   return (
     <>
-      <section className="bg-accent">
+      <section className="">
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
           <div className="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
             <h2 className="mb-4 text-4xl tracking-tight font-semibold font-inter text-primary ">

@@ -27,8 +27,10 @@ const Reporting = () => {
     console.log(add)
   return (
     <>
-      <div className="bg-accent">
+      <div className="bg-[#fff0d3] py-10">
         <section className="p-5 rounded-xl mx-auto sm:w-full md:w-[80%] lg:w-[90%] xl:w-[90%] ">
+
+          <div className=" rounded-xl p-5 bg-white py-10">
           <div className="p-5">
             <p className="text-2xl font-semibold mb-3 font-poppins text-primary">
               How Can We Assist You Today?
@@ -37,19 +39,18 @@ const Reporting = () => {
               Feel free to select the option that suits your current needs.
             </p>
           </div>
-          <div className=" rounded-xl p-5">
             <div className="flex sm:flex-row flex-col gap-10 justify-center items-center">
-              <div className="max-w-sm bg-white border border-gray/20 rounded-lg shadow-lg transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300  ">
+              <div className="max-w-sm bg-white  border-gray/20 border-2 rounded-xl shadow-lg transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300  ">
                 <img
                   className="rounded-t-lg  h-40 mx-auto mt-2"
                   src={logo}
                   alt=""
                 />
                 <div className="p-5">
-                  <h5 className="mb-2 text-2xl capitalize font-bold tracking-tight text-gray-900 font-inter">
+                  <h5 className="mb-2 text-2xl capitalize font-semibold tracking-tight text-gray-900 font-inter">
                   Report incidents
                   </h5>
-                  <p className="mb-3 font-normal text-gray-700 font-poppins">
+                  <p className="mb-3 font-normal text-gray font-poppins">
                     
 Instantly alert authorities, ensuring swift action and effective solutions through prompt response and raised alarms.
 
@@ -62,17 +63,17 @@ Instantly alert authorities, ensuring swift action and effective solutions throu
                   </button>
                 </div>
               </div>
-              <div className="max-w-sm bg-white border  border-gray/20 rounded-lg shadow-lg  transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
+              <div className="max-w-sm bg-white border-gray/20 border-2 rounded-xl shadow-lg  transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
                 <img
                   className="rounded-t-lg h-40 mx-auto mt-2"
                   src={logo}
                   alt=""
                 />
                 <div className="p-5">
-                  <h5 className="mb-2 text-2xl capitalize font-bold tracking-tight text-gray-900 font-inter">
+                  <h5 className="mb-2 text-2xl capitalize font-semibold tracking-tight text-gray-900 font-inter">
                    Travel assistance
                   </h5>
-                  <p className="mb-3 font-normal text-gray-700 font-poppins">
+                  <p className="mb-3 font-normal text-gray font-poppins">
                   In emergencies, we ensure timely and safe hospital transport, prioritizing your well-being with swift and reliable aid.
                    
                   </p>

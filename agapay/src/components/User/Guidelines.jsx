@@ -21,7 +21,7 @@ const Guidelines = () => {
   };
   return (
     <>
-      <section className=" body-font bg-white py-10">
+      <section className=" body-font bg-subtlegray py-10">
         <div className="mb-10 text-center">
           <h1 className="sm:text-3xl text-2xl font-semibold text-primary mb-2 font-inter">
             Disaster Preparedness Guidelines
@@ -60,7 +60,7 @@ const Guidelines = () => {
           {/* Content for Fire tab */}
           {activeTab === "fire" && (
             <div className="flex sm:flex-row flex-col  w-full max-w-full   sm:max-w-7xl mx-auto border  border-gray/30 shadow-lg bg-white p-5 rounded-xl ">
-              <div className="p-4 w-auto">
+              <div className=" w-auto  border-gray/20 border-r-2">
                 <div className="h-full flex flex-col  rounded">
                   <button
                     className="leading-relaxed text-start mb-6 text-md font-poppins transition ease-in-out hover:-translate-y-1 hover:scale-100 duration-300 font-semibold text-primary mr-3 hover:bg-primary hover:text-white px-2 py-2 rounded-lg inline-block"
@@ -390,7 +390,7 @@ const Guidelines = () => {
           {/* Content for Earthquake tab */}
           {activeTab === "earthquake" && (
             <div className="flex sm:flex-row flex-col  w-full max-w-full   sm:max-w-7xl mx-auto border  border-gray/30 shadow-lg bg-white p-5 rounded-xl ">
-              <div className="p-4 w-auto">
+           <div className=" w-auto  border-gray/20 border-r-2">
                 <div className="h-full flex flex-col rounded">
                   <button
                     className="leading-relaxed text-start mb-6 text-md font-poppins transition ease-in-out hover:-translate-y-1 hover:scale-100 duration-300 font-semibold text-primary mr-3 hover:bg-primary hover:text-white px-2 py-2 rounded-lg inline-block"
@@ -712,7 +712,7 @@ const Guidelines = () => {
           {/* Tsunami */}
           {activeTab === "tsunami" && (
             <div className="flex sm:flex-row flex-col  w-full max-w-full   sm:max-w-7xl mx-auto border  border-gray/30 shadow-lg bg-white p-5 rounded-xl ">
-              <div className="p-4 w-auto">
+          <div className=" w-auto  border-gray/20 border-r-2">
                 <div className="h-full flex flex-col rounded">
                   <button
                     className="leading-relaxed text-start mb-6 text-md font-poppins transition ease-in-out hover:-translate-y-1 hover:scale-100 duration-300 font-semibold text-primary mr-3 hover:bg-primary hover:text-white px-2 py-2 rounded-lg inline-block"
@@ -1040,7 +1040,7 @@ const Guidelines = () => {
           {/* Landslide */}
           {activeTab === "landslide" && (
             <div className="flex sm:flex-row flex-col  w-full max-w-full   sm:max-w-7xl mx-auto border  border-gray/30 shadow-lg bg-white p-5 rounded-xl ">
-              <div className="p-4 w-auto">
+        <div className=" w-auto  border-gray/20 border-r-2">
                 <div className="h-full flex flex-col rounded">
                   <button
                     className="leading-relaxed text-start mb-6 text-md font-poppins transition ease-in-out hover:-translate-y-1 hover:scale-100 duration-300 font-semibold text-primary mr-3 hover:bg-primary hover:text-white px-2 py-2 rounded-lg inline-block"
@@ -1363,7 +1363,7 @@ const Guidelines = () => {
           {/* flood */}
           {activeTab === "flood" && (
             <div className="flex sm:flex-row flex-col  w-full max-w-full   sm:max-w-7xl mx-auto border  border-gray/30 shadow-lg bg-white p-5 rounded-xl ">
-              <div className="p-4 w-auto">
+            <div className=" w-auto  border-gray/20 border-r-2">
                 <div className="h-full flex flex-col  rounded">
                   <button
                     className="leading-relaxed text-start mb-6 text-md font-poppins transition ease-in-out hover:-translate-y-1 hover:scale-100 duration-300 font-semibold text-primary mr-3 hover:bg-primary hover:text-white px-2 py-2 rounded-lg inline-block"
@@ -1722,7 +1722,7 @@ const Guidelines = () => {
           {/* Tropical Cyclone */}
           {activeTab === "tropicalCyclone" && (
             <div className="flex sm:flex-row flex-col  w-full max-w-full   sm:max-w-7xl mx-auto border  border-gray/30 shadow-lg bg-white p-5 rounded-xl ">
-              <div className="p-4 w-auto">
+         <div className=" w-auto  border-gray/20 border-r-2">
                 <div className="h-full flex flex-col rounded">
                   <button
                     className="leading-relaxed text-start mb-6 text-md font-poppins transition ease-in-out hover:-translate-y-1 hover:scale-100 duration-300 font-semibold text-primary mr-3 hover:bg-primary hover:text-white px-2 py-2 rounded-lg inline-block"
@@ -2102,7 +2102,7 @@ const Guidelines = () => {
           {/* Volcanic Eruption */}
           {activeTab === "volcanicEruption" && (
             <div className="flex sm:flex-row flex-col  w-full max-w-full   sm:max-w-7xl mx-auto border  border-gray/30 shadow-lg bg-white p-5 rounded-xl ">
-              <div className="p-4 w-auto">
+        <div className=" w-auto  border-gray/20 border-r-2">
                 <div className="h-full flex flex-col  rounded">
                   <button
                     className="leading-relaxed text-start mb-6 text-md font-poppins transition ease-in-out hover:-translate-y-1 hover:scale-100 duration-300 font-semibold text-primary mr-3 hover:bg-primary hover:text-white px-2 py-2 rounded-lg inline-block"
@@ -2451,7 +2451,7 @@ const Guidelines = () => {
 
           {activeTab === "stormSurge" && (
             <div className="flex sm:flex-row flex-col  w-full max-w-full   sm:max-w-7xl mx-auto border  border-gray/30 shadow-lg bg-white p-5 rounded-xl ">
-              <div className="p-4 w-auto">
+           <div className=" w-auto  border-gray/20 border-r-2">
                 <div className="h-full flex flex-col  rounded">
                   <button
                     className="leading-relaxed text-start mb-6 text-md font-poppins transition ease-in-out hover:-translate-y-1 hover:scale-100 duration-300 font-semibold text-primary mr-3 hover:bg-primary hover:text-white px-2 py-2 rounded-lg inline-block"
