@@ -96,8 +96,8 @@ const Hotlines = () => {
   };
   return (
     <>
-      <section className="bg-subtlegray">
-        <div className="container px-5 py-12 mx-auto">
+      <section className="bg-gray/5">
+        <div className="container px-5 py-9 mx-auto">
           <div className="flex flex-wrap w-full  flex-col items-center text-center">
             <h1 className="sm:text-3xl text-2xl font-semibold text-primary mb-2 font-inter">
               General Hotlines
@@ -109,23 +109,23 @@ const Hotlines = () => {
           <div className="flex flex-wrap -m-4  rounded-xl p-10">
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
               <div className="border border-gray/20 shadow p-6 rounded-lg bg-white">
-               <div className="flex flex-row">
-               <div className="text-primary bg-primary/20  mr-2  w-8 h-8    rounded-full  capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                <div className="flex flex-row">
+                  <div className="text-primary bg-primary/20  mr-2  w-8 h-8    rounded-full  capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <FireIcon className="w-10 h-10" />
                   </div>
                   <h2 className="text-lg text-primary font-semibold  mb-2 font-inter cursor-default">
-                 
-                 4th Avenue Fire Station
-               </h2>
-               </div>
+                    4th Avenue Fire Station
+                  </h2>
+                </div>
 
-                
-                <h3 className="text-md text-gray font-medium font-poppins mb-2">
+                <div className="flex flex-row">
                   <button className=" mr-2  cursor-default      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <PhoneIcon className="h-5 w-5 text-primary font-semibold" />
                   </button>
-                  +63(2)83649060
-                </h3>
+                  <h3 className="text-md text-gray font-medium font-poppins mb-2 mt-2">
+                    +63(2)83649060
+                  </h3>
+                </div>
                 <div className="flex flex-row">
                   <button className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <MapPinIcon className="h-5 w-5" />
@@ -142,21 +142,23 @@ const Hotlines = () => {
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
               <div className="border border-gray/20 shadow p-6 rounded-lg bg-white">
-              <div className="flex flex-row">
-               <div className="text-primary bg-primary/20  mr-2  w-8 h-8    rounded-full  capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                <div className="flex flex-row">
+                  <div className="text-primary bg-primary/20  mr-2  w-8 h-8    rounded-full  capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <FireIcon className="w-10 h-10" />
                   </div>
                   <h2 className="text-lg text-primary font-semibold  mb-2 font-inter cursor-default">
-                 
-                  Central Fire Station
-               </h2>
-               </div>
-                <h3 className="text-md text-gray font-medium font-poppins mb-2">
+                    Central Fire Station
+                  </h2>
+                </div>
+                <div className="flex flex-row">
                   <button className=" mr-2  cursor-default      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <PhoneIcon className="h-5 w-5 text-primary font-semibold" />
                   </button>
-                  324 6527
-                </h3>
+                  <h3 className="text-md text-gray font-medium font-poppins mb-2 mt-2">
+                    324 6527
+                  </h3>
+                </div>
+
                 <div className="flex flex-row">
                   <button className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <MapPinIcon className="h-5 w-5" />
@@ -172,21 +174,22 @@ const Hotlines = () => {
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
               <div className="border border-gray/20 shadow p-6 rounded-lg bg-white">
-              <div className="flex flex-row">
-               <div className="text-primary bg-primary/20  mr-2  w-8 h-8    rounded-full  capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                <div className="flex flex-row">
+                  <div className="text-primary bg-primary/20  mr-2  w-8 h-8    rounded-full  capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <ShieldExclamationIcon className="w-10 h-10" />
                   </div>
                   <h2 className="text-lg text-primary font-semibold  mb-2 font-inter cursor-default">
-                 
-                  Northern Police - Station 1
-               </h2>
-               </div>
-                <h3 className="text-md text-gray font-medium font-poppins mb-2">
+                    Northern Police - Station 1
+                  </h2>
+                </div>
+                <div className="flex flex-row">
                   <button className=" mr-2  cursor-default      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <PhoneIcon className="h-5 w-5 text-primary font-semibold" />
                   </button>
-                  +63(2)324 6528
-                </h3>
+                  <h3 className="text-md text-gray font-medium font-poppins mb-2 mt-2">
+                    +63(2)324 6528
+                  </h3>
+                </div>
 
                 <div className="flex flex-row">
                   <button className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
@@ -203,21 +206,23 @@ const Hotlines = () => {
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
               <div className="border border-gray/20 shadow p-6 rounded-lg bg-white">
-              <div className="flex flex-row">
-               <div className="text-primary bg-primary/20  mr-2  w-8 h-8    rounded-full  capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                <div className="flex flex-row">
+                  <div className="text-primary bg-primary/20  mr-2  w-8 h-8    rounded-full  capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <ShieldExclamationIcon className="w-10 h-10" />
                   </div>
                   <h2 className="text-lg text-primary font-semibold  mb-2 font-inter cursor-default">
-                 
-                  Northern Police District
-               </h2>
-               </div>
-                <h3 className="text-md text-gray font-medium font-poppins mb-2">
+                    Northern Police District
+                  </h2>
+                </div>
+                <div className="flex flex-row">
                   <button className=" mr-2  cursor-default      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <PhoneIcon className="h-5 w-5 text-primary font-semibold" />
                   </button>
-                  +63(2)9623918
-                </h3>
+                  <h3 className="text-md text-gray font-medium font-poppins mb-2 mt-2">
+                    +63(2)9623918
+                  </h3>
+                </div>
+
                 <div className="flex flex-row">
                   <button className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <MapPinIcon className="h-5 w-5" />
@@ -234,21 +239,23 @@ const Hotlines = () => {
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
               <div className="border border-gray/20 shadow p-6 rounded-lg bg-white">
-              <div className="flex flex-row">
-               <div className="text-primary bg-primary/20  mr-2  w-8 h-8    rounded-full  capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                <div className="flex flex-row">
+                  <div className="text-primary bg-primary/20  mr-2  w-8 h-8    rounded-full  capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <BuildingOffice2Icon className="w-10 h-10" />
                   </div>
                   <h2 className="text-lg text-primary font-semibold  mb-2 font-inter cursor-default">
-                 
-                  North Medical Center
-               </h2>
-               </div>
-                <h3 className="text-md text-gray font-medium font-poppins mb-2">
+                    North Medical Center
+                  </h2>
+                </div>
+                <div className="flex flex-row">
                   <button className=" mr-2  cursor-default      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <PhoneIcon className="h-5 w-5 text-primary font-semibold" />
                   </button>
-                  02-8424-1724
-                </h3>
+                  <h3 className="text-md text-gray font-medium font-poppins mb-2 mt-2">
+                    02-8424-1724
+                  </h3>
+                </div>
+
                 <div className="flex flex-row">
                   <button className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <MapPinIcon className="h-5 w-5" />
@@ -264,21 +271,23 @@ const Hotlines = () => {
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
               <div className="border border-gray/20 shadow p-6 rounded-lg bg-white">
-              <div className="flex flex-row">
-               <div className="text-primary bg-primary/20  mr-2  w-8 h-8    rounded-full  capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                <div className="flex flex-row">
+                  <div className="text-primary bg-primary/20  mr-2  w-8 h-8    rounded-full  capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <BuildingOffice2Icon className="w-10 h-10" />
                   </div>
                   <h2 className="text-lg text-primary font-semibold  mb-2 font-inter cursor-default">
-                 
-                  South Medical Center
-               </h2>
-               </div>
-                <h3 className="text-md text-gray font-medium font-poppins mb-2">
+                    South Medical Center
+                  </h2>
+                </div>
+                <div className="flex flex-row">
                   <button className=" mr-2  cursor-default      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <PhoneIcon className="h-5 w-5 text-primary font-semibold" />
                   </button>
-                  +63 (2) 310 7920
-                </h3>
+                  <h3 className="text-md text-gray font-medium font-poppins mb-2 mt-2">
+                    +63 (2) 310 7920
+                  </h3>
+                </div>
+
                 <div className="flex flex-row">
                   <button className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <MapPinIcon className="h-5 w-5" />
