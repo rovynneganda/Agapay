@@ -56,14 +56,10 @@ const EmergencyResources = () => {
             </p>
             <p className="mt-6 text-lg leading-8 font-poppins ">
               In times of crisis, access to critical resources can make all the
-              difference. With our Essential Emergency Information feature, you
-              can swiftly locate nearby hospitals, police stations, and fire
-              stations at the touch of a button. Powered by Google Maps API,
-              this tool ensures you have immediate access to vital services when
-              you need them the most.
+              difference. 
             </p>
           </div>
-          <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+          <div className="mx-auto mt-12 max-w-2xl sm:mt-12 lg:mt-12 lg:max-w-4xl">
             <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
               {emergencyResources.map((resources) => (
                 <div key={resources.name} className="relative pl-16">
@@ -97,11 +93,33 @@ const EmergencyResources = () => {
           ensure you know where to find help when you need it.
         </div>
       </div>
+      <div className="mx-auto max-w-2xl lg:max-w-4xl gap-2 p-5 mb-5">
+        <div className="flex sm:flex-row flex-col justify-center items-center  gap-3">
+          <div className="relative mb-2">
+            <button onClick={() => fetchNearbyLocations('hospital')} className="px-4 py-2 bg-primary font-poppins text-white font-semibold hover:bg-primarydark rounded-lg">
+              Nearby Hospitals
+            </button>
+          </div>
+          <div onClick={() => fetchNearbyLocations('police')} className="relative mb-2">
+            <button className="px-4 py-2 bg-primary font-poppins text-white font-semibold hover:bg-primarydark rounded-lg">
+              Nearby Police Stations
+            </button>
+          </div>
+          <div className="relative mb-2">
+            <button onClick={() => fetchNearbyLocations('fire_station')} className="px-4 py-2 bg-primary font-poppins text-white font-semibold hover:bg-primarydark rounded-lg">
+              Nearby Fire Stations
+            </button>
+          </div>
+          
+        </div>
+        
+
+      </div>
       <LoadScript googleMapsApiKey="AIzaSyDzzi_VBcf2Oef6LTViLU767UPNHlnIze4">
       <GoogleMap
         center={location || { lat: 0, lng: 0 }}
         zoom={15}
-        mapContainerStyle={{ height: '400px', width: '100%' }}
+        mapContainerStyle={{ height: '400px', width: '100%',}}
       >
         {/* Display nearby locations as markers and info windows */}
         {locations.map((location) => (
@@ -128,50 +146,16 @@ const EmergencyResources = () => {
             }}
           >
             <div>
-              <h2>{selectedLocation.name}</h2>
-              <p>{selectedLocation.vicinity}</p>
-              <button onClick={() => openInGoogleMaps(selectedLocation.place_id)}>
+              <h2 className='font-inter text-md'>{selectedLocation.name}</h2>
+              <p className='font-inter text-md'>{selectedLocation.vicinity}</p>
+              <button className='text-primary font-inter text-lg font-semibold hover:underline' onClick={() => openInGoogleMaps(selectedLocation.place_id)}>
                 Open in Google Maps
               </button>
             </div>
           </InfoWindow>
         )}
       </GoogleMap>
-      <div className="mx-auto max-w-2xl lg:max-w-4xl gap-2 p-5 mb-5">
-        <div className="flex sm:flex-row flex-col justify-center items-center  gap-3">
-          <div className="relative mb-2">
-            <button onClick={() => fetchNearbyLocations('hospital')} className="px-4 py-2 bg-primary font-poppins text-white font-semibold hover:bg-primarydark rounded-lg">
-              Nearby Hospitals
-            </button>
-          </div>
-          <div onClick={() => fetchNearbyLocations('police')} className="relative mb-2">
-            <button className="px-4 py-2 bg-primary font-poppins text-white font-semibold hover:bg-primarydark rounded-lg">
-              Nearby Police Stations
-            </button>
-          </div>
-          <div className="relative mb-2">
-            <button onClick={() => fetchNearbyLocations('fire_station')} className="px-4 py-2 bg-primary font-poppins text-white font-semibold hover:bg-primarydark rounded-lg">
-              Nearby Fire Stations
-            </button>
-          </div>
-          
-        </div>
-        
-        <div>
-          <a
-            href="#"
-            className="block p-6 bg-white border border-gray-200 rounded-lg shadow "
-          >
-            <h5 className="mb-2 text-2xl font-bold text-gray-900 font-inter">
-              Emergency Services Locator Joko I love u
-            </h5>
-            <p className="font-normal font-poppins">
-              Use our service to quickly locate nearby hospitals, police
-              stations, and fire stations. Your safety is our priority.
-            </p>
-          </a>
-        </div>
-      </div>
+
       </LoadScript>
       <Footer />
     </>

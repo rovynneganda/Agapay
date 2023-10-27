@@ -46,15 +46,13 @@ const Reporting = () => {
                   alt=""
                 />
                 <div className="p-5">
-                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 font-inter">
-                    Raise an Alarm
+                  <h5 className="mb-2 text-2xl capitalize font-bold tracking-tight text-gray-900 font-inter">
+                  Report incidents
                   </h5>
                   <p className="mb-3 font-normal text-gray-700 font-poppins">
-                    Instantly alert authorities and be a beacon of security,
-                    ensuring swift action.
-                    <span className="text-primary">Raising an alarm</span>{" "}
-                    guarantees prompt response from local authorities, ensuring
-                    effective solutions.
+                    
+Instantly alert authorities, ensuring swift action and effective solutions through prompt response and raised alarms.
+
                   </p>
                   <button
                     onClick={handleSelectButtonClickReport}
@@ -64,24 +62,19 @@ const Reporting = () => {
                   </button>
                 </div>
               </div>
-              <div className="max-w-sm bg-white border border-gray/20 rounded-lg shadow-lg  transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
+              <div className="max-w-sm bg-white border  border-gray/20 rounded-lg shadow-lg  transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
                 <img
                   className="rounded-t-lg h-40 mx-auto mt-2"
                   src={logo}
                   alt=""
                 />
                 <div className="p-5">
-                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 font-inter">
-                    Request a Travel Assistance{" "}
+                  <h5 className="mb-2 text-2xl capitalize font-bold tracking-tight text-gray-900 font-inter">
+                   Travel assistance
                   </h5>
                   <p className="mb-3 font-normal text-gray-700 font-poppins">
-                    In emergencies, swift action is essential. With{" "}
-                    <span className="text-primary">
-                      Request a Travel Assistance,
-                    </span>{" "}
-                    we ensure timely and safe hospital transport. Your
-                    well-being is our priority—reliable aid when you need it
-                    most.
+                  In emergencies, we ensure timely and safe hospital transport, prioritizing your well-being with swift and reliable aid.
+                   
                   </p>
                   <button
                     onClick={handleSelectButtonClickAssistance}
@@ -145,7 +138,7 @@ const Reporting = () => {
                         Address:  {add.formatted_address}
                       </p>
                     </div>
-                    <div className="flex items-center justify-center mt-3 mb-3">
+                    {/* <div className="flex items-center justify-center mt-3 mb-3">
                       <button
                        
                         className="bg-primary px-2  py-2 font-poppins text-white text-semibold text-sm rounded-full hover:bg-primarydark"
@@ -153,7 +146,7 @@ const Reporting = () => {
                         <MapPinIcon className="w-6 h-6 inline-block mr-1" />
                         Use Current Location
                       </button>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
                 <p className="flex justify-start font-semibold font-inter">
@@ -225,7 +218,7 @@ const Reporting = () => {
                     </div>
                   </div>
                 </div>
-                <div className="max-w-xs">
+                {/* <div className="max-w-xs">
                   <label
                     htmlFor="first_name"
                     className="block mb-2 text-sm font-medium font-inter"
@@ -239,7 +232,7 @@ const Reporting = () => {
                     placeholder="Please put the concern here"
                     required
                   />
-                </div>
+                </div> */}
                 <div className="sm:block hidden">
                   <label
                     className="block mb-2 text-sm font-medium font-inter"
@@ -360,7 +353,7 @@ const Reporting = () => {
                         Address: {add.formatted_address}
                       </p>
                     </div>
-                    <div className="flex items-center justify-center mt-3 mb-3">
+                    {/* <div className="flex items-center justify-center mt-3 mb-3">
                       <button
                         
                         className="bg-primary px-2  py-2 font-poppins text-white text-semibold text-sm rounded-full hover:bg-primarydark"
@@ -368,7 +361,7 @@ const Reporting = () => {
                         <MapPinIcon className="w-6 h-6 inline-block mr-1" />
                         Use Current Location
                       </button>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
                 <div className="font-inter">

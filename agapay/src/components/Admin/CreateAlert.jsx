@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-
+import { ShieldExclamationIcon,FireIcon } from '@heroicons/react/24/outline';
 const CreateAlert = () => {
     const [activeTab, setActiveTab] = useState("fire");
     const handleTabClick = (tab) => {
@@ -39,10 +39,39 @@ const CreateAlert = () => {
             ))}
           </div>
           {activeTab === "fire" && (
-           <div className="flex w-full max-w-5xl mx-auto border  border-gray/30 shadow-lg bg-white p-5 rounded-xl ">
+           <div className="w-full max-w-5xl mx-auto border  border-gray/30 shadow-lg bg-white p-5 rounded-xl ">
            <div className="p-4 w-sm">
-            <h1>titi titi titi titi titi titi titi titi  titi titi titi titititi  titi titititi  titi titi titi titi titi titi titi titi titi titi titi titi  titi titi titi titititi  titi titititi  titi titi titi titi titi titi titi titi titi titi titi titi  titi titi titi titititi  titi titititi  titi titi titi titi titi titi titi titi titi titi titi titi  titi titi titi titititi  titi titititi  titi titi titi titi titi titi titi titi titi titi titi titi  titi titi titi titititi  titi titititi  titi titi titi titi titi titi titi titi titi titi titi titi  titi titi titi titititi  titi titititi  titi titi titi titi titi titi titi titi titi titi titi titi  titi titi titi titititi  titi titititi  titi titi titi titi</h1>
+            <div className='flex justify-between'>
+            <ShieldExclamationIcon className='w-10 h-10 text-red' />
+            <FireIcon className='w-10 h-10 text-primary' />
             </div>
+           <div>
+           <h1 className='sm:mt-1 sm:mb-1 mt-5 mb-5 font-semibold font-inter text-5xl text-primary text-center'>Fire Alert</h1>
+           </div>
+           <div class="flex sm:flex-row flex-col gap-3 mt-5  font-inter">
+        <div className='w-full mb-3'>
+            <label for="first_name" class="block mb-2 text-sm font-medium text-black">Level</label>
+            <input type="text" id="first_name" class="bg-gray-50 border border-gray/30  text-gray text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 focus:outline-none"required/>
+        </div>
+        <div className='w-full mb-3 '>
+            <label for="last_name" class="block mb-2 text-sm font-medium text-black">Location</label>
+            <input type="text" id="last_name" class="bg-gray-50 border border-gray/30  text-gray text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 focus:outline-none " required/>
+        </div>
+        <div>
+          
+
+        </div>
+    </div>
+    <div className='mt-3'>
+    <label for="message" class="block mb-2 text-sm font-medium text-gray-900 ">Description</label>
+<textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray/30 focus:ring-primary focus:border-primary focus:outline-none " placeholder="Provide a Description"></textarea>
+    </div>
+    
+
+            </div>
+          <div className='flex justify-center'>
+            <button className='inline-flex items-center px-5 py-2.5 mt-2  text-sm font-semibold text-center text-white bg-primary rounded-lg focus:ring-4 focus:ring-primary focus:outline-none hover:bg-primarydark'>Alert the Users</button>
+          </div>
             </div>
         )}
          {activeTab === "flood" && (

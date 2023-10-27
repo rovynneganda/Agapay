@@ -92,18 +92,20 @@ const Login = ({ onClose }) => {
   const [isPasswordVisible1, setIsPasswordVisible1] = useState(false);
   const [isPasswordVisible2, setIsPasswordVisible2] = useState(false);
   const [inputType, setInputType] = useState("password");
-
+  const [inputType1, setInputType1] = useState("password");
+  const [inputType2, setInputType2] = useState("password");
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
     setInputType(isPasswordVisible ? "password" : "text");
   };
   const togglePasswordVisibility1 = () => {
     setIsPasswordVisible1(!isPasswordVisible1);
-    setInputType(isPasswordVisible1 ? "password" : "text");
+    setInputType1(isPasswordVisible1 ? "password" : "text");
   };
   const togglePasswordVisibility2 = () => {
     setIsPasswordVisible2(!isPasswordVisible2);
-    setInputType(isPasswordVisible2 ? "password" : "text");
+    setInputType2(isPasswordVisible2 ? "password" : "text");
+    
   };
   const [currentStep, setCurrentStep] = useState(1);
 
@@ -488,7 +490,7 @@ const Login = ({ onClose }) => {
                       Email
                     </label>
                   </div>
-                  <div>
+                  {/* <div>
                     <label
                       className="block mb-2 text-sm font-medium font-poppins "
                       htmlFor="large_size"
@@ -500,7 +502,7 @@ const Login = ({ onClose }) => {
                       id="large_size"
                       type="file"
                     />
-                  </div>
+                  </div> */}
 
                   <div>
                     <div className="mb-3 mt-5">
@@ -715,7 +717,7 @@ const Login = ({ onClose }) => {
                   </div>
                   <div className="relative">
                     <input
-                      type={inputType}
+                      type={inputType1}
                       id="regPassword1"
                       name="regPassword1"
                       value={formData.regPassword1}
@@ -743,7 +745,7 @@ const Login = ({ onClose }) => {
 
                   <div className="relative">
                     <input
-                      type={inputType}
+                      type={inputType2}
                       id="regPassword2"
                       name="regPassword2"
                       value={formData.regPassword2}

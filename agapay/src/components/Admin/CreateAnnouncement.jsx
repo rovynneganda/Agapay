@@ -9,12 +9,12 @@ const CreateAnnouncement = () => {
         <hr className='border-primary mt-3 mb-3' />
   <div class=" py-5 px-4 mx-auto bg-white rounded-xl font-inter">
       <form action="#">
-          <div class="grid gap-4 sm:grid-cols-2 sm:gap-6 p-5">
-              <div class="sm:col-span-2">
+          <div class="flex flex-row gap-4 mb-5">
+              <div class="w-full">
                   <label for="name" class="block mb-2 text-sm font-semibold text-black ">Title</label>
                   <input type="text" name="name" id="name" class="bg-subtlegray border border-gray/30 text-black text-sm rounded-lg focus:ring-primary focus:border-primary focus:outline-none block w-full p-2.5" required=""/>
               </div>
-              <div>
+              <div className='w-full'> 
                   <label for="category" class="block mb-2 text-sm font-semibold text-black ">Category</label>
                   <select id="category" class="bg-subtlegray border border-gray/30 text-black text-sm rounded-lg focus:ring-primary focus:border-primary focus:outline-none block w-full p-2.5">
                       <option selected="">Select category</option>
@@ -24,14 +24,33 @@ const CreateAnnouncement = () => {
                       <option value="Fire">Fire</option>
                   </select>
               </div>
-              <div class="sm:col-span-2">
+          </div>
+          <div class="">
                   <label for="description" class="block mb-2 text-sm font-semibold text-black ">Description</label>
                   <textarea id="description" rows="8" class="block p-2.5 w-full text-sm text-black bg-subtlegray rounded-lg border border-gray/30 focus:ring-primary focus:outline-none focus:border-primary" ></textarea>
               </div>
-          </div>
-          <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-semibold text-center text-white bg-primary rounded-lg focus:ring-4 focus:ring-primary focus:outline-none hover:bg-primarydark">
+          {/* <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-semibold text-center text-white bg-primary rounded-lg focus:ring-4 focus:ring-primary focus:outline-none hover:bg-primarydark">
               Post
-          </button>
+          </button> */}
+          <button
+                        type="button"
+                        className="text-white text-center mt-5 bg-[#3b5998] hover:bg-[#3b5998]/80 focus:ring-2 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center mb-2"
+                      >
+                        <svg
+                          className="w-4 h-4 mr-2"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="currentColor"
+                          viewBox="0 0 8 19"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        Facebook
+                      </button>
       </form>
   </div>
         </div>
