@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { logo } from "../../assets";
 import { MapPinIcon } from "@heroicons/react/24/outline";
 const Reporting = () => {
@@ -10,29 +10,21 @@ const Reporting = () => {
   const handleSelectButtonClickReport = () => {
     setIsReportModalVisible(true);
   };
-  const handleClick = (e) => {
-    e.preventDefault();
-    const status = document.querySelector(".status2");
-    const success = (position) => {
-      // console.log(position)
-      const latitude = position.coords.latitude;
-      const longitude = position.coords.longitude;
-      // console.log(latitude +  '' + longitude)
-
-      const geoApiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyDzzi_VBcf2Oef6LTViLU767UPNHlnIze4`;
-      fetch(geoApiUrl)
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          status.textContent = data.results[0].formatted_address;
-        });
-    };
-    const error = () => {
-      status.textContent = "Unable to retrieve your location";
-    };
-
-    navigator.geolocation.getCurrentPosition(success, error);
-  };
+  const [add,setAdd] = useState('')
+    // `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
+    
+    useEffect(()=>{
+        navigator.geolocation.getCurrentPosition(pos=>{
+            const {latitude,longitude} = pos.coords;
+            console.log(latitude,longitude)
+            const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyDzzi_VBcf2Oef6LTViLU767UPNHlnIze4`;
+            fetch(url)
+            .then(res=>res.json())
+            .then(data=>
+                setAdd(data.results[0]))
+        })
+    },[])
+    console.log(add)
   return (
     <>
       <div className="bg-accent">
@@ -150,12 +142,12 @@ const Reporting = () => {
                         Contact Number: 0920-303-3229
                       </p>
                       <p className="font-inter">
-                        Address: <span className="status2"></span>
+                        Address:  {add.formatted_address}
                       </p>
                     </div>
                     <div className="flex items-center justify-center mt-3 mb-3">
                       <button
-                        onClick={handleClick}
+                       
                         className="bg-primary px-2  py-2 font-poppins text-white text-semibold text-sm rounded-full hover:bg-primarydark"
                       >
                         <MapPinIcon className="w-6 h-6 inline-block mr-1" />
@@ -365,12 +357,12 @@ const Reporting = () => {
                         Contact Number: 0920-303-3229
                       </p>
                       <p className="font-inter">
-                        Address: <span className="status2"></span>
+                        Address: {add.formatted_address}
                       </p>
                     </div>
                     <div className="flex items-center justify-center mt-3 mb-3">
                       <button
-                        onClick={handleClick}
+                        
                         className="bg-primary px-2  py-2 font-poppins text-white text-semibold text-sm rounded-full hover:bg-primarydark"
                       >
                         <MapPinIcon className="w-6 h-6 inline-block mr-1" />

@@ -1,9 +1,18 @@
 import React from "react";
+import  AvenueStation  from './modalforhotline/AvenueStation';
+import  CaloocanFirestation  from './modalforhotline/CaloocanFirestation';
+import  PnpStation  from './modalforhotline/PnpStation';
+import  PnpNpd  from './modalforhotline/PnpNpd';
+import  MedicalCenter  from './modalforhotline/MedicalCenter';
+import  SouthCenter  from './modalforhotline/SouthCenter';
 import {
+
   FireIcon,
   BuildingOffice2Icon,
   ShieldExclamationIcon,
 } from "@heroicons/react/24/outline";
+
+
 const Hotlines = () => {
   return (
     <>
@@ -24,7 +33,9 @@ const Hotlines = () => {
                   <FireIcon className="w-6 h-6" />
                 </div>
                 <h2 className="text-lg text-primary font-medium  mb-2 font-inter cursor-pointer">
+                 
                   4th Avenue Fire Station
+               
                 </h2>
                 <h3 className="text-md text-gray/70 font-medium font-poppins mb-2">
                   {" "}
@@ -34,6 +45,9 @@ const Hotlines = () => {
                   A. Del Mundo Street corner 4th Avenue & 5th Avenue, Barangay
                   51
                 </p>
+                
+                <AvenueStation />
+                
               </div>
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
@@ -42,7 +56,9 @@ const Hotlines = () => {
                   <FireIcon className="w-6 h-6" />
                 </div>
                 <h2 className="text-lg text-primary font-medium  mb-2 font-inter cursor-pointer">
+                
                   Caloocan City Central Fire Station
+                
                 </h2>
                 <h3 className="text-md text-gray/70 font-medium font-poppins mb-2">
                   324 6527
@@ -50,6 +66,7 @@ const Hotlines = () => {
                 <p className="leading-relaxed font-poppins">
                   Samson Road, Sangandaan Barangay 1 Caloocan, Metro Manila{" "}
                 </p>
+                <CaloocanFirestation />
               </div>
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
@@ -58,7 +75,9 @@ const Hotlines = () => {
                   <ShieldExclamationIcon className="w-6 h-6" />
                 </div>
                 <h2 className="text-lg text-primary font-medium  mb-2 font-inter cursor-pointer">
+               
                   Northern Police District - Station 1
+                 
                 </h2>
                 <h3 className="text-md text-gray/70 font-medium font-poppins mb-2">
                   +63(2)324 6528
@@ -67,6 +86,7 @@ const Hotlines = () => {
                   {" "}
                   Samson Road, Sangandaan, Caloocan City 1408 Metro Manila
                 </p>
+                <PnpStation />
               </div>
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
@@ -75,7 +95,9 @@ const Hotlines = () => {
                   <ShieldExclamationIcon className="w-6 h-6" />
                 </div>
                 <h2 className="text-lg text-primary font-medium  mb-2 font-inter cursor-pointer">
+              
                   PNP NPD
+                  
                 </h2>
                 <h3 className="text-md text-gray/70 font-medium font-poppins mb-2">
                   +63(2)9623918
@@ -85,6 +107,7 @@ const Hotlines = () => {
                   Cadena De Amor Street, Camarin 1. P.C. 1422 Caloocan City,
                   Metro Manila
                 </p>
+                <PnpNpd />
               </div>
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
@@ -93,7 +116,9 @@ const Hotlines = () => {
                   <BuildingOffice2Icon className="w-6 h-6" />
                 </div>
                 <h2 className="text-lg text-primary font-medium  mb-2 font-inter cursor-pointer">
+                
                   Caloocan City North Medical Center
+                  
                 </h2>
                 <h3 className="text-md text-gray/70 font-medium font-poppins mb-2">
                   02-8424-1724
@@ -101,6 +126,7 @@ const Hotlines = () => {
                 <p className="leading-relaxed font-poppins">
                   Camarin Road, Barangay 177 Caloocan City, Metro Manila
                 </p>
+                <MedicalCenter />
               </div>
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
@@ -109,7 +135,9 @@ const Hotlines = () => {
                   <BuildingOffice2Icon className="w-6 h-6" />
                 </div>
                 <h2 className="text-lg text-primary font-medium  mb-2 font-inter cursor-pointer">
+             
                   Caloocan City Medical Center
+                  
                 </h2>
                 <h3 className="text-md text-gray/70 font-medium font-poppins mb-2">
                   +63 (2) 310 7920
@@ -117,6 +145,7 @@ const Hotlines = () => {
                 <p className="leading-relaxed font-poppins">
                   450, A. Mabini Street, Poblacion Caloocan City, Metro Manila
                 </p>
+                <SouthCenter />
               </div>
             </div>
           </div>
