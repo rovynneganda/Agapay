@@ -12,6 +12,7 @@
   "dependencies": {
     "@heroicons/react": "^2.0.18",
     "@iconscout/react-unicons": "^2.0.2",
+    "@react-google-maps/api": "^2.19.2",
     "axios": "^1.5.1",
     "bootstrap": "^5.3.2",
     "localforage": "^1.10.0",
