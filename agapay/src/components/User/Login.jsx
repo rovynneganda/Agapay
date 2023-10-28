@@ -145,10 +145,11 @@ const Login = ({ onClose }) => {
           // Get PostalCode 
            const regPostalCode = data.results[0].address_components.find(
             (component) => component.types.includes('postal_code')
-            );            
-            // end to Get PostalCode 
+            );    
             document.querySelector("#regPostalCode").value = regPostalCode.short_name;
-           console.log(regPostalCode);
+           console.log(regPostalCode);        
+            // end to Get PostalCode 
+            
 
 
           const address = data.results[0].formatted_address;
