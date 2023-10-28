@@ -128,8 +128,8 @@ const Login = ({ onClose }) => {
     setLoginModalVisible(false);
     setRegisterModalVisible(true);
   };
-  const handleClick = (e) => {
-    e.preventDefault();
+  useEffect(()=>{
+    
     const status = document.querySelector(".registrationAddress");
     const success = (position) => {
       // console.log(position)
@@ -141,6 +141,17 @@ const Login = ({ onClose }) => {
       fetch(geoApiUrl)
         .then((res) => res.json())
         .then((data) => {
+
+          // Get PostalCode 
+           const regPostalCode = data.results[0].address_components.find(
+            (component) => component.types.includes('postal_code')
+            );    
+            document.querySelector("#regPostalCode").value = regPostalCode.short_name;
+           console.log(regPostalCode);        
+            // end to Get PostalCode 
+            
+
+
           const address = data.results[0].formatted_address;
           const addressArray = address.split(', ');
           console.log(data.results[0].formatted_address);
@@ -148,6 +159,8 @@ const Login = ({ onClose }) => {
           for (let i = addressArray.length - 4; i >= 0; i--) {
             selectedStreetBrgy.push(addressArray[i]);
           }
+          console.log(selectedStreetBrgy)
+          console.log(addressArray)
           document.querySelector("#regStreetBrgy").value = selectedStreetBrgy.join(', ');
           document.querySelector("#regCity").value = addressArray[addressArray.length - 3];
           status.textContent = data.results[0].formatted_address;
@@ -158,7 +171,7 @@ const Login = ({ onClose }) => {
     };
 
     navigator.geolocation.getCurrentPosition(success, error);
-  };
+  },[])
   // console.log(document.querySelector(".registrationAddress"));
   return (
     <>
@@ -569,8 +582,7 @@ const Login = ({ onClose }) => {
                     </option>
                     <option value="US">United States</option>
                   </select> */}
-                  <button onClick={handleClick}>eme lang</button>
-                  <p className="registrationAddress"></p>
+                
                   <div className="relative">
                     <input
                       type="text"
