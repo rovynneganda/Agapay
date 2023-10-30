@@ -2,60 +2,90 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { loginbg } from "../../assets";
 import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/outline";
-import axios from 'axios';
+import axios from "axios";
 
 const Login = ({ onClose }) => {
   const [formData, setFormData] = useState({
-    regFirstName: '',
-    regLastName: ''
     // ... other form fields
   });
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
-  const submitRegBtn = () => {
-    // Validate form data here if needed
-    sendDataToAPI();
-  };
 
-  const sendDataToAPI = () => {
+  const signIn = () => {
+    console.log(formData);
     const formDataToSend = new URLSearchParams();
-    formDataToSend.append('regFirstName', formData.regFirstName);
-    formDataToSend.append('regLastName', formData.regLastName);
-    formDataToSend.append('regEmail', formData.regEmail);
-    formDataToSend.append('regStreetBrgy', formData.regStreetBrgy);
-    formDataToSend.append('regCity', formData.regCity);
-    formDataToSend.append('regPostalCode', formData.regPostalCode);
-    formDataToSend.append('regContactNum', formData.regContactNum);
-    formDataToSend.append('regVerificationCode', formData.regVerificationCode);
-    formDataToSend.append('regUsername', formData.regUsername);
-    formDataToSend.append('regPassword1', formData.regPassword1);
-    formDataToSend.append('regPassword2', formData.regPassword2);
-    // ... append other form fields
+    formDataToSend.append("loginUsername", formData.loginUsername);
+    formDataToSend.append("loginPass", formData.loginPass);
     const formDataToObject = {};
-      formDataToSend.forEach(function(value, key) {
+    formDataToSend.forEach(function (value, key) {
       formDataToObject[key] = value;
     });
-  
-    console.log(formDataToObject); // Check if form data is correctly formatted
-    axios.post('http://localhost/aa/Register.php', formDataToObject, {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    })
-    .then(response => {
-      // Handle the response from the API
-      console.log(response.data);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
+    axios
+      .post("http://localhost/aa/Login.php", formDataToObject, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      })
+      .then((response) => {
+        // Handle the response from the API
+        if (response.data === "You are logged in") {
+          alert("You are Logged In");
+          setLoginModalVisible(false);
+        } else return alert(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
+  const submitRegBtn = () => {
+    console.log(formData);
+    const formDataToSend = new URLSearchParams();
+    formDataToSend.append("regFirstName", formData.regFirstName);
+    formDataToSend.append("regLastName", formData.regLastName);
+    formDataToSend.append("regEmail", formData.regEmail);
+    formDataToSend.append("regStreetBrgy", formData.regStreetBrgy);
+    formDataToSend.append("regCity", formData.regCity);
+    formDataToSend.append("regPostalCode", formData.regPostalCode);
+    formDataToSend.append("regContactNum", formData.regContactNum);
+    formDataToSend.append("regVerificationCode", formData.regVerificationCode);
+    formDataToSend.append("regUsername", formData.regUsername);
+    formDataToSend.append("regPassword1", formData.regPassword1);
+    formDataToSend.append("regPassword2", formData.regPassword2);
+    // ... append other form fields
+    const formDataToObject = {};
+    formDataToSend.forEach(function (value, key) {
+      formDataToObject[key] = value;
+    });
+
+    console.log(formDataToObject); // Check if form data is correctly formatted
+    axios
+      .post("http://localhost/aa/Register.php", formDataToObject, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      })
+      .then((response) => {
+        // Handle the response from the API
+        if (response.data === "Registration successful!") {
+          alert("Successfully Registered!");
+          showLoginModal();
+        } else alert("tanga");
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+
+  // const sendDataToAPI = () => {
+  // };
 
   // function submitRegBtn() {
   //   const regFirstName = document.getElementById('regFirstName').value;
@@ -105,7 +135,6 @@ const Login = ({ onClose }) => {
   const togglePasswordVisibility2 = () => {
     setIsPasswordVisible2(!isPasswordVisible2);
     setInputType2(isPasswordVisible2 ? "password" : "text");
-    
   };
   const [currentStep, setCurrentStep] = useState(1);
 
@@ -128,8 +157,7 @@ const Login = ({ onClose }) => {
     setLoginModalVisible(false);
     setRegisterModalVisible(true);
   };
-  useEffect(()=>{
-    
+  useEffect(() => {
     const status = document.querySelector(".registrationAddress");
     const success = (position) => {
       // console.log(position)
@@ -141,28 +169,35 @@ const Login = ({ onClose }) => {
       fetch(geoApiUrl)
         .then((res) => res.json())
         .then((data) => {
+          console.log("baba neto");
+          console.log(data);
+          // Get PostalCode
+          const regPostalCode = data.results[3].address_components.find(
+            (component) => component.types.includes("postal_code")
+          ) != null ? data.results[0].address_components.find(
+            (component) => component.types.includes("postal_code")
+          ) : "tarub";
+          console.log("baba neto");
+          console.log(regPostalCode);
 
-          // Get PostalCode 
-           const regPostalCode = data.results[0].address_components.find(
-            (component) => component.types.includes('postal_code')
-            );    
-            document.querySelector("#regPostalCode").value = regPostalCode.short_name;
-           console.log(regPostalCode);        
-            // end to Get PostalCode 
-            
-
+          document.querySelector("#regPostalCode").value =
+            regPostalCode.short_name;
+          console.log(regPostalCode);
+          // end to Get PostalCode
 
           const address = data.results[0].formatted_address;
-          const addressArray = address.split(', ');
+          const addressArray = address.split(", ");
           console.log(data.results[0].formatted_address);
           const selectedStreetBrgy = [];
           for (let i = addressArray.length - 4; i >= 0; i--) {
             selectedStreetBrgy.push(addressArray[i]);
           }
-          console.log(selectedStreetBrgy)
-          console.log(addressArray)
-          document.querySelector("#regStreetBrgy").value = selectedStreetBrgy.join(', ');
-          document.querySelector("#regCity").value = addressArray[addressArray.length - 3];
+          console.log(selectedStreetBrgy);
+          console.log(addressArray);
+          document.querySelector("#regStreetBrgy").value =
+            selectedStreetBrgy.join(", ");
+          document.querySelector("#regCity").value =
+            addressArray[addressArray.length - 3];
           status.textContent = data.results[0].formatted_address;
         });
     };
@@ -171,7 +206,7 @@ const Login = ({ onClose }) => {
     };
 
     navigator.geolocation.getCurrentPosition(success, error);
-  },[])
+  }, []);
   // console.log(document.querySelector(".registrationAddress"));
   return (
     <>
@@ -196,12 +231,15 @@ const Login = ({ onClose }) => {
                     <div className="relative">
                       <input
                         type="text"
-                        id="floating_outlined1"
+                        id="loginUsername"
+                        name="loginUsername"
+                        value={formData.loginUsername}
+                        onChange={handleInputChange}
                         className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
                         placeholder=""
                       />
                       <label
-                        htmlFor="floating_outlined1"
+                        htmlFor="loginUsername"
                         className="absolute text-sm  font-poppins cursor-text  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
                       >
                         Username
@@ -212,12 +250,15 @@ const Login = ({ onClose }) => {
                     <div className="relative mt-2">
                       <input
                         type={inputType}
-                        id="floating_outlined"
+                        id="loginPass"
+                        name="loginPass"
+                        value={formData.loginPass}
+                        onChange={handleInputChange}
                         className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border  peer"
                         placeholder=""
                       />
                       <label
-                        htmlFor="floating_outlined"
+                        htmlFor="loginPass"
                         className="absolute text-sm  font-poppins cursor-text  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
                       >
                         Password
@@ -236,6 +277,7 @@ const Login = ({ onClose }) => {
                     <div className="mb-3 mt-7">
                       <button
                         type="submit"
+                        onClick={signIn}
                         className="flex transition ease-in-out hover:-translate-y-1 hover:scale-105  duration-300 w-full justify-center font-poppins  bg-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primarydark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded-full mb-3"
                       >
                         Sign in
@@ -572,7 +614,7 @@ const Login = ({ onClose }) => {
                     >
                       City
                     </label>
-                  </div>  
+                  </div>
                   {/* <select
                     id="countries"
                     className="border font-poppins bg-white   text-sm rounded-lg outline-none  focus:ring-primary focus:border-primary block w-full p-2.5 "
@@ -582,7 +624,7 @@ const Login = ({ onClose }) => {
                     </option>
                     <option value="US">United States</option>
                   </select> */}
-                
+
                   <div className="relative">
                     <input
                       type="text"
@@ -744,15 +786,15 @@ const Login = ({ onClose }) => {
                       Password
                     </label>
                     <i
-                        className="bi bi-eye-slash eye-icon absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
-                        onClick={togglePasswordVisibility1}
-                      >
-                        {isPasswordVisible1 ? (
-                          <EyeIcon className="w-6 h-6" />
-                        ) : (
-                          <EyeSlashIcon className="w-6 h-6" />
-                        )}
-                      </i>
+                      className="bi bi-eye-slash eye-icon absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
+                      onClick={togglePasswordVisibility1}
+                    >
+                      {isPasswordVisible1 ? (
+                        <EyeIcon className="w-6 h-6" />
+                      ) : (
+                        <EyeSlashIcon className="w-6 h-6" />
+                      )}
+                    </i>
                   </div>
 
                   <div className="relative">
@@ -772,15 +814,15 @@ const Login = ({ onClose }) => {
                       Confirm Password
                     </label>
                     <i
-                        className="bi bi-eye-slash eye-icon absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
-                        onClick={togglePasswordVisibility2}
-                      >
-                        {isPasswordVisible2 ? (
-                          <EyeIcon className="w-6 h-6" />
-                        ) : (
-                          <EyeSlashIcon className="w-6 h-6" />
-                        )}
-                      </i>
+                      className="bi bi-eye-slash eye-icon absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
+                      onClick={togglePasswordVisibility2}
+                    >
+                      {isPasswordVisible2 ? (
+                        <EyeIcon className="w-6 h-6" />
+                      ) : (
+                        <EyeSlashIcon className="w-6 h-6" />
+                      )}
+                    </i>
                   </div>
 
                   <div>
