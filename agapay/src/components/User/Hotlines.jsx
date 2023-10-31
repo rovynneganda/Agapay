@@ -96,19 +96,22 @@ const Hotlines = () => {
   };
   return (
     <>
-      <section className="bg-gray/5">
+      <section className="bg-primary/5">
         <div className="container px-5 py-9 mx-auto">
           <div className="flex flex-wrap w-full  flex-col items-center text-center">
-            <h1 className="sm:text-3xl text-2xl font-semibold text-primary mb-2 font-inter">
+            <h1 className="text-4xl font-semibold mb-3 font-poppins text-primary">
               General Hotlines
             </h1>
-            <p className="lg:w-1/2 w-full text-gray leading-relaxed font-poppins">
+            <p className="lg:w-1/2 w-full text-black leading-relaxed font-poppins text-lg">
               Emergency Contacts and Support Helplines
             </p>
+            <p className="lg:w-1/2 w-full text-gray leading-relaxed font-poppins text-lg">
+              Press <MapPinIcon className="w-6 h-6 inline-block text-primary"/> to get the Google Map Location
+            </p>
           </div>
-          <div className="flex flex-wrap -m-4  rounded-xl p-10">
+          <div className="flex flex-wrap -m-4  rounded-xl p-0 sm:p-10">
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
-              <div className="border border-gray/20 shadow p-6 rounded-lg bg-white">
+              <div className="border  border-gray/10 bg-white  rounded-xl shadow-md p-6 ">
                 <div className="flex flex-row">
                   <div className="text-primary bg-primary/20  mr-2  w-8 h-8    rounded-full  capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <FireIcon className="w-10 h-10" />
@@ -127,7 +130,7 @@ const Hotlines = () => {
                   </h3>
                 </div>
                 <div className="flex flex-row">
-                  <button className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                  <button onClick={handleShowModal} className="text-primary  mr-2     capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <MapPinIcon className="h-5 w-5" />
                   </button>
                   <p
@@ -141,7 +144,7 @@ const Hotlines = () => {
               </div>
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
-              <div className="border border-gray/20 shadow p-6 rounded-lg bg-white">
+              <div className="border  border-gray/10 bg-white  rounded-xl shadow-md p-6">
                 <div className="flex flex-row">
                   <div className="text-primary bg-primary/20  mr-2  w-8 h-8    rounded-full  capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <FireIcon className="w-10 h-10" />
@@ -160,7 +163,7 @@ const Hotlines = () => {
                 </div>
 
                 <div className="flex flex-row">
-                  <button className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                  <button  onClick={handleShowModal1} className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <MapPinIcon className="h-5 w-5" />
                   </button>
                   <p
@@ -173,7 +176,7 @@ const Hotlines = () => {
               </div>
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
-              <div className="border border-gray/20 shadow p-6 rounded-lg bg-white">
+              <div className="border  border-gray/10 bg-white  rounded-xl shadow-md p-6">
                 <div className="flex flex-row">
                   <div className="text-primary bg-primary/20  mr-2  w-8 h-8    rounded-full  capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <ShieldExclamationIcon className="w-10 h-10" />
@@ -192,7 +195,7 @@ const Hotlines = () => {
                 </div>
 
                 <div className="flex flex-row">
-                  <button className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                  <button    onClick={handleShowModal2} className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <MapPinIcon className="h-5 w-5" />
                   </button>
                   <p
@@ -205,7 +208,7 @@ const Hotlines = () => {
               </div>
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
-              <div className="border border-gray/20 shadow p-6 rounded-lg bg-white">
+              <div className="border  border-gray/10 bg-white  rounded-xl shadow-md p-6">
                 <div className="flex flex-row">
                   <div className="text-primary bg-primary/20  mr-2  w-8 h-8    rounded-full  capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <ShieldExclamationIcon className="w-10 h-10" />
@@ -224,7 +227,7 @@ const Hotlines = () => {
                 </div>
 
                 <div className="flex flex-row">
-                  <button className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                  <button     onClick={handleShowModal3} className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <MapPinIcon className="h-5 w-5" />
                   </button>
                   <p
@@ -238,7 +241,7 @@ const Hotlines = () => {
               </div>
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
-              <div className="border border-gray/20 shadow p-6 rounded-lg bg-white">
+              <div className="border  border-gray/10 bg-white  rounded-xl shadow-md p-6">
                 <div className="flex flex-row">
                   <div className="text-primary bg-primary/20  mr-2  w-8 h-8    rounded-full  capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <BuildingOffice2Icon className="w-10 h-10" />
@@ -257,7 +260,7 @@ const Hotlines = () => {
                 </div>
 
                 <div className="flex flex-row">
-                  <button className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                  <button   onClick={handleShowModal4} className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <MapPinIcon className="h-5 w-5" />
                   </button>
                   <p
@@ -270,7 +273,7 @@ const Hotlines = () => {
               </div>
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
-              <div className="border border-gray/20 shadow p-6 rounded-lg bg-white">
+              <div className="border  border-gray/10 bg-white  rounded-xl shadow-md p-6">
                 <div className="flex flex-row">
                   <div className="text-primary bg-primary/20  mr-2  w-8 h-8    rounded-full  capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <BuildingOffice2Icon className="w-10 h-10" />
@@ -289,7 +292,7 @@ const Hotlines = () => {
                 </div>
 
                 <div className="flex flex-row">
-                  <button className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                  <button  onClick={handleShowModal5} className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <MapPinIcon className="h-5 w-5" />
                   </button>
                   <p

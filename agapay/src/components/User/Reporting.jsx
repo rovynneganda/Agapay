@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { logo } from "../../assets";
-import { MapPinIcon } from "@heroicons/react/24/outline";
+import { logo, report, travel } from "../../assets";
+import { MapPinIcon, ArrowRightCircleIcon } from "@heroicons/react/24/outline";
+
 const Reporting = () => {
   const [isReportModalVisible, setIsReportModalVisible] = useState(false);
   const [isTravelModalVisible, setisTravelModalVisible] = useState(false);
@@ -27,62 +28,77 @@ const Reporting = () => {
     console.log(add)
   return (
     <>
-      <div className="bg-[#fff0d3] py-10">
+    
+      <div className="bg-[#fff0d3] py-5">
         <section className="p-5 rounded-xl mx-auto sm:w-full md:w-[80%] lg:w-[90%] xl:w-[90%] ">
 
-          <div className=" rounded-xl p-5 bg-white py-10">
-          <div className="p-5">
-            <p className="text-2xl font-semibold mb-3 font-poppins text-primary">
+          <div className=" rounded-xl p-5 bg-none">
+          <div className="p-5 text-center">
+            <p className="sm:text-4xl text-3xl font-semibold mb-3 font-poppins text-primary">
               How Can We Assist You Today?
             </p>
-            <p className="font-poppins text-gray">
-              Feel free to select the option that suits your current needs.
+            <p className="font-poppins text-lg text-black">
+              Feel free to select the option that suits your current needs. 
+            </p>
+            <p className="lg:w-1/2 w-full text-gray leading-relaxed font-poppins text-lg text-center mx-auto">
+              Press <ArrowRightCircleIcon className="w-6 h-6 inline-block text-primary"/> to Start.
             </p>
           </div>
+
             <div className="flex sm:flex-row flex-col gap-10 justify-center items-center">
-              <div className="max-w-sm bg-white  border-gray/20 border-2 rounded-xl shadow-lg transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300  ">
+              <div className="sm:max-w-xs max-w-sm  w-full bg-white border  border-gray/5 text-center rounded-xl shadow-md transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
                 <img
-                  className="rounded-t-lg  h-40 mx-auto mt-2"
-                  src={logo}
+                  className="h-52 mx-auto mt-2"
+                  src={report}
                   alt=""
                 />
                 <div className="p-5">
-                  <h5 className="mb-2 text-2xl capitalize font-semibold tracking-tight text-gray-900 font-inter">
+                  <h5 className="mb-2 text-xl text-primary capitalize text-center font-semibold tracking-tight  font-inter">
                   Report incidents
                   </h5>
-                  <p className="mb-3 font-normal text-gray font-poppins">
+                  <button
+                  onClick={handleSelectButtonClickReport}
+                  className="mx-auto">
+                  <ArrowRightCircleIcon className="h-10 w-10 text-secondary hover:text-primary rounded-full" />
+                  </button>
+                  {/* <p className="mb-3 font-normal text-gray font-poppins">
                     
 Instantly alert authorities, ensuring swift action and effective solutions through prompt response and raised alarms.
 
-                  </p>
-                  <button
+                  </p> */}
+                  {/* <button
                     onClick={handleSelectButtonClickReport}
                     className="inline-flex items-center w-full justify-center rounded-full  px-3 py-2 text-md font-poppins font-medium text-center text-white bg-primary  hover:bg-primarydark focus:ring-4 focus:outline-none focus:ring-white  "
                   >
                     Proceed
-                  </button>
+                  </button> */}
                 </div>
               </div>
-              <div className="max-w-sm bg-white border-gray/20 border-2 rounded-xl shadow-lg  transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
+              <div className="sm:max-w-xs max-w-sm  w-full bg-white border border-gray/5 text-center rounded-xl shadow-md transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
                 <img
-                  className="rounded-t-lg h-40 mx-auto mt-2"
-                  src={logo}
+                  className=" h-52 mx-auto mt-2"
+                  src={travel}
                   alt=""
                 />
                 <div className="p-5">
-                  <h5 className="mb-2 text-2xl capitalize font-semibold tracking-tight text-gray-900 font-inter">
+                  <h5 className="mb-2 text-xl capitalize font-semibold tracking-tight text-primary font-inter">
                    Travel assistance
                   </h5>
-                  <p className="mb-3 font-normal text-gray font-poppins">
+                  <button
+                  onClick={handleSelectButtonClickAssistance}
+                  className="mx-auto">
+                  <ArrowRightCircleIcon className="h-10 w-10 text-secondary hover:text-primary rounded-full" />
+                  </button>
+                  {/* <p className="mb-3 font-normal text-gray font-poppins">
                   In emergencies, we ensure timely and safe hospital transport, prioritizing your well-being with swift and reliable aid.
                    
-                  </p>
-                  <button
+                  </p> */}
+                  {/* <button
                     onClick={handleSelectButtonClickAssistance}
                     className="inline-flex items-center w-full justify-center rounded-full  px-3 py-2 text-md font-poppins font-medium text-center text-white bg-primary  hover:bg-primarydark focus:ring-4 focus:outline-none focus:ring-white  "
                   >
                     Proceed
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>

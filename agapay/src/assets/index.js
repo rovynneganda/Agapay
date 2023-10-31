@@ -17,7 +17,11 @@ import reportingcollage from "./Reporting.png"
 import banner1 from "./banner1.png"
 import banner2 from "./banner2.png"
 import banner3 from "./banner3.png"
-
+import report from "./report.png"
+import travel from "./travel_assistance.png"
+import persuade1 from "./persuade1.png"
+import persuade2 from "./persuade2.png"
+import persuade3 from "./persuade3.png"
 export {
     logo,
     next,
@@ -38,4 +42,9 @@ export {
     banner1,
     banner2,
     banner3,
+    report,
+    travel,
+    persuade1,
+    persuade2,
+    persuade3,
 };

@@ -5,6 +5,8 @@ import Hotlines from "./Hotlines"
 import PersuadingUsers from "./PersuadingUsers"
 import Guidelines from "./Guidelines"
 import Carousel from "./Carousel"
+import Weather from "./Weather"
+import Steps from "./Steps"
 // import Weather from "./Weather"
 export default function Home() {
     useEffect(() => {
@@ -15,10 +17,11 @@ export default function Home() {
 
         <Carousel />
         <Reporting />
-        {/* <Weather /> */}
+        <Weather />
         <Hotlines />
-        <Guidelines />
+        {/* <Guidelines /> */}
         <PersuadingUsers />
+        <Steps />
         <Footer />
         </>
     )

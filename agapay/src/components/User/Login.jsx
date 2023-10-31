@@ -221,7 +221,7 @@ const Login = ({ onClose }) => {
                 <h2 className="text-center md:text-4xl text-2xl font-semibold text-primary  font-inter leading-9 mb-2 tracking-tight mt-5  ">
                   Welcome to Agapay
                 </h2>
-                <p className="text-center font-poppins mb-3">
+                <p className="text-center font-poppins mb-3 text-black font-normal">
                   Log in to access services and contribute to disaster reporting
                   and travel assistance.
                 </p>
@@ -235,12 +235,12 @@ const Login = ({ onClose }) => {
                         name="loginUsername"
                         value={formData.loginUsername}
                         onChange={handleInputChange}
-                        className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
+                        className="block px-2.5 font-poppins border-gray/30  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
                         placeholder=""
                       />
                       <label
                         htmlFor="loginUsername"
-                        className="absolute text-sm  font-poppins cursor-text  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
+                        className="absolute text-sm text-black    font-poppins cursor-text  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
                       >
                         Username
                       </label>
@@ -254,12 +254,12 @@ const Login = ({ onClose }) => {
                         name="loginPass"
                         value={formData.loginPass}
                         onChange={handleInputChange}
-                        className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border  peer"
+                        className="block px-2.5 font-poppins border-gray/30  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border  peer"
                         placeholder=""
                       />
                       <label
                         htmlFor="loginPass"
-                        className="absolute text-sm  font-poppins cursor-text  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
+                        className="absolute text-sm  border-gray/30 text-black  font-poppins cursor-text  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
                       >
                         Password
                       </label>
@@ -293,7 +293,7 @@ const Login = ({ onClose }) => {
                     </div>
 
                     <div className="mb-3 text-center font-poppins mt-3">
-                      <p className="text-sm text-gray-600">
+                      <p className="text-sm text-gray">
                         Not yet a user?{" "}
                         <span
                           className="text-primary hover:underline cursor-pointer font-semibold"
@@ -764,7 +764,7 @@ const Login = ({ onClose }) => {
                     />
                     <label
                       htmlFor="regUsername"
-                      className="absolute text-sm  font-poppins  cursor-text duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
+                      className="absolute text-sm   font-poppins  cursor-text duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
                     >
                       Username
                     </label>
