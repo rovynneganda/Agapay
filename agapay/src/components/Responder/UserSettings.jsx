@@ -10,10 +10,10 @@ const ResponderUserSettings = () => {
         <div className="p-4 sm:ml-64 mt-16">
           <h1 className="font-inter text-3xl mt-3">User Information</h1>
           <hr className="border-primary mt-3 mb-3" />
-          <div class="container px-5 py-16 mx-auto">
-            <div class="flex flex-wrap -m-4">
-              <div class="p-4 md:w-1/2 w-full">
-                <div class="h-full bg-white p-8 rounded border border-gray/30 shadow-sm space-y-6 font-inter">
+          <div className="container px-5 py-16 mx-auto">
+            <div className="flex flex-wrap -m-4">
+              <div className="p-4 md:w-1/2 w-full">
+                <div className="h-full bg-white p-8 rounded border border-gray/30 shadow-sm space-y-6 font-inter">
                   <InformationCircleIcon className="w-6 h-6 text-primary" />
                   <p className="border-b border-gray/20 font-semibold">
                     Name: <span className="font-normal">Joko Gadingan</span>
@@ -34,8 +34,8 @@ const ResponderUserSettings = () => {
                   </p>
                 </div>
               </div>
-              <div class="p-4 md:w-1/2 w-full">
-                <div class="h-full bg-white p-8 rounded border border-gray/30 shadow-sm space-y-6 font-inter">
+              <div className="p-4 md:w-1/2 w-full">
+                <div className="h-full bg-white p-8 rounded border border-gray/30 shadow-sm space-y-6 font-inter">
                   <IdentificationIcon className="w-6 h-6 text-primary" />
                   <p className="border-b border-gray/20 font-semibold">
                     Company: <span className="font-normal">City Fire Eme</span>

@@ -22,8 +22,8 @@ const AdminSideBar = () => {
   return (
    <>
    <nav className='fixed top-0 z-30 w-full bg-white border-b border-gray/20 '>
-   <button  onClick={toggleSidebar}    aria-expanded={isSidebarOpen ? 'true' : 'false'}  type="button" class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200  ">
-   <span class="sr-only">Open sidebar</span>
+   <button  onClick={toggleSidebar}    aria-expanded={isSidebarOpen ? 'true' : 'false'}  type="button" className="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200  ">
+   <span className="sr-only">Open sidebar</span>
    <Bars3BottomLeftIcon className='w-6 h-6' />
 </button>
 </nav>
@@ -32,9 +32,9 @@ const AdminSideBar = () => {
         } bg-white  sm:translate-x-0 `}
         aria-label="Sidebar" 
       >
-  <div class="overflow-y-auto py-5 px-3 h-full bg-primary  ">
-  {/* <img src={logo} class="w-16 h-16 mx-auto mb-5" alt="Agapay Logo" />   */}
-      <ul class="space-y-2">
+  <div className="overflow-y-auto py-5 px-3 h-full bg-primary  ">
+  {/* <img src={logo} className="w-16 h-16 mx-auto mb-5" alt="Agapay Logo" />   */}
+      <ul className="space-y-2">
       <li>
             <Link to="/admin" className={`flex items-center text-white font-poppins p-2 rounded-lg ${
     location.pathname === '/admin' ? 'bg-primarydark text-opacity-100' : 'hover:bg-primarydark text-opacity-80 hover:text-opacity-100'
@@ -70,7 +70,7 @@ const AdminSideBar = () => {
          </li>
 
       </ul>
-      <ul class="pt-5 mt-5 space-y-2 border-t border-white/50 ">
+      <ul className="pt-5 mt-5 space-y-2 border-t border-white/50 ">
       <li>
       <button
         type="button"
@@ -121,7 +121,7 @@ const AdminSideBar = () => {
       )}
     </li>
       </ul>
-      <ul class="pt-5  space-y-2  border-white/50 ">
+      <ul className="pt-5  space-y-2  border-white/50 ">
       <li>
       <button
         type="button"

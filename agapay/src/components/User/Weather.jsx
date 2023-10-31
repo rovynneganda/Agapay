@@ -5,12 +5,12 @@ import Application from "../../weather/components/Application";
 const Weather = () => {
   return (
     <>
-      <section class="py-10 bg-subtlegray">
+      <section className="py-10 bg-subtlegray">
         <div className="">
-      <h1 class="text-4xl mb-4 text-primary text-center font-inter font-semibold">
+      <h1 className="text-4xl mb-4 text-primary text-center font-inter font-semibold">
               Weather Updates
             </h1>
-            <p class="mb-8 leading-relaxed text-center font-normal font-inter text-lg">
+            <p className="mb-8 leading-relaxed text-center font-normal font-inter text-lg">
             Stay prepared with clear daily forecasts.
             </p>
             </div>
@@ -22,8 +22,8 @@ const Weather = () => {
               dito yung hourly at daily forecast
             </div>
             </div>
-        <div class="container mx-auto flex px-5 md:flex-row flex-col items-center">
-          <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0 bg-primary">
+        <div className="container mx-auto flex px-5 md:flex-row flex-col items-center">
+          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0 bg-primary">
             <Application />
           </div>
         </div>
