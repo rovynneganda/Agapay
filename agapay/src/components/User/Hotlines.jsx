@@ -96,19 +96,22 @@ const Hotlines = () => {
   };
   return (
     <>
-      <section className="bg-gray/5">
+      <section className="bg-primary/5">
         <div className="container px-5 py-9 mx-auto">
           <div className="flex flex-wrap w-full  flex-col items-center text-center">
-            <h1 className="sm:text-3xl text-2xl font-semibold text-primary mb-2 font-inter">
+            <h1 className="text-4xl font-semibold mb-3 font-poppins text-primary">
               General Hotlines
             </h1>
-            <p className="lg:w-1/2 w-full text-gray leading-relaxed font-poppins">
+            <p className="lg:w-1/2 w-full text-black leading-relaxed font-poppins text-lg">
               Emergency Contacts and Support Helplines
             </p>
+            <p className="lg:w-1/2 w-full text-gray leading-relaxed font-poppins text-lg">
+              Press <MapPinIcon className="w-6 h-6 inline-block text-primary"/> to get the Google Map Location
+            </p>
           </div>
-          <div className="flex flex-wrap -m-4  rounded-xl p-10">
+          <div className="flex flex-wrap -m-4  rounded-xl p-0 sm:p-10">
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
-              <div className="border border-gray/20 shadow p-6 rounded-lg bg-white">
+              <div className="border  border-gray/10 bg-white  rounded-xl shadow-md p-6 ">
                 <div className="flex flex-row">
                   <div className="text-primary bg-primary/20  mr-2  w-8 h-8    rounded-full  capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <FireIcon className="w-10 h-10" />
@@ -127,7 +130,7 @@ const Hotlines = () => {
                   </h3>
                 </div>
                 <div className="flex flex-row">
-                  <button className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                  <button onClick={handleShowModal} className="text-primary  mr-2     capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <MapPinIcon className="h-5 w-5" />
                   </button>
                   <p
@@ -141,7 +144,7 @@ const Hotlines = () => {
               </div>
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
-              <div className="border border-gray/20 shadow p-6 rounded-lg bg-white">
+              <div className="border  border-gray/10 bg-white  rounded-xl shadow-md p-6">
                 <div className="flex flex-row">
                   <div className="text-primary bg-primary/20  mr-2  w-8 h-8    rounded-full  capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <FireIcon className="w-10 h-10" />
@@ -160,7 +163,7 @@ const Hotlines = () => {
                 </div>
 
                 <div className="flex flex-row">
-                  <button className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                  <button  onClick={handleShowModal1} className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <MapPinIcon className="h-5 w-5" />
                   </button>
                   <p
@@ -173,7 +176,7 @@ const Hotlines = () => {
               </div>
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
-              <div className="border border-gray/20 shadow p-6 rounded-lg bg-white">
+              <div className="border  border-gray/10 bg-white  rounded-xl shadow-md p-6">
                 <div className="flex flex-row">
                   <div className="text-primary bg-primary/20  mr-2  w-8 h-8    rounded-full  capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <ShieldExclamationIcon className="w-10 h-10" />
@@ -192,7 +195,7 @@ const Hotlines = () => {
                 </div>
 
                 <div className="flex flex-row">
-                  <button className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                  <button    onClick={handleShowModal2} className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <MapPinIcon className="h-5 w-5" />
                   </button>
                   <p
@@ -205,7 +208,7 @@ const Hotlines = () => {
               </div>
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
-              <div className="border border-gray/20 shadow p-6 rounded-lg bg-white">
+              <div className="border  border-gray/10 bg-white  rounded-xl shadow-md p-6">
                 <div className="flex flex-row">
                   <div className="text-primary bg-primary/20  mr-2  w-8 h-8    rounded-full  capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <ShieldExclamationIcon className="w-10 h-10" />
@@ -224,7 +227,7 @@ const Hotlines = () => {
                 </div>
 
                 <div className="flex flex-row">
-                  <button className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                  <button     onClick={handleShowModal3} className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <MapPinIcon className="h-5 w-5" />
                   </button>
                   <p
@@ -238,7 +241,7 @@ const Hotlines = () => {
               </div>
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
-              <div className="border border-gray/20 shadow p-6 rounded-lg bg-white">
+              <div className="border  border-gray/10 bg-white  rounded-xl shadow-md p-6">
                 <div className="flex flex-row">
                   <div className="text-primary bg-primary/20  mr-2  w-8 h-8    rounded-full  capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <BuildingOffice2Icon className="w-10 h-10" />
@@ -257,7 +260,7 @@ const Hotlines = () => {
                 </div>
 
                 <div className="flex flex-row">
-                  <button className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                  <button   onClick={handleShowModal4} className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <MapPinIcon className="h-5 w-5" />
                   </button>
                   <p
@@ -270,7 +273,7 @@ const Hotlines = () => {
               </div>
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
-              <div className="border border-gray/20 shadow p-6 rounded-lg bg-white">
+              <div className="border  border-gray/10 bg-white  rounded-xl shadow-md p-6">
                 <div className="flex flex-row">
                   <div className="text-primary bg-primary/20  mr-2  w-8 h-8    rounded-full  capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <BuildingOffice2Icon className="w-10 h-10" />
@@ -289,7 +292,7 @@ const Hotlines = () => {
                 </div>
 
                 <div className="flex flex-row">
-                  <button className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                  <button  onClick={handleShowModal5} className="text-primary  mr-2    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <MapPinIcon className="h-5 w-5" />
                   </button>
                   <p
@@ -307,34 +310,34 @@ const Hotlines = () => {
       {showModal && (
         <div
           tabindex="-1"
-          class="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-gray bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
+          className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-gray bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
         >
-          <div class="relative w-full max-w-md max-h-full">
-            <div class="relative bg-white rounded-lg shadow ">
+          <div className="relative w-full max-w-md max-h-full">
+            <div className="relative bg-white rounded-lg shadow ">
               <button
                 type="button"
                 onClick={handleCloseModal}
-                class="absolute top-3 right-2.5 text-gray bg-transparent hover:bg-gray/20 hover:text-gray rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center "
+                className="absolute top-3 right-2.5 text-gray bg-transparent hover:bg-gray/20 hover:text-gray rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center "
               >
                 <XMarkIcon className="w-5 h-5" />
-                <span class="sr-only">Close modal</span>
+                <span className="sr-only">Close modal</span>
               </button>
-              <div class="p-6 text-center">
+              <div className="p-6 text-center">
                 <QuestionMarkCircleIcon className="h-12 w-12 mb-5 mx-auto text-blue" />
-                <h3 class="mb-5 text-lg font-normal text-gray font-inter ">
+                <h3 className="mb-5 text-lg font-normal text-gray font-inter ">
                   Would you like to proceed with opening this on Google Maps?
                 </h3>
                 <button
                   type="button"
                   onClick={openExternalWebsite}
-                  class="text-white bg-primary hover:bg-primarydark font-inter   focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                  className="text-white bg-primary hover:bg-primarydark font-inter   focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
                 >
                   Open Maps
                 </button>
                 <button
                   type="button"
                   onClick={handleCloseModal}
-                  class="text-[#c94c05] border border-[#c94c05] font-inter bg-none hover:bg-[#fff8ec] focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                  className="text-[#c94c05] border border-[#c94c05] font-inter bg-none hover:bg-[#fff8ec] focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
                 >
                   Cancel
                 </button>
@@ -346,34 +349,34 @@ const Hotlines = () => {
       {showModal1 && (
         <div
           tabindex="-1"
-          class="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-gray bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
+          className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-gray bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
         >
-          <div class="relative w-full max-w-md max-h-full">
-            <div class="relative bg-white rounded-lg shadow ">
+          <div className="relative w-full max-w-md max-h-full">
+            <div className="relative bg-white rounded-lg shadow ">
               <button
                 type="button"
                 onClick={handleCloseModal1}
-                class="absolute top-3 right-2.5 text-gray bg-transparent hover:bg-gray/20 hover:text-gray rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center "
+                className="absolute top-3 right-2.5 text-gray bg-transparent hover:bg-gray/20 hover:text-gray rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center "
               >
                 <XMarkIcon className="w-5 h-5" />
-                <span class="sr-only">Close modal</span>
+                <span className="sr-only">Close modal</span>
               </button>
-              <div class="p-6 text-center">
+              <div className="p-6 text-center">
                 <QuestionMarkCircleIcon className="h-12 w-12 mb-5 mx-auto text-blue" />
-                <h3 class="mb-5 text-lg font-normal text-gray font-inter ">
+                <h3 className="mb-5 text-lg font-normal text-gray font-inter ">
                   Would you like to proceed with opening this on Google Maps?
                 </h3>
                 <button
                   type="button"
                   onClick={openExternalWebsite1}
-                  class="text-white bg-primary hover:bg-primarydark font-inter   focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                  className="text-white bg-primary hover:bg-primarydark font-inter   focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
                 >
                   Open Maps
                 </button>
                 <button
                   type="button"
                   onClick={handleCloseModal1}
-                  class="text-[#c94c05] border border-[#c94c05] font-inter bg-none hover:bg-[#fff8ec] focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                  className="text-[#c94c05] border border-[#c94c05] font-inter bg-none hover:bg-[#fff8ec] focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
                 >
                   Cancel
                 </button>
@@ -385,34 +388,34 @@ const Hotlines = () => {
       {showModal2 && (
         <div
           tabindex="-1"
-          class="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-gray bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
+          className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-gray bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
         >
-          <div class="relative w-full max-w-md max-h-full">
-            <div class="relative bg-white rounded-lg shadow ">
+          <div className="relative w-full max-w-md max-h-full">
+            <div className="relative bg-white rounded-lg shadow ">
               <button
                 type="button"
                 onClick={handleCloseModal2}
-                class="absolute top-3 right-2.5 text-gray bg-transparent hover:bg-gray/20 hover:text-gray rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center "
+                className="absolute top-3 right-2.5 text-gray bg-transparent hover:bg-gray/20 hover:text-gray rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center "
               >
                 <XMarkIcon className="w-5 h-5" />
-                <span class="sr-only">Close modal</span>
+                <span className="sr-only">Close modal</span>
               </button>
-              <div class="p-6 text-center">
+              <div className="p-6 text-center">
                 <QuestionMarkCircleIcon className="h-12 w-12 mb-5 mx-auto text-blue" />
-                <h3 class="mb-5 text-lg font-normal text-gray font-inter ">
+                <h3 className="mb-5 text-lg font-normal text-gray font-inter ">
                   Would you like to proceed with opening this on Google Maps?
                 </h3>
                 <button
                   type="button"
                   onClick={openExternalWebsite2}
-                  class="text-white bg-primary hover:bg-primarydark font-inter   focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                  className="text-white bg-primary hover:bg-primarydark font-inter   focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
                 >
                   Open Maps
                 </button>
                 <button
                   type="button"
                   onClick={handleCloseModal2}
-                  class="text-[#c94c05] border border-[#c94c05] font-inter bg-none hover:bg-[#fff8ec] focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                  className="text-[#c94c05] border border-[#c94c05] font-inter bg-none hover:bg-[#fff8ec] focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
                 >
                   Cancel
                 </button>
@@ -424,34 +427,34 @@ const Hotlines = () => {
       {showModal3 && (
         <div
           tabindex="-1"
-          class="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-gray bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
+          className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-gray bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
         >
-          <div class="relative w-full max-w-md max-h-full">
-            <div class="relative bg-white rounded-lg shadow ">
+          <div className="relative w-full max-w-md max-h-full">
+            <div className="relative bg-white rounded-lg shadow ">
               <button
                 type="button"
                 onClick={handleCloseModal3}
-                class="absolute top-3 right-2.5 text-gray bg-transparent hover:bg-gray/20 hover:text-gray rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center "
+                className="absolute top-3 right-2.5 text-gray bg-transparent hover:bg-gray/20 hover:text-gray rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center "
               >
                 <XMarkIcon className="w-5 h-5" />
-                <span class="sr-only">Close modal</span>
+                <span className="sr-only">Close modal</span>
               </button>
-              <div class="p-6 text-center">
+              <div className="p-6 text-center">
                 <QuestionMarkCircleIcon className="h-12 w-12 mb-5 mx-auto text-blue" />
-                <h3 class="mb-5 text-lg font-normal text-gray font-inter ">
+                <h3 className="mb-5 text-lg font-normal text-gray font-inter ">
                   Would you like to proceed with opening this on Google Maps?
                 </h3>
                 <button
                   type="button"
                   onClick={openExternalWebsite3}
-                  class="text-white bg-primary hover:bg-primarydark font-inter   focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                  className="text-white bg-primary hover:bg-primarydark font-inter   focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
                 >
                   Open Maps
                 </button>
                 <button
                   type="button"
                   onClick={handleCloseModal3}
-                  class="text-[#c94c05] border border-[#c94c05] font-inter bg-none hover:bg-[#fff8ec] focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                  className="text-[#c94c05] border border-[#c94c05] font-inter bg-none hover:bg-[#fff8ec] focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
                 >
                   Cancel
                 </button>
@@ -463,34 +466,34 @@ const Hotlines = () => {
       {showModal4 && (
         <div
           tabindex="-1"
-          class="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-gray bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
+          className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-gray bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
         >
-          <div class="relative w-full max-w-md max-h-full">
-            <div class="relative bg-white rounded-lg shadow ">
+          <div className="relative w-full max-w-md max-h-full">
+            <div className="relative bg-white rounded-lg shadow ">
               <button
                 type="button"
                 onClick={handleCloseModal4}
-                class="absolute top-3 right-2.5 text-gray bg-transparent hover:bg-gray/20 hover:text-gray rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center "
+                className="absolute top-3 right-2.5 text-gray bg-transparent hover:bg-gray/20 hover:text-gray rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center "
               >
                 <XMarkIcon className="w-5 h-5" />
-                <span class="sr-only">Close modal</span>
+                <span className="sr-only">Close modal</span>
               </button>
-              <div class="p-6 text-center">
+              <div className="p-6 text-center">
                 <QuestionMarkCircleIcon className="h-12 w-12 mb-5 mx-auto text-blue" />
-                <h3 class="mb-5 text-lg font-normal text-gray font-inter ">
+                <h3 className="mb-5 text-lg font-normal text-gray font-inter ">
                   Would you like to proceed with opening this on Google Maps?
                 </h3>
                 <button
                   type="button"
                   onClick={openExternalWebsite4}
-                  class="text-white bg-primary hover:bg-primarydark font-inter   focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                  className="text-white bg-primary hover:bg-primarydark font-inter   focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
                 >
                   Open Maps
                 </button>
                 <button
                   type="button"
                   onClick={handleCloseModal4}
-                  class="text-[#c94c05] border border-[#c94c05] font-inter bg-none hover:bg-[#fff8ec] focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                  className="text-[#c94c05] border border-[#c94c05] font-inter bg-none hover:bg-[#fff8ec] focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
                 >
                   Cancel
                 </button>
@@ -502,34 +505,34 @@ const Hotlines = () => {
       {showModal5 && (
         <div
           tabindex="-1"
-          class="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-gray bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
+          className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-gray bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
         >
-          <div class="relative w-full max-w-md max-h-full">
-            <div class="relative bg-white rounded-lg shadow ">
+          <div className="relative w-full max-w-md max-h-full">
+            <div className="relative bg-white rounded-lg shadow ">
               <button
                 type="button"
                 onClick={handleCloseModal5}
-                class="absolute top-3 right-2.5 text-gray bg-transparent hover:bg-gray/20 hover:text-gray rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center "
+                className="absolute top-3 right-2.5 text-gray bg-transparent hover:bg-gray/20 hover:text-gray rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center "
               >
                 <XMarkIcon className="w-5 h-5" />
-                <span class="sr-only">Close modal</span>
+                <span className="sr-only">Close modal</span>
               </button>
-              <div class="p-6 text-center">
+              <div className="p-6 text-center">
                 <QuestionMarkCircleIcon className="h-12 w-12 mb-5 mx-auto text-blue" />
-                <h3 class="mb-5 text-lg font-normal text-gray font-inter ">
+                <h3 className="mb-5 text-lg font-normal text-gray font-inter ">
                   Would you like to proceed with opening this on Google Maps?
                 </h3>
                 <button
                   type="button"
                   onClick={openExternalWebsite5}
-                  class="text-white bg-primary hover:bg-primarydark font-inter   focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                  className="text-white bg-primary hover:bg-primarydark font-inter   focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
                 >
                   Open Maps
                 </button>
                 <button
                   type="button"
                   onClick={handleCloseModal5}
-                  class="text-[#c94c05] border border-[#c94c05] font-inter bg-none hover:bg-[#fff8ec] focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                  className="text-[#c94c05] border border-[#c94c05] font-inter bg-none hover:bg-[#fff8ec] focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
                 >
                   Cancel
                 </button>
