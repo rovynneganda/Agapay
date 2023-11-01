@@ -11,12 +11,14 @@ import AdminRecords from './components/Admin/Records';
 import CreateAccount from './components/Admin/CreateAccount';
 import CreateAlert from './components/Admin/CreateAlert';
 import CreateAnnouncement from './components/Admin/CreateAnnouncement';
+import SafetyGuidelines from './components/User/SafetyGuidelines';
 const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/nearby-services" element={<EmergencyResources />} />
       <Route path="/about" element={<About />} />
+      <Route path="/safety-guidelines" element={<SafetyGuidelines />} />
       <Route path="/contact-us" element={<ContactUs />} />
       <Route path="/responder" element={<ResponderDashboard />}/>
       <Route path="/responder/records" element={<ResponderRecords />}/>
