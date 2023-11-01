@@ -34,7 +34,7 @@ function Application() {
   },[query,units] )
 
   return (
-    <div className="mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl shadow-gray-400">
+    <div className="w-full mx-auto max-w-lg   p-5 py-10 bg-gradient-to-br from-blue to-darkblue h-fit shadow-md sm:rounded-lg rounded-b-lg font-inter">
      
      {/* <TopButtons setQuery={setQuery}/> */}
      <Inputs setQuery={setQuery} units={units} setUnits />

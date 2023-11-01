@@ -4,11 +4,11 @@ import { iconUrlFromCode } from '../services/weatherServices'
 function Forecast({title,items}) {
   return (
     <div>
-        <div className='flex items-center justify-start mt-6'>
-            <p className='text-white font-medium uppercase'>{title}</p>
+        <div className='flex items-center justify-start '>
+            <p className='text-white font-bold mt-3 uppercase font-inter leading-relaxed '>{title}</p>
 
         </div>
-       <hr className='my-2'></hr> 
+      <hr className='my-2 text-white'></hr> 
        <div className='flex flex-row items-center justify-between text-white'>
         {items.map(item => (
 
@@ -18,7 +18,7 @@ function Forecast({title,items}) {
 </p>
 <img
  src={iconUrlFromCode(item.icon)}
- className='w-12 my-1' 
+ className='' 
  alt=""
    />
 <p className='font-medium'>{`${item.temp.toFixed()}°`}</p>
