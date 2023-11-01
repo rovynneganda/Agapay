@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from 'react'
 import { ArrowRightIcon, ArrowLeftIcon, StopCircleIcon } from '@heroicons/react/24/outline'
-import { banner1, banner2, banner3, weather } from '../../assets';
+import { banner1, banner2, banner3, weather, banner1XL,ems1, rb, rs2200 } from '../../assets';
 const Carousel = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -16,6 +16,9 @@ const Carousel = () => {
   }, []);
 
   const slides = [
+    {
+      url: windowWidth <= 2200 ? rs2200 : null,
+    },
     {
       url: windowWidth < 768 ? weather : banner1,
     },

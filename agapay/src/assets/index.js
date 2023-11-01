@@ -18,6 +18,13 @@ import banner1 from "./banner1.png"
 import banner2 from "./banner2.png"
 import banner3 from "./banner3.png"
 
+import banner1XL from "./banner1XL.png"
+import ems from"./ems.png"
+import ems1 from "./ems1.png"
+import buildinglives from "./rebuildinglives.png"
+import rb from "./rb.png"
+import rblives from "./rblives.png"
+import rs2200 from "./rs2200.png"
 export {
     logo,
     next,
@@ -38,4 +45,11 @@ export {
     banner1,
     banner2,
     banner3,
+    banner1XL,
+    ems,
+    ems1,
+    buildinglives,
+    rb,
+    rblives,
+    rs2200,
 };
