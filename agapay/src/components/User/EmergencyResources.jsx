@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
+import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 import axios from 'axios';
 import { emergencyResources } from "../../constants";
 import { yellowbg1 } from '../../assets';
@@ -44,6 +44,14 @@ const EmergencyResources = () => {
   const openInGoogleMaps = (placeId) => {
     window.open(`https://www.google.com/maps/place/?q=place_id:${placeId}`);
   };
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: 'AIzaSyDzzi_VBcf2Oef6LTViLU767UPNHlnIze4',
+    // Other options, libraries, and modules if needed
+  });
+
+  if (!isLoaded) {
+    return <div>Loading...</div>;
+  }
   return (
     <>
       {/* <div className="bg-white py-16 mt-24">
@@ -124,7 +132,7 @@ const EmergencyResources = () => {
 </div>
 
       </div>
-      <LoadScript googleMapsApiKey="AIzaSyDzzi_VBcf2Oef6LTViLU767UPNHlnIze4">
+      
       <div className='w-full max-w-5xl mx-auto border-2 shadow-gray/10 shadow-xl'>
       <GoogleMap
         center={location || { lat: 0, lng: 0 }}
@@ -167,7 +175,7 @@ const EmergencyResources = () => {
         )}
       </GoogleMap>
       </div>
-      </LoadScript>
+   
       </section>    
       <Footer />
     </>
