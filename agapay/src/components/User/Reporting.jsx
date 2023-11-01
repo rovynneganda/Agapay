@@ -33,7 +33,6 @@ const Reporting = () => {
 
     navigator.geolocation.getCurrentPosition(success, error);
   };
-
   return (
     <>
       <div className="bg-accent">
