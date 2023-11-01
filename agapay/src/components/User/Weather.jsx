@@ -1,5 +1,5 @@
 import React from "react";
-
+import ForecastComp from "../../weather/components/ForecastComp";
 import Application from "../../weather/components/Application";
 
 const Weather = () => {
@@ -15,17 +15,15 @@ const Weather = () => {
             </p>
             </div>
             <div className="flex flex-row gap-52 justify-center items-center"> 
-            <div>
-              dito yung caloocan ph eme
+           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0 bg-primary">
+           <Application />
             </div>
-            <div>
-              dito yung hourly at daily forecast
+           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0 bg-primary">
+           <ForecastComp />
             </div>
             </div>
         <div className="container mx-auto flex px-5 md:flex-row flex-col items-center">
-          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0 bg-primary">
-            <Application />
-          </div>
+       
         </div>
       </section>
     </>
