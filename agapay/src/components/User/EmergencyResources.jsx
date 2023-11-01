@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 import axios from 'axios';
 import { emergencyResources } from "../../constants";
+import { yellowbg1 } from '../../assets';
 import Footer from "./Footer";
 const EmergencyResources = () => {
   useEffect(() => {
@@ -45,7 +46,7 @@ const EmergencyResources = () => {
   };
   return (
     <>
-      <div className="bg-white py-16 mt-24">
+      {/* <div className="bg-white py-16 mt-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
             <h2 className="text-base font-semibold leading-7 text-secondary font-poppins">
@@ -80,47 +81,57 @@ const EmergencyResources = () => {
             </dl>
           </div>
         </div>
-      </div>
-      <div className="text-center p-5">
-        <h2 className="text-3xl font-semibold mb-2 text-primary font-inter">
-          Explore Nearby Services
+      </div> */}
+       <div
+  className="your-custom-classes bg-cover bg-center bg-no-repeat sm:py-40 pt-32 pb-10  p-5" // Add any additional classes you need and adjust height as necessary
+  style={{ backgroundImage: `url(${yellowbg1})` }}
+><div className='mt-20'>
+<h2 className="sm:text-6xl text-4xl  font-semibold mb-2 text-primary font-inter text-center">
+         Nearby Services
         </h2>
-        <h3 className="text-xl font-semibold mb-4  font-poppins">
-          Find Hospitals, Police Stations, and Fire Stations
-        </h3>
-        <div className="font-poppins">
-          Discover nearby hospitals, police stations, and fire stations to
+        <p className="font-poppins text-lg font-normal text-center">
+          Discover nearby hospitals, police stations, and fire stations to <br/>
           ensure you know where to find help when you need it.
+        </p>
         </div>
+</div>
+
+          <section className='bg-subtlegray pb-10'>
+      <div className="text-center pt-5  ">
+       
+        <h3 className="sm:text-2xl text-xl font-medium  font-inter">
+          Find Hospitals, Police Stations, and Fire Stations. 
+        </h3>
+      <p className=' text-gray font-inter text-base'>To ensure you have immediate access to essential emergency services</p>
       </div>
-      <div className="mx-auto max-w-2xl lg:max-w-4xl gap-2 p-5 mb-5">
-        <div className="flex sm:flex-row flex-col justify-center items-center  gap-3">
-          <div className="relative mb-2">
-            <button onClick={() => fetchNearbyLocations('hospital')} className="px-4 py-2 bg-primary font-poppins text-white font-semibold hover:bg-primarydark rounded-lg">
-              Nearby Hospitals
-            </button>
-          </div>
-          <div onClick={() => fetchNearbyLocations('police')} className="relative mb-2">
-            <button className="px-4 py-2 bg-primary font-poppins text-white font-semibold hover:bg-primarydark rounded-lg">
-              Nearby Police Stations
-            </button>
-          </div>
-          <div className="relative mb-2">
-            <button onClick={() => fetchNearbyLocations('fire_station')} className="px-4 py-2 bg-primary font-poppins text-white font-semibold hover:bg-primarydark rounded-lg">
-              Nearby Fire Stations
-            </button>
-          </div>
-          
-        </div>
-        
+      <div className="mx-auto max-w-2xl lg:max-w-4xl gap-2 p-5 ">
+      <div className="flex sm:flex-row flex-wrap justify-center items-center gap-3">
+  <div className="mb-2  ">
+    <button onClick={() => fetchNearbyLocations('police')} className="w-full px-4 py-2 bg-primary font-inter text-white font-semibold hover:bg-primarydark rounded-lg">
+      Police Stations
+    </button>
+  </div>
+  <div className="mb-2  ">
+    <button onClick={() => fetchNearbyLocations('fire_station')} className="w-full px-4 py-2 bg-primary font-inter text-white font-semibold hover:bg-primarydark rounded-lg">
+      Fire Stations
+    </button>
+  </div>
+  <div className="mb-2 ">
+    <button onClick={() => fetchNearbyLocations('hospital')} className="w-full px-4 py-2 bg-primary font-inter text-white font-semibold hover:bg-primarydark rounded-lg">
+      Hospitals
+    </button>
+  </div>
+</div>
 
       </div>
       <LoadScript googleMapsApiKey="AIzaSyDzzi_VBcf2Oef6LTViLU767UPNHlnIze4">
+      <div className='w-full max-w-5xl mx-auto border-2 shadow-gray/10 shadow-xl'>
       <GoogleMap
         center={location || { lat: 0, lng: 0 }}
         zoom={15}
         mapContainerStyle={{ height: '400px', width: '100%',}}
       >
+     
         {/* Display nearby locations as markers and info windows */}
         {locations.map((location) => (
           <Marker
@@ -155,8 +166,9 @@ const EmergencyResources = () => {
           </InfoWindow>
         )}
       </GoogleMap>
-
+      </div>
       </LoadScript>
+      </section>    
       <Footer />
     </>
   );

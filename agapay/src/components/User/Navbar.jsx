@@ -93,10 +93,10 @@ const Navbar = () => {
               <li>
                 <Link
                   className={`${styles.navLinks}`}
-                  to="/emergency-resources"
+                  to="/nearby-services"
                   onClick={toggleNavbar}
                 >
-                  Emergency Resources
+                  Nearby Services
                 </Link>
               </li>
               <li>

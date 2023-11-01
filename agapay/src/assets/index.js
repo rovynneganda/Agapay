@@ -22,6 +22,8 @@ import travel from "./travel_assistance.png"
 import persuade1 from "./persuade1.png"
 import persuade2 from "./persuade2.png"
 import persuade3 from "./persuade3.png"
+import yellowbg from "./6018634.jpg"
+import yellowbg1 from "./Yellow_background.jpg"
 export {
     logo,
     next,
@@ -47,4 +49,6 @@ export {
     persuade1,
     persuade2,
     persuade3,
+    yellowbg,
+    yellowbg1,
 };
