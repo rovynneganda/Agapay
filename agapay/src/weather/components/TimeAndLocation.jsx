@@ -92,7 +92,7 @@ return (
 
         </div> */}
       <div className=' flex items-center justify-center my-3'>
-        <p className='text-white text-3xl font-medium'>
+        <p className='text-white text-4xl font-medium text-center font-inter'>
           {data.name}, {data.country}
            </p>
       </div>
