@@ -91,7 +91,7 @@ const EmergencyResources = () => {
         </div>
       </div> */}
        <div
-  className="your-custom-classes bg-cover bg-center bg-no-repeat sm:py-40 pt-32 pb-10  p-5" // Add any additional classes you need and adjust height as necessary
+  className="bg-cover bg-center bg-no-repeat sm:py-40 pt-32 pb-10  p-5" // Add any additional classes you need and adjust height as necessary
   style={{ backgroundImage: `url(${yellowbg1})` }}
 ><div className='mt-20'>
 <h2 className="sm:text-6xl text-4xl  font-semibold mb-2 text-primary font-inter text-center">

@@ -102,6 +102,15 @@ const Navbar = () => {
               <li>
                 <Link
                   className={`${styles.navLinks}`}
+                  to="/safety-guidelines"
+                  onClick={toggleNavbar}
+                >
+                  Safety Guidelines
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className={`${styles.navLinks}`}
                   to="/about"
                   onClick={toggleNavbar}
                 >
