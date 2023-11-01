@@ -1,6 +1,7 @@
 import React from 'react'
 import { yellowbg1 } from '../../assets'
 import SafetyContents from './SafetyContents'
+import Footer from "./Footer";
 const SafetyGuidelines = () => {
   return (
     <>
@@ -18,6 +19,7 @@ const SafetyGuidelines = () => {
           </div>
   </div>
   <SafetyContents />
+  <Footer/>
   </>
   )
 }

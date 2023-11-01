@@ -1,14 +1,14 @@
 import React,{useState} from 'react'
-
+import FireContents from './FireContents';
 const SafetyContents = () => {
   const [activeTab, setActiveTab] = useState("fire");
   const handleTabClick = (tab) => {
       setActiveTab(tab);
     };
   return (
-    <section className=" sm:my-0 my-10 mt-0 ">
-    <div className="p-4">
-        <div className="flex mx-auto flex-wrap mb-10 justify-center gap-5">
+    <section className=" sm:my-0 my-10 pt-10 mt-0 ">
+    <div className="p-4 ">
+        <div className="flex mx-auto flex-wrap  justify-center gap-5">
             {[
               "fire",
               "earthquake",
@@ -33,17 +33,17 @@ const SafetyContents = () => {
               </button>
             ))}
           </div>
+          </div>
           {activeTab === "fire" && (
-           <div>
-            s
-             </div>
+            <FireContents />
         )}
          {activeTab === "flood" && (
             <h1 className='mt-32 ml-64'>dd</h1>
         )}
-        </div>
+  
         
         </section>
+
   )
 }
 
