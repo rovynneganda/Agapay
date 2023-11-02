@@ -1,14 +1,22 @@
 import React,{useState} from 'react'
-
+import FireContents from './FireContents';
+import EarthquakeContents from './EarthquakeContents';
+import TsunamiContents from './TsunamiContents';
+import LandslideContents from './LandslideContents';
+import FloodContents from './FloodContents';
+import TropicalCycloneContents from './TropicalCycloneContents';
+import VolcanicEruptionContents from './VolcanicEruptionContents';
+import StormSurgeContents from './StormSurgeContents';
 const SafetyContents = () => {
   const [activeTab, setActiveTab] = useState("fire");
   const handleTabClick = (tab) => {
       setActiveTab(tab);
     };
   return (
-    <section className=" sm:my-0 my-10 mt-0 ">
-    <div className="p-4">
-        <div className="flex mx-auto flex-wrap mb-10 justify-center gap-5">
+    // ${activeTab === 'fire' ? 'bg-[#fff0f2]' : ''}
+<section className={`sm:my-0 my-10 pt-10 mt-0 bg-subtlegray `}>
+    <div className="p-4 ">
+        <div className="flex mx-auto flex-wrap  justify-center sm:gap-5 gap-0 ">
             {[
               "fire",
               "earthquake",
@@ -22,7 +30,7 @@ const SafetyContents = () => {
               <button
                 key={tab}
                 onClick={() => handleTabClick(tab)}
-                className={`sm:px-6 py-3 w-1/2 sm:w-auto font-inter font-medium  leading-none tracking-wider ${
+                className={`sm:px-6 py-3 w-1/2 sm:w-auto font-inter font-medium mb-2  leading-none tracking-wider ${
                   activeTab === tab
                     ? "  border-primary text-white  rounded-full bg-primary "
                     : " text-gray hover:text-black border border-gray/20 rounded-full hover:bg-subtlegray"
@@ -33,17 +41,33 @@ const SafetyContents = () => {
               </button>
             ))}
           </div>
+          </div>
           {activeTab === "fire" && (
-           <div>
-            s
-             </div>
+            <FireContents />
         )}
-         {activeTab === "flood" && (
-            <h1 className='mt-32 ml-64'>dd</h1>
+         {activeTab === "earthquake" && (
+           <EarthquakeContents />
         )}
-        </div>
-        
+           {activeTab === "tsunami" && (
+           <TsunamiContents />
+        )}
+        {activeTab === "landslide" && (
+           <LandslideContents />
+        )}
+                {activeTab === "flood" && (
+           <FloodContents />
+        )}
+                        {activeTab === "tropicalCyclone" && (
+           <TropicalCycloneContents />
+        )}
+                        {activeTab === "volcanicEruption" && (
+           <VolcanicEruptionContents />
+        )}
+        {activeTab === "stormSurge" && (
+           <StormSurgeContents />
+        )}
         </section>
+
   )
 }
 

@@ -434,7 +434,7 @@ const Guidelines = () => {
                       <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-primary/20 text-primary mr-4">
                         <ArrowTrendingDownIcon className="w-6 h-6" />
                       </div>
-                      <h2 className="text-xl  font-semibold font-inter text-primary mb-2">
+                      <h2 className="text-xl  font-semibold font-inter text-brown mb-2">
                         Earthquake
                       </h2>
                     </div>
@@ -842,7 +842,7 @@ const Guidelines = () => {
                         <span className="text-black">
                           {" "}
                           Treat all tsunami warnings as real threats. Even if
-                          the warning is a precaution, it's better to err on the
+                          the warning is a precaution, it's better to be on the
                           side of caution.
                         </span>
                       </li>
