@@ -1,7 +1,7 @@
 import { DateTime } from "luxon";
 
 // const API_KEY ="ffe63745a1e6cbad92e44b2bf6f0ea6a";
-const BASE_URL = "https://api.openweathermap.org/data/2.5/weather?q=Caloocan&appid=f1bb682ca505d2cbbee6c15980f4e9e2&units=metric"
+const BASE_URL = "https://api.openweathermap.org/data/2.5/weather?q=Caloocan&appid=6d055e39ee237af35ca066f35474e9df&units=metric"
 
 
 

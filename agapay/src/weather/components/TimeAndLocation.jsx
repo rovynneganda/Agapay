@@ -35,7 +35,7 @@ function TimeAndLocation() {
     country:""
 })
 useEffect(() =>{
-    const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=Caloocan&appid=f1bb682ca505d2cbbee6c15980f4e9e2&units=metric';
+    const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=Caloocan&appid=6d055e39ee237af35ca066f35474e9df&units=metric';
     axios.get(apiUrl)
     .then(res => {
         console.log(res.data);
