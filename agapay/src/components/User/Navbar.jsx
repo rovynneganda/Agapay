@@ -69,12 +69,15 @@ const Navbar = () => {
         mt-24`}
       >
         <div className="max-w-screen-xl px-4 py-3 mx-auto">
+          <div className="flex flex-row gap-2">
           <button
-            className="block sm:hidden  text-white bg-secondary py-2 px-2 rounded-lg"
+            className="block sm:hidden  text-white bg-primarydark py-2 px-2 rounded-lg"
             onClick={toggleNavbar}
           >
             <img src={menu} alt="" />
           </button>
+          <span    onClick={toggleNavbar}  className="text-white block sm:hidden font-inter font-semibold text-lg">Menu</span>
+          </div>
           <div className="flex items-center justify-center sm:justify-between  flex-wrap">
             <ul
               className={`${

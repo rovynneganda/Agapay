@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { logo, weather, alerts, yellowbg1 } from "../../assets";
+import Team from "./Team";
 import {
   ArrowDownCircleIcon,
   ChevronDoubleDownIcon,
@@ -14,6 +15,7 @@ const About = () => {
   }, []);
   return (
     <>
+    <section className="bg-subtlegray">
            <div
   className=" bg-cover bg-center bg-no-repeat sm:py-40 pt-32 pb-10  p-5" // Add any additional classes you need and adjust height as necessary
   style={{ backgroundImage: `url(${yellowbg1})` }}
@@ -93,10 +95,10 @@ const About = () => {
                 </div>
         </div>
   
-       
+       <Team />
 
 
-
+       </section>
       <Footer />
     </>
   );
