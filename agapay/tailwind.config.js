@@ -24,6 +24,8 @@ export default {
       overlay:'#888b93', //gray overlay
       navprimary:'#FF5900', //dark orange
       navsecondary:'#FF9232',
+      brown:'#bc560a', //brwn
+      landslide:'#bd5a0a'//brown  din
     },
     fontFamily: {
       poppins: ["Poppins", "sans-serif"],
