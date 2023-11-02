@@ -5,12 +5,12 @@ import Application from "../../weather/components/Application";
 const Weather = () => {
   return (
     <>
-      <section className="py-10 bg-darkblue ">
+      <section className="py-10 bg-white ">
         <div className="">
-      <h1 className="text-4xl mb-2 text-blue text-center font-inter font-semibold">
+      <h1 className="text-4xl mb-2 text-darkblue text-center font-inter font-semibold">
               Weather Updates
             </h1>
-            <p className="mb-8 leading-relaxed text-center font-normal font-inter text-blue text-lg">
+            <p className="mb-8 leading-relaxed text-center font-normal font-inter text-darkblue text-lg">
             Stay prepared with clear daily forecasts.
             </p>
             </div>
