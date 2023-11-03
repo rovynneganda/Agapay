@@ -7,9 +7,9 @@ import AdminSideBar from './components/Admin/AdminSideBar';
 const App = () => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <AppRoutes />
-      {/* <SideBarResponder /> */}
+      <SideBarResponder />
       {/* <AdminSideBar /> */}
     </>
   );
