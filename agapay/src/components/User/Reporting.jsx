@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { logo, report, travel } from "../../assets";
-import { MapPinIcon, ArrowRightCircleIcon } from "@heroicons/react/24/outline";
+import { MapPinIcon, ArrowRightCircleIcon,XMarkIcon } from "@heroicons/react/24/outline";
 
 const Reporting = () => {
   const [isReportModalVisible, setIsReportModalVisible] = useState(false);
@@ -124,21 +124,7 @@ Instantly alert authorities, ensuring swift action and effective solutions throu
                   className="ml-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-black hover:bg-gray hover:text-white  "
                   onClick={() => setIsReportModalVisible(false)}
                 >
-                  <svg
-                    className="h-3 w-3"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 14 14"
-                  >
-                    <path
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                    />
-                  </svg>
+                   <XMarkIcon className="w-7 h-7 font-bold  rounded-full"/>
                   <span className="sr-only">Close modal</span>
                 </button>
               </div>
@@ -339,21 +325,7 @@ Instantly alert authorities, ensuring swift action and effective solutions throu
                   className="ml-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-black hover:bg-gray hover:text-white  "
                   onClick={() => setisTravelModalVisible(false)}
                 >
-                  <svg
-                    className="h-3 w-3"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 14 14"
-                  >
-                    <path
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                    />
-                  </svg>
+                 <XMarkIcon className="w-7 h-7 font-bold  rounded-full"/>
                   <span className="sr-only">Close modal</span>
                 </button>
               </div>
