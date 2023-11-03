@@ -1,6 +1,7 @@
 import React from "react";
 import { logo } from "../../assets";
 import { Link } from "react-router-dom";
+import { ArrowDownCircleIcon } from "@heroicons/react/24/outline";
 const Footer = () => {
   return (
     <footer className="bg-white ">
@@ -11,14 +12,16 @@ const Footer = () => {
               <img src={logo} className="mr-3 h-28 sm:h-36  " alt="Logo" />
               <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
             </div>
-            <p className="font-semibold font-poppins text-primary opacity-80">
+            <p className="font-semibold font-poppins text-primary ">
               We are dedicated to fortifying communities, <br /> offering timely
               aid, and fostering resilience.{" "}
             </p>
+
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+            
             <div>
-              <h2 className="mb-6 text-md font-semibold text-primary opacity-80 font-inter uppercase  ">
+              <h2 className="mb-6 text-md font-semibold text-primary  font-inter uppercase  ">
                 Resources
               </h2>
               <ul className="font-medium">
@@ -30,7 +33,7 @@ const Footer = () => {
                     PAGASA
                   </a>
                 </li>
-                <li>
+                <li className="mb-4">
                   <a
                     href=""
                     className="hover:underline text-sm text-secondary font-poppins"
@@ -38,10 +41,19 @@ const Footer = () => {
                     DRRMO
                   </a>
                 </li>
+                <li>
+                <Link
+              className="text-md font-poppins inline-block transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  font-semibold text-primary mr-3 rounded-lg "
+              to=""
+            >
+              Download App
+             <ArrowDownCircleIcon className="w-6 h-6 inline-block ml-1" />
+            </Link>
+                </li>
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-md font-semibold text-primary opacity-80 font-inter uppercase">
+              <h2 className="mb-6 text-md font-semibold text-primary  font-inter uppercase">
                 Follow us
               </h2>
               <ul className="font-medium">
@@ -64,7 +76,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-md font-semibold text-primary opacity-80 font-inter uppercase">
+              <h2 className="mb-6 text-md font-semibold text-primary  font-inter uppercase">
                 Legal
               </h2>
               <ul className="font-medium">
@@ -95,14 +107,18 @@ const Footer = () => {
               </ul>
             </div>
           </div>
+
         </div>
         <hr className="my-6  sm:mx-auto  lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm  sm:text-center font-inter">
             © 2023 Agapay. All Rights Reserved.
           </span>
+    
         </div>
       </div>
+
+      
     </footer>
   );
 };

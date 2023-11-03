@@ -1,8 +1,11 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { yellowbg1 } from '../../assets'
 import SafetyContents from './SafetyContents'
 import Footer from "./Footer";
 const SafetyGuidelines = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
     <div
