@@ -96,7 +96,7 @@ const Hotlines = () => {
   };
   return (
     <>
-      <section className="bg-primary/5">
+      <section className="">
         <div className="container px-5 py-9 mx-auto">
           <div className="flex flex-wrap w-full  flex-col items-center text-center">
             <h1 className="text-4xl font-semibold mb-3 font-poppins text-primary">

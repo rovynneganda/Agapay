@@ -3,7 +3,7 @@ import { weather } from '../../assets'
 const Steps = () => {
   return (
     <>
-    <div className="flex flex-col lg:flex-row sm:gap-5 md:gap-10 gap-0 justify-center items-center sm:py-28 py-20 p-5 bg-primary/5">
+    <div className="flex flex-col lg:flex-row sm:gap-5 md:gap-10 gap-0 justify-center items-center sm:py-28 py-20 p-5 ">
     <div>
         <h1 className="sm:text-3xl text-2xl mb-10 font-inter text-primary font-bold sm:text-left text-center">Get support in three steps</h1>
        <div className='sm:ml-10 ml-5'>

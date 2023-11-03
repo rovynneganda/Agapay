@@ -12,11 +12,20 @@ const Footer = () => {
               <img src={logo} className="mr-3 h-28 sm:h-36  " alt="Logo" />
               <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
             </div>
-            <p className="font-semibold font-poppins text-primary ">
+
+            <p className="font-semibold font-poppins text-black/50 ">
               We are dedicated to fortifying communities, <br /> offering timely
               aid, and fostering resilience.{" "}
             </p>
-
+            <div className="mt-3">
+                <Link
+              className="text-md font-poppins inline-block transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  font-semibold text-primary mr-3 rounded-lg "
+              to=""
+            >
+              Download App
+             <ArrowDownCircleIcon className="w-6 h-6 inline-block ml-1" />
+            </Link>
+        </div>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             
@@ -41,15 +50,7 @@ const Footer = () => {
                     DRRMO
                   </a>
                 </li>
-                <li>
-                <Link
-              className="text-md font-poppins inline-block transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  font-semibold text-primary mr-3 rounded-lg "
-              to=""
-            >
-              Download App
-             <ArrowDownCircleIcon className="w-6 h-6 inline-block ml-1" />
-            </Link>
-                </li>
+
               </ul>
             </div>
             <div>
@@ -109,6 +110,7 @@ const Footer = () => {
           </div>
 
         </div>
+
         <hr className="my-6  sm:mx-auto  lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm  sm:text-center font-inter">

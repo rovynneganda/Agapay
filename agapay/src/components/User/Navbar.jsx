@@ -48,13 +48,13 @@ const Navbar = () => {
               <ArrowRightCircleIcon    className="w-6 h-6 inline-block ml-1" />
             </button>
             {isLoginModalVisible && <Login onClose={handleLoginModalToggle} />}
-            <Link
+            {/* <Link
               className="text-md font-poppins transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  font-semibold text-primary mr-3 hover:bg-primary hover:text-white px-2 py-2 rounded-lg "
               to=""
             >
               Download
              <ArrowDownCircleIcon className="w-6 h-6 inline-block ml-1" />
-            </Link>
+            </Link> */}
           </div>
         </div>
       </nav>
