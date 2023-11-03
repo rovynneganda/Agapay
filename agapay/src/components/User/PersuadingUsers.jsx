@@ -3,8 +3,9 @@ import { logo, persuade1, persuade2,persuade3 } from "../../assets";
 const PersuadingUsers = () => {
   return (
     <>
-      <section className="bg-[#fff0d3]">
-        <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+    {/* bg-[#fff0d3] */}
+      <section className="">
+        <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6 bg-gradient-to-b from-primary/10 via-gray/5 rounded-xl">
           <div className="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
             <h2 className="mb-4 text-4xl tracking-tight font-semibold font-inter text-primary ">
             Why Use the App?
