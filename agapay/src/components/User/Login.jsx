@@ -158,7 +158,7 @@ const Login = ({ onClose }) => {
     setRegisterModalVisible(true);
   };
   useEffect(() => {
-    const status = document.querySelector(".registrationAddress");
+    // const status = document.querySelector(".registrationAddress");
     const success = (position) => {
       // console.log(position)
       const latitude = position.coords.latitude;
@@ -172,16 +172,19 @@ const Login = ({ onClose }) => {
           console.log("baba neto");
           console.log(data);
           // Get PostalCode
-          const regPostalCode = data.results[3].address_components.find(
-            (component) => component.types.includes("postal_code")
-          ) != null ? data.results[0].address_components.find(
-            (component) => component.types.includes("postal_code")
-          ) : "tarub";
+          const regPostalCode =
+            data.results[3].address_components.find((component) =>
+              component.types.includes("postal_code")
+            ) != null
+              ? data.results[0].address_components.find((component) =>
+                  component.types.includes("postal_code")
+                )
+              : "";
           console.log("baba neto");
           console.log(regPostalCode);
 
           document.querySelector("#regPostalCode").value =
-            regPostalCode.short_name;
+            regPostalCode;
           console.log(regPostalCode);
           // end to Get PostalCode
 
@@ -198,7 +201,7 @@ const Login = ({ onClose }) => {
             selectedStreetBrgy.join(", ");
           document.querySelector("#regCity").value =
             addressArray[addressArray.length - 3];
-          status.textContent = data.results[0].formatted_address;
+          // status.textContent = data.results[0].formatted_address;
         });
     };
     const error = () => {
@@ -362,7 +365,7 @@ const Login = ({ onClose }) => {
                 className="bg-transparent text-white font-extrabold   text-sm w-8 h-8 md:w-10 md:h-10 absolute top-4 right-4  sm:flex hidden items-center justify-center z-10"
                 onClick={onClose}
               >
-               <XMarkIcon className="w-7 h-7 font-bold bg-gray/50 hover:bg-gray rounded-full"/>
+                <XMarkIcon className="w-7 h-7 font-bold bg-gray/50 hover:bg-gray rounded-full" />
                 <span className="sr-only">Close modal</span>
               </button>
 
@@ -400,7 +403,7 @@ const Login = ({ onClose }) => {
               className="bg-transparent  rounded-full text-sm w-8 h-8 absolute top-4 right-4 sm:hidden flex items-center justify-center"
               onClick={onClose}
             >
-               <XMarkIcon className="w-7 h-7 font-bold bg-gray/50 hover:bg-gray rounded-full"/>
+              <XMarkIcon className="w-7 h-7 font-bold bg-gray/50 hover:bg-gray rounded-full" />
               <span className="sr-only">Close modal</span>
             </button>
           </div>
@@ -440,7 +443,7 @@ const Login = ({ onClose }) => {
                 className="bg-transparent hover:bg-gray hover:text-white rounded-full text-sm w-8 h-8 md:w-10 md:h-10 absolute top-4 right-4 flex items-center justify-center z-10"
                 onClick={onClose}
               >
-                <XMarkIcon className="w-7 h-7 font-bold  rounded-full"/>
+                <XMarkIcon className="w-7 h-7 font-bold  rounded-full" />
                 <span className="sr-only">Close modal</span>
               </button>
               <div
