@@ -58,7 +58,7 @@ const Reporting = () => {
                   </h5>
                   <button
                   onClick={handleSelectButtonClickReport}
-                  className="mx-auto">
+                  className="mx-auto ">
                   <ArrowRightCircleIcon className="h-10 w-10 text-secondary hover:text-primary rounded-full" />
                   </button>
                   {/* <p className="mb-3 font-normal text-gray font-poppins">
@@ -109,7 +109,7 @@ Instantly alert authorities, ensuring swift action and effective solutions throu
         <div
           tabIndex="-1"
           aria-hidden="true"
-          className="fixed left-0 right-0 top-0 z-50 flex h-[calc(100%)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden bg-gray bg-opacity-80 p-4 md:inset-0"
+          className="fixed left-0 right-0 top-0 z-50 flex h-[calc(100%)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden bg-black bg-opacity-50 p-4 md:inset-0"
         >
           <div className="relative max-h-full w-full max-w-2xl">
             {/* <!-- Modal content --> */}
@@ -324,7 +324,7 @@ Instantly alert authorities, ensuring swift action and effective solutions throu
         <div
           tabIndex="-1"
           aria-hidden="true"
-          className="fixed left-0 right-0 top-0 z-50 flex h-[calc(100%)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden bg-gray bg-opacity-80 p-4 md:inset-0"
+          className="fixed left-0 right-0 top-0 z-50 flex h-[calc(100%)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden bg-black bg-opacity-50 p-4 md:inset-0"
         >
           <div className="relative max-h-full w-full max-w-2xl">
             {/* <!-- Modal content --> */}
