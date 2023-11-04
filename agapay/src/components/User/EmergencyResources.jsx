@@ -4,6 +4,7 @@ import axios from 'axios';
 import { emergencyResources } from "../../constants";
 import { yellowbg1 } from '../../assets';
 import Footer from "./Footer";
+import Hotlines from "./Hotlines"
 const EmergencyResources = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -90,12 +91,13 @@ const EmergencyResources = () => {
           </div>
         </div>
       </div> */}
+
        <div
   className="bg-cover bg-center bg-no-repeat sm:py-40 pt-32 pb-10  p-5" // Add any additional classes you need and adjust height as necessary
   style={{ backgroundImage: `url(${yellowbg1})` }}
 ><div className='mt-20'>
 <h2 className="sm:text-6xl text-4xl  font-semibold mb-2 text-primary font-inter text-center">
-         Nearby Services
+         Emergency Resources
         </h2>
         <p className="font-poppins text-lg font-normal text-center">
           Discover nearby hospitals, police stations, and fire stations to <br/>
@@ -103,7 +105,7 @@ const EmergencyResources = () => {
         </p>
         </div>
 </div>
-
+<Hotlines />
           <section className='bg-subtlegray pb-10'>
       <div className="text-center pt-5  ">
        
