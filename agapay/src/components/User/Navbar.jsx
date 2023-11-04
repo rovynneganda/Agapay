@@ -100,7 +100,7 @@ const Navbar = () => {
                   to="/nearby-services"
                   onClick={toggleNavbar}
                 >
-                  Nearby Services
+              Emergency Resources
                 </Link>
               </li>
               <li>

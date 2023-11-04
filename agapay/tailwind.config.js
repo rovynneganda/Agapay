@@ -25,7 +25,8 @@ export default {
       navprimary:'#FF5900', //dark orange
       navsecondary:'#FF9232',
       brown:'#bc560a', //brwn
-      landslide:'#bd5a0a'//brown  din
+      landslide:'#bd5a0a',//brown  din
+      graybg:'#f1f1f1',
     },
     fontFamily: {
       poppins: ["Poppins", "sans-serif"],

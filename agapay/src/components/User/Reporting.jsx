@@ -61,17 +61,6 @@ const Reporting = () => {
                   className="mx-auto ">
                   <ArrowRightCircleIcon className="h-10 w-10 text-secondary hover:text-primary rounded-full" />
                   </button>
-                  {/* <p className="mb-3 font-normal text-gray font-poppins">
-                    
-Instantly alert authorities, ensuring swift action and effective solutions through prompt response and raised alarms.
-
-                  </p> */}
-                  {/* <button
-                    onClick={handleSelectButtonClickReport}
-                    className="inline-flex items-center w-full justify-center rounded-full  px-3 py-2 text-md font-poppins font-medium text-center text-white bg-primary  hover:bg-primarydark focus:ring-4 focus:outline-none focus:ring-white  "
-                  >
-                    Proceed
-                  </button> */}
                 </div>
               </div>
               <div className="sm:max-w-xs max-w-sm  w-full bg-white border border-gray/5 text-center rounded-xl shadow-md transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">

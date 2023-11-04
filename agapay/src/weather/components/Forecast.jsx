@@ -12,7 +12,7 @@ function Forecast({ title, items }) {
       <hr className="my-2 text-black"></hr>
       <div className="flex flex-row items-center justify-between text-black">
         {items.map((item) => (
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center" key={item.title}>
             <p className="font-light text-sm">{item.title}</p>
             <img src={iconUrlFromCode(item.icon)} className="" alt="" />
             <p className="font-medium">{`${item.temp.toFixed()}°`}</p>
