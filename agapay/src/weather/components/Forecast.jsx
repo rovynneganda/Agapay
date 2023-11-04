@@ -5,11 +5,11 @@ function Forecast({title,items}) {
   return (
     <div>
         <div className='flex items-center justify-start mt-3'>
-            <p className='text-white font-bold  uppercase font-inter leading-relaxed '>{title}</p>
+            <p className='text-black font-bold  uppercase font-inter leading-relaxed '>{title}</p>
 
         </div>
-      <hr className='my-2 text-white'></hr> 
-       <div className='flex flex-row items-center justify-between text-white'>
+      <hr className='my-2 text-black'></hr> 
+       <div className='flex flex-row items-center justify-between text-black'>
         {items.map(item => (
 
 <div className='flex flex-col items-center justify-center'>

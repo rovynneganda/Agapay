@@ -34,19 +34,27 @@ function Application() {
   },[query,units] )
 
   return (
-    <div className="w-full mx-auto max-w-lg   p-5  bg-darkblue h-fit shadow-md sm:rounded-b-lg rounded-b-lg font-inter">
+    <div className="w-full  mx-auto flex sm:flex-row flex-col sm:justify-evenly justify-normal   p-5   h-fit  sm:rounded-b-lg rounded-b-lg font-poppins">
      
      {/* <TopButtons setQuery={setQuery}/> */}
      <Inputs setQuery={setQuery} units={units} setUnits />
 
 
      {weather && (
-      <div>
+   <>
+   <div>
+   <Forecast title="Hourly Forecast" items={weather.hourly}/>
+   </div>
+   
+   
+   <div>
+   <Forecast title="Daily Forecast"items={weather.daily}/>
+   </div>
+   </>
     
-       <Forecast title="Hourly Forecast" items={weather.hourly}/>
-       <Forecast title="Daily Forecast"items={weather.daily}/>
-</div>
-
+    
+     
+     
      )}
 
     
