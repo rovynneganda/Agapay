@@ -55,6 +55,7 @@ const Navbar = () => {
               Download
              <ArrowDownCircleIcon className="w-6 h-6 inline-block ml-1" />
             </Link> */}
+            
           </div>
         </div>
       </nav>

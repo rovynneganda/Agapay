@@ -91,8 +91,8 @@ return (
             </p>
 
         </div> */}
-      <div className=' flex items-center justify-center my-3'>
-        <p className='text-white text-4xl font-medium text-center font-inter'>
+      <div className=' flex flex-row items-center justify-center my-3'>
+        <p className='text-black text-4xl font-medium text-center font-poppins'>
           {data.name}, {data.country}
            </p>
       </div>

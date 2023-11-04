@@ -34,14 +34,14 @@ function Application() {
   },[query,units] )
 
   return (
-    <div className="mx-auto w-full max-w-lg pt-10  bg-darkblue h-fit  sm:rounded-t-lg rounded-t-lg ">
+    <div className="mx-auto flex flex-col w-full max-w-5xl  h-fit  sm:rounded-t-lg rounded-t-lg ">
      
      {/* <TopButtons setQuery={setQuery}/> */}
      <Inputs setQuery={setQuery} units={units} setUnits  />
 
 
      {weather && (
-      <div>
+      <div className='bg-subtlegray/50 shadow-lg border-gray/20 w-full max-w-xl rounded-lg p-3 mx-auto'>
        <TimeAndLocation weather={weather} />
        <Temperature weather={weather} />
       

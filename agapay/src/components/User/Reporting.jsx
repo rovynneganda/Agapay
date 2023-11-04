@@ -32,7 +32,7 @@ const Reporting = () => {
       <div className="bg-white py-5">
         <section className="p-5 rounded-xl mx-auto sm:w-full md:w-[80%] lg:w-[90%] xl:w-[90%] ">
 
-          <div className=" rounded-xl p-5  bg-gradient-to-b from-gray/10 via-gray/5">
+          <div className=" rounded-xl p-5  bg-gradient-to-b from-subtlegray via-gray/5">
           <div className="p-5 text-center">
             <p className="sm:text-4xl text-3xl font-semibold mb-3 font-poppins text-primary">
               How Can We Assist You Today?
