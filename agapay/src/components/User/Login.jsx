@@ -6,7 +6,8 @@ import axios from "axios";
 
 const Login = ({ onClose }) => {
   const [formData, setFormData] = useState({
-    // ... other form fields
+    loginUsername: '',
+    loginPass:'',
   });
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -147,15 +148,22 @@ const Login = ({ onClose }) => {
   };
   const [isLoginModalVisible, setLoginModalVisible] = useState(true);
   const [isRegisterModalVisible, setRegisterModalVisible] = useState(false);
-
+  const [isForgotPasswordModalVisible, setForgotPasswordModalVisible] = useState(false);
   const showLoginModal = () => {
     setLoginModalVisible(true);
     setRegisterModalVisible(false);
+    setForgotPasswordModalVisible(false);
   };
 
   const showRegisterModal = () => {
     setLoginModalVisible(false);
     setRegisterModalVisible(true);
+    setForgotPasswordModalVisible(false);
+  };
+  const showForgotPasswordModal = () => {
+    setLoginModalVisible(false);
+    setRegisterModalVisible(false);
+    setForgotPasswordModalVisible(true);
   };
   useEffect(() => {
     // const status = document.querySelector(".registrationAddress");
@@ -213,10 +221,10 @@ const Login = ({ onClose }) => {
   // console.log(document.querySelector(".registrationAddress"));
   return (
     <>
-      <div className={`LoginModal ${isLoginModalVisible ? "" : "hidden"}`}>
+      <div className={`LoginModal ${isLoginModalVisible ? "z-50" : "hidden"}`}>
         <div
           tabIndex="-1"
-          className="fixed top-0 left-0 right-0 z-50 flex justify-center bg-black bg-opacity-50 items-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-0.5rem)] max-h-full rounded-lg"
+          className="fixed top-0 left-0 right-0  flex justify-center bg-black bg-opacity-50 items-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-0.5rem)] max-h-full rounded-lg"
         >
           <div className="flex sm:flex-row flex-col items-center w-full max-w-4xl  lg:max-h-[85%] md:max-h-[90%] sm:max-h-[85%]  h-full ">
             <div className="w-full h-full p-4   sm:rounded-l-lg   bg-white ">
@@ -288,8 +296,8 @@ const Login = ({ onClose }) => {
                     </div>
                     <div className="flex items-center justify-center font-poppins mt-3">
                       <a
-                        href="#"
-                        className="text-sm font-medium text-primary hover:underline "
+                       onClick={showForgotPasswordModal}
+                        className="text-sm font-medium text-primary hover:underline cursor-pointer"
                       >
                         Forgot password?
                       </a>
@@ -810,6 +818,98 @@ const Login = ({ onClose }) => {
           </div>
         </div>
       </div>
+      <div className={`ForgotPassword ${isForgotPasswordModalVisible ? "z-50" : "hidden"}`}>
+      <div
+          tabIndex="-1"
+          className="fixed top-0 left-0 right-0  flex justify-center bg-black bg-opacity-50 items-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-0.5rem)] max-h-full rounded-lg"
+        >
+          <div className="flex sm:flex-row flex-col items-center w-full max-w-4xl  lg:max-h-[85%] md:max-h-[90%] sm:max-h-[85%]  h-full ">
+            <div className="w-full h-full p-4   sm:rounded-l-lg   bg-white ">
+              <div className="flex flex-col h-full align-center  justify-center">
+                <h2 className="text-center md:text-4xl text-2xl font-semibold text-primary  font-inter leading-9 mb-2 tracking-tight mt-5  ">
+                  Forgot Password?
+                </h2>
+                <p className="text-center font-poppins mb-3 text-black font-normal">
+                Please include a valid email address so we can get back to you.
+                </p>
+
+                <div className="space-y-6 p-4 ">
+                <div class="mt-5">
+ 
+            <form>
+              <div class="grid gap-y-4">
+       
+              <div>
+                    <div className="relative">
+                      <input
+                        type="text"
+                        value=""
+                        className="block px-2.5 font-poppins border-gray/30  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
+                        placeholder=""
+                      />
+                      <label
+                        htmlFor="loginUsername"
+                        className="absolute text-sm text-black    font-poppins cursor-text  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
+                      >
+                        Email Address
+                      </label>
+                    </div>
+                  </div>
+         
+
+                  <div className="mb-3 mt-7">
+                      <button
+                        type="submit"
+                        className="flex transition ease-in-out hover:-translate-y-1 hover:scale-105  duration-300 w-full justify-center font-poppins  bg-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primarydark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded-full mb-3"
+                      >
+                        Reset Password
+                      </button>
+                    </div>
+              </div>
+            </form>
+    
+          </div>
+                  </div>
+              </div>
+            </div>
+
+            <div
+              className="w-full h-full sm:rounded-r-lg bg-primary p-5 flex flex-col align-center justify-center bg-cover relative"
+              style={{ backgroundImage: `url(${loginbg})` }}
+            >
+              <button
+                type="button"
+                className="bg-transparent text-white font-extrabold   text-sm w-8 h-8 md:w-10 md:h-10 absolute top-4 right-4  sm:flex hidden items-center justify-center z-10"
+                onClick={onClose}
+              >
+                <XMarkIcon className="w-7 h-7 font-bold bg-gray/50 hover:bg-gray rounded-full" />
+                <span className="sr-only">Close modal</span>
+              </button>
+
+              <h2 className="text-center text-2xl font-bold font-inter leading-9 mb-5 tracking-tight mt-5  ">
+                Remembered your Password?
+              </h2>
+
+             <div className="mb-3 mt-7">
+                      <button
+                        onClick={showLoginModal}
+                        className="flex transition ease-in-out hover:-translate-y-1 hover:scale-105  duration-300 w-full justify-center font-poppins  bg-secondary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-tertiary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary rounded-full mb-3"
+                      >
+                       Sign In Here
+                      </button>
+                    </div>
+            </div>
+            <button
+              type="button"
+              className="bg-transparent  rounded-full text-sm w-8 h-8 absolute top-4 right-4 sm:hidden flex items-center justify-center"
+              onClick={onClose}
+            >
+              <XMarkIcon className="w-7 h-7 font-bold bg-gray/50 hover:bg-gray rounded-full" />
+              <span className="sr-only">Close modal</span>
+            </button>
+          </div>
+        </div>
+        </div>
     </>
   );
 };

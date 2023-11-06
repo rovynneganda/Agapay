@@ -4,9 +4,17 @@ import { logo } from "../../assets";
 import styles from "../../style";
 import { menu, assistance } from "../../assets";
 import Login from "./Login";
-import { ArrowRightCircleIcon, ArrowDownCircleIcon } from '@heroicons/react/24/outline'
+import { ArrowRightCircleIcon, ArrowDownCircleIcon, ChevronDownIcon, UserCircleIcon } from '@heroicons/react/24/outline'
 const Navbar = () => {
-   
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const closeDropdown = () => {
+    setIsDropdownOpen(false);
+  };
   const [isLoginModalVisible, setLoginModalVisible] = useState(false);
   const handleLoginModalToggle = () => {
     setLoginModalVisible(!isLoginModalVisible);
@@ -39,7 +47,65 @@ const Navbar = () => {
     <p className=" py-4 px-2 text-primary relative text-xl font-semibold font-poppins whitespace-nowrap   shadow-md rounded-xl ">Along Malapitan Hotline</p>
   </div>
 </div>
+{/* <button
+              className="text-md font-poppins font-semibold transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  text-secondary mr-3 hover:bg-secondary hover:text-white px-2 py-2 rounded-lg"
+              onClick={handleLoginModalToggle}
+            >
+              robinamaganda
+              <ChevronDownIcon    className="w-6 h-6 inline-block ml-1" />
+            </button> */}
+            <div className="flex items-center ml-3">
+              <div>
+                <button
+                  type="button"
+                  onClick={toggleDropdown}
+                  className="text-md font-poppins font-semibold transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  text-secondary mr-3 hover:bg-secondary hover:text-white px-2 py-2 rounded-lg"
+                  aria-expanded={isDropdownOpen ? "true" : "false"}
+                >
+                  <span className="sr-only">Open user menu</span>
+                  <UserCircleIcon className="w-5 h-5 mb-1 inline-block mr-1" />
+                  Joko Gadingan
+                  <ChevronDownIcon    className="w-5 h-5 inline-block ml-1" />
+                </button> 
+                
+              </div>
+              <div
+              onMouseLeave={toggleDropdown}
+                className={` ${
+                  isDropdownOpen ? "block" : "hidden"
+                } absolute right-5 top-12 mt-2 z-[20]  list-none bg-white divide-gray/20 divide-y  rounded shadow `}
 
+              
+              >
+                <div className="px-4 py-3">
+                  <p className="text-sm font-inter text-primary ">
+                    Joko Gadingan
+                  </p>
+                  <p className="text-sm font-medium  truncate font-inter ">
+                    jokoiloveyou@gmail.com
+                  </p>
+                </div>
+                <ul className="py-1">
+                  <li>
+                    <Link
+                      to="/user/accountdetails"
+                      onClick={isDropdownOpen}
+                      className="block px-4 py-2 text-sm text-gray/80 hover:text-black hover:bg-gray/20  "
+                    >
+                      Account Details
+                    </Link>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm  text-gray/80 hover:text-black hover:bg-gray/20 "
+                    >
+                      Sign out
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
             <button
               className="text-md font-poppins font-semibold transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  text-secondary mr-3 hover:bg-secondary hover:text-white px-2 py-2 rounded-lg"
               onClick={handleLoginModalToggle}
@@ -62,10 +128,13 @@ const Navbar = () => {
       <nav
         className={`fixed top-0 w-full bg-primary
         ${
-          isLoginModalVisible || isPopoverHovered? "z-0" : "z-10"
+          isDropdownOpen? "z-[5] ":"z-10"
         }
         ${
-          isLoginModalVisible? "z-0" : "z-10"
+          isLoginModalVisible || isPopoverHovered? "z-[5]" : "z-10"
+        }
+        ${
+          isLoginModalVisible? "z-[z-5]" : "z-10"
         }
         mt-24`}
       >
