@@ -12,10 +12,15 @@ import CreateAccount from './components/Admin/CreateAccount';
 import CreateAlert from './components/Admin/CreateAlert';
 import CreateAnnouncement from './components/Admin/CreateAnnouncement';
 import SafetyGuidelines from './components/User/SafetyGuidelines';
+import UserDetails from './components/User/UserDetails';
+import ErrorPage from './components/ErrorPage';
+import ErrorBoundary from './components/ErrorBoundary';
 const AppRoutes = () => {
   return (
+    <ErrorBoundary>
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/user/accountdetails" element={<UserDetails />} />
       <Route path="/nearby-services" element={<EmergencyResources />} />
       <Route path="/about" element={<About />} />
       <Route path="/safety-guidelines" element={<SafetyGuidelines />} />
@@ -29,7 +34,9 @@ const AppRoutes = () => {
       <Route path="/admin/createaccount" element={<CreateAccount />}/>
       <Route path="/admin/createalert" element={<CreateAlert />}/>
       <Route path="/admin/createannouncement" element={<CreateAnnouncement />}/>
+      <Route path="*" element={<ErrorPage />} />
     </Routes>
+    </ErrorBoundary>
   );
 };
 
