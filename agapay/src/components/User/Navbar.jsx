@@ -1,11 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { logo } from "../../assets";
 import styles from "../../style";
 import { menu, assistance } from "../../assets";
 import Login from "./Login";
 import { ArrowRightCircleIcon, ArrowDownCircleIcon, ChevronDownIcon, UserCircleIcon } from '@heroicons/react/24/outline'
-const Navbar = () => {
+const Navbar = ({ status, userType, username }) => {
+  // let bool;
+  // if(status === "active"){
+  //   bool = true;
+  // }else{
+  //   bool = false;
+  // }
+    // alert(status);
+  const [isLoggedIn, setIsLoggedIn] = useState(status);
+  useEffect(() => {
+    // alert(status);
+    if(status === "active"){
+      setIsLoggedIn(true);
+    }else{
+      setIsLoggedIn(false);
+    }
+    // alert(isLoggedIn);
+    // alert(isLoggedIn);
+  }, [status]); // Empty dependency array ensures this effect runs once after initial render
+
+  // const handleLogin = () => {
+  //   if (userType === 'User'){
+  //     alert('titi');
+  //   }
+  //   // Here you can implement your login logic.
+  //   // For example, you can make an API call to authenticate the user.
+  //   // If authentication is successful, update the isLoggedIn state to true.
+  
+  //   // For now, I'll just toggle the login status for demonstration purposes.
+  //   setIsLoggedIn(!isLoggedIn);
+  // };
+
+  const handleLogout = () => {
+    // Here you can implement your logout logic.
+    // For example, you can clear the user session and update the isLoggedIn state to false.
+    setIsLoggedIn(false);
+  };
+  // const [sessionStatus, setSessionStatus] = useState('loading');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -54,6 +91,8 @@ const Navbar = () => {
               robinamaganda
               <ChevronDownIcon    className="w-6 h-6 inline-block ml-1" />
             </button> */}
+       {isLoggedIn ? (
+        <>
             <div className="flex items-center ml-3">
               <div>
                 <button
@@ -64,7 +103,7 @@ const Navbar = () => {
                 >
                   <span className="sr-only">Open user menu</span>
                   <UserCircleIcon className="w-5 h-5 mb-1 inline-block mr-1" />
-                  Joko Gadingan
+                  {username}
                   <ChevronDownIcon    className="w-5 h-5 inline-block ml-1" />
                 </button> 
                 
@@ -79,7 +118,7 @@ const Navbar = () => {
               >
                 <div className="px-4 py-3">
                   <p className="text-sm font-inter text-primary ">
-                    Joko Gadingan
+                    {username}
                   </p>
                   <p className="text-sm font-medium  truncate font-inter ">
                     jokoiloveyou@gmail.com
@@ -106,13 +145,16 @@ const Navbar = () => {
                 </ul>
               </div>
             </div>
+            </>) : (
             <button
-              className="text-md font-poppins font-semibold transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  text-secondary mr-3 hover:bg-secondary hover:text-white px-2 py-2 rounded-lg"
-              onClick={handleLoginModalToggle}
-            >
-              Login
-              <ArrowRightCircleIcon    className="w-6 h-6 inline-block ml-1" />
-            </button>
+            className="text-md font-poppins font-semibold transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  text-secondary mr-3 hover:bg-secondary hover:text-white px-2 py-2 rounded-lg"
+            onClick={handleLoginModalToggle}
+          >
+            Login
+            <ArrowRightCircleIcon    className="w-6 h-6 inline-block ml-1" />
+          </button>
+             )}
+
             {isLoginModalVisible && <Login onClose={handleLoginModalToggle} />}
             {/* <Link
               className="text-md font-poppins transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  font-semibold text-primary mr-3 hover:bg-primary hover:text-white px-2 py-2 rounded-lg "

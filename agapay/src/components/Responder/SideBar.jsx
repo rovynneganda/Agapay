@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { logo, assistance } from "../../assets";
 import {
   Bars3BottomLeftIcon,
@@ -11,7 +11,18 @@ import {
   UserCircleIcon,
 } from "@heroicons/react/24/outline";
 import { Link, useLocation } from "react-router-dom";
-const SideBarResponder = () => {
+const SideBarResponder = ({status, userType, username }) => {
+  useEffect(() => {
+    // alert(status);
+    if(status === "active" || status === "loading" && userType === "responder" || userType === "loading"){
+      console.log("Logged In.");
+    }else{
+      window.location.href = "/adminlogin";
+    }
+    // alert(isLoggedIn);
+    // alert(isLoggedIn);
+  }, [status, userType]);
+
   const location = useLocation();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 

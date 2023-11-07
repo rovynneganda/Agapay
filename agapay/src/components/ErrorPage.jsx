@@ -2,10 +2,10 @@ import React from 'react'
 import { logo } from '../assets'
 const ErrorPage = () => {
   return (
-    <div className="max-w-[50rem] flex flex-col mx-auto w-full h-full">
-    <header className="mb-auto flex justify-center z-50 w-full py-4">
+    <div className="max-w-[50rem] flex mt-44 flex-col mx-auto w-full h-full">
+    <header className="mb-auto flex justify-center z-0 w-full py-4">
       <nav className="px-4 sm:px-6 lg:px-8" aria-label="Global">
-      <img src={logo} className='w-52 h-52' alt="" />
+      <img src={logo} className='w-52 h-52 ' alt="" />
       </nav>
     </header>
 

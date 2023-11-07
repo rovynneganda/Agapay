@@ -1,7 +1,18 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Bars3BottomLeftIcon, HomeIcon, MegaphoneIcon,ClipboardDocumentListIcon,ArrowLeftIcon,UserIcon,ChatBubbleOvalLeftIcon, ChatBubbleLeftIcon, UserCircleIcon, ChevronDownIcon, ArrowLeftCircleIcon, ArrowLeftOnRectangleIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
-const AdminSideBar = () => {
+const AdminSideBar = ({status, userType, username }) => {
+  useEffect(() => {
+    // alert(status);
+    if(status === "active" || status === "loading" && userType === "admin" || userType === "loading"){
+      console.log("Logged In.");
+    }else{
+      window.location.href = "/adminlogin";
+    }
+    // alert(isLoggedIn);
+    // alert(isLoggedIn);
+  }, [status, userType]);
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
