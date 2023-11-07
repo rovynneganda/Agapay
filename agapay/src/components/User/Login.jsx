@@ -20,14 +20,17 @@ const Login = ({ onClose }) => {
   const signIn = () => {
     console.log(formData);
     const formDataToSend = new URLSearchParams();
+    formDataToSend.append("fileSelector", "Login");
     formDataToSend.append("loginUsername", formData.loginUsername);
     formDataToSend.append("loginPass", formData.loginPass);
     const formDataToObject = {};
     formDataToSend.forEach(function (value, key) {
-      formDataToObject[key] = value;
+      formDataToObject[key] = value; 
     });
+    console.log(formDataToObject);
     axios
-      .post("http://localhost/aa/Login.php", formDataToObject, {
+      .post("http://localhost/Backend/Controller.php", formDataToObject, {
+        withCredentials: true,
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
@@ -37,6 +40,15 @@ const Login = ({ onClose }) => {
         if (response.data === "You are logged in") {
           alert("You are Logged In");
           setLoginModalVisible(false);
+          window.location.reload();
+          // .then(data => {
+          //   // Handle the response data if needed
+          //   console.log('Received data:', data);
+          // })
+          // .catch(error => {
+          //   // Handle errors if needed
+          //   console.error('Error occurred:', error);
+          // });
         } else return alert(response.data);
         console.log(response.data);
       })
@@ -48,6 +60,7 @@ const Login = ({ onClose }) => {
   const submitRegBtn = () => {
     console.log(formData);
     const formDataToSend = new URLSearchParams();
+    formDataToSend.append("fileSelector", "Register");
     formDataToSend.append("regFirstName", formData.regFirstName);
     formDataToSend.append("regLastName", formData.regLastName);
     formDataToSend.append("regEmail", formData.regEmail);
@@ -67,7 +80,7 @@ const Login = ({ onClose }) => {
 
     console.log(formDataToObject); // Check if form data is correctly formatted
     axios
-      .post("http://localhost/aa/Register.php", formDataToObject, {
+      .post("http://localhost/Backend/Controller.php", formDataToObject, {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
@@ -77,7 +90,7 @@ const Login = ({ onClose }) => {
         if (response.data === "Registration successful!") {
           alert("Successfully Registered!");
           showLoginModal();
-        } else alert("tanga");
+        } else alert(response.data);
         console.log(response.data);
       })
       .catch((error) => {
@@ -85,40 +98,6 @@ const Login = ({ onClose }) => {
       });
   };
 
-  // const sendDataToAPI = () => {
-  // };
-
-  // function submitRegBtn() {
-  //   const regFirstName = document.getElementById('regFirstName').value;
-  //   const regLastName = document.getElementById('regLastName').value;
-  //   const regEmail = document.getElementById('regEmail').value;
-  //   const regStreetBrgy = document.getElementById('regStreetBrgy').value;
-  //   const regCity = document.getElementById('regCity').value;
-  //   const regPostalCode = document.getElementById('regPostalCode').value;
-  //   const regContactNum = document.getElementById('regContactNum').value;
-  //   const regVerificationCode = document.getElementById('regVerificationCode').value;
-  //   const regUsername = document.getElementById('regUsername').value;
-  //   const regPassword1 = document.getElementById('regPassword1').value;
-  //   const regPassword2 = document.getElementById('regPassword2').value;
-
-  //   const sendDataToAPI = () => {
-  //     axios.post('http://localhost:5173/src/components/User/PhpFiles/Register.php', {
-  //       regFirstName: regFirstName
-  //     }, {
-  //       headers: {
-  //         'Content-Type': 'application/x-www-form-urlencoded'
-  //       }
-  //     })
-  //     .then(response => {
-  //       // Handle the response from the API
-  //       console.log(response.data);
-  //     })
-  //     .catch(error => {
-  //       console.error('Error:', error);
-  //     });
-  //   };
-  //   sendDataToAPI();
-  // }
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isPasswordVisible1, setIsPasswordVisible1] = useState(false);
   const [isPasswordVisible2, setIsPasswordVisible2] = useState(false);

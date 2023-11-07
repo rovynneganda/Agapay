@@ -12,5 +12,5 @@ export {
   Footer,
   Reporting,
   Guidelines,
-  Home,
+  Home
 };
