@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useRef, useEffect } from 'react';
 import { logo, report, travel } from "../../assets";
 import { MapPinIcon, ArrowRightCircleIcon,XMarkIcon } from "@heroicons/react/24/outline";
+import TimeAndDate from "../../weather/components/TimeandDate";
+import { MdVideocam, MdStop,MdCancel,  } from 'react-icons/md';
 
 const Reporting = () => {
   const [isReportModalVisible, setIsReportModalVisible] = useState(false);
@@ -25,7 +27,112 @@ const Reporting = () => {
                 setAdd(data.results[0]))
         })
     },[])
+
+    // function for camera recording
     console.log(add)
+    const [stream, setStream] = useState(null);
+    const [mediaRecorder, setMediaRecorder] = useState(null);
+    const [isRecording, setIsRecording] = useState(false);
+    const [recordingTime, setRecordingTime] = useState(0);
+    const [videoData, setVideoData] = useState(null);
+    const [isValid, setIsValid] = useState(null);
+    const videoRef = useRef(null);
+    const countdownIntervalRef = useRef(null);
+  //  start Recording
+    const startRecording = async () => {
+      try {
+        const videoStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: true });
+        setStream(videoStream);
+        videoRef.current.srcObject = videoStream;
+  
+        const recorder = new MediaRecorder(videoStream);
+        const chunks = [];
+  
+        recorder.ondataavailable = (event) => {
+          if (event.data.size > 0) {
+            chunks.push(event.data);
+          }
+        };
+        //Get the file after taking the video
+        recorder.onstop = () => {
+          const blob = new Blob(chunks, { type: 'video/webm' });
+          const videoURL = URL.createObjectURL(blob);
+          setVideoData({ blob, url: videoURL, name: `recorded-video-${new Date().getTime()}.webm` })
+        };
+        //end Get the file after taking the video
+  
+        // if click the camera icon it start to recording and countdown
+        recorder.start();
+        setIsRecording(true);
+        setRecordingTime(0);
+        clearInterval(countdownIntervalRef.current);
+  
+        countdownIntervalRef.current = setInterval(() => {
+          setRecordingTime((prevTime) => prevTime + 1); // Update every second (1000 milliseconds)
+        }, 1000);
+  
+        setTimeout(() => stopRecording(), 10000); // Stop recording after 10 seconds
+        setMediaRecorder(recorder);
+      } catch (error) {
+        console.error('Error accessing the camera: ', error);
+      }
+    };
+  // end of start Recording
+  
+  // stop the recording
+    const stopRecording = () => {
+      if (mediaRecorder) {
+        mediaRecorder.stop();
+        setIsRecording(false);
+        
+        if (stream) {
+          stream.getTracks().forEach((track) => track.stop());
+        }
+      }
+  
+      //close the camera if stop the video 
+      if (stream) {
+        stream.getTracks().forEach((track) => track.stop());
+        videoRef.current.srcObject = null;
+      }
+    };
+  // end of stop the recording 
+  
+  //auto save the video after recording
+    // const validateVideo = () => {
+    //   setIsValid(true);
+    // };
+    //end auto save the video after recording
+  
+    //Discard the video 
+    const discardVideo = () => {
+      if (videoData) {
+        URL.revokeObjectURL(videoData.url);
+        setVideoData(null);
+        setRecordingTime(0);
+        
+        clearInterval(countdownIntervalRef.current);
+     
+      }
+    };
+      //end of Discard the video 
+      //limit the recording time in to 10 seconds
+    useEffect(() => {
+      if (recordingTime >= 11) {
+        stopRecording();
+      }
+    }, [recordingTime]);
+       //end limit the recording time in to 10 seconds
+   //auto save the video after recording
+    // const downloadVideo = () => {
+    //   if (videoData) {
+    //     const a = document.createElement('a');
+    //     a.href = videoData.url;
+    //     a.download = 'recorded-video.webm';
+    //     a.click();
+    //   }
+    // };
+       //end auto save the video after recording
   return (
     <>
     
@@ -129,6 +236,9 @@ const Reporting = () => {
                       <p className="font-inter">
                         Address:  {add.formatted_address}
                       </p>
+                     
+                        <TimeAndDate />
+                     
                     </div>
                     {/* <div className="flex items-center justify-center mt-3 mb-3">
                       <button
@@ -240,9 +350,24 @@ const Reporting = () => {
                 </div>
                 <div className="sm:hidden block">
                   <p className="font-inter font-semibold">Send a Video </p>
+                  {/* camera show  */}
+                  <video ref={videoRef} className="mt-4" playsInline autoPlay />
+      { isRecording && <div className="mt-2">Recording time: {10 - recordingTime} seconds left</div>}
+       {/* end of camera show  */}
                   <div className="flex items-center justify-center mb-4">
                     <div className="w-16 h-14 inline-flex items-center justify-center rounded-full bg-primary/20 text-primary mr-4">
-                      <button className="w-auto">
+                       {/* for stop button  */}
+                    {isRecording ? (
+        <div className="flex items-center space-x-4">
+          <MdStop onClick={stopRecording} size={40} color='red' className="text-red-500 cursor-pointer" />
+         
+          
+        </div>
+          // end for stop button
+        
+      ) : (
+        // click the camera icon to start the recording
+        <button className="w-auto" onClick={startRecording} >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
@@ -257,9 +382,31 @@ const Reporting = () => {
                           />
                         </svg>
                       </button>
+     
+      )}
+       {/* // end click the camera icon to start the recording */}
+                      
                     </div>
+                   
                   </div>
                 </div>
+                {/* display the file of recorded file */}
+                {videoData && (
+        <div className="mt-4 flex items-center">
+          <div className="mt-2">Recorded Video: {videoData.name}</div>
+         
+          {isValid === false && (
+            <div className="text-red-500 ml-4">Video is not valid. Please try again.</div>
+          )}
+           <div>
+            {/* end display the file of recorded file  */}
+            
+            {/* discard the recorded file and retake the video */}
+            <MdCancel onClick={discardVideo} size={40} color='red' className="text-gray-500 cursor-pointer" />
+          </div>
+        </div>
+      )}
+        {/* end discard the recorded file and retake the video */}
                 <div className="font-inter">
                   <label
                     htmlFor="message"
