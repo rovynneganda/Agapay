@@ -1,13 +1,20 @@
 import React, {useState, useEffect} from 'react'
 import { Bars3BottomLeftIcon, HomeIcon, MegaphoneIcon,ClipboardDocumentListIcon,ArrowLeftIcon,UserIcon,ChatBubbleOvalLeftIcon, ChatBubbleLeftIcon, UserCircleIcon, ChevronDownIcon, ArrowLeftCircleIcon, ArrowLeftOnRectangleIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
+import LoaderComponent from '../LoaderComponent';
 const AdminSideBar = ({status, userType, username }) => {
+  
+  // useEffect(() => {
+  //   // Check if the session status is not 'loading' and other necessary conditions
+  //     setIsloading(false);
+  // })
   useEffect(() => {
     // alert(status);
     if(status === "active" || status === "loading" && userType === "admin" || userType === "loading"){
       console.log("Logged In.");
     }else{
-      window.location.href = "/adminlogin";
+      // window.location.href = "/adminlogin";
+      // return ( <LoaderComponent /> )
     }
     // alert(isLoggedIn);
     // alert(isLoggedIn);

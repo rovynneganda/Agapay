@@ -16,6 +16,7 @@ import UserDetails from "./components/User/UserDetails";
 import ErrorPage from "./components/ErrorPage";
 import ErrorBoundary from "./components/ErrorBoundary";
 import AdminLogin from "./components/Admin/AdminLogin";
+import ProtectedRoutes from "./components/ProtectedRoutes";
 // import ProtectedRoutes from "./components/ProtectedRoutes";
 const AppRoutes = () => {
   return (
@@ -28,17 +29,17 @@ const AppRoutes = () => {
         <Route path="/safety-guidelines" element={<SafetyGuidelines />} />
         <Route path="/contact-us" element={<ContactUs />} />
 
-        <Route path="/responder" element={<ResponderDashboard />} />
-        <Route path="/responder/records" element={<ResponderRecords />} />
-        <Route path="/responder/reports" element={<ResponderReports />} />
-        <Route
-          path="/responder/usersettings"
-          element={<ResponderUserSettings />}
-        />
+        <Route path="/adminlogin" element={<AdminLogin />} />
+        <Route element = { <ProtectedRoutes /> } >
+          <Route path="/responder" element={<ResponderDashboard />} />
+          <Route path="/responder/records" element={<ResponderRecords />} />
+          <Route path="/responder/reports" element={<ResponderReports />} />
+          <Route
+            path="/responder/usersettings"
+            element={<ResponderUserSettings />}
+          />
 
-        {/* <Route element={<ProtectedRoutes />}> */}
           <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/adminlogin" element={<AdminLogin />} />
           <Route path="/admin/records" element={<AdminRecords />} />
           <Route path="/admin/createaccount" element={<CreateAccount />} />
           <Route path="/admin/createalert" element={<CreateAlert />} />
@@ -46,7 +47,7 @@ const AppRoutes = () => {
             path="/admin/createannouncement"
             element={<CreateAnnouncement />}
           />
-        {/* </Route> */}
+        </Route>
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </ErrorBoundary>

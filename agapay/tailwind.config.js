@@ -27,6 +27,7 @@ export default {
       brown:'#bc560a', //brwn
       landslide:'#bd5a0a',//brown  din
       graybg:'#f1f1f1',
+      gray2:'#eff0f3',
     },
     fontFamily: {
       poppins: ["Poppins", "sans-serif"],

@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
-
-const AdminLogin = () => {
+const AdminLogin = ({ onAuthChange }) => {
+  // const [auth, setAuth] = useState(false);
   const [formData, setFormData] = useState({
     adminUsername: "",
     adminPassword: "",
@@ -37,13 +37,18 @@ const AdminLogin = () => {
           alert(response.data.message);
           const type = response.data.type;
           window.location.href = `/${type}`;
-        } else alert(response.data.message);
-        console.log(response.data.message);
+          onAuthChange(true);
+          // setAuth(true);
+        } else {
+          alert(response.data.message);
+          console.log(response.data.message);
+          onAuthChange(false);
+          // setAuth(false);
+        }
       })
       .catch((error) => {
         console.error("Error:", error);
       });
-
   };
   return (
     <div className="flex h-full items-center  min-h-screen bg-primary/10">
@@ -60,50 +65,50 @@ const AdminLogin = () => {
             </div>
             <div className="mt-5">
               {/* <form> */}
-                <div className="grid gap-y-4">
-                  <div>
+              <div className="grid gap-y-4">
+                <div>
+                  <label
+                    htmlFor="adminUsername"
+                    className="block font-semibold text-sm mb-2 font-inter"
+                  >
+                    Username
+                  </label>
+                  <div className="relative">
+                    <input
+                      type="text"
+                      onChange={handleInputChange}
+                      name="adminUsername"
+                      id="adminUsername"
+                      className="py-3 px-4 block w-full border font-inter border-gray/40 rounded-lg text-sm focus:border-primary focus:ring-primary focus:outline-none "
+                    />
+                  </div>
+                </div>
+                <div>
+                  <div className="relative">
                     <label
-                      htmlFor="adminUsername"
+                      htmlFor="adminPassword"
                       className="block font-semibold text-sm mb-2 font-inter"
                     >
-                      Username
+                      Password
                     </label>
-                    <div className="relative">
-                      <input
-                        type="text"
-                        onChange={handleInputChange}
-                        name="adminUsername"
-                        id="adminUsername"
-                        className="py-3 px-4 block w-full border font-inter border-gray/40 rounded-lg text-sm focus:border-primary focus:ring-primary focus:outline-none "
-                      />
-                    </div>
+                    <input
+                      type="password"
+                      onChange={handleInputChange}
+                      name="adminPassword"
+                      id="adminPassword"
+                      className="py-3 px-4 block w-full border border-gray/40 rounded-lg text-sm focus:border-primary focus:ring-primary focus:outline-none "
+                    />
                   </div>
-                  <div>
-                    <div className="relative">
-                      <label
-                        htmlFor="adminPassword"
-                        className="block font-semibold text-sm mb-2 font-inter"
-                      >
-                        Password
-                      </label>
-                      <input
-                        type="password"
-                        onChange={handleInputChange}
-                        name="adminPassword"
-                        id="adminPassword"
-                        className="py-3 px-4 block w-full border border-gray/40 rounded-lg text-sm focus:border-primary focus:ring-primary focus:outline-none "
-                      />
-                    </div>
-                  </div>
-
-                  <button
-                    type="submit"
-                    onClick={adminLogin}
-                    className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-primary text-white hover:bg-primarydark font-poppins tracking-wide"
-                  >
-                    Login
-                  </button>
                 </div>
+
+                <button
+                  type="submit"
+                  onClick={adminLogin}
+                  className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-primary text-white hover:bg-primarydark font-poppins tracking-wide"
+                >
+                  Login
+                </button>
+              </div>
               {/* </form> */}
             </div>
           </div>

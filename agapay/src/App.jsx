@@ -7,11 +7,26 @@ import AdminSideBar from "./components/Admin/AdminSideBar";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import AdminLogin from "./components/Admin/AdminLogin";
+import LoaderComponent from "./components/LoaderComponent";
+import ProtectedRoutes from "./components/ProtectedRoutes";
+
 const App = () => {
+  const [isLoading, setIsloading] = useState(true);
+
+  // const isAuth = useAuth();
+  // const useAuth = () => {
+  //   // alert(auth);
+  //   const user = { loggedIn : auth };
+  //   return user && user.loggedIn;
+  // };
+  // const [auth, setAuth] = useState("loading");  
+  // const handleAuthChange = (newAuthValue) => {
+  //   setAuth(newAuthValue);
+  // };
+  // alert(auth);
   const location = useLocation();
   // Check the current pathname
   const currentPath = location.pathname;
-
   const [sessionStatus, setSessionStatus] = useState("loading");
   const [sessionUsertype, setSessionUsertype] = useState("loading");
   const [sessionUsername, setSessionUsername] = useState("loading");
@@ -20,7 +35,7 @@ const App = () => {
   const checkSession = () => {
     axios
       .get("http://localhost/Backend/CheckSession.php", {
-        withCredentials: true
+        withCredentials: true,
       }) // Replace with your endpoint URL
       .then((response) => {
         // Handle the response data here
@@ -37,6 +52,13 @@ const App = () => {
           console.log("User Type:", UserType);
           console.log("Username:", Username);
         }
+        if (UserType === "admin" || UserType === "responder"){
+          //transfeer the bool to another component
+          // if(auth !== true){
+          //   // setAuth(true);
+          // }
+          // console.log("auth:", auth);
+        }
         // Perform further actions based on the status
         // if (response.data.Status === 'active') {
         //   if (response.data.UserType === 'User') {
@@ -52,24 +74,36 @@ const App = () => {
         console.error("Error checking session:", error);
       });
   };
+  
+
   useEffect(() => {
     // alert(currentPath.startsWith('/admin'));
     // Initial check when component mounts
     checkSession();
 
     // Set interval to check session every minute (60,000 milliseconds)
-    const interval = setInterval(checkSession, 2000);
+    const interval = setInterval(() => {
+      checkSession();
+    }, 2000);
 
     // Clear interval when the component is unmounted to prevent memory leaks
     return () => clearInterval(interval);
   }, [sessionStatus, sessionUsertype, sessionUsername]); // Empty dependency array ensures this effect runs once after initial render
-  
+
+  // useEffect(() => {
+  //   // if (currentPath.startsWith("/admin") || currentPath.startsWith("/responder") && sessionStatus === "inactive") {
+  //   //   return (window.location.href = "/adminlogin");
+  //   // }
+  // }, []);
   useEffect(() => {
-    // if (currentPath.startsWith("/admin") || currentPath.startsWith("/responder") && sessionStatus === "inactive") {
-    //   return (window.location.href = "/adminlogin");
-    // }
-  }, []);
-  return (
+    // alert(isAuth);
+    // Check if the session status is not 'loading' and other necessary conditions
+    if (sessionStatus !== "loading") {
+      // Data is loaded, set loading to false
+      setIsloading(false);
+    }
+  }, [sessionStatus /* other dependencies */]);
+  return  (
     // <>
 
     //   {/* <Navbar /> */}
@@ -81,8 +115,12 @@ const App = () => {
     <>
       {/* <Navbar /> */}
       <AppRoutes />
+      <AdminLogin onAuthChange={handleAuthChange} />
+      {/* { auth === true && <ProtectedRoutes auth={auth} />} */}
+      
 
-      {currentPath.startsWith("/responder") !== true &&
+      { currentPath.startsWith("/") === true &&
+        currentPath.startsWith("/responder") !== true &&
         currentPath.startsWith("/admin") !== true &&
         sessionStatus !== "loading" && (
           <Navbar
@@ -93,7 +131,8 @@ const App = () => {
         )}
 
       {/* <SideBarResponder /> */}
-      {currentPath.startsWith("/responder") === true && (
+      {currentPath.startsWith("/responder") === true &&
+        auth === true && (
         <SideBarResponder
           status={sessionStatus}
           userType={sessionUsertype}
@@ -101,11 +140,14 @@ const App = () => {
         />
       )}
       {currentPath.startsWith("/admin") === true &&
-        currentPath !== "/adminlogin" && <AdminSideBar
-          status={sessionStatus}
-          userType={sessionUsertype}
-          username={sessionUsername}
-        />}
+        currentPath !== "/adminlogin" &&
+        auth === true && (
+          <AdminSideBar
+            status={sessionStatus}
+            userType={sessionUsertype}
+            username={sessionUsername}
+          />
+        )}
     </>
   );
 };
