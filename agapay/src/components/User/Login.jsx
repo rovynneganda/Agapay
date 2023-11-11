@@ -4,7 +4,7 @@ import { loginbg } from "../../assets";
 import { EyeSlashIcon, EyeIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import axios from "axios";
 
-const Login = ({ onClose, asd }) => {
+const Login = ({ onClose, isLoggedInSession }) => {
     // alert(asd(true))
   // const [loggedIn, setLoggedIn] = useState(false);
   const [formData, setFormData] = useState({
@@ -27,7 +27,6 @@ const Login = ({ onClose, asd }) => {
   };
 
   const signIn = () => {
-    // alert(typeof asd)
     // setSad(true);
     // const asd = setSad;
     // alert(asd(sad));
@@ -54,7 +53,8 @@ const Login = ({ onClose, asd }) => {
         // setLoggedIn(true);
         // alert(loggedIn);
         if (response.data === "You are logged in") {
-          alert("You are Logged In");
+          // alert("You are Logged In");
+          isLoggedInSession(true);
           setLoginModalVisible(false);
           // window.location.reload();
           // .then(data => {
