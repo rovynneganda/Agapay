@@ -18,8 +18,7 @@ const SideBarResponder = ({status, userType, username }) => {
     if(status === "active" && userType === "responder"){
       console.log("Logged In.");
     }else{
-      handleLogout(false);
-      window.location.href = "/adminlogin";
+      window.location.href = "/*";
     }
     // alert(isLoggedIn);
     // alert(isLoggedIn);

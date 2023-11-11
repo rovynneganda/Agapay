@@ -5,19 +5,14 @@ import AppRoutes from "./Routes";
 import SideBarResponder from "./components/Responder/SideBar";
 import AdminSideBar from "./components/Admin/AdminSideBar";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import AdminLogin from "./components/Admin/AdminLogin";
 import LoaderComponent from "./components/LoaderComponent";
 import Login from "./components/User/Login";
 const App = () => {
-  // const handleIsLoggedIn = (isLoggedIn) => {
-  //   // alert("asd11: "+isLoggedIn);
-  //   if(isLoggedIn){
-  //     // alert("asd112: "+isLoggedIn);
-  //     // checkSession();
-  //   }
-  // };
   const location = useLocation();
+  const navigate = useNavigate();
+  // const Jo = 'mahal ko si Lyka Mae "Ganda" Fortuna';
   // Check the current pathname
   const currentPath = location.pathname;
   const [isLoading, setIsloading] = useState(true);
@@ -46,24 +41,12 @@ const App = () => {
           console.log("User Type:", UserType);
           console.log("Username:", Username);
         }
-        // Perform further actions based on the status
-        // if (response.data.Status === 'active') {
-        //   if (response.data.UserType === 'User') {
-        //     console.log("User Type:", response.data.UserType);
-        //     console.log("Username:", response.data.Username);
-        //   }
-        //   // User session is active, you can perform actions accordingly
-        // } else if (response.data.Status === 'inactive') {
-        //   // User session is inactive, you can redirect the user to the login page or perform other actions
-        // }
       })
       .catch((error) => {
         console.error("Error checking session:", error);
       });
   };
   useEffect(() => {
-    // alert(currentPath.startsWith('/admin'));
-    // Initial check when component mounts
     checkSession();
 
     // Set interval to check session every minute (60,000 milliseconds)
@@ -73,24 +56,59 @@ const App = () => {
     return () => clearInterval(interval);
   }, [sessionStatus, sessionUsertype, sessionUsername]); // Empty dependency array ensures this effect runs once after initial render
 
-  // useEffect(() => {
-  //   // if (currentPath.startsWith("/admin") || currentPath.startsWith("/responder") && sessionStatus === "inactive") {
-  //   //   return (window.location.href = "/adminlogin");
-  //   // }
-  // }, []);
+  // Function to update the state with data from the children
+  const handleIsLoggedInSession = (data) => {
+    if (data === true) {
+      // alert('gumana');
+      checkSession();
+    }
+  };
   useEffect(() => {
     // Check if the session status is not 'loading' and other necessary conditions
     if (sessionStatus !== "loading") {
       // Data is loaded, set loading to false
       setIsloading(false);
     }
-  }, [sessionStatus /* other dependencies */]);
+  }, [sessionStatus]);
+  useEffect(() => {
+    if (currentPath.startsWith("/admin") && sessionStatus === "active" && sessionUsertype === "responder") {
+      navigate("/responder");
+      setIsloading(true);
+      setTimeout(() => {
+        setIsloading(false);
+      }, 1000);
+    }
+    if (currentPath.startsWith("/responder") && sessionStatus === "active" && sessionUsertype === "admin") {
+      navigate("/admin");
+      setIsloading(true);
+      setTimeout(() => {
+        setIsloading(false);
+      }, 1000);
+    }
+
+    if (
+      (currentPath.startsWith("/admin") ||
+        currentPath.startsWith("/responder")) &&
+      currentPath !== "/adminlogin" &&
+      (sessionStatus === "inactive" || sessionUsertype === "User")
+    ) {
+      // alert(false);
+      // console.log(false);
+      setIsloading(true);
+      if (sessionStatus === "active" && sessionUsertype === "User") {
+        navigate("/");
+      } else {
+        navigate("/*");
+      }
+      setTimeout(() => {
+        setIsloading(false);
+      }, 1000);
+    }
+  }, [sessionStatus, sessionUsertype]);
   return isLoading ? (
     <LoaderComponent />
   ) : (
     <>
-      {/* <Login asd={handleIsLoggedIn} /> */}
-      {/* <Navbar /> */}
       <AppRoutes
         status={sessionStatus}
         userType={sessionUsertype}
@@ -104,15 +122,13 @@ const App = () => {
             status={sessionStatus}
             userType={sessionUsertype}
             username={sessionUsername}
+            isLoggedInSessionToParent={handleIsLoggedInSession}
           />
         )}
 
-      {/* <SideBarResponder /> */}
-      {currentPath.startsWith("/admin") === true &&
-        sessionUsertype !== "User" &&
-        sessionStatus === "User" && <LoaderComponent />}
       {currentPath.startsWith("/responder") === true &&
-        currentPath !== "/adminlogin" && (
+        currentPath !== "/adminlogin" &&
+        sessionUsertype === "responder" && (
           <SideBarResponder
             status={sessionStatus}
             userType={sessionUsertype}
@@ -120,7 +136,8 @@ const App = () => {
           />
         )}
       {currentPath.startsWith("/admin") === true &&
-        currentPath !== "/adminlogin" && (
+        currentPath !== "/adminlogin" &&
+        sessionUsertype === "admin" && (
           <AdminSideBar
             status={sessionStatus}
             userType={sessionUsertype}

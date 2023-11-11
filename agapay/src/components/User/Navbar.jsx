@@ -25,19 +25,23 @@ export const handleLogout = (isLoggedIn, isNavbar) => {
       // Handle the response from the API
       if (response.data === "Session Destroyed.") {
         // alert(response.data);
-      } else return; //alert("error");
-      console.log("error");
+      } else return console.log("error");
+      // console.log("error");
     })
     .catch((error) => {
       console.error("Error:", error);
     });
   // Here you can implement your logout logic.
   // For example, you can clear the user session and update the isLoggedIn state to false.
-  if (isNavbar) {
-    setIsLoggedIn(isLoggedIn);
-  }
+  // if (isNavbar) {
+  //   setIsLoggedIn(isLoggedIn);
+  // }
 };
-const Navbar = ({ status, userType, username }) => {
+const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
+  const isLoggedInSession = (data) => {
+    // Call the function passed from the parent (ParentComponent)
+    isLoggedInSessionToParent(data);
+  };
   // let bool;
   // if(status === "active"){
   //   bool = true;
@@ -189,7 +193,7 @@ const Navbar = ({ status, userType, username }) => {
               </button>
             )}
 
-            {isLoginModalVisible && <Login onClose={handleLoginModalToggle} />}
+            {isLoginModalVisible && <Login onClose={handleLoginModalToggle} isLoggedInSession={isLoggedInSession} />}
             {/* <Link
               className="text-md font-poppins transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  font-semibold text-primary mr-3 hover:bg-primary hover:text-white px-2 py-2 rounded-lg "
               to=""
