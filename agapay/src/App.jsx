@@ -6,9 +6,7 @@ import SideBarResponder from "./components/Responder/SideBar";
 import AdminSideBar from "./components/Admin/AdminSideBar";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
-import AdminLogin from "./components/Admin/AdminLogin";
 import LoaderComponent from "./components/LoaderComponent";
-import Login from "./components/User/Login";
 const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
