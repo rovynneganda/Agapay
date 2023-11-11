@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { logo, assistance } from "../../assets";
+import { handleLogout } from "../User/Navbar";
 import {
   Bars3BottomLeftIcon,
   HomeIcon,
@@ -14,9 +15,10 @@ import { Link, useLocation } from "react-router-dom";
 const SideBarResponder = ({status, userType, username }) => {
   useEffect(() => {
     // alert(status);
-    if(status === "active" || status === "loading" && userType === "responder" || userType === "loading"){
+    if(status === "active" && userType === "responder"){
       console.log("Logged In.");
     }else{
+      handleLogout(false);
       window.location.href = "/adminlogin";
     }
     // alert(isLoggedIn);

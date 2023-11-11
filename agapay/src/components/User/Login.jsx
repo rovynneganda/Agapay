@@ -4,11 +4,20 @@ import { loginbg } from "../../assets";
 import { EyeSlashIcon, EyeIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import axios from "axios";
 
-const Login = ({ onClose }) => {
+const Login = ({ onClose, asd }) => {
+    // alert(asd(true))
+  // const [loggedIn, setLoggedIn] = useState(false);
   const [formData, setFormData] = useState({
     loginUsername: '',
     loginPass:'',
   });
+//   useEffect(() => {
+//     if (loggedIn) {
+//       asd(true);
+//     } else {
+//       asd(false);
+//     }
+// }, [loggedIn, asd]);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -18,7 +27,12 @@ const Login = ({ onClose }) => {
   };
 
   const signIn = () => {
+    // alert(typeof asd)
+    // setSad(true);
+    // const asd = setSad;
+    // alert(asd(sad));
     console.log(formData);
+    // alert(asd(false));
     const formDataToSend = new URLSearchParams();
     formDataToSend.append("fileSelector", "Login");
     formDataToSend.append("loginUsername", formData.loginUsername);
@@ -37,10 +51,12 @@ const Login = ({ onClose }) => {
       })
       .then((response) => {
         // Handle the response from the API
+        // setLoggedIn(true);
+        // alert(loggedIn);
         if (response.data === "You are logged in") {
           alert("You are Logged In");
           setLoginModalVisible(false);
-          window.location.reload();
+          // window.location.reload();
           // .then(data => {
           //   // Handle the response data if needed
           //   console.log('Received data:', data);
@@ -50,13 +66,18 @@ const Login = ({ onClose }) => {
           //   console.error('Error occurred:', error);
           // });
         } else return alert(response.data);
+        // loggedIn(false);
         console.log(response.data);
       })
       .catch((error) => {
         console.error("Error:", error);
       });
   };
-
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      signIn();
+    }
+  };
   const submitRegBtn = () => {
     console.log(formData);
     const formDataToSend = new URLSearchParams();
@@ -200,10 +221,11 @@ const Login = ({ onClose }) => {
   // console.log(document.querySelector(".registrationAddress"));
   return (
     <>
-      <div className={`LoginModal ${isLoginModalVisible ? "z-50" : "hidden"}`}>
+      {/* {loggedIn ? asd(true) : asd(false)} */}
+      <div className={`LoginModal ${isLoginModalVisible ? "" : "hidden"}`}>
         <div
           tabIndex="-1"
-          className="fixed top-0 left-0 right-0  flex justify-center bg-black bg-opacity-50 items-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-0.5rem)] max-h-full rounded-lg"
+          className="fixed top-0 left-0 right-0  flex justify-center z-50 bg-black bg-opacity-50 items-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-0.5rem)] max-h-full rounded-lg"
         >
           <div className="flex sm:flex-row flex-col items-center w-full max-w-4xl  lg:max-h-[85%] md:max-h-[90%] sm:max-h-[85%]  h-full ">
             <div className="w-full h-full p-4   sm:rounded-l-lg   bg-white ">
@@ -225,6 +247,7 @@ const Login = ({ onClose }) => {
                         name="loginUsername"
                         value={formData.loginUsername}
                         onChange={handleInputChange}
+                        onKeyDown={handleKeyDown}
                         className="block px-2.5 font-poppins border-gray/30  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
                         placeholder=""
                       />
@@ -244,6 +267,7 @@ const Login = ({ onClose }) => {
                         name="loginPass"
                         value={formData.loginPass}
                         onChange={handleInputChange}
+                        onKeyDown={handleKeyDown}
                         className="block px-2.5 font-poppins border-gray/30  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border  peer"
                         placeholder=""
                       />
@@ -797,10 +821,10 @@ const Login = ({ onClose }) => {
           </div>
         </div>
       </div>
-      <div className={`ForgotPassword ${isForgotPasswordModalVisible ? "z-50" : "hidden"}`}>
+      <div className={`ForgotPassword ${isForgotPasswordModalVisible ? "" : "hidden"}`}>
       <div
           tabIndex="-1"
-          className="fixed top-0 left-0 right-0  flex justify-center bg-black bg-opacity-50 items-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-0.5rem)] max-h-full rounded-lg"
+          className="fixed top-0 left-0 right-0 z-50  flex justify-center bg-black bg-opacity-50 items-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-0.5rem)] max-h-full rounded-lg"
         >
           <div className="flex sm:flex-row flex-col items-center w-full max-w-4xl  lg:max-h-[85%] md:max-h-[90%] sm:max-h-[85%]  h-full ">
             <div className="w-full h-full p-4   sm:rounded-l-lg   bg-white ">

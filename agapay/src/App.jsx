@@ -7,11 +7,20 @@ import AdminSideBar from "./components/Admin/AdminSideBar";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import AdminLogin from "./components/Admin/AdminLogin";
+import LoaderComponent from "./components/LoaderComponent";
+import Login from "./components/User/Login";
 const App = () => {
+  // const handleIsLoggedIn = (isLoggedIn) => {
+  //   // alert("asd11: "+isLoggedIn);
+  //   if(isLoggedIn){
+  //     // alert("asd112: "+isLoggedIn);
+  //     // checkSession();
+  //   }
+  // };
   const location = useLocation();
   // Check the current pathname
   const currentPath = location.pathname;
-
+  const [isLoading, setIsloading] = useState(true);
   const [sessionStatus, setSessionStatus] = useState("loading");
   const [sessionUsertype, setSessionUsertype] = useState("loading");
   const [sessionUsername, setSessionUsername] = useState("loading");
@@ -20,7 +29,7 @@ const App = () => {
   const checkSession = () => {
     axios
       .get("http://localhost/Backend/CheckSession.php", {
-        withCredentials: true
+        withCredentials: true,
       }) // Replace with your endpoint URL
       .then((response) => {
         // Handle the response data here
@@ -58,29 +67,35 @@ const App = () => {
     checkSession();
 
     // Set interval to check session every minute (60,000 milliseconds)
-    const interval = setInterval(checkSession, 2000);
+    const interval = setInterval(checkSession, 5000);
 
     // Clear interval when the component is unmounted to prevent memory leaks
     return () => clearInterval(interval);
   }, [sessionStatus, sessionUsertype, sessionUsername]); // Empty dependency array ensures this effect runs once after initial render
-  
-  useEffect(() => {
-    // if (currentPath.startsWith("/admin") || currentPath.startsWith("/responder") && sessionStatus === "inactive") {
-    //   return (window.location.href = "/adminlogin");
-    // }
-  }, []);
-  return (
-    // <>
 
-    //   {/* <Navbar /> */}
-    //   <AppRoutes />
-    //   <Navbar status={sessionStatus} userType={sessionUsertype} username={sessionUsername} />
-    //   {/* <SideBarResponder /> */}
-    //   {/* <AdminSideBar /> */}
-    // </>
+  // useEffect(() => {
+  //   // if (currentPath.startsWith("/admin") || currentPath.startsWith("/responder") && sessionStatus === "inactive") {
+  //   //   return (window.location.href = "/adminlogin");
+  //   // }
+  // }, []);
+  useEffect(() => {
+    // Check if the session status is not 'loading' and other necessary conditions
+    if (sessionStatus !== "loading") {
+      // Data is loaded, set loading to false
+      setIsloading(false);
+    }
+  }, [sessionStatus /* other dependencies */]);
+  return isLoading ? (
+    <LoaderComponent />
+  ) : (
     <>
+      {/* <Login asd={handleIsLoggedIn} /> */}
       {/* <Navbar /> */}
-      <AppRoutes />
+      <AppRoutes
+        status={sessionStatus}
+        userType={sessionUsertype}
+        username={sessionUsername}
+      />
 
       {currentPath.startsWith("/responder") !== true &&
         currentPath.startsWith("/admin") !== true &&
@@ -93,21 +108,26 @@ const App = () => {
         )}
 
       {/* <SideBarResponder /> */}
-      {currentPath.startsWith("/responder") === true && (
-        <SideBarResponder
-          status={sessionStatus}
-          userType={sessionUsertype}
-          username={sessionUsername}
-        />
-      )}
       {currentPath.startsWith("/admin") === true &&
-        currentPath !== "/adminlogin" && <AdminSideBar
-          status={sessionStatus}
-          userType={sessionUsertype}
-          username={sessionUsername}
-        />}
+        sessionUsertype !== "User" &&
+        sessionStatus === "User" && <LoaderComponent />}
+      {currentPath.startsWith("/responder") === true &&
+        currentPath !== "/adminlogin" && (
+          <SideBarResponder
+            status={sessionStatus}
+            userType={sessionUsertype}
+            username={sessionUsername}
+          />
+        )}
+      {currentPath.startsWith("/admin") === true &&
+        currentPath !== "/adminlogin" && (
+          <AdminSideBar
+            status={sessionStatus}
+            userType={sessionUsertype}
+            username={sessionUsername}
+          />
+        )}
     </>
   );
 };
-
 export default App;

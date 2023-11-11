@@ -1,15 +1,39 @@
 import React, { useEffect, useState } from "react";
 import { logo, report, travel } from "../../assets";
 import { MapPinIcon, ArrowRightCircleIcon,XMarkIcon } from "@heroicons/react/24/outline";
-
-const Reporting = () => {
+import LoginFirst from "./LoginFirst";
+const Reporting = ({ status, userType, username }) => {
+  // alert(status);
+  const [activeUserSession, setActiveUserSession] = useState(false);
+  useEffect(() => {
+    // alert(userType);
+    if(status === "active" && userType === "User"){
+      setActiveUserSession(true);
+    }else{
+      setActiveUserSession(false);
+    }
+    // alert(isLoggedIn);
+    // alert(isLoggedIn);
+  }, [status, userType]);
   const [isReportModalVisible, setIsReportModalVisible] = useState(false);
   const [isTravelModalVisible, setisTravelModalVisible] = useState(false);
+  const [isLogIn, setIsLogIn] = useState(false)
+  const handleCloseModal = () => {
+    setIsLogIn(false);
+  }
   const handleSelectButtonClickAssistance = () => {
-    setisTravelModalVisible(true);
+    if (!activeUserSession) {
+      setIsLogIn(true)
+    }else {
+      setisTravelModalVisible(true);
+    }
   };
   const handleSelectButtonClickReport = () => {
-    setIsReportModalVisible(true);
+    if (!activeUserSession) {
+      setIsLogIn(true)
+    }else {
+      setIsReportModalVisible(true);
+    }
   };
   const [add,setAdd] = useState('')
     // `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
@@ -89,9 +113,11 @@ const Reporting = () => {
                     Proceed
                   </button> */}
                 </div>
+               
               </div>
             </div>
           </div>
+          {isLogIn && <LoginFirst onClose={handleCloseModal}/>}
         </section>
       </div>
       {isReportModalVisible && (

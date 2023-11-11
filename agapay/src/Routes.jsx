@@ -17,11 +17,20 @@ import ErrorPage from "./components/ErrorPage";
 import ErrorBoundary from "./components/ErrorBoundary";
 import AdminLogin from "./components/Admin/AdminLogin";
 // import ProtectedRoutes from "./components/ProtectedRoutes";
-const AppRoutes = () => {
+const AppRoutes = ({ status, userType, username }) => {
   return (
     <ErrorBoundary>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            <Home
+              status={status}
+              userType={userType}
+              username={username}
+            />
+          }
+        />
         <Route path="/user/accountdetails" element={<UserDetails />} />
         <Route path="/nearby-services" element={<EmergencyResources />} />
         <Route path="/about" element={<About />} />
@@ -36,17 +45,15 @@ const AppRoutes = () => {
           element={<ResponderUserSettings />}
         />
 
-        {/* <Route element={<ProtectedRoutes />}> */}
-          <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/adminlogin" element={<AdminLogin />} />
-          <Route path="/admin/records" element={<AdminRecords />} />
-          <Route path="/admin/createaccount" element={<CreateAccount />} />
-          <Route path="/admin/createalert" element={<CreateAlert />} />
-          <Route
-            path="/admin/createannouncement"
-            element={<CreateAnnouncement />}
-          />
-        {/* </Route> */}
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/adminlogin" element={<AdminLogin />} />
+        <Route path="/admin/records" element={<AdminRecords />} />
+        <Route path="/admin/createaccount" element={<CreateAccount />} />
+        <Route path="/admin/createalert" element={<CreateAlert />} />
+        <Route
+          path="/admin/createannouncement"
+          element={<CreateAnnouncement />}
+        />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </ErrorBoundary>

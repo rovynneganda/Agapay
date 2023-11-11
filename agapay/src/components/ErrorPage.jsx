@@ -1,5 +1,6 @@
 import React from 'react'
 import { logo } from '../assets'
+import { Link } from 'react-router-dom'
 const ErrorPage = () => {
   return (
     <div className="max-w-[50rem] flex mt-44 flex-col mx-auto w-full h-full">
@@ -15,9 +16,9 @@ const ErrorPage = () => {
       <p className="mt-3  font-poppins">Oops, something went wrong.</p>
       <p className=" font-poppins">Sorry, we couldn't find your page.</p>
       <div className="mt-5 flex flex-col justify-center items-center gap-2 sm:flex-row sm:gap-3">
-        <a className="w-full font-poppins sm:w-auto inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold text-primary hover:bg-primary hover:text-white hover:text-blue-700 focus:outline-none focus:ring-2 ring-offset-white focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm py-3 px-4 " href="">
+        <Link to="/" className="w-full font-poppins sm:w-auto inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold text-primary hover:bg-primary hover:text-white hover:text-blue-700 focus:outline-none focus:ring-2 ring-offset-white focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm py-3 px-4 " >
           Back to Home
-        </a>
+        </Link>
       </div>
     </div>
 
