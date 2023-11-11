@@ -13,6 +13,7 @@ const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
   // Check the current pathname
+  
   const currentPath = location.pathname;
   const [isLoading, setIsloading] = useState(true);
   const [sessionStatus, setSessionStatus] = useState("loading");
