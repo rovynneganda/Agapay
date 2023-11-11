@@ -12,7 +12,6 @@ import Login from "./components/User/Login";
 const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  // const Jo = 'mahal ko si Lyka Mae "Ganda" Fortuna';
   // Check the current pathname
   const currentPath = location.pathname;
   const [isLoading, setIsloading] = useState(true);
