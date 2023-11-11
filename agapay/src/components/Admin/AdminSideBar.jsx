@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 const AdminSideBar = ({status, userType, username }) => {
   useEffect(() => {
     // alert(status);
-    if(status === "active" || status === "loading" && userType === "admin" || userType === "loading"){
+    if(status === "active" && userType === "admin"){
       console.log("Logged In.");
     }else{
-      window.location.href = "/adminlogin";
+      window.location.href = "/*";
     }
     // alert(isLoggedIn);
     // alert(isLoggedIn);

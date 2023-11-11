@@ -5,6 +5,33 @@ import styles from "../../style";
 import { menu, assistance } from "../../assets";
 import Login from "./Login";
 import { ArrowRightCircleIcon, ArrowDownCircleIcon, ChevronDownIcon, UserCircleIcon } from '@heroicons/react/24/outline'
+import axios from "axios";
+
+export const handleLogout = (isLoggedIn, isNavbar) => {
+  const formDataToObject = { "fileSelector": "Logout" }; 
+  axios
+    .post("http://localhost/Backend/Controller.php", formDataToObject, {
+      withCredentials: true,
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    })
+    .then((response) => {
+      // Handle the response from the API
+      if (response.data === "Session Destroyed.") {
+        // alert(response.data);
+      } else return //alert("error");
+      console.log("error");
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+  // Here you can implement your logout logic.
+  // For example, you can clear the user session and update the isLoggedIn state to false.
+  if(isNavbar){
+    setIsLoggedIn(isLoggedIn);
+  }
+};
 const Navbar = ({ status, userType, username }) => {
   // let bool;
   // if(status === "active"){
@@ -15,8 +42,8 @@ const Navbar = ({ status, userType, username }) => {
     // alert(status);
   const [isLoggedIn, setIsLoggedIn] = useState(status);
   useEffect(() => {
-    // alert(status);
-    if(status === "active"){
+    // alert(userType);
+    if(status === "active" && userType === "User"){
       setIsLoggedIn(true);
     }else{
       setIsLoggedIn(false);
@@ -37,11 +64,6 @@ const Navbar = ({ status, userType, username }) => {
   //   setIsLoggedIn(!isLoggedIn);
   // };
 
-  const handleLogout = () => {
-    // Here you can implement your logout logic.
-    // For example, you can clear the user session and update the isLoggedIn state to false.
-    setIsLoggedIn(false);
-  };
   // const [sessionStatus, setSessionStatus] = useState('loading');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -103,7 +125,7 @@ const Navbar = ({ status, userType, username }) => {
                 >
                   <span className="sr-only">Open user menu</span>
                   <UserCircleIcon className="w-5 h-5 mb-1 inline-block mr-1" />
-                  {username}
+                  {userType === "User" ? username : "Please Log In."}
                   <ChevronDownIcon    className="w-5 h-5 inline-block ml-1" />
                 </button> 
                 
@@ -118,7 +140,7 @@ const Navbar = ({ status, userType, username }) => {
               >
                 <div className="px-4 py-3">
                   <p className="text-sm font-inter text-primary ">
-                    {username}
+                    {userType === "User" ? username : "Please Log In."}
                   </p>
                   <p className="text-sm font-medium  truncate font-inter ">
                     jokoiloveyou@gmail.com
@@ -137,6 +159,7 @@ const Navbar = ({ status, userType, username }) => {
                   <li>
                     <a
                       href="#"
+                      onClick={() => handleLogout(false, true)}
                       className="block px-4 py-2 text-sm  text-gray/80 hover:text-black hover:bg-gray/20 "
                     >
                       Sign out
