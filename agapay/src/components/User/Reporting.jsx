@@ -101,22 +101,21 @@ const Reporting = ({ status, userType, username }) => {
 // end of start Recording
 
 // stop the recording
-  const stopRecording = () => {
-    if (mediaRecorder) {
-      mediaRecorder.stop();
-      setIsRecording(false);
-      
-      if (stream) {
-        stream.getTracks().forEach((track) => track.stop());
-      }
-    }
+const stopRecording = () => {
+  if (mediaRecorder) {
+    mediaRecorder.stop();
+    setIsRecording(false);
 
-    //close the camera if stop the video 
     if (stream) {
       stream.getTracks().forEach((track) => track.stop());
-      videoRef.current.srcObject = null;
+
+      // Check if videoRef.current is not null before setting srcObject
+      if (videoRef.current) {
+        videoRef.current.srcObject = null;
+      }
     }
-  };
+  }
+};
 // end of stop the camera 
 
 //auto save the video after recording
