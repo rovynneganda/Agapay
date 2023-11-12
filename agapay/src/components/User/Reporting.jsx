@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useRef, useEffect } from 'react';
 import { logo, report, travel } from "../../assets";
-import { MapPinIcon, ArrowRightCircleIcon,XMarkIcon } from "@heroicons/react/24/outline";
+import { MapPinIcon, ArrowRightCircleIcon,XMarkIcon,VideoCameraIcon,XCircleIcon,StopIcon} from "@heroicons/react/24/outline";
 import LoginFirst from "./LoginFirst";
+import TimeAndDateRepoting from "../../weather/components/DateandTimeReporting";
 const Reporting = ({ status, userType, username }) => {
   // alert(status);
   const [activeUserSession, setActiveUserSession] = useState(false);
@@ -50,6 +51,108 @@ const Reporting = ({ status, userType, username }) => {
         })
     },[])
     console.log(add)
+    const [stream, setStream] = useState(null);
+    const [mediaRecorder, setMediaRecorder] = useState(null);
+    const [isRecording, setIsRecording] = useState(false);
+    const [recordingTime, setRecordingTime] = useState(0);
+    const [videoData, setVideoData] = useState(null);
+    const [isValid, setIsValid] = useState(null);
+    const videoRef = useRef(null);
+    const countdownIntervalRef = useRef(null);
+    //  start Recording
+  const startRecording = async () => {
+    try {
+      const videoStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: true });
+      setStream(videoStream);
+      videoRef.current.srcObject = videoStream;
+
+      const recorder = new MediaRecorder(videoStream);
+      const chunks = [];
+
+      recorder.ondataavailable = (event) => {
+        if (event.data.size > 0) {
+          chunks.push(event.data);
+        }
+      };
+      //Get the file after taking the video
+      recorder.onstop = () => {
+        const blob = new Blob(chunks, { type: 'video/webm' });
+        const videoURL = URL.createObjectURL(blob);
+        setVideoData({ blob, url: videoURL, name: `recorded-video-${new Date().getTime()}.webm` })
+      };
+      //end Get the file after taking the video
+
+      // if click the camera icon it start to recording and countdown
+      recorder.start();
+      setIsRecording(true);
+      setRecordingTime(0);
+      clearInterval(countdownIntervalRef.current);
+
+      countdownIntervalRef.current = setInterval(() => {
+        setRecordingTime((prevTime) => prevTime + 1); // Update every second (1000 milliseconds)
+      }, 1000);
+
+      setTimeout(() => stopRecording(), 10000); // Stop recording after 10 seconds
+      setMediaRecorder(recorder);
+    } catch (error) {
+      console.error('Error accessing the camera: ', error);
+    }
+  };
+// end of start Recording
+
+// stop the recording
+const stopRecording = () => {
+  if (mediaRecorder) {
+    mediaRecorder.stop();
+    setIsRecording(false);
+
+    if (stream) {
+      stream.getTracks().forEach((track) => track.stop());
+
+      // Check if videoRef.current is not null before setting srcObject
+      if (videoRef.current) {
+        videoRef.current.srcObject = null;
+      }
+    }
+  }
+};
+// end of stop the camera 
+
+//auto save the video after recording
+  // const validateVideo = () => {
+  //   setIsValid(true);
+  // };
+  //end auto save the video after recording
+
+  //Discard the video 
+  const discardVideo = () => {
+    if (videoData) {
+      URL.revokeObjectURL(videoData.url);
+      setVideoData(null);
+      setRecordingTime(0);
+      
+      clearInterval(countdownIntervalRef.current);
+   
+    }
+  };
+    //end of Discard the video 
+    //limit the recording time in to 10 seconds
+  useEffect(() => {
+    if (recordingTime >= 11) {
+      stopRecording();
+    }
+  }, [recordingTime]);
+     //end limit the recording time in to 10 seconds
+
+  // const downloadVideo = () => {
+  //   if (videoData) {
+  //     const a = document.createElement('a');
+  //     a.href = videoData.url;
+  //     a.download = 'recorded-video.webm';
+  //     a.click();
+  //   }
+  // };
+
   return (
     <>
     
@@ -155,6 +258,7 @@ const Reporting = ({ status, userType, username }) => {
                       <p className="font-inter">
                         Address:  {add.formatted_address}
                       </p>
+                      <TimeAndDateRepoting />
                     </div>
                     {/* <div className="flex items-center justify-center mt-3 mb-3">
                       <button
@@ -266,10 +370,20 @@ const Reporting = ({ status, userType, username }) => {
                 </div>
                 <div className="sm:hidden block">
                   <p className="font-inter font-semibold">Send a Video </p>
+                  <video ref={videoRef} className="mt-4" playsInline autoPlay />
+      { isRecording && <div className="mt-2">Recording time: {10 - recordingTime} seconds left</div>}
                   <div className="flex items-center justify-center mb-4">
+                  {isRecording ? (
+        <div className="flex items-center space-x-4">
+        <StopIcon onClick={stopRecording} className="h-10 w-10 text-red hover:text-primary rounded-full"/>
+        </div>
+        
+        ) : (
+      
                     <div className="w-16 h-14 inline-flex items-center justify-center rounded-full bg-primary/20 text-primary mr-4">
+
                       <button className="w-auto">
-                        <svg
+                        <svg onClick={startRecording} 
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
@@ -284,8 +398,25 @@ const Reporting = ({ status, userType, username }) => {
                         </svg>
                       </button>
                     </div>
+                        )}
                   </div>
+
                 </div>
+                {videoData && (
+        <div className="mt-4 flex items-center">
+          <div className="mt-2">Recorded Video: {videoData.name}</div>
+         
+          {isValid === false && (
+            <div className="text-red-500 ml-4">Video is not valid. Please try again.</div>
+          )}
+           <div>
+           <XCircleIcon onClick={discardVideo} className="h-10 w-10"/>
+           
+         
+
+          </div>
+        </div>
+      )}
                 <div className="font-inter">
                   <label
                     htmlFor="message"
