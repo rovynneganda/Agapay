@@ -10,6 +10,142 @@ import {
 } from "@heroicons/react/24/outline";
 
 const Hotlines = () => {
+  const phoneNumber = '+63(2)83649060';
+  const [showModalphone, setShowModalphone] = useState(false);
+
+  const handleCallClick = () => {
+    setShowModalphone(true);
+  };
+
+  const handleConfirmCall = () => {
+    makePhoneCall();
+    setShowModalphone(false);
+  };
+
+  const handleCancelCall = () => {
+    setShowModalphone(false);
+  };
+
+  const makePhoneCall = () => {
+    window.location.href = `tel:${phoneNumber}`;
+  };
+
+    // end phone number for 4th avenue station
+     // phone number for central fire station
+  const phoneNumber1 = '324 6527';
+  const [showModalphone1, setShowModalphone1] = useState(false);
+
+  const handleCallClick1 = () => {
+    setShowModalphone1(true);
+  };
+
+  const handleConfirmCall1 = () => {
+    makePhoneCall1();
+    setShowModalphone1(false);
+  };
+
+  const handleCancelCall1 = () => {
+    setShowModalphone1(false);
+  };
+
+  const makePhoneCall1 = () => {
+    window.location.href = `tel:${phoneNumber1}`;
+  };
+
+    // end phone number for central fire station
+
+         // phone number for Northern Police - Station 1
+  const phoneNumber2 = '+63(2)324 6528';
+  const [showModalphone2, setShowModalphone2] = useState(false);
+
+  const handleCallClick2 = () => {
+    setShowModalphone2(true);
+  };
+
+  const handleConfirmCall2 = () => {
+    makePhoneCall2();
+    setShowModalphone2(false);
+  };
+
+  const handleCancelCall2 = () => {
+    setShowModalphone2(false);
+  };
+
+  const makePhoneCall2 = () => {
+    window.location.href = `tel:${phoneNumber2}`;
+  };
+
+    // end phone number for Northern Police - Station 1
+
+            // phone number for Northern Police district
+  const phoneNumber3 = '+63(2)9623918';
+  const [showModalphone3, setShowModalphone3] = useState(false);
+
+  const handleCallClick3 = () => {
+    setShowModalphone3(true);
+  };
+
+  const handleConfirmCall3 = () => {
+    makePhoneCall3();
+    setShowModalphone3(false);
+  };
+
+  const handleCancelCall3 = () => {
+    setShowModalphone3(false);
+  };
+
+  const makePhoneCall3 = () => {
+    window.location.href = `tel:${phoneNumber3}`;
+  };
+
+    // end phone number for Northern Police district
+
+           // phone number for  North Medical Center
+  const phoneNumber4 = '02-8424-1724';
+  const [showModalphone4, setShowModalphone4] = useState(false);
+
+  const handleCallClick4 = () => {
+    setShowModalphone4(true);
+  };
+
+  const handleConfirmCall4 = () => {
+    makePhoneCall4();
+    setShowModalphone4(false);
+  };
+
+  const handleCancelCall4 = () => {
+    setShowModalphone4(false);
+  };
+
+  const makePhoneCall4 = () => {
+    window.location.href = `tel:${phoneNumber4}`;
+  };
+
+    // end phone number for  North Medical Center
+
+            // phone number for South Medical Center
+  const phoneNumber5 = '+63 (2) 310 7920';
+  const [showModalphone5, setShowModalphone5] = useState(false);
+
+  const handleCallClick5 = () => {
+    setShowModalphone5(true);
+  };
+
+  const handleConfirmCall5 = () => {
+    makePhoneCall5();
+    setShowModalphone5(false);
+  };
+
+  const handleCancelCall5= () => {
+    setShowModalphone5(false);
+  };
+
+  const makePhoneCall5 = () => {
+    window.location.href = `tel:${phoneNumber5}`;
+  };
+
+    // end phone number for  South Medical Center
+
   const [showModal, setShowModal] = useState(false);
 
   const handleShowModal = () => {
@@ -125,7 +261,7 @@ const Hotlines = () => {
                   <button className=" mr-2  cursor-default      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <PhoneIcon className="h-5 w-5 text-primary font-semibold" />
                   </button>
-                  <h3 className="text-md text-gray font-medium font-poppins mb-2 mt-2">
+                  <h3 onClick={handleCallClick} className="text-md cursor-pointer text-gray font-medium font-poppins mb-2 mt-2">
                     +63(2)83649060
                   </h3>
                 </div>
@@ -157,7 +293,7 @@ const Hotlines = () => {
                   <button className=" mr-2  cursor-default      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <PhoneIcon className="h-5 w-5 text-primary font-semibold" />
                   </button>
-                  <h3 className="text-md text-gray font-medium font-poppins mb-2 mt-2">
+                  <h3 onClick={handleCallClick1} className="text-md cursor-pointer text-gray font-medium font-poppins mb-2 mt-2">
                     324 6527
                   </h3>
                 </div>
@@ -189,7 +325,7 @@ const Hotlines = () => {
                   <button className=" mr-2  cursor-default      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <PhoneIcon className="h-5 w-5 text-primary font-semibold" />
                   </button>
-                  <h3 className="text-md text-gray font-medium font-poppins mb-2 mt-2">
+                  <h3 onClick={handleCallClick2} className="text-md cursor-pointer text-gray font-medium font-poppins mb-2 mt-2">
                     +63(2)324 6528
                   </h3>
                 </div>
@@ -221,7 +357,7 @@ const Hotlines = () => {
                   <button className=" mr-2  cursor-default      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <PhoneIcon className="h-5 w-5 text-primary font-semibold" />
                   </button>
-                  <h3 className="text-md text-gray font-medium font-poppins mb-2 mt-2">
+                  <h3 onClick={handleCallClick3} className="text-md cursor-pointer text-gray font-medium font-poppins mb-2 mt-2">
                     +63(2)9623918
                   </h3>
                 </div>
@@ -254,7 +390,7 @@ const Hotlines = () => {
                   <button className=" mr-2  cursor-default      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <PhoneIcon className="h-5 w-5 text-primary font-semibold" />
                   </button>
-                  <h3 className="text-md text-gray font-medium font-poppins mb-2 mt-2">
+                  <h3 onClick={handleCallClick4} className="text-md cursor-pointer text-gray font-medium font-poppins mb-2 mt-2">
                     02-8424-1724
                   </h3>
                 </div>
@@ -286,7 +422,7 @@ const Hotlines = () => {
                   <button className=" mr-2  cursor-default      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <PhoneIcon className="h-5 w-5 text-primary font-semibold" />
                   </button>
-                  <h3 className="text-md text-gray font-medium font-poppins mb-2 mt-2">
+                  <h3  onClick={handleCallClick5} className="text-md cursor-pointer text-gray font-medium font-poppins mb-2 mt-2">
                     +63 (2) 310 7920
                   </h3>
                 </div>
@@ -541,6 +677,133 @@ const Hotlines = () => {
           </div>
         </div>
       )}
+       {/* // phone number for 4th avenue station */}
+       {showModalphone && (
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75">
+          <div className="bg-white p-8 rounded-lg shadow-lg">
+            <p className="mb-4">Are you sure you want to call {phoneNumber}?</p>
+            <button
+              className="bg-green-500 hover:bg-green-700 text-black font-bold py-2 px-4 rounded mr-2"
+              onClick={handleConfirmCall}
+            >
+              Yes
+            </button>
+            <button
+              className="bg-red-500 hover:bg-red-700 text-black font-bold py-2 px-4 rounded"
+              onClick={handleCancelCall}
+            >
+              No
+            </button>
+          </div>
+        </div>
+      )}
+        {/* // end phone number for 4th avenue station */}
+          {/* // phone number for central fire station */}
+       {showModalphone1 && (
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75">
+          <div className="bg-white p-8 rounded-lg shadow-lg">
+            <p className="mb-4">Are you sure you want to call {phoneNumber1}?</p>
+            <button
+              className="bg-green-500 hover:bg-green-700 text-black font-bold py-2 px-4 rounded mr-2"
+              onClick={handleConfirmCall1}
+            >
+              Yes
+            </button>
+            <button
+              className="bg-red-500 hover:bg-red-700 text-black font-bold py-2 px-4 rounded"
+              onClick={handleCancelCall1}
+            >
+              No
+            </button>
+          </div>
+        </div>
+      )}
+        {/* //end phone number for central fire station */}
+          {/* // phone number for Northern Police - Station 1 */}
+       {showModalphone2 && (
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75">
+          <div className="bg-white p-8 rounded-lg shadow-lg">
+            <p className="mb-4">Are you sure you want to call {phoneNumber2}?</p>
+            <button
+              className="bg-green-500 hover:bg-green-700 text-black font-bold py-2 px-4 rounded mr-2"
+              onClick={handleConfirmCall2}
+            >
+              Yes
+            </button>
+            <button
+              className="bg-red-500 hover:bg-red-700 text-black font-bold py-2 px-4 rounded"
+              onClick={handleCancelCall2}
+            >
+              No
+            </button>
+          </div>
+        </div>
+      )}
+        {/* //  end phone number for Northern Police District */}
+        {showModalphone3 && (
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75">
+          <div className="bg-white p-8 rounded-lg shadow-lg">
+            <p className="mb-4">Are you sure you want to call {phoneNumber3}?</p>
+            <button
+              className="bg-green-500 hover:bg-green-700 text-black font-bold py-2 px-4 rounded mr-2"
+              onClick={handleConfirmCall3}
+            >
+              Yes
+            </button>
+            <button
+              className="bg-red-500 hover:bg-red-700 text-black font-bold py-2 px-4 rounded"
+              onClick={handleCancelCall3}
+            >
+              No
+            </button>
+          </div>
+        </div>
+      )}
+        {/* // end phone number for Northern Police District */}
+
+          {/* // phone number for North Medical Center */}
+          {showModalphone4 && (
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75">
+          <div className="bg-white p-8 rounded-lg shadow-lg">
+            <p className="mb-4">Are you sure you want to call {phoneNumber4}?</p>
+            <button
+              className="bg-green-500 hover:bg-green-700 text-black font-bold py-2 px-4 rounded mr-2"
+              onClick={handleConfirmCall4}
+            >
+              Yes
+            </button>
+            <button
+              className="bg-red-500 hover:bg-red-700 text-black font-bold py-2 px-4 rounded"
+              onClick={handleCancelCall4}
+            >
+              No
+            </button>
+          </div>
+        </div>
+      )}
+        {/* // end phone number forNorth Medical Center */}
+
+         {/* // phone number for South Medical Center */}
+         {showModalphone5 && (
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75">
+          <div className="bg-white p-8 rounded-lg shadow-lg">
+            <p className="mb-4">Are you sure you want to call {phoneNumber5}?</p>
+            <button
+              className="bg-green-500 hover:bg-green-700 text-black font-bold py-2 px-4 rounded mr-2"
+              onClick={handleConfirmCall5}
+            >
+              Yes
+            </button>
+            <button
+              className="bg-red-500 hover:bg-red-700 text-black font-bold py-2 px-4 rounded"
+              onClick={handleCancelCall5}
+            >
+              No
+            </button>
+          </div>
+        </div>
+      )}
+        {/* // end phone number for South Medical Center */}
     </>
   );
 };
