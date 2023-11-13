@@ -3,14 +3,116 @@ import { Link } from "react-router-dom";
 import { loginbg } from "../../assets";
 import { EyeSlashIcon, EyeIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import axios from "axios";
-
+import AlertEmpty from "./AlertEmpty";
+import AlertSpecialCharacters from "./AlertSpecialCharacters";
+import AlertInvalidEmail from "./AlertInvalidEmail";
+import AlertStep2Required from "./AlertStep2Required";
+import AlertCity from "./AlertCity";
+import AlertPostalCode from "./AlertPostalCode";
 const Login = ({ onClose, isLoggedInSession }) => {
+
+
+  const [showAlertPostalCode, setShowAlertPostalCode] = useState(false);
+  const openAlertPostalCode = () => {
+    setShowAlertPostalCode(true);
+
+    // Set a timeout to automatically close the modal after 5 seconds (adjust the time as needed)
+    setTimeout(() => {
+      closeAlertPostalCode();
+    }, 5000); // 5000 milliseconds = 5 seconds
+  };
+
+  const closeAlertPostalCode = () => {
+    setShowAlertPostalCode(false);
+  };
+
+  const [showAlertCity, setShowAlertCity] = useState(false);
+  const openAlertCity = () => {
+    setShowAlertCity(true);
+
+    // Set a timeout to automatically close the modal after 5 seconds (adjust the time as needed)
+    setTimeout(() => {
+      closeAlertCity();
+    }, 5000); // 5000 milliseconds = 5 seconds
+  };
+
+  const closeAlertCity = () => {
+    setShowAlertCity(false);
+  };
+
+  const [showAlertStep2Required, setShowAlertStep2Required] = useState(false);
+  const openAlertStep2Required = () => {
+    setShowAlertStep2Required(true);
+
+    // Set a timeout to automatically close the modal after 5 seconds (adjust the time as needed)
+    setTimeout(() => {
+      closeAlertStep2Required();
+    }, 5000); // 5000 milliseconds = 5 seconds
+  };
+
+  const closeAlertStep2Required = () => {
+    setShowAlertStep2Required(false);
+  };
+
+  const [showAlertInvalidEmail, setShowAlertInvalidEmail] = useState(false);
+  const openAlertInvalidEmail = () => {
+    setShowAlertInvalidEmail(true);
+
+    // Set a timeout to automatically close the modal after 5 seconds (adjust the time as needed)
+    setTimeout(() => {
+      closeAlertInvalidEmail();
+    }, 5000); // 5000 milliseconds = 5 seconds
+  };
+
+  const closeAlertInvalidEmail = () => {
+    setShowAlertInvalidEmail(false);
+  };
+  
+
+  const [showAlertSpecialCharacters, setShowAlertSpecialCharacters] = useState(false);
+  const openAlertSpecialCharacters = () => {
+    setShowAlertSpecialCharacters(true);
+
+    // Set a timeout to automatically close the modal after 5 seconds (adjust the time as needed)
+    setTimeout(() => {
+      closeAlertSpecialCharacters();
+    }, 5000); // 5000 milliseconds = 5 seconds
+  };
+
+  const closeAlertSpecialCharacters = () => {
+    setShowAlertSpecialCharacters(false);
+  };
+
+  const [showAlertEmpty, setShowAlertEmpty] = useState(false);
+  const openAlertEmpty = () => {
+    setShowAlertEmpty(true);
+
+    // Set a timeout to automatically close the modal after 5 seconds (adjust the time as needed)
+    setTimeout(() => {
+      closeAlertEmpty();
+    }, 5000); // 5000 milliseconds = 5 seconds
+  };
+
+  const closeAlertEmpty = () => {
+    setShowAlertEmpty(false);
+  };
     // alert(asd(true))
   // const [loggedIn, setLoggedIn] = useState(false);
+
+
   const [formData, setFormData] = useState({
+    regFirstName:'',
+    regLastName:'',
+    regEmail:'',
+    // regCity:'',
+    // regStreetBrgy:'',
+    // regPostalCode:'',
     loginUsername: '',
     loginPass:'',
   });
+  const hasNumbers = /\d/.test(formData.regCity);
+  const alphanumericRegex = /^[a-zA-Z0-9 ]+$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 //   useEffect(() => {
 //     if (loggedIn) {
 //       asd(true);
@@ -24,6 +126,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
       ...prevState,
       [name]: value,
     }));
+    validateField(name, value);
   };
 
   const signIn = () => {
@@ -140,8 +243,52 @@ const Login = ({ onClose, isLoggedInSession }) => {
   const [currentStep, setCurrentStep] = useState(1);
 
   const nextStep = () => {
-    setCurrentStep(currentStep + 1);
+    switch (currentStep) {
+      case 1:
+        // step 1!
+        if (formData.regFirstName === '') {
+          openAlertEmpty();
+        } else if (!alphanumericRegex.test(formData.regFirstName)) {
+          openAlertSpecialCharacters();
+        } else if (formData.regLastName === '') {
+          openAlertEmpty();
+        } else if (!alphanumericRegex.test(formData.regLastName)) {
+          openAlertSpecialCharacters();
+        } else if (formData.regEmail === '') {
+          openAlertEmpty();
+        } else if (!emailRegex.test(formData.regEmail)) {
+          openAlertInvalidEmail();
+        } else {
+          setCurrentStep(currentStep + 1);
+        }
+        break;
+  
+      case 2:
+        // step 2!
+        const hasSpecialCharacter = /[!@#$%^&*(),.?":{}|<>]/.test(formData.regCity);
+        const isValidPostalCode = /^[0-9]{4}$/.test(formData.regPostalCode);
+        if (formData.regCity === '') {
+          openAlertStep2Required();
+        }else if (hasNumbers || hasSpecialCharacter) {
+          openAlertCity();
+        }else if (formData.regStreetBrgy ===''){
+          openAlertStep2Required();
+        }else if (formData.regPostalCode ===''){
+          openAlertStep2Required();
+        }else if (!isValidPostalCode){
+          openAlertPostalCode();
+        }else {
+          setCurrentStep(currentStep + 1);
+        }
+        break;
+  
+      // Add more cases for additional steps if needed
+  
+      default:
+        // Handle default case or any other logic
+    }
   };
+  
 
   const previousStep = () => {
     setCurrentStep(currentStep - 1);
@@ -219,6 +366,132 @@ const Login = ({ onClose, isLoggedInSession }) => {
     navigator.geolocation.getCurrentPosition(success, error);
   }, []);
   // console.log(document.querySelector(".registrationAddress"));
+  const validateField = (name, value) => {
+    // Add your validation logic here
+    if (name === 'regFirstName') {
+        if ( value.trim() === ''){
+          setErrors({
+            ...errors,
+            regFirstName: 'First Name is required.',
+          });
+        }else if (!alphanumericRegex.test(value)) {
+          setErrors((prevErrors) => ({
+            ...prevErrors,
+            regFirstName: 'First Name cannot contain special characters.',
+          }));
+        }else {
+          setErrors({
+            ...errors,
+            regFirstName: '', // Clear the error if the field is valid
+          });
+        }
+    }else if(name === 'regLastName') {
+        if ( value.trim() === ''){
+          setErrors({
+            ...errors,
+            regLastName: 'Last Name is required.',
+          });
+        }else if (!alphanumericRegex.test(value)) {
+          setErrors((prevErrors) => ({
+            ...prevErrors,
+            regLastName: 'Last Name cannot contain special characters.',
+          }));
+        }else {
+          setErrors({
+            ...errors,
+            regLastName: '', // Clear the error if the field is valid
+          });
+        }
+      }else if (name === 'regEmail') {
+        if ( value.trim() === ''){
+          setErrors({
+            ...errors,
+            regEmail: 'Email is required.',
+          });
+        }else if (!emailRegex.test(value)) {
+          setErrors((prevErrors) => ({
+            ...prevErrors,
+            regEmail: 'Enter a valid email address.',
+          }));
+        }else {
+          setErrors({
+            ...errors,
+            regEmail: '', // Clear the error if the field is valid
+          });
+        }
+      }else if (name === 'regCity') {
+        const hasNumbers = /\d/.test(value);
+        const hasSpecialCharacters = /[!@#$%^&*(),.?":{}|<>]/.test(value);
+      
+        if (value.trim() === '') {
+          setErrors({
+            ...errors,
+            regCity: 'City is required.',
+          });
+        } else if (hasNumbers) {
+          setErrors({
+            ...errors,
+            regCity: 'No numbers are allowed in the city field.',
+          });
+        } else if (hasSpecialCharacters) {
+          setErrors({
+            ...errors,
+            regCity: 'No special characters are allowed in the city field.',
+          });
+        } else {
+          setErrors({
+            ...errors,
+            regCity: '', // Clear the error if the field is valid
+          });
+        }
+      }else if (name === 'regStreetBrgy' ) {
+        if ( value.trim() === ''){
+          setErrors({
+            ...errors,
+            regStreetBrgy: 'Street and Barangay is required.',
+
+          });
+        }else {
+          setErrors({
+            ...errors,
+            regStreetBrgy: '', // Clear the error if the field is valid
+          });
+        }
+      }else if (name === 'regPostalCode') {
+        const isValidPostalCode = /^[0-9]{4}$/.test(value);
+      
+        if (value.trim() === '') {
+          setErrors({
+            ...errors,
+            regPostalCode: 'Postal Code is required.',
+          });
+        } else if (!isValidPostalCode) {
+          setErrors({
+            ...errors,
+            regPostalCode: 'Please enter a 4-digit postal code with only numbers.',
+          });
+        } else {
+          setErrors({
+            ...errors,
+            regPostalCode: '', // Clear the error if the field is valid
+          });
+        }
+      }
+    // }else {
+    //   setErrors({
+    //     ...errors,
+    //     regFirstName: '', // Clear the error if the field is valid
+    //   });
+    // }
+  };
+  const [errors, setErrors] = useState({
+    regFirstName: '',
+    regLastName:'',
+    regEmail:'',
+    regCity:'',
+    regStreetBrgy:'',
+    regPostalCode:'',
+  });
   return (
     <>
       {/* {loggedIn ? asd(true) : asd(false)} */}
@@ -465,7 +738,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
                 <h2 className="text-center text-xl sm:text-4xl font-semibold text-primary  font-inter leading-9 mb-2 tracking-tight   ">
                   Personal Information
                 </h2>
-                <div className="space-y-6 p-4 ">
+              <div className={`p-4 ${errors.regFirstName || errors.regLastName || errors.regEmail ? 'space-y-3' : 'space-y-5'}`}>
                   <div className="relative">
                     <input
                       type="text"
@@ -473,7 +746,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       name="regFirstName"
                       value={formData.regFirstName}
                       onChange={handleInputChange}
-                      className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
+                      className={`block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border peer ${errors.regFirstName ? 'border-red' : ''}`}
                       placeholder=""
                     />
                     <label
@@ -482,7 +755,14 @@ const Login = ({ onClose, isLoggedInSession }) => {
                     >
                       First Name
                     </label>
+                    
                   </div>
+                  <div>
+                  {errors.regFirstName && (
+        <p className="text-red font-inter text-sm py-0 font-semibold">{errors.regFirstName}</p>
+      )}
+                  </div>
+                
                   <div className="relative">
                     <input
                       type="text"
@@ -490,7 +770,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       name="regLastName"
                       value={formData.regLastName}
                       onChange={handleInputChange}
-                      className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
+                      className={`block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border peer ${errors.regLastName ? 'border-red' : ''}`}
                       placeholder=""
                     />
                     <label
@@ -500,6 +780,9 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       Last Name
                     </label>
                   </div>
+                  {errors.regLastName && (
+        <p className="text-red font-inter text-sm py-0 font-semibold">{errors.regLastName}</p>
+      )}
                   <div className="relative">
                     <input
                       type="text"
@@ -507,7 +790,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       name="regEmail"
                       value={formData.regEmail}
                       onChange={handleInputChange}
-                      className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
+                      className={`block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border peer ${errors.regEmail ? 'border-red' : ''}`}
                       placeholder=""
                     />
                     <label
@@ -517,6 +800,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       Email
                     </label>
                   </div>
+                
                   {/* <div>
                     <label
                       className="block mb-2 text-sm font-medium font-poppins "
@@ -532,6 +816,9 @@ const Login = ({ onClose, isLoggedInSession }) => {
                   </div> */}
 
                   <div>
+                  {errors.regEmail && (
+        <p className="text-red font-inter text-sm py-0 font-semibold">{errors.regEmail}</p>
+      )}
                     <div className="mb-3 mt-5">
                       <button
                         type="button"
@@ -552,7 +839,8 @@ const Login = ({ onClose, isLoggedInSession }) => {
                 <h2 className="text-center text-xl sm:text-4xl font-semibold text-primary  font-inter leading-9 mb-2 tracking-tight   ">
                   Address Verification
                 </h2>
-                <div className="space-y-6 p-4 ">
+                <div className={`p-4 ${errors.regCity || errors.regStreetBrgy || errors.regPostalCode ? 'space-y-3' : 'space-y-5'}`}>
+
                   <div className="relative">
                     <input
                       type="text"
@@ -560,7 +848,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       name="regStreetBrgy"
                       value={formData.regStreetBrgy}
                       onChange={handleInputChange}
-                      className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
+                      className={`block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border peer ${errors.regStreetBrgy ? 'border-red' : ''}`}
                       placeholder=""
                     />
                     <label
@@ -570,6 +858,9 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       House Number, Street Name, Barangay
                     </label>
                   </div>
+                  {errors.regStreetBrgy && (
+        <p className="text-red font-inter text-sm py-0 font-semibold">{errors.regStreetBrgy}</p>
+      )}
                   <div className="relative">
                     <input
                       type="text"
@@ -577,7 +868,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       name="regCity"
                       value={formData.regCity}
                       onChange={handleInputChange}
-                      className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
+                      className={`block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border peer ${errors.regCity ? 'border-red' : ''}`}
                       placeholder=""
                     />
                     <label
@@ -586,7 +877,11 @@ const Login = ({ onClose, isLoggedInSession }) => {
                     >
                       City
                     </label>
+                
                   </div>
+                  {errors.regCity && (
+        <p className="text-red font-inter text-sm py-0 font-semibold">{errors.regCity}</p>
+      )}
                   {/* <select
                     id="countries"
                     className="border font-poppins bg-white   text-sm rounded-lg outline-none  focus:ring-primary focus:border-primary block w-full p-2.5 "
@@ -602,9 +897,11 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       type="text"
                       id="regPostalCode"
                       name="regPostalCode"
+                      minLength="4"
+                      maxLength="4"
                       value={formData.regPostalCode}
                       onChange={handleInputChange}
-                      className="block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border disabled peer"
+                      className={`block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border disabled peer ${errors.regPostalCode ? 'border-red' : ''}`}
                       placeholder=""
                       // disabled // Add the disabled attribute here
                     />
@@ -615,7 +912,9 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       Postal Code
                     </label>
                   </div>
-
+                  {errors.regPostalCode && (
+        <p className="text-red font-inter text-sm py-0 font-semibold">{errors.regPostalCode}</p>
+      )}
                   <div>
                     <div className="mb-3 mt-5">
                       <button
@@ -654,6 +953,9 @@ const Login = ({ onClose, isLoggedInSession }) => {
                         type="search"
                         id="regContactNum"
                         name="regContactNum"
+                        minLength="10"
+                        maxLength="10"
+                        pattern="\d{10}"
                         value={formData.regContactNum}
                         onChange={handleInputChange}
                         className="block p-2.5 w-full z-20 text-sm bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500     peer"
@@ -837,10 +1139,10 @@ const Login = ({ onClose, isLoggedInSession }) => {
                 </p>
 
                 <div className="space-y-6 p-4 ">
-                <div class="mt-5">
+                <div className="mt-5">
  
             <form>
-              <div class="grid gap-y-4">
+              <div className="grid gap-y-4">
        
               <div>
                     <div className="relative">
@@ -911,8 +1213,15 @@ const Login = ({ onClose, isLoggedInSession }) => {
               <span className="sr-only">Close modal</span>
             </button>
           </div>
+        </div>  
         </div>
-        </div>
+        {showAlertEmpty && <AlertEmpty closeAlertEmpty={closeAlertEmpty} />}
+        {showAlertSpecialCharacters && <AlertSpecialCharacters closeAlertSpecialCharacters={closeAlertSpecialCharacters} />}
+        {showAlertInvalidEmail && <AlertInvalidEmail closeAlertInvalidEmail={closeAlertInvalidEmail} />}
+        {showAlertStep2Required && <AlertStep2Required closeAlertStep2Required={closeAlertStep2Required} />}
+        {showAlertCity && <AlertCity closeAlertCity={closeAlertCity} />}
+        {showAlertPostalCode && <AlertPostalCode closeAlertPostalCode={closeAlertPostalCode} />}
+
     </>
   );
 };
