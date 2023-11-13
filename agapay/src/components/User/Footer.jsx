@@ -82,20 +82,18 @@ const Footer = () => {
               </h2>
               <ul className="font-medium">
                 <li className="mb-4">
-                  <a
-                    href="#"
+                  <Link to="/privacypolicy"
                     className="hover:underline font-poppins text-secondary text-sm"
                   >
                     Privacy Policy
-                  </a>
+                  </Link>
                 </li>
                 <li className="mb-4">
-                  <a
-                    href="#"
+                  <Link to="/termsconditions"
                     className="hover:underline font-poppins text-secondary text-sm"
                   >
                     Terms &amp; Conditions
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <Link

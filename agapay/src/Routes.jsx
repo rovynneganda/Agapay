@@ -16,6 +16,8 @@ import UserDetails from "./components/User/UserDetails";
 import ErrorPage from "./components/ErrorPage";
 import ErrorBoundary from "./components/ErrorBoundary";
 import AdminLogin from "./components/Admin/AdminLogin";
+import PrivacyPolicy from "./components/User/PrivacyPolicy";
+import TermsConditions from "./components/User/TermsConditions";
 // import ProtectedRoutes from "./components/ProtectedRoutes";
 const AppRoutes = ({ status, userType, username }) => {
   return (
@@ -36,6 +38,9 @@ const AppRoutes = ({ status, userType, username }) => {
         <Route path="/about" element={<About />} />
         <Route path="/safety-guidelines" element={<SafetyGuidelines />} />
         <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+        <Route path="/termsconditions" element={<TermsConditions />} />
+
 
         <Route path="/responder" element={<ResponderDashboard />} />
         <Route path="/responder/records" element={<ResponderRecords />} />
