@@ -9,8 +9,109 @@ import AlertInvalidEmail from "./AlertInvalidEmail";
 import AlertStep2Required from "./AlertStep2Required";
 import AlertCity from "./AlertCity";
 import AlertPostalCode from "./AlertPostalCode";
+import AlertPhone from "./AlertPhone";
+import AlertUsername from "./AlertUSername";
+import AlertUsernameAlphaNumeric from "./AlertUsernameAlphaNumeric";
+import AlertPasswordShort from "./AlertPasswordShort";
+import AlertPasswordPattern from "./AlertPasswordPattern";
+import AlertPasswordMatch from "./AlertPasswordMatch";
+import AlertTerms from "./AlertTerms";
 const Login = ({ onClose, isLoggedInSession }) => {
+  const [showAlertTerms, setShowAlertTerms] = useState(false);
+  const openAlertTerms = () => {
+    setShowAlertTerms(true);
 
+    // Set a timeout to automatically close the modal after 5 seconds (adjust the time as needed)
+    setTimeout(() => {
+      closeAlertTerms();
+    }, 5000); // 5000 milliseconds = 5 seconds
+  };
+  const closeAlertTerms = () => {
+    setShowAlertTerms(false);
+  };
+
+  const [showAlertPasswordMatch, setShowAlertPasswordMatch] = useState(false);
+  const openAlertPasswordMatch = () => {
+    setShowAlertPasswordMatch(true);
+
+    // Set a timeout to automatically close the modal after 5 seconds (adjust the time as needed)
+    setTimeout(() => {
+      closeAlertPasswordMatch();
+    }, 5000); // 5000 milliseconds = 5 seconds
+  };
+  const closeAlertPasswordMatch = () => {
+    setShowAlertPasswordMatch(false);
+  };
+
+  const [showAlertPasswordPattern, setShowAlertPasswordPattern] =
+    useState(false);
+  const openAlertPasswordPattern = () => {
+    setShowAlertPasswordPattern(true);
+
+    // Set a timeout to automatically close the modal after 5 seconds (adjust the time as needed)
+    setTimeout(() => {
+      closeAlertPasswordPattern();
+    }, 5000); // 5000 milliseconds = 5 seconds
+  };
+  const closeAlertPasswordPattern = () => {
+    setShowAlertPasswordPattern(false);
+  };
+
+  const [showAlertPasswordShort, setShowAlertPasswordShort] = useState(false);
+  const openAlertPasswordShort = () => {
+    setShowAlertPasswordShort(true);
+
+    // Set a timeout to automatically close the modal after 5 seconds (adjust the time as needed)
+    setTimeout(() => {
+      closeAlertPasswordShort();
+    }, 5000); // 5000 milliseconds = 5 seconds
+  };
+  const closeAlertPasswordShort = () => {
+    setShowAlertPasswordShort(false);
+  };
+
+  const [showAlertUsernameAlphaNumeric, setShowAlertUsernameAlphaNumeric] =
+    useState(false);
+  const openAlertUsernameAlphaNumeric = () => {
+    setShowAlertUsernameAlphaNumeric(true);
+
+    // Set a timeout to automatically close the modal after 5 seconds (adjust the time as needed)
+    setTimeout(() => {
+      closeAlertUsername();
+    }, 5000); // 5000 milliseconds = 5 seconds
+  };
+
+  const closeAlertUsernameAlphaNumeric = () => {
+    setShowAlertUsernameAlphaNumeric(false);
+  };
+
+  const [showAlertUsername, setShowAlertUsername] = useState(false);
+  const openAlertUsername = () => {
+    setShowAlertUsername(true);
+
+    // Set a timeout to automatically close the modal after 5 seconds (adjust the time as needed)
+    setTimeout(() => {
+      closeAlertUsername();
+    }, 5000); // 5000 milliseconds = 5 seconds
+  };
+
+  const closeAlertUsername = () => {
+    setShowAlertUsername(false);
+  };
+
+  const [showAlertPhone, setShowAlertPhone] = useState(false);
+  const openAlertPhone = () => {
+    setShowAlertPhone(true);
+
+    // Set a timeout to automatically close the modal after 5 seconds (adjust the time as needed)
+    setTimeout(() => {
+      closeAlertPhone();
+    }, 5000); // 5000 milliseconds = 5 seconds
+  };
+
+  const closeAlertPhone = () => {
+    setShowAlertPhone(false);
+  };
 
   const [showAlertPostalCode, setShowAlertPostalCode] = useState(false);
   const openAlertPostalCode = () => {
@@ -67,9 +168,9 @@ const Login = ({ onClose, isLoggedInSession }) => {
   const closeAlertInvalidEmail = () => {
     setShowAlertInvalidEmail(false);
   };
-  
 
-  const [showAlertSpecialCharacters, setShowAlertSpecialCharacters] = useState(false);
+  const [showAlertSpecialCharacters, setShowAlertSpecialCharacters] =
+    useState(false);
   const openAlertSpecialCharacters = () => {
     setShowAlertSpecialCharacters(true);
 
@@ -96,30 +197,31 @@ const Login = ({ onClose, isLoggedInSession }) => {
   const closeAlertEmpty = () => {
     setShowAlertEmpty(false);
   };
-    // alert(asd(true))
+  // alert(asd(true))
   // const [loggedIn, setLoggedIn] = useState(false);
 
-
   const [formData, setFormData] = useState({
-    regFirstName:'',
-    regLastName:'',
-    regEmail:'',
+    regFirstName: "",
+    regLastName: "",
+    regEmail: "",
+    regContactNum: "",
     // regCity:'',
     // regStreetBrgy:'',
     // regPostalCode:'',
-    loginUsername: '',
-    loginPass:'',
+    loginUsername: "",
+    loginPass: "",
+    termsCheckbox: false,
   });
   const hasNumbers = /\d/.test(formData.regCity);
   const alphanumericRegex = /^[a-zA-Z0-9 ]+$/;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//   useEffect(() => {
-//     if (loggedIn) {
-//       asd(true);
-//     } else {
-//       asd(false);
-//     }
-// }, [loggedIn, asd]);
+  //   useEffect(() => {
+  //     if (loggedIn) {
+  //       asd(true);
+  //     } else {
+  //       asd(false);
+  //     }
+  // }, [loggedIn, asd]);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -141,7 +243,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
     formDataToSend.append("loginPass", formData.loginPass);
     const formDataToObject = {};
     formDataToSend.forEach(function (value, key) {
-      formDataToObject[key] = value; 
+      formDataToObject[key] = value;
     });
     console.log(formDataToObject);
     axios
@@ -177,11 +279,59 @@ const Login = ({ onClose, isLoggedInSession }) => {
       });
   };
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       signIn();
     }
   };
   const submitRegBtn = () => {
+    // Validations
+
+    if (
+      formData.regUsername === "" ||
+      formData.regPassword1 === "" ||
+      formData.regPassword2 === ""
+    ) {
+      openAlertEmpty();
+      return;
+    }
+
+    if (formData.regUsername.length < 4) {
+      openAlertUsername();
+      return;
+    }
+
+    const usernameRegex = /^[a-zA-Z0-9]+$/;
+    if (!usernameRegex.test(formData.regUsername)) {
+      openAlertUsernameAlphaNumeric();
+      return;
+    }
+
+    if (formData.regPassword1.length < 8) {
+      openAlertPasswordShort();
+      return;
+    }
+
+    const passwordRegex =
+      /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/;
+    if (!passwordRegex.test(formData.regPassword1)) {
+      openAlertPasswordPattern();
+      return;
+    }
+
+    if (formData.regPassword1 !== formData.regPassword2) {
+      openAlertPasswordMatch();
+      return;
+    }
+
+    if (formData.regPassword2 !== formData.regPassword1) {
+      openAlertPasswordMatch();
+      return;
+    }
+
+    if (!document.getElementById("termsCheckbox").checked) {
+      openAlertTerms();
+      return;
+    }
     console.log(formData);
     const formDataToSend = new URLSearchParams();
     formDataToSend.append("fileSelector", "Register");
@@ -246,15 +396,15 @@ const Login = ({ onClose, isLoggedInSession }) => {
     switch (currentStep) {
       case 1:
         // step 1!
-        if (formData.regFirstName === '') {
+        if (formData.regFirstName === "") {
           openAlertEmpty();
         } else if (!alphanumericRegex.test(formData.regFirstName)) {
           openAlertSpecialCharacters();
-        } else if (formData.regLastName === '') {
+        } else if (formData.regLastName === "") {
           openAlertEmpty();
         } else if (!alphanumericRegex.test(formData.regLastName)) {
           openAlertSpecialCharacters();
-        } else if (formData.regEmail === '') {
+        } else if (formData.regEmail === "") {
           openAlertEmpty();
         } else if (!emailRegex.test(formData.regEmail)) {
           openAlertInvalidEmail();
@@ -262,40 +412,53 @@ const Login = ({ onClose, isLoggedInSession }) => {
           setCurrentStep(currentStep + 1);
         }
         break;
-  
+
       case 2:
         // step 2!
-        const hasSpecialCharacter = /[!@#$%^&*(),.?":{}|<>]/.test(formData.regCity);
+        const hasSpecialCharacter = /[!@#$%^&*(),.?":{}|<>]/.test(
+          formData.regCity
+        );
         const isValidPostalCode = /^[0-9]{4}$/.test(formData.regPostalCode);
-        if (formData.regCity === '') {
+        if (formData.regCity === "") {
           openAlertStep2Required();
-        }else if (hasNumbers || hasSpecialCharacter) {
+        } else if (hasNumbers || hasSpecialCharacter) {
           openAlertCity();
-        }else if (formData.regStreetBrgy ===''){
+        } else if (formData.regStreetBrgy === "") {
           openAlertStep2Required();
-        }else if (formData.regPostalCode ===''){
+        } else if (formData.regPostalCode === "") {
           openAlertStep2Required();
-        }else if (!isValidPostalCode){
+        } else if (!isValidPostalCode) {
           openAlertPostalCode();
-        }else {
+        } else {
           setCurrentStep(currentStep + 1);
         }
         break;
-  
+
+      case 3:
+        const isValidContactNum = /^9[0-9]*$/.test(formData.regContactNum);
+
+        if (formData.regContactNum === "") {
+          openAlertEmpty();
+        } else if (!isValidContactNum) {
+          openAlertPhone();
+        } else {
+          setCurrentStep(currentStep + 1);
+        }
+        break;
       // Add more cases for additional steps if needed
-  
+
       default:
-        // Handle default case or any other logic
+      // Handle default case or any other logic
     }
   };
-  
 
   const previousStep = () => {
     setCurrentStep(currentStep - 1);
   };
   const [isLoginModalVisible, setLoginModalVisible] = useState(true);
   const [isRegisterModalVisible, setRegisterModalVisible] = useState(false);
-  const [isForgotPasswordModalVisible, setForgotPasswordModalVisible] = useState(false);
+  const [isForgotPasswordModalVisible, setForgotPasswordModalVisible] =
+    useState(false);
   const showLoginModal = () => {
     setLoginModalVisible(true);
     setRegisterModalVisible(false);
@@ -338,8 +501,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
           console.log("baba neto");
           console.log(regPostalCode);
 
-          document.querySelector("#regPostalCode").value =
-            regPostalCode;
+          document.querySelector("#regPostalCode").value = regPostalCode;
           console.log(regPostalCode);
           // end to Get PostalCode
 
@@ -366,117 +528,245 @@ const Login = ({ onClose, isLoggedInSession }) => {
     navigator.geolocation.getCurrentPosition(success, error);
   }, []);
   // console.log(document.querySelector(".registrationAddress"));
+  useEffect(() => {
+    // Validation for matching passwords
+    if (
+      formData.regPassword2.trim() !== "" &&
+      formData.regPassword1 !== formData.regPassword2
+    ) {
+      setErrors({
+        ...errors,
+        regPassword2: "Passwords do not match.",
+      });
+    } else {
+      setErrors({
+        ...errors,
+        regPassword2: "", // Clear the error if the passwords match or regPassword2 is empty
+      });
+    }
+  }, [formData.regPassword1, formData.regPassword2]);
   const validateField = (name, value) => {
     // Add your validation logic here
-    if (name === 'regFirstName') {
-        if ( value.trim() === ''){
-          setErrors({
-            ...errors,
-            regFirstName: 'First Name is required.',
-          });
-        }else if (!alphanumericRegex.test(value)) {
-          setErrors((prevErrors) => ({
-            ...prevErrors,
-            regFirstName: 'First Name cannot contain special characters.',
-          }));
-        }else {
-          setErrors({
-            ...errors,
-            regFirstName: '', // Clear the error if the field is valid
-          });
-        }
-    }else if(name === 'regLastName') {
-        if ( value.trim() === ''){
-          setErrors({
-            ...errors,
-            regLastName: 'Last Name is required.',
-          });
-        }else if (!alphanumericRegex.test(value)) {
-          setErrors((prevErrors) => ({
-            ...prevErrors,
-            regLastName: 'Last Name cannot contain special characters.',
-          }));
-        }else {
-          setErrors({
-            ...errors,
-            regLastName: '', // Clear the error if the field is valid
-          });
-        }
-      }else if (name === 'regEmail') {
-        if ( value.trim() === ''){
-          setErrors({
-            ...errors,
-            regEmail: 'Email is required.',
-          });
-        }else if (!emailRegex.test(value)) {
-          setErrors((prevErrors) => ({
-            ...prevErrors,
-            regEmail: 'Enter a valid email address.',
-          }));
-        }else {
-          setErrors({
-            ...errors,
-            regEmail: '', // Clear the error if the field is valid
-          });
-        }
-      }else if (name === 'regCity') {
-        const hasNumbers = /\d/.test(value);
-        const hasSpecialCharacters = /[!@#$%^&*(),.?":{}|<>]/.test(value);
-      
-        if (value.trim() === '') {
-          setErrors({
-            ...errors,
-            regCity: 'City is required.',
-          });
-        } else if (hasNumbers) {
-          setErrors({
-            ...errors,
-            regCity: 'No numbers are allowed in the city field.',
-          });
-        } else if (hasSpecialCharacters) {
-          setErrors({
-            ...errors,
-            regCity: 'No special characters are allowed in the city field.',
-          });
-        } else {
-          setErrors({
-            ...errors,
-            regCity: '', // Clear the error if the field is valid
-          });
-        }
-      }else if (name === 'regStreetBrgy' ) {
-        if ( value.trim() === ''){
-          setErrors({
-            ...errors,
-            regStreetBrgy: 'Street and Barangay is required.',
+    if (name === "regFirstName") {
+      if (value.trim() === "") {
+        setErrors({
+          ...errors,
+          regFirstName: "First Name is required.",
+        });
+      } else if (!alphanumericRegex.test(value)) {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          regFirstName: "First Name cannot contain special characters.",
+        }));
+      } else {
+        setErrors({
+          ...errors,
+          regFirstName: "", // Clear the error if the field is valid
+        });
+      }
+    } else if (name === "regLastName") {
+      if (value.trim() === "") {
+        setErrors({
+          ...errors,
+          regLastName: "Last Name is required.",
+        });
+      } else if (!alphanumericRegex.test(value)) {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          regLastName: "Last Name cannot contain special characters.",
+        }));
+      } else {
+        setErrors({
+          ...errors,
+          regLastName: "", // Clear the error if the field is valid
+        });
+      }
+    } else if (name === "regEmail") {
+      if (value.trim() === "") {
+        setErrors({
+          ...errors,
+          regEmail: "Email is required.",
+        });
+      } else if (!emailRegex.test(value)) {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          regEmail: "Enter a valid email address.",
+        }));
+      } else {
+        setErrors({
+          ...errors,
+          regEmail: "", // Clear the error if the field is valid
+        });
+      }
+    } else if (name === "regCity") {
+      const hasNumbers = /\d/.test(value);
+      const hasSpecialCharacters = /[!@#$%^&*(),.?":{}|<>]/.test(value);
 
-          });
-        }else {
+      if (value.trim() === "") {
+        setErrors({
+          ...errors,
+          regCity: "City is required.",
+        });
+      } else if (hasNumbers) {
+        setErrors({
+          ...errors,
+          regCity: "No numbers are allowed in the city field.",
+        });
+      } else if (hasSpecialCharacters) {
+        setErrors({
+          ...errors,
+          regCity: "No special characters are allowed in the city field.",
+        });
+      } else {
+        setErrors({
+          ...errors,
+          regCity: "", // Clear the error if the field is valid
+        });
+      }
+    } else if (name === "regStreetBrgy") {
+      if (value.trim() === "") {
+        setErrors({
+          ...errors,
+          regStreetBrgy: "Street and Barangay is required.",
+        });
+      } else {
+        setErrors({
+          ...errors,
+          regStreetBrgy: "", // Clear the error if the field is valid
+        });
+      }
+    } else if (name === "regPostalCode") {
+      const isValidPostalCode = /^[0-9]{4}$/.test(value);
+
+      if (value.trim() === "") {
+        setErrors({
+          ...errors,
+          regPostalCode: "Postal Code is required.",
+        });
+      } else if (!isValidPostalCode) {
+        setErrors({
+          ...errors,
+          regPostalCode:
+            "Please enter a 4-digit postal code with only numbers.",
+        });
+      } else {
+        setErrors({
+          ...errors,
+          regPostalCode: "", // Clear the error if the field is valid
+        });
+      }
+    } else if (name === "regContactNum") {
+      const isValidContactNum = /^9[0-9]*$/.test(value);
+
+      if (value === "") {
+        setErrors({
+          ...errors,
+          regContactNum: "Contact number is required.",
+        });
+      } else if (!isValidContactNum) {
+        setErrors({
+          ...errors,
+          regContactNum:
+            "Please enter a valid contact number starting with 9 and consisting of only numbers.",
+        });
+      } else {
+        setErrors({
+          ...errors,
+          regContactNum: "", // Clear the error if the field is valid
+        });
+      }
+    } else if (name === "regUsername") {
+      // Validation for non-empty username
+      if (value.trim() === "") {
+        setErrors({
+          ...errors,
+          regUsername: "Username is required.",
+        });
+      } else {
+        // Validation for username length
+        if (value.length < 4) {
           setErrors({
             ...errors,
-            regStreetBrgy: '', // Clear the error if the field is valid
-          });
-        }
-      }else if (name === 'regPostalCode') {
-        const isValidPostalCode = /^[0-9]{4}$/.test(value);
-      
-        if (value.trim() === '') {
-          setErrors({
-            ...errors,
-            regPostalCode: 'Postal Code is required.',
-          });
-        } else if (!isValidPostalCode) {
-          setErrors({
-            ...errors,
-            regPostalCode: 'Please enter a 4-digit postal code with only numbers.',
+            regUsername: "Username must be at least 4 characters long.",
           });
         } else {
-          setErrors({
-            ...errors,
-            regPostalCode: '', // Clear the error if the field is valid
-          });
+          // Validation for alphanumeric username without spaces
+          const usernameRegex = /^[a-zA-Z0-9]+$/;
+          if (!usernameRegex.test(value)) {
+            setErrors({
+              ...errors,
+              regUsername:
+                "Username can only contain alphanumeric characters without spaces.",
+            });
+          } else {
+            setErrors({
+              ...errors,
+              regUsername: "", // Clear the error if the field is valid
+            });
+          }
         }
       }
+    } else if (name === "regPassword1") {
+      // Validation for non-empty password
+      if (value.trim() === "") {
+        setErrors({
+          ...errors,
+          regPassword1: "Password is required.",
+        });
+      } else {
+        // Validation for password length
+        if (value.length < 8) {
+          setErrors({
+            ...errors,
+            regPassword1: "Password must be at least 8 characters long.",
+          });
+        } else {
+          // Validation for password complexity
+          const passwordRegex =
+            /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/;
+          if (!passwordRegex.test(value)) {
+            setErrors({
+              ...errors,
+              regPassword1:
+                "Password must contain at least one capital letter, one number, and one special character.",
+            });
+          } else {
+            setErrors({
+              ...errors,
+              regPassword1: "", // Clear the error if the field is valid
+            });
+          }
+        }
+      }
+    } else if (name === "regPassword2") {
+      // Validation for non-empty password confirmation
+      if (value.trim() === "") {
+        setErrors({
+          ...errors,
+          regPassword2: "Password confirmation is required.",
+        });
+      } else {
+        // Validation for matching passwords
+        // if (value !== formData.regPassword1) {
+        //   setErrors({
+        //     ...errors,
+        //     regPassword2: 'Passwords do not match.',
+        //   });
+        // } else {
+        //   setErrors({
+        //     ...errors,
+        //     regPassword2: '', // Clear the error if the field is valid
+        //   });
+        // }
+      }
+    } else if (name === "termsCheckbox") {
+      // Validation for the terms and conditions checkbox
+      setErrors({
+        ...errors,
+        termsCheckbox: value ? "" : "Please agree to the terms and conditions.",
+      });
+    }
+
     // }else {
     //   setErrors({
     //     ...errors,
@@ -485,12 +775,17 @@ const Login = ({ onClose, isLoggedInSession }) => {
     // }
   };
   const [errors, setErrors] = useState({
-    regFirstName: '',
-    regLastName:'',
-    regEmail:'',
-    regCity:'',
-    regStreetBrgy:'',
-    regPostalCode:'',
+    regFirstName: "",
+    regLastName: "",
+    regEmail: "",
+    regCity: "",
+    regStreetBrgy: "",
+    regPostalCode: "",
+    regContactNum: "",
+    regUsername: "",
+    regPassword1: "",
+    regPassword2: "",
+    termsCheckbox: "",
   });
   return (
     <>
@@ -572,7 +867,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
                     </div>
                     <div className="flex items-center justify-center font-poppins mt-3">
                       <a
-                       onClick={showForgotPasswordModal}
+                        onClick={showForgotPasswordModal}
                         className="text-sm font-medium text-primary hover:underline cursor-pointer"
                       >
                         Forgot password?
@@ -738,7 +1033,13 @@ const Login = ({ onClose, isLoggedInSession }) => {
                 <h2 className="text-center text-xl sm:text-4xl font-semibold text-primary  font-inter leading-9 mb-2 tracking-tight   ">
                   Personal Information
                 </h2>
-              <div className={`p-4 ${errors.regFirstName || errors.regLastName || errors.regEmail ? 'space-y-3' : 'space-y-5'}`}>
+                <div
+                  className={`p-4 ${
+                    errors.regFirstName || errors.regLastName || errors.regEmail
+                      ? "space-y-3"
+                      : "space-y-5"
+                  }`}
+                >
                   <div className="relative">
                     <input
                       type="text"
@@ -746,7 +1047,9 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       name="regFirstName"
                       value={formData.regFirstName}
                       onChange={handleInputChange}
-                      className={`block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border peer ${errors.regFirstName ? 'border-red' : ''}`}
+                      className={`block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border peer ${
+                        errors.regFirstName ? "border-red" : ""
+                      }`}
                       placeholder=""
                     />
                     <label
@@ -755,14 +1058,15 @@ const Login = ({ onClose, isLoggedInSession }) => {
                     >
                       First Name
                     </label>
-                    
                   </div>
                   <div>
-                  {errors.regFirstName && (
-        <p className="text-red font-inter text-sm py-0 font-semibold">{errors.regFirstName}</p>
-      )}
+                    {errors.regFirstName && (
+                      <p className="text-red font-inter text-sm py-0 font-semibold">
+                        {errors.regFirstName}
+                      </p>
+                    )}
                   </div>
-                
+
                   <div className="relative">
                     <input
                       type="text"
@@ -770,7 +1074,9 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       name="regLastName"
                       value={formData.regLastName}
                       onChange={handleInputChange}
-                      className={`block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border peer ${errors.regLastName ? 'border-red' : ''}`}
+                      className={`block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border peer ${
+                        errors.regLastName ? "border-red" : ""
+                      }`}
                       placeholder=""
                     />
                     <label
@@ -781,8 +1087,10 @@ const Login = ({ onClose, isLoggedInSession }) => {
                     </label>
                   </div>
                   {errors.regLastName && (
-        <p className="text-red font-inter text-sm py-0 font-semibold">{errors.regLastName}</p>
-      )}
+                    <p className="text-red font-inter text-sm py-0 font-semibold">
+                      {errors.regLastName}
+                    </p>
+                  )}
                   <div className="relative">
                     <input
                       type="text"
@@ -790,7 +1098,9 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       name="regEmail"
                       value={formData.regEmail}
                       onChange={handleInputChange}
-                      className={`block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border peer ${errors.regEmail ? 'border-red' : ''}`}
+                      className={`block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border peer ${
+                        errors.regEmail ? "border-red" : ""
+                      }`}
                       placeholder=""
                     />
                     <label
@@ -800,7 +1110,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       Email
                     </label>
                   </div>
-                
+
                   {/* <div>
                     <label
                       className="block mb-2 text-sm font-medium font-poppins "
@@ -816,9 +1126,11 @@ const Login = ({ onClose, isLoggedInSession }) => {
                   </div> */}
 
                   <div>
-                  {errors.regEmail && (
-        <p className="text-red font-inter text-sm py-0 font-semibold">{errors.regEmail}</p>
-      )}
+                    {errors.regEmail && (
+                      <p className="text-red font-inter text-sm py-0 font-semibold">
+                        {errors.regEmail}
+                      </p>
+                    )}
                     <div className="mb-3 mt-5">
                       <button
                         type="button"
@@ -839,8 +1151,15 @@ const Login = ({ onClose, isLoggedInSession }) => {
                 <h2 className="text-center text-xl sm:text-4xl font-semibold text-primary  font-inter leading-9 mb-2 tracking-tight   ">
                   Address Verification
                 </h2>
-                <div className={`p-4 ${errors.regCity || errors.regStreetBrgy || errors.regPostalCode ? 'space-y-3' : 'space-y-5'}`}>
-
+                <div
+                  className={`p-4 ${
+                    errors.regCity ||
+                    errors.regStreetBrgy ||
+                    errors.regPostalCode
+                      ? "space-y-3"
+                      : "space-y-5"
+                  }`}
+                >
                   <div className="relative">
                     <input
                       type="text"
@@ -848,7 +1167,9 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       name="regStreetBrgy"
                       value={formData.regStreetBrgy}
                       onChange={handleInputChange}
-                      className={`block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border peer ${errors.regStreetBrgy ? 'border-red' : ''}`}
+                      className={`block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border peer ${
+                        errors.regStreetBrgy ? "border-red" : ""
+                      }`}
                       placeholder=""
                     />
                     <label
@@ -859,8 +1180,10 @@ const Login = ({ onClose, isLoggedInSession }) => {
                     </label>
                   </div>
                   {errors.regStreetBrgy && (
-        <p className="text-red font-inter text-sm py-0 font-semibold">{errors.regStreetBrgy}</p>
-      )}
+                    <p className="text-red font-inter text-sm py-0 font-semibold">
+                      {errors.regStreetBrgy}
+                    </p>
+                  )}
                   <div className="relative">
                     <input
                       type="text"
@@ -868,7 +1191,9 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       name="regCity"
                       value={formData.regCity}
                       onChange={handleInputChange}
-                      className={`block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border peer ${errors.regCity ? 'border-red' : ''}`}
+                      className={`block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border peer ${
+                        errors.regCity ? "border-red" : ""
+                      }`}
                       placeholder=""
                     />
                     <label
@@ -877,11 +1202,12 @@ const Login = ({ onClose, isLoggedInSession }) => {
                     >
                       City
                     </label>
-                
                   </div>
                   {errors.regCity && (
-        <p className="text-red font-inter text-sm py-0 font-semibold">{errors.regCity}</p>
-      )}
+                    <p className="text-red font-inter text-sm py-0 font-semibold">
+                      {errors.regCity}
+                    </p>
+                  )}
                   {/* <select
                     id="countries"
                     className="border font-poppins bg-white   text-sm rounded-lg outline-none  focus:ring-primary focus:border-primary block w-full p-2.5 "
@@ -901,7 +1227,9 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       maxLength="4"
                       value={formData.regPostalCode}
                       onChange={handleInputChange}
-                      className={`block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border disabled peer ${errors.regPostalCode ? 'border-red' : ''}`}
+                      className={`block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border disabled peer ${
+                        errors.regPostalCode ? "border-red" : ""
+                      }`}
                       placeholder=""
                       // disabled // Add the disabled attribute here
                     />
@@ -913,8 +1241,10 @@ const Login = ({ onClose, isLoggedInSession }) => {
                     </label>
                   </div>
                   {errors.regPostalCode && (
-        <p className="text-red font-inter text-sm py-0 font-semibold">{errors.regPostalCode}</p>
-      )}
+                    <p className="text-red font-inter text-sm py-0 font-semibold">
+                      {errors.regPostalCode}
+                    </p>
+                  )}
                   <div>
                     <div className="mb-3 mt-5">
                       <button
@@ -943,22 +1273,31 @@ const Login = ({ onClose, isLoggedInSession }) => {
                 <h2 className="text-center text-xl sm:text-4xl font-semibold text-primary  font-inter leading-9 mb-2 tracking-tight   ">
                   Contact Number Verification
                 </h2>
-                <div className="space-y-6 p-4 ">
+                <div
+                  className={`p-4 ${
+                    errors.regContactNum ? "space-y-3" : "space-y-5"
+                  }`}
+                >
                   <div className="relative flex items-center mt-3">
-                    <div className="flex-shrink-0 inline-flex items-center py-2.5 px-4 text-sm font-medium  bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100   ">
+                    <div
+                      className={`flex-shrink-0 inline-flex items-center py-2.5 px-4 text-sm font-medium  border  rounded-l-lg  focus:ring-primary focus:border-primary focus:outline-none  ${
+                        errors.regContactNum ? "border-red" : "border-gray"
+                      }`}
+                    >
                       +63
                     </div>
                     <div className="relative w-full">
                       <input
-                        type="search"
+                        type="tel"
                         id="regContactNum"
                         name="regContactNum"
                         minLength="10"
                         maxLength="10"
-                        pattern="\d{10}"
                         value={formData.regContactNum}
                         onChange={handleInputChange}
-                        className="block p-2.5 w-full z-20 text-sm bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500     peer"
+                        className={`block p-2.5 w-full z-20 text-sm bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-primary focus:border-primary focus:outline-none    peer ${
+                          errors.regContactNum ? "border-red" : ""
+                        }`}
                         placeholder=""
                         required
                       />
@@ -970,7 +1309,11 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       </label>
                     </div>
                   </div>
-
+                  {errors.regContactNum && (
+                    <p className="text-red font-inter text-sm py-0 font-semibold">
+                      {errors.regContactNum}
+                    </p>
+                  )}
                   <div className="relative">
                     <input
                       type="text"
@@ -1025,7 +1368,15 @@ const Login = ({ onClose, isLoggedInSession }) => {
                 <h2 className="text-center text-xl sm:text-4xl font-semibold text-primary  font-inter leading-9 mb-2 tracking-tight   ">
                   Account Information
                 </h2>
-                <div className="space-y-6 p-4 ">
+                <div
+                  className={`p-4 ${
+                    errors.regUsername ||
+                    errors.regPassword1 ||
+                    errors.regPassword2
+                      ? "space-y-3"
+                      : "space-y-6"
+                  }`}
+                >
                   <div className="relative">
                     <input
                       type="text"
@@ -1033,7 +1384,9 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       name="regUsername"
                       value={formData.regUsername}
                       onChange={handleInputChange}
-                      className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
+                      className={`block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border peer ${
+                        errors.regUsername ? "border-red" : ""
+                      }`}
                       placeholder=""
                     />
                     <label
@@ -1043,6 +1396,11 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       Username
                     </label>
                   </div>
+                  {errors.regUsername && (
+                    <p className="text-red font-inter text-sm py-0 font-semibold">
+                      {errors.regUsername}
+                    </p>
+                  )}
                   <div className="relative">
                     <input
                       type={inputType1}
@@ -1050,7 +1408,9 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       name="regPassword1"
                       value={formData.regPassword1}
                       onChange={handleInputChange}
-                      className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
+                      className={`block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border peer ${
+                        errors.regPassword1 ? "border-red" : ""
+                      }`}
                       placeholder=""
                     />
                     <label
@@ -1070,7 +1430,11 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       )}
                     </i>
                   </div>
-
+                  {errors.regPassword1 && (
+                    <p className="text-red font-inter text-sm py-0 font-semibold">
+                      {errors.regPassword1}
+                    </p>
+                  )}
                   <div className="relative">
                     <input
                       type={inputType2}
@@ -1078,7 +1442,9 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       name="regPassword2"
                       value={formData.regPassword2}
                       onChange={handleInputChange}
-                      className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
+                      className={`block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border peer ${
+                        errors.regPassword2 ? "border-red" : ""
+                      }`}
                       placeholder=""
                     />
                     <label
@@ -1098,8 +1464,39 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       )}
                     </i>
                   </div>
-
+                  {errors.regPassword2 && (
+                    <p className="text-red font-inter text-sm py-0 font-semibold">
+                      {errors.regPassword2}
+                    </p>
+                  )}
+                  <div class="flex items-center">
+                    <input
+                      id="termsCheckbox"
+                      name="termsCheckbox"
+                      type="checkbox"
+                      value=""
+                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    />
+                    <label
+                      for="termsCheckbox"
+                      class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    >
+                      I agree with the{" "}
+                      <a
+                        onClick={openAlertCity}
+                        class=" cursor-pointer text-blue-600 dark:text-blue-500 hover:underline"
+                      >
+                        terms and conditions
+                      </a>
+                      .
+                    </label>
+                  </div>
                   <div>
+                    {errors.termsCheckbox && (
+                      <p className="text-red font-inter text-sm py-0 font-semibold">
+                        {errors.termsCheckbox}
+                      </p>
+                    )}
                     <div className="mb-3 mt-5">
                       <button
                         type="button"
@@ -1123,8 +1520,12 @@ const Login = ({ onClose, isLoggedInSession }) => {
           </div>
         </div>
       </div>
-      <div className={`ForgotPassword ${isForgotPasswordModalVisible ? "" : "hidden"}`}>
       <div
+        className={`ForgotPassword ${
+          isForgotPasswordModalVisible ? "" : "hidden"
+        }`}
+      >
+        <div
           tabIndex="-1"
           className="fixed top-0 left-0 right-0 z-50  flex justify-center bg-black bg-opacity-50 items-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-0.5rem)] max-h-full rounded-lg"
         >
@@ -1135,46 +1536,43 @@ const Login = ({ onClose, isLoggedInSession }) => {
                   Forgot Password?
                 </h2>
                 <p className="text-center font-poppins mb-3 text-black font-normal">
-                Please include a valid email address so we can get back to you.
+                  Please include a valid email address so we can get back to
+                  you.
                 </p>
 
                 <div className="space-y-6 p-4 ">
-                <div className="mt-5">
- 
-            <form>
-              <div className="grid gap-y-4">
-       
-              <div>
-                    <div className="relative">
-                      <input
-                        type="text"
-                        value=""
-                        className="block px-2.5 font-poppins border-gray/30  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
-                        placeholder=""
-                      />
-                      <label
-                        htmlFor="loginUsername"
-                        className="absolute text-sm text-black    font-poppins cursor-text  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
-                      >
-                        Email Address
-                      </label>
-                    </div>
-                  </div>
-         
+                  <div className="mt-5">
+                    <form>
+                      <div className="grid gap-y-4">
+                        <div>
+                          <div className="relative">
+                            <input
+                              type="text"
+                              value=""
+                              className="block px-2.5 font-poppins border-gray/30  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
+                              placeholder=""
+                            />
+                            <label
+                              htmlFor="loginUsername"
+                              className="absolute text-sm text-black    font-poppins cursor-text  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-secondary  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 outline-secondary"
+                            >
+                              Email Address
+                            </label>
+                          </div>
+                        </div>
 
-                  <div className="mb-3 mt-7">
-                      <button
-                        type="submit"
-                        className="flex transition ease-in-out hover:-translate-y-1 hover:scale-105  duration-300 w-full justify-center font-poppins  bg-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primarydark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded-full mb-3"
-                      >
-                        Reset Password
-                      </button>
-                    </div>
-              </div>
-            </form>
-    
-          </div>
+                        <div className="mb-3 mt-7">
+                          <button
+                            type="submit"
+                            className="flex transition ease-in-out hover:-translate-y-1 hover:scale-105  duration-300 w-full justify-center font-poppins  bg-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primarydark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded-full mb-3"
+                          >
+                            Reset Password
+                          </button>
+                        </div>
+                      </div>
+                    </form>
                   </div>
+                </div>
               </div>
             </div>
 
@@ -1195,14 +1593,14 @@ const Login = ({ onClose, isLoggedInSession }) => {
                 Remembered your Password?
               </h2>
 
-             <div className="mb-3 mt-7">
-                      <button
-                        onClick={showLoginModal}
-                        className="flex transition ease-in-out hover:-translate-y-1 hover:scale-105  duration-300 w-full justify-center font-poppins  bg-secondary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-tertiary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary rounded-full mb-3"
-                      >
-                       Sign In Here
-                      </button>
-                    </div>
+              <div className="mb-3 mt-7">
+                <button
+                  onClick={showLoginModal}
+                  className="flex transition ease-in-out hover:-translate-y-1 hover:scale-105  duration-300 w-full justify-center font-poppins  bg-secondary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-tertiary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary rounded-full mb-3"
+                >
+                  Sign In Here
+                </button>
+              </div>
             </div>
             <button
               type="button"
@@ -1213,15 +1611,45 @@ const Login = ({ onClose, isLoggedInSession }) => {
               <span className="sr-only">Close modal</span>
             </button>
           </div>
-        </div>  
         </div>
-        {showAlertEmpty && <AlertEmpty closeAlertEmpty={closeAlertEmpty} />}
-        {showAlertSpecialCharacters && <AlertSpecialCharacters closeAlertSpecialCharacters={closeAlertSpecialCharacters} />}
-        {showAlertInvalidEmail && <AlertInvalidEmail closeAlertInvalidEmail={closeAlertInvalidEmail} />}
-        {showAlertStep2Required && <AlertStep2Required closeAlertStep2Required={closeAlertStep2Required} />}
-        {showAlertCity && <AlertCity closeAlertCity={closeAlertCity} />}
-        {showAlertPostalCode && <AlertPostalCode closeAlertPostalCode={closeAlertPostalCode} />}
-
+      </div>
+      {showAlertEmpty && <AlertEmpty closeAlertEmpty={closeAlertEmpty} />}
+      {showAlertSpecialCharacters && (
+        <AlertSpecialCharacters
+          closeAlertSpecialCharacters={closeAlertSpecialCharacters}
+        />
+      )}
+      {showAlertInvalidEmail && (
+        <AlertInvalidEmail closeAlertInvalidEmail={closeAlertInvalidEmail} />
+      )}
+      {showAlertStep2Required && (
+        <AlertStep2Required closeAlertStep2Required={closeAlertStep2Required} />
+      )}
+      {showAlertCity && <AlertCity closeAlertCity={closeAlertCity} />}
+      {showAlertPostalCode && (
+        <AlertPostalCode closeAlertPostalCode={closeAlertPostalCode} />
+      )}
+      {showAlertPhone && <AlertPhone closeAlertPhone={closeAlertPhone} />}
+      {showAlertUsername && (
+        <AlertUsername closeAlertUsername={closeAlertUsername} />
+      )}
+      {showAlertUsernameAlphaNumeric && (
+        <AlertUsernameAlphaNumeric
+          closeAlertUsernameAlphaNumeric={closeAlertUsernameAlphaNumeric}
+        />
+      )}
+      {showAlertPasswordShort && (
+        <AlertPasswordShort closeAlertPasswordShort={closeAlertPasswordShort} />
+      )}
+      {showAlertPasswordPattern && (
+        <AlertPasswordPattern
+          closeAlertPasswordPattern={closeAlertPasswordPattern}
+        />
+      )}
+      {showAlertPasswordMatch && (
+        <AlertPasswordMatch closeAlertPasswordMatch={closeAlertPasswordMatch} />
+      )}
+      {showAlertTerms && <AlertTerms closeAlertTerms={closeAlertTerms} />}
     </>
   );
 };
