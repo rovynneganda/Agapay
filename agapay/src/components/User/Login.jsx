@@ -1384,7 +1384,9 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       name="regUsername"
                       value={formData.regUsername}
                       onChange={handleInputChange}
-                      className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
+                      className={`block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border peer ${
+                        errors.regUsername ? "border-red" : ""
+                      }`}
                       placeholder=""
                     />
                     <label
@@ -1406,7 +1408,9 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       name="regPassword1"
                       value={formData.regPassword1}
                       onChange={handleInputChange}
-                      className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
+                      className={`block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border peer ${
+                        errors.regPassword1 ? "border-red" : ""
+                      }`}
                       placeholder=""
                     />
                     <label
@@ -1438,7 +1442,9 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       name="regPassword2"
                       value={formData.regPassword2}
                       onChange={handleInputChange}
-                      className="block px-2.5 font-poppins  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
+                      className={`block px-2.5 font-poppins pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none focus:outline-primary focus:ring-0 border peer ${
+                        errors.regPassword2 ? "border-red" : ""
+                      }`}
                       placeholder=""
                     />
                     <label
