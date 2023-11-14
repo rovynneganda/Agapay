@@ -1,24 +1,24 @@
 import React from "react";
-import { logo, persuade1, persuade2, persuade3 } from "../../assets";
+import { key1,key2,key3} from "../../assets";
 
 const featureData = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1633114128174-2f8aa49759b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+    image: key1,
     alt: "Emergency Guidelines Image Description",
     title: "Emergency Guidelines",
     description: "Learn Our Essential Protocols for Ensuring Your Safety During Emergencies"
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1562851529-c370841f6536?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3540&q=80",
+    image: key2,
     alt: "Safety Updates Image Description",
     title: "Safety Updates",
     description: "Provides real-time weather and disaster alerts for your safety."
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1521321205814-9d673c65c167?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3548&q=80",
+    image: key3,
     alt: "Immediate Assistance Image Description",
     title: "Immediate Assistance",
     description: "Agapay facilitates swift emergency alerts to authorities or contacts."
@@ -46,7 +46,7 @@ const PersuadingUsers = () => {
                 <img className="w-full object-cover rounded-xl" src={feature.image} alt={feature.alt} />
               </div>
               <div className="my-6">
-                <h3 className="text-xl font-semibold font-poppins">{feature.title}</h3>
+                <h3 className="text-xl font-semibold font-poppins text-primary">{feature.title}</h3>
                 <p className="mt-5 font-inter">{feature.description}</p>
               </div>
             </a>
