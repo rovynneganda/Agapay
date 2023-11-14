@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { logo, report, travel } from "../../assets";
+import { logo, ambulance , report} from "../../assets";
 import { MapPinIcon, ArrowRightCircleIcon,XMarkIcon,VideoCameraIcon,XCircleIcon,StopIcon} from "@heroicons/react/24/outline";
 import LoginFirst from "./LoginFirst";
 import TimeAndDateRepoting from "../../weather/components/DateandTimeReporting";
@@ -193,7 +193,7 @@ const stopRecording = () => {
               <div className="sm:max-w-xs max-w-sm  w-full bg-white border border-gray/5 text-center rounded-xl shadow-md transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
                 <img
                   className=" h-52 mx-auto mt-2"
-                  src={travel}
+                  src={ambulance}
                   alt=""
                 />
                 <div className="p-5">

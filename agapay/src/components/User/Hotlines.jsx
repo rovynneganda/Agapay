@@ -679,83 +679,107 @@ const Hotlines = () => {
       )}
        {/* // phone number for 4th avenue station */}
        {showModalphone && (
-        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75">
-          <div className="bg-white p-8 rounded-lg shadow-lg">
-            <p className="mb-4">Are you sure you want to call {phoneNumber}?</p>
+        <div className="fixed top-0 z-50  left-0 w-full  h-full flex items-center justify-center bg-black bg-opacity-50">
+             <div className="relative w-full max-w-md max-h-full p-5">
+          <div className="bg-white p-8 rounded-lg shadow-lg max-w-sm">
+          <PhoneIcon className="h-12 w-12 mb-5 mx-auto text-primary animate-pulse" />
+            <p className="mb-4 font-inter text-center leading-loose ">Are you sure you want to call <span className="text-primary">{phoneNumber}</span> ?</p>
+           <div className="flex flex-row  justify-center items-center">
             <button
-              className="bg-green-500 hover:bg-green-700 text-black font-bold py-2 px-4 rounded mr-2"
+             className="text-white bg-primary hover:bg-primarydark font-inter   focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+
               onClick={handleConfirmCall}
             >
               Yes
             </button>
             <button
-              className="bg-red-500 hover:bg-red-700 text-black font-bold py-2 px-4 rounded"
+            className="text-[#c94c05] border border-[#c94c05] font-inter bg-none hover:bg-[#fff8ec] focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+
               onClick={handleCancelCall}
             >
               No
             </button>
+            </div>
+          </div>
           </div>
         </div>
       )}
         {/* // end phone number for 4th avenue station */}
           {/* // phone number for central fire station */}
        {showModalphone1 && (
-        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75">
+        <div className="fixed top-0 z-50 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
+             <div className="relative w-full max-w-md max-h-full p-5">
+
           <div className="bg-white p-8 rounded-lg shadow-lg">
-            <p className="mb-4">Are you sure you want to call {phoneNumber1}?</p>
+          <PhoneIcon className="h-12 w-12 mb-5 mx-auto text-primary animate-pulse" />
+            <p className="mb-4 font-inter text-center leading-loose">Are you sure you want to call <span className="font-inter text-primary"> {phoneNumber1}</span> ?</p>
+            <div className="flex flex-row  justify-center items-center">
             <button
-              className="bg-green-500 hover:bg-green-700 text-black font-bold py-2 px-4 rounded mr-2"
+              className="text-white bg-primary hover:bg-primarydark font-inter   focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
               onClick={handleConfirmCall1}
             >
               Yes
             </button>
             <button
-              className="bg-red-500 hover:bg-red-700 text-black font-bold py-2 px-4 rounded"
+            className="text-[#c94c05] border border-[#c94c05] font-inter bg-none hover:bg-[#fff8ec] focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
               onClick={handleCancelCall1}
             >
               No
             </button>
+            </div>
+          </div>
           </div>
         </div>
       )}
         {/* //end phone number for central fire station */}
           {/* // phone number for Northern Police - Station 1 */}
        {showModalphone2 && (
-        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75">
+      <div className="fixed top-0 z-50  left-0 w-full  h-full flex items-center justify-center bg-black bg-opacity-50">
+          <div className="relative w-full max-w-md max-h-full p-5">
           <div className="bg-white p-8 rounded-lg shadow-lg">
-            <p className="mb-4">Are you sure you want to call {phoneNumber2}?</p>
+          <PhoneIcon className="h-12 w-12 mb-5 mx-auto text-primary animate-pulse" />
+            <p className="mb-4 font-inter text-center leading-loose">Are you sure you want to call <span className="text-primary font-inter">{phoneNumber2}</span> ?</p>
+            <div className="flex flex-row  justify-center items-center">
             <button
-              className="bg-green-500 hover:bg-green-700 text-black font-bold py-2 px-4 rounded mr-2"
+            className="text-white bg-primary hover:bg-primarydark font-inter   focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
               onClick={handleConfirmCall2}
             >
               Yes
             </button>
             <button
-              className="bg-red-500 hover:bg-red-700 text-black font-bold py-2 px-4 rounded"
+                       className="text-[#c94c05] border border-[#c94c05] font-inter bg-none hover:bg-[#fff8ec] focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
               onClick={handleCancelCall2}
             >
               No
             </button>
           </div>
+          </div>
+          </div>
         </div>
       )}
         {/* //  end phone number for Northern Police District */}
         {showModalphone3 && (
-        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75">
+             <div className="fixed top-0 z-50  left-0 w-full  h-full flex items-center justify-center bg-black bg-opacity-50">
+                           <div className="relative w-full max-w-md max-h-full p-5">
           <div className="bg-white p-8 rounded-lg shadow-lg">
-            <p className="mb-4">Are you sure you want to call {phoneNumber3}?</p>
+          <PhoneIcon className="h-12 w-12 mb-5 mx-auto text-primary animate-pulse" />
+            <p className="mb-4 font-inter text-center leading-loose">Are you sure you want to call <span className="text-primary font-inter"> {phoneNumber3} </span>?</p>
+            <div className="flex flex-row  justify-center items-center">
             <button
-              className="bg-green-500 hover:bg-green-700 text-black font-bold py-2 px-4 rounded mr-2"
+                 className="text-white bg-primary hover:bg-primarydark font-inter   focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+
               onClick={handleConfirmCall3}
             >
               Yes
             </button>
             <button
-              className="bg-red-500 hover:bg-red-700 text-black font-bold py-2 px-4 rounded"
+            className="text-[#c94c05] border border-[#c94c05] font-inter bg-none hover:bg-[#fff8ec] focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
               onClick={handleCancelCall3}
             >
               No
             </button>
+            </div>
+          </div>
           </div>
         </div>
       )}
@@ -763,21 +787,27 @@ const Hotlines = () => {
 
           {/* // phone number for North Medical Center */}
           {showModalphone4 && (
-        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75">
+        <div className="fixed top-0 z-50  left-0 w-full  h-full flex items-center justify-center bg-black bg-opacity-50">
+                       <div className="relative w-full max-w-md max-h-full p-5">
           <div className="bg-white p-8 rounded-lg shadow-lg">
-            <p className="mb-4">Are you sure you want to call {phoneNumber4}?</p>
+          <PhoneIcon className="h-12 w-12 mb-5 mx-auto text-primary animate-pulse" />
+            <p className="mb-4 font-inter text-center leading-loose">Are you sure you want to call <span className="text-primary font-inter"> {phoneNumber4}</span>?</p>
+            <div className="flex flex-row  justify-center items-center">
             <button
-              className="bg-green-500 hover:bg-green-700 text-black font-bold py-2 px-4 rounded mr-2"
+               className="text-white bg-primary hover:bg-primarydark font-inter   focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
               onClick={handleConfirmCall4}
             >
               Yes
             </button>
             <button
-              className="bg-red-500 hover:bg-red-700 text-black font-bold py-2 px-4 rounded"
+              className="text-[#c94c05] border border-[#c94c05] font-inter bg-none hover:bg-[#fff8ec] focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
               onClick={handleCancelCall4}
             >
               No
             </button>
+         
+          </div>
+          </div>
           </div>
         </div>
       )}
@@ -785,21 +815,26 @@ const Hotlines = () => {
 
          {/* // phone number for South Medical Center */}
          {showModalphone5 && (
-        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75">
+        <div className="fixed top-0 z-50  left-0 w-full  h-full flex items-center justify-center bg-black bg-opacity-50">
+                       <div className="relative w-full max-w-md max-h-full p-5">
           <div className="bg-white p-8 rounded-lg shadow-lg">
-            <p className="mb-4">Are you sure you want to call {phoneNumber5}?</p>
+          <PhoneIcon className="h-12 w-12 mb-5 mx-auto text-primary animate-pulse" />
+            <p className="mb-4 font-inter text-center leading-loose">Are you sure you want to call<span className="text-primary font-inter">{phoneNumber5}</span> ?</p>
+            <div className="flex flex-row  justify-center items-center">
             <button
-              className="bg-green-500 hover:bg-green-700 text-black font-bold py-2 px-4 rounded mr-2"
+               className="text-white bg-primary hover:bg-primarydark font-inter   focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
               onClick={handleConfirmCall5}
             >
               Yes
             </button>
             <button
-              className="bg-red-500 hover:bg-red-700 text-black font-bold py-2 px-4 rounded"
+            className="text-[#c94c05] border border-[#c94c05] font-inter bg-none hover:bg-[#fff8ec] focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
               onClick={handleCancelCall5}
             >
               No
             </button>
+          </div>
+          </div>
           </div>
         </div>
       )}
