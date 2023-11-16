@@ -17,6 +17,19 @@ import AlertPasswordPattern from "./AlertPasswordPattern";
 import AlertPasswordMatch from "./AlertPasswordMatch";
 import AlertTerms from "./AlertTerms";
 const Login = ({ onClose, isLoggedInSession }) => {
+  const [errors, setErrors] = useState({
+    regFirstName: "",
+    regLastName: "",
+    regEmail: "",
+    regCity: "",
+    regStreetBrgy: "",
+    // regPostalCode: "",
+    regContactNum: "",
+    regUsername: "",
+    regPassword1: "",
+    regPassword2: "",
+    termsCheckbox: "",
+  });
   const [showAlertTerms, setShowAlertTerms] = useState(false);
   const openAlertTerms = () => {
     setShowAlertTerms(true);
@@ -531,7 +544,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
   useEffect(() => {
     // Validation for matching passwords
     if (
-      formData.regPassword2.trim() !== "" &&
+      formData.regPassword2 && formData.regPassword2.trim() !== "" &&
       formData.regPassword1 !== formData.regPassword2
     ) {
       setErrors({
@@ -774,19 +787,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
     //   });
     // }
   };
-  const [errors, setErrors] = useState({
-    regFirstName: "",
-    regLastName: "",
-    regEmail: "",
-    regCity: "",
-    regStreetBrgy: "",
-    regPostalCode: "",
-    regContactNum: "",
-    regUsername: "",
-    regPassword1: "",
-    regPassword2: "",
-    termsCheckbox: "",
-  });
+
   return (
     <>
       {/* {loggedIn ? asd(true) : asd(false)} */}
@@ -1469,22 +1470,22 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       {errors.regPassword2}
                     </p>
                   )}
-                  <div class="flex items-center">
+                  <div className="flex items-center">
                     <input
                       id="termsCheckbox"
                       name="termsCheckbox"
                       type="checkbox"
                       value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                     />
                     <label
-                      for="termsCheckbox"
-                      class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                      htmlFor="termsCheckbox"
+                      className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >
                       I agree with the{" "}
                       <a
                         onClick={openAlertCity}
-                        class=" cursor-pointer text-blue-600 dark:text-blue-500 hover:underline"
+                        className=" cursor-pointer text-blue-600 dark:text-blue-500 hover:underline"
                       >
                         terms and conditions
                       </a>
