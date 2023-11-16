@@ -16,6 +16,7 @@ import AlertPasswordShort from "./AlertPasswordShort";
 import AlertPasswordPattern from "./AlertPasswordPattern";
 import AlertPasswordMatch from "./AlertPasswordMatch";
 import AlertTerms from "./AlertTerms";
+import ModalTerms from "./ModalTerms";
 const Login = ({ onClose, isLoggedInSession }) => {
   const [errors, setErrors] = useState({
     regFirstName: "",
@@ -139,6 +140,16 @@ const Login = ({ onClose, isLoggedInSession }) => {
   const closeAlertPostalCode = () => {
     setShowAlertPostalCode(false);
   };
+
+  const [showModalTerms, setShowModalTerms] = useState(false);
+  const openModalTerms= () => {
+    setShowModalTerms(true);
+  };
+
+  const closeModalTerms = () => {
+    setShowModalTerms(false);
+  };
+
 
   const [showAlertCity, setShowAlertCity] = useState(false);
   const openAlertCity = () => {
@@ -794,7 +805,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
       <div className={`LoginModal ${isLoginModalVisible ? "" : "hidden"}`}>
         <div
           tabIndex="-1"
-          className="fixed top-0 left-0 right-0  flex justify-center z-50 bg-black bg-opacity-50 items-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-0.5rem)] max-h-full rounded-lg"
+          className="fixed top-0 left-0 right-0  flex justify-center z-50 bg-black bg-opacity-50 items-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-0.5rem)] max-h-full "
         >
           <div className="flex sm:flex-row flex-col items-center w-full max-w-4xl  lg:max-h-[85%] md:max-h-[90%] sm:max-h-[85%]  h-full ">
             <div className="w-full h-full p-4   sm:rounded-l-lg   bg-white ">
@@ -994,7 +1005,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
       >
         <div
           tabIndex="-1"
-          className="fixed top-0 left-0 right-0 z-50 flex justify-center bg-black bg-opacity-50 items-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-0.5rem)] max-h-full rounded-lg"
+          className="fixed top-0 left-0 right-0 z-50 flex justify-center bg-black bg-opacity-50 items-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-0.5rem)] max-h-full "
         >
           <div className="flex sm:flex-row flex-col-reverse items-center w-full max-w-4xl overflow-y-auto  lg:max-h-[85%] md:max-h-[90%] sm:max-h-[85%]  h-full ">
             <div
@@ -1476,16 +1487,16 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       name="termsCheckbox"
                       type="checkbox"
                       value=""
-                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      className="w-4 h-4 text-primary checked:bg-primary   border-gray/30 rounded focus:ring-white focus:ring-2 "
                     />
                     <label
                       htmlFor="termsCheckbox"
-                      className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                      className="ms-2 text-sm font-medium font-inter"
                     >
                       I agree with the{" "}
                       <a
-                        onClick={openAlertCity}
-                        className=" cursor-pointer text-blue-600 dark:text-blue-500 hover:underline"
+                        onClick={openModalTerms}
+                        className=" cursor-pointer text-primary  hover:underline"
                       >
                         terms and conditions
                       </a>
@@ -1528,7 +1539,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
       >
         <div
           tabIndex="-1"
-          className="fixed top-0 left-0 right-0 z-50  flex justify-center bg-black bg-opacity-50 items-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-0.5rem)] max-h-full rounded-lg"
+          className="fixed top-0 left-0 right-0 z-50  flex justify-center bg-black bg-opacity-50 items-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-0.5rem)] max-h-full "
         >
           <div className="flex sm:flex-row flex-col items-center w-full max-w-4xl  lg:max-h-[85%] md:max-h-[90%] sm:max-h-[85%]  h-full ">
             <div className="w-full h-full p-4   sm:rounded-l-lg   bg-white ">
@@ -1651,6 +1662,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
         <AlertPasswordMatch closeAlertPasswordMatch={closeAlertPasswordMatch} />
       )}
       {showAlertTerms && <AlertTerms closeAlertTerms={closeAlertTerms} />}
+      {showModalTerms && <ModalTerms closeModalTerms={closeModalTerms} />}
     </>
   );
 };
