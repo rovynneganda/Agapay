@@ -58,6 +58,8 @@ const AppRoutes = ({ status, userType, username, contactNum }) => {
         <Route path="/admin/records" element={<AdminRecords />} />
         <Route path="/admin/createaccount" element={<CreateAccount />} />
         <Route path="/admin/createalert" element={<CreateAlert />} />
+        <Route path="/admin/usersettings" element={<AdminUserSettings />} />
+
         <Route
           path="/admin/createannouncement"
           element={<CreateAnnouncement />}

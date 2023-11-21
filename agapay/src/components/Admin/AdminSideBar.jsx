@@ -144,7 +144,7 @@ const AdminSideBar = ({status, userType, username }) => {
         {/* Your button content here */}
         <span className="flex-1 ml-3 text-left whitespace-nowrap">Announcement</span>
 
-          <ChevronDownIcon className={`w-6 h-6 ${isOpen ? 'transform rotate-180' : ''}`}/>
+          <ChevronDownIcon className={`w-6 h-6 ${isOpen1 ? 'transform rotate-180' : ''}`}/>
       </button>
       {isOpen1 && (
         <ul  className="py-2 space-y-2 font-inter">
@@ -167,8 +167,8 @@ const AdminSideBar = ({status, userType, username }) => {
       )}
     </li>
     <li>
-            <Link to="" className={`flex items-center text-white font-poppins p-2 rounded-lg ${
-    location.pathname === '' ? 'bg-primarydark text-opacity-100' : 'hover:bg-primarydark text-opacity-80 hover:text-opacity-100'
+            <Link to="/admin/usersettings" className={`flex items-center text-white font-poppins p-2 rounded-lg ${
+    location.pathname === '/admin/usersettings' ? 'bg-primarydark text-opacity-100' : 'hover:bg-primarydark text-opacity-80 hover:text-opacity-100'
   }`}>
                <UserIcon className='w-5 h-5 text-white '/>
                <span className="ml-3 font-inter text-md font-semibold">User</span>
