@@ -20,8 +20,7 @@ import PrivacyPolicy from "./components/User/PrivacyPolicy";
 import TermsConditions from "./components/User/TermsConditions";
 import VideoToImagesConverter from "./components/User/aa";
 // import ProtectedRoutes from "./components/ProtectedRoutes";
-import AdminUserSettings from "./components/Admin/AdminUserSettings";
-const AppRoutes = ({ status, userType, username }) => {
+const AppRoutes = ({ status, userType, username, contactNum }) => {
   return (
     <ErrorBoundary>
       <Routes>
@@ -32,6 +31,7 @@ const AppRoutes = ({ status, userType, username }) => {
               status={status}
               userType={userType}
               username={username}
+              contactNum={contactNum}
             />
           }
         />

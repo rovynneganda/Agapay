@@ -11,7 +11,7 @@ import {
 import LoginFirst from "./LoginFirst";
 import TimeAndDateRepoting from "../../weather/components/DateandTimeReporting";
 import axios from "axios";
-const Reporting = ({ status, userType, username }) => {
+const Reporting = ({ status, userType, username, contactNum }) => {
   // alert(status);
   const [activeUserSession, setActiveUserSession] = useState(false);
   useEffect(() => {
@@ -65,9 +65,12 @@ const Reporting = ({ status, userType, username }) => {
   const [videoData, setVideoData] = useState(null);
   const [isValid, setIsValid] = useState(null);
   const videoRef = useRef(null);
+  const inputRef = useRef(null);
   const countdownIntervalRef = useRef(null);
   const [capturedImages, setCapturedImages] = useState([]);
   const [isHidden, setIsHidden] = useState(true);
+  const captureIntervalRef = useRef(null);
+  const [capturedFrames, setCapturedFrames] = useState([]);
 
   // send file to server
   useEffect(() => {
@@ -95,6 +98,29 @@ const Reporting = ({ status, userType, username }) => {
         });
     }
   }, [videoData]);
+
+  const sendFrames = async () => {
+    console.log("sa baba:");
+    console.log(capturedFrames);
+    for (const frame of capturedFrames) {
+      try {
+        // Create a FormData object to send the image data
+        const formData = new FormData();
+        formData.append('fileSelector', "Frames");
+        formData.append('frame', frame.imageDataUrl);
+        formData.append('fileName', frame.fileName);
+  
+        // Make a POST request using Axios
+        const response = await axios.post('http://localhost/Backend/Controller.php', formData);
+  
+        // Handle the response if needed
+        console.log(response.data);
+      } catch (error) {
+        // Handle errors
+        console.error('Error sending captured frames:', error);
+      }
+    }
+  }
 
 
   //  start Recording
@@ -137,6 +163,12 @@ const Reporting = ({ status, userType, username }) => {
         setRecordingTime((prevTime) => prevTime + 1); // Update every second (1000 milliseconds)
       }, 1000);
 
+  // Capture frames every second
+  captureIntervalRef.current = setInterval(() => {
+    captureFrame();
+  }, 1000);
+
+
       setTimeout(() => stopRecording(), 5000); // Stop recording after 10 seconds
       setMediaRecorder(recorder);
     } catch (error) {
@@ -157,9 +189,13 @@ const Reporting = ({ status, userType, username }) => {
         // Check if videoRef.current is not null before setting srcObject
         if (videoRef.current) {
           videoRef.current.srcObject = null;
+          sendFrames();
         }
+
       }
     }
+      // Clear capture interval
+      clearInterval(captureIntervalRef.current);
   };
   // end of stop the camera
 
@@ -177,12 +213,14 @@ const Reporting = ({ status, userType, username }) => {
       setRecordingTime(0);
 
       clearInterval(countdownIntervalRef.current);
+      clearInterval(captureIntervalRef.current);
+      setCapturedFrames([]);
     }
   };
   //end of Discard the video
   //limit the recording time in to 10 seconds
   useEffect(() => {
-    if (recordingTime >= 6) {
+    if (recordingTime === 5) {
       stopRecording();
     }
   }, [recordingTime]);
@@ -196,7 +234,47 @@ const Reporting = ({ status, userType, username }) => {
   //     a.click();
   //   }
   // };
+  // Update the state with the captured image and its file name
+  const captureFrame = () => {
+    const video = videoRef.current;
 
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+    // Convert the canvas content to base64 data URL
+    const imageDataUrl = canvas.toDataURL('image/jpeg');
+
+    // Generate a unique file name using the current timestamp
+    const fileName = `frame_${Date.now()}.jpg`;
+    console.log(fileName);
+
+    // Update the state with the captured image and its file name
+    setCapturedFrames((prevFrames) => [
+      ...prevFrames,
+      { imageDataUrl, fileName },
+    ]);
+  };
+  // const formatPhoneNumber = (phoneNumber) => {
+  //   // Remove non-numeric characters
+  //   const numericPhoneNumber = phoneNumber.replace(/\D/g, '');
+
+  //   // Check if the number starts with '63' and remove it
+  //   const formattedPhoneNumber =
+  //     numericPhoneNumber.startsWith('63') && numericPhoneNumber.length === 12
+  //       ? numericPhoneNumber.slice(2)
+  //       : numericPhoneNumber;
+
+  //   // Add the desired format
+  //   return `${formattedPhoneNumber.slice(0, 4)}-${formattedPhoneNumber.slice(
+  //     4,
+  //     7
+  //   )}-${formattedPhoneNumber.slice(7)}`;
+  // };
   return (
     <>
       <div className="bg-white py-5">
@@ -288,9 +366,9 @@ const Reporting = ({ status, userType, username }) => {
                 <div className="flex flex-col">
                   <div className="flex sm:justify-between sm:flex-row flex-col justify-center  ">
                     <div>
-                      <p className="font-inter">Name: Joko Gadingan</p>
+                      <p className="font-inter">Username: {username}</p>
                       <p className="font-inter">
-                        Contact Number: 0920-303-3229
+                        Contact Number: {contactNum}
                       </p>
                       <p className="font-inter">
                         Address: {add.formatted_address}
@@ -403,7 +481,11 @@ const Reporting = ({ status, userType, username }) => {
                     className="block w-full mb-5 text-sm border border-gray/20   cursor-pointer  focus:outline-none "
                     id="default_size"
                     type="file"
+                    // accept="video/*"
+                    // ref={inputRef}
+                    // onChange={handleFileChange}
                   />
+                  {/* <video ref={videoRef} autoPlay muted style={{ display: "none" }} /> */}
                 </div>
                 <div className="sm:hidden block">
                   <p className="font-inter font-semibold">Send a Video </p>
@@ -461,7 +543,10 @@ const Reporting = ({ status, userType, username }) => {
                     )}
                     <div>
                       <XCircleIcon
-                        onClick={discardVideo}
+                        onClick={() => {
+                          discardVideo();
+                          setCapturedFrames([]); // Clear captured frames when discarding
+                        }}
                         className="h-10 w-10"
                       />
                     </div>
@@ -481,6 +566,18 @@ const Reporting = ({ status, userType, username }) => {
                     placeholder="Give us an Insight on what Happened"
                   ></textarea>
                 </div>
+                <div>
+     
+     {capturedFrames.map(({ imageDataUrl, fileName }, index) => (
+       <div key={index}>
+        <img height="30px" width="30px" src={imageDataUrl} alt={`Frame ${index}`} />
+
+       <p>File Name: {fileName}</p>
+             
+       </div>
+     ))}
+
+   </div>
               </div>
               {/* <!-- Modal footer --> */}
               <div className="flex items-center justify-center  sm:justify-start p-6 space-x-2 border-t border-gray/30 bg-subtlegray rounded-b font-inter">

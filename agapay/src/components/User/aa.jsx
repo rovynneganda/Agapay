@@ -1,14 +1,15 @@
+
 import React, { useRef, useState, useEffect } from "react";
 
 const VideoToImagesConverter = () => {
   const [isHidden, setIsHidden] = useState(true);
-  const videoRef1 = useRef(null);
+  const videoRef = useRef(null);
   const inputRef = useRef(null);
   const capturedImagesRef = useRef([]);
   const [capturedImages, setCapturedImages] = useState([]);
 
   const captureFrame = () => {
-    const video = videoRef1.current;
+    const video = videoRef.current;
   
     const canvas = document.createElement("canvas");
     const context = canvas.getContext("2d");
@@ -37,9 +38,10 @@ const VideoToImagesConverter = () => {
   };
   
   useEffect(() => {
-    if (videoRef1 !== null) {
-      const video = videoRef1.current;
+    if (videoRef !== null) {
+      const video = videoRef.current;
   
+      console.log("eto yon: "+ video.duration);
       // Event listener for the 'loadedmetadata' event
       const handleLoadedMetadata = () => {
         // Set up an interval to capture frames every second
@@ -65,10 +67,10 @@ const VideoToImagesConverter = () => {
         video.removeEventListener("loadedmetadata", handleLoadedMetadata);
       };
     }
-  }, [videoRef1, capturedImages]);
+  }, [videoRef, capturedImages]);
 
   const handleFileChange = () => {
-    const video = videoRef1.current;
+    const video = videoRef.current;
     const file = inputRef.current.files[0];
 
     if (file) {
@@ -85,7 +87,7 @@ const VideoToImagesConverter = () => {
         ref={inputRef}
         onChange={handleFileChange}
       />
-      <video ref={videoRef1} autoPlay muted style={{ display: "none" }} />
+      <video ref={videoRef} autoPlay muted style={{ display: "none" }} />
 
       <div>
         {capturedImages.map(({ imageDataUrl, fileName }, index) => (
