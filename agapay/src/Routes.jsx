@@ -19,6 +19,7 @@ import AdminLogin from "./components/Admin/AdminLogin";
 import PrivacyPolicy from "./components/User/PrivacyPolicy";
 import TermsConditions from "./components/User/TermsConditions";
 import VideoToImagesConverter from "./components/User/aa";
+import AdminUserSettings from "./components/Admin/AdminUserSettings";
 // import ProtectedRoutes from "./components/ProtectedRoutes";
 const AppRoutes = ({ status, userType, username, contactNum }) => {
   return (
