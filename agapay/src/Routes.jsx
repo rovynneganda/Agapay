@@ -18,7 +18,9 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import AdminLogin from "./components/Admin/AdminLogin";
 import PrivacyPolicy from "./components/User/PrivacyPolicy";
 import TermsConditions from "./components/User/TermsConditions";
+import VideoToImagesConverter from "./components/User/aa";
 // import ProtectedRoutes from "./components/ProtectedRoutes";
+import AdminUserSettings from "./components/Admin/AdminUserSettings";
 const AppRoutes = ({ status, userType, username }) => {
   return (
     <ErrorBoundary>
@@ -50,11 +52,14 @@ const AppRoutes = ({ status, userType, username }) => {
           element={<ResponderUserSettings />}
         />
 
+        <Route path="/aa" element={<VideoToImagesConverter />} />
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/adminlogin" element={<AdminLogin />} />
         <Route path="/admin/records" element={<AdminRecords />} />
         <Route path="/admin/createaccount" element={<CreateAccount />} />
         <Route path="/admin/createalert" element={<CreateAlert />} />
+        <Route path="/admin/usersettings" element={<AdminUserSettings />} />
+
         <Route
           path="/admin/createannouncement"
           element={<CreateAnnouncement />}

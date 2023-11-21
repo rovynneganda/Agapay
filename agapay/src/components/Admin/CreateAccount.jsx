@@ -63,17 +63,17 @@ const CreateAccount = () => {
   };
   return (
     <>
-      <section className="bg-accent min-h-screen sm:my-0 my-10">
+      <section className="bg-white min-h-screen sm:my-0 my-10">
         <div className="p-4 sm:ml-64">
           <h1 className="font-inter text-3xl mt-3">Account Creation</h1>
           <hr className="border-primary mt-3 mb-3" />
           <form>
-            <div className="bg-white p-7 rounded-xl font-inter ">
+            <div className="bg-white p-7 rounded-xl font-inter border-gray/20 border shadow-lg w-full max-w-6xl  mx-auto ">
               <div className="grid gap-6 mb-6 md:grid-cols-2 ">
                 <div>
                   <label
                     htmlFor="adminFirstName"
-                    className="block mb-2 text-sm  text-black  font-semibold"
+                    className="block mb-2 text-sm   text-black  font-semibold"
                   >
                     First name
                   </label>
@@ -82,7 +82,7 @@ const CreateAccount = () => {
                     onChange={handleInputChange}
                     name="adminFirstName"
                     id="adminFirstName"
-                    className="bg-subtlegray border border-gray/30 text-black  text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5  focus:outline-none"
+                    className=" bg-variantwhite/80 border border-gray/30 text-black  text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5  focus:outline-none"
                     required
                   />
                 </div>
@@ -98,7 +98,7 @@ const CreateAccount = () => {
                     onChange={handleInputChange}
                     name="adminLastName"
                     id="adminLastName"
-                    className="bg-subtlegray border border-gray/30 text-black  text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5  focus:outline-none"
+                    className=" border bg-variantwhite/80 border-gray/30 text-black  text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5  focus:outline-none"
                     required
                   />
                 </div>
@@ -114,7 +114,7 @@ const CreateAccount = () => {
                     id="adminDepartment"
                     name="adminDepartment"
                     onChange={handleInputChange}
-                    className="bg-subtlegray border border-gray/30 text-black  text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5  focus:outline-none"
+                    className=" border bg-variantwhite/80 border-gray/30 text-black  text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5  focus:outline-none"
                     required
                   />
                 </div>
@@ -130,7 +130,7 @@ const CreateAccount = () => {
                     id="adminPhoneNumber"
                     name="adminPhoneNumber"
                     onChange={handleInputChange}
-                    className="bg-subtlegray border border-gray/30 text-black  text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5  focus:outline-none"
+                    className=" border border-gray/30 text-black bg-variantwhite/80  text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5  focus:outline-none"
                     pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                     required
                   />
@@ -147,7 +147,7 @@ const CreateAccount = () => {
                     id="adminEmployeeID"
                     name="adminEmployeeID"
                     onChange={handleInputChange}
-                    className="bg-subtlegray border border-gray/30 text-black  text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5  focus:outline-none"
+                    className=" border border-gray/30 bg-variantwhite/80 text-black  text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5  focus:outline-none"
                     required
                   />
                 </div>
@@ -162,7 +162,7 @@ const CreateAccount = () => {
                     id="adminType"
                     name="adminType"
                     onChange={handleInputChange}
-                    className="bg-subtlegray border border-gray/30 text-black mb-6 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 focus:outline-none"
+                    className=" border border-gray/30 bg-variantwhite/80 text-black mb-6 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 focus:outline-none"
                   >
                     <option defaultValue="">Choose an Account</option>
                     <option value="responder">Responder</option>
@@ -182,7 +182,7 @@ const CreateAccount = () => {
                   id="adminUsername"
                   name="adminUsername"
                   onChange={handleInputChange}
-                  className="bg-subtlegray border border-gray/30 text-black  text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 focus:outline-none"
+                  className=" border border-gray/30 bg-variantwhite/80 text-black  text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 focus:outline-none"
                   required
                 />
               </div>
@@ -198,7 +198,7 @@ const CreateAccount = () => {
                   id="adminPassword1"
                   name="adminPassword1"
                   onChange={handleInputChange}
-                  className="bg-subtlegray border border-gray/30 text-black  text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5  focus:outline-none"
+                  className=" border border-gray/30 bg-variantwhite/80 text-black  text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5  focus:outline-none"
                   placeholder="•••••••••"
                   required
                 />
@@ -225,7 +225,7 @@ const CreateAccount = () => {
                   id="adminPassword2"
                   name="adminPassword2"
                   onChange={handleInputChange}
-                  className="bg-subtlegray border border-gray/30 text-black text-sm rounded-lg focus:ring-primary focus:outline-none
+                  className=" border border-gray/30 bg-variantwhite/80 text-black text-sm rounded-lg focus:ring-primary focus:outline-none
  focus:border-primary block w-full p-2.5  "
                   placeholder="•••••••••"
                   required

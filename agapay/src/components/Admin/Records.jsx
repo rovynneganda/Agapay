@@ -3,7 +3,7 @@ import PaginationTable from '../Responder/PaginationTable'
 import RecordCards from '../Shared/RecordCards'
 const AdminRecords = () => {
   return (
-    <>                    <section className="bg-accent min-h-screen sm:my-0 my-10">
+    <>                    <section className="bg-white min-h-screen sm:my-0 my-10">
     <div className="p-4 sm:ml-64">
     <RecordCards />
     <PaginationTable />

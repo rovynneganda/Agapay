@@ -99,7 +99,7 @@ const PaginationTable = () => {
 
                     <div>
 </div>
-            <table {...getTableProps()} className="w-full text-center p-5">
+            <table {...getTableProps()} className="w-full text-center border border-gray/30 p-5">
             <thead className=" bg-primary/50 ">
     {headerGroups.map((headerGroup) => (
         <tr {...headerGroup.getHeaderGroupProps()}>
