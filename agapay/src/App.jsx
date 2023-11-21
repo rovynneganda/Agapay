@@ -17,6 +17,7 @@ const App = () => {
   const [sessionStatus, setSessionStatus] = useState("loading");
   const [sessionUsertype, setSessionUsertype] = useState("loading");
   const [sessionUsername, setSessionUsername] = useState("loading");
+  const [sessionContactNum, setSessionContactNum] = useState("loading");
   const [isDefault, setDefault] = useState(true);
   // Function to check/review session every minute
   const checkSession = () => {
@@ -31,10 +32,11 @@ const App = () => {
         // Access the 'status' and 'message' properties
         console.log("Status:", response.data.Status);
         console.log("Message:", response.data.Message);
-        const { Status, UserType, Username } = response.data;
+        const { Status, UserType, Username, ContactNum } = response.data;
         setSessionStatus(Status);
         setSessionUsertype(UserType);
         setSessionUsername(Username);
+        setSessionContactNum(ContactNum);
         if (Status === "active" && UserType === "User") {
           console.log("User Type:", UserType);
           console.log("Username:", Username);
@@ -111,10 +113,12 @@ const App = () => {
         status={sessionStatus}
         userType={sessionUsertype}
         username={sessionUsername}
+        contactNum={sessionContactNum}
       />
 
       {currentPath.startsWith("/responder") !== true &&
         currentPath.startsWith("/admin") !== true &&
+        sessionStatus !== "loading" && 
         sessionStatus !== "loading" && (
           <Navbar
             status={sessionStatus}
