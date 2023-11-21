@@ -570,10 +570,10 @@ const Reporting = ({ status, userType, username, contactNum }) => {
      
      {capturedFrames.map(({ imageDataUrl, fileName }, index) => (
        <div key={index}>
-        <img height="30px" width="30px" src={imageDataUrl} alt={`Frame ${index}`} />
-
-       <p>File Name: {fileName}</p>
-             
+        {isHidden ? null :<img height="30px" width="30px" src={imageDataUrl} alt={`Frame ${index}`} />
+}
+{isHidden ? null : <p>File Name: {fileName}</p>
+}
        </div>
      ))}
 

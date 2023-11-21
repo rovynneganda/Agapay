@@ -31,15 +31,15 @@ const EmergencyResources = () => {
     const radius = 5000; // 5 kilometers
 
     axios
-      .get(
-        `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${locationParam}&radius=${radius}&type=${type}&key=${apiKey}`
-      )
-      .then((response) => {
-        setLocations(response.data.results);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    .get(
+      `http://localhost/Backend/Server.php?location=${locationParam}&radius=${radius}&type=${type}&key=${apiKey}`
+    )
+    .then((response) => {
+      setLocations(response.data.results);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
   };
 
   const openInGoogleMaps = (placeId) => {
