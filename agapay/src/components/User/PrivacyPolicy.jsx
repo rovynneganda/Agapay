@@ -1,6 +1,9 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Footer from './Footer'
 const PrivacyPolicy = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
   return (
     <>
     <section className="container mx-auto xl:px-40 lg:px-30 md:px-20 sm:px-10 px-0 py-10 mt-36">
