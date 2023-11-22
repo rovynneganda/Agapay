@@ -10,14 +10,14 @@ import Steps from "./Steps";
 import DownloadBanner from "./DownloadBanner";
 import AccordionSection from "./AccordionSection";
 // import Weather from "./Weather"
-export default function Home({ status, userType, username, contactNum }) {
+export default function Home({ status, userType, username, contactNum, userId }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
     <>
       <Carousel />
-      <Reporting status={status} userType={userType} username={username} contactNum={contactNum} />
+      <Reporting status={status} userType={userType} username={username} contactNum={contactNum} userId={userId} />
       <Weather />
       {/* <Hotlines /> */}
       {/* <Guidelines /> */}

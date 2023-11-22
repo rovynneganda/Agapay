@@ -11,7 +11,11 @@ import {
 import LoginFirst from "./LoginFirst";
 import TimeAndDateRepoting from "../../weather/components/DateandTimeReporting";
 import axios from "axios";
-const Reporting = ({ status, userType, username, contactNum }) => {
+const Reporting = ({ status, userType, username, contactNum, userId }) => {
+  // report datas
+  const [selectedDisaster, setSelectedDisaster] = useState(null);
+  const [reportMessage, setReportMessage] = useState('');
+
   // alert(status);
   const [activeUserSession, setActiveUserSession] = useState(false);
   useEffect(() => {
@@ -71,57 +75,90 @@ const Reporting = ({ status, userType, username, contactNum }) => {
   const [isHidden, setIsHidden] = useState(true);
   const captureIntervalRef = useRef(null);
   const [capturedFrames, setCapturedFrames] = useState([]);
+  const [verify, setVerify] = useState(null);
+  const [verifying, setVerifying] = useState(false);
+  const [submitReport, setSubmitReport] = useState(false);
+
 
   // send file to server
+  const handleReportBtn = () => {
+    setSubmitReport(true);
+  }
+
   useEffect(() => {
-    if (videoData !== null) {
-      // const formDataToObject = {"fileSelector": "Videos", "video": videoData.blob};
-      // console.log(formDataToObject);
-      const formData = new FormData();
-      formData.append("fileSelector", "Video");
-      formData.append("video", videoData.blob);
-      axios
-        .post("http://localhost/Backend/Controller.php", formData, {
-          withCredentials: true,
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        })
-        .then((response) => {
-          // if (response.data === "") {
-          // } else return alert(response.data);
-          // // loggedIn(false);
-          console.log(response);
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
+    if(submitReport === true){
+      if(verify !== null){
+        if (videoData !== null) {
+          // const formDataToObject = {"fileSelector": "Videos", "video": videoData.blob};
+          // console.log(formDataToObject);
+          const formData = new FormData();
+          formData.append("fileSelector", "Report");
+          formData.append("user_id", userId);
+          formData.append("disaster", selectedDisaster);
+          formData.append("adress", add.formatted_address);
+          formData.append("video", videoData.blob);
+          formData.append("verify", verify);
+          formData.append("description", reportMessage);
+          // console.log("user_id", userId);
+          // console.log("disaster", selectedDisaster);
+          // console.log("adress", verify);
+          // console.log("video", videoData.blob);
+          // console.log("verify", verify);
+          // console.log("description", reportMessage);
+          axios
+            .post("http://localhost/Backend/Controller.php", formData, {
+              withCredentials: true,
+              headers: {
+                "Content-Type": "multipart/form-data",
+              },
+            })
+            .then((response) => {
+              // if (response.data === "") {
+              // } else return alert(response.data);
+              // // loggedIn(false);
+              alert("Response Sent!");
+              console.log(response);
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        }
+      }
+      setSubmitReport(false);
+      setVerify(null);
     }
-  }, [videoData]);
+  }, [videoData, submitReport]);
 
   const sendFrames = async () => {
     console.log("sa baba:");
     console.log(capturedFrames);
+    setVerifying(true);
     for (const frame of capturedFrames) {
       try {
         // Create a FormData object to send the image data
         const formData = new FormData();
-        formData.append('fileSelector', "Frames");
-        formData.append('frame', frame.imageDataUrl);
-        formData.append('fileName', frame.fileName);
-  
+        formData.append("fileSelector", "Frames");
+        formData.append("frame", frame.imageDataUrl);
+        formData.append("fileName", frame.fileName);
+        formData.append("disaster", selectedDisaster);
+
         // Make a POST request using Axios
-        const response = await axios.post('http://localhost/Backend/Controller.php', formData);
-  
+        const response = await axios.post(
+          "http://localhost/Backend/Controller.php",
+          formData
+        );
+
         // Handle the response if needed
         console.log(response.data);
       } catch (error) {
         // Handle errors
-        console.error('Error sending captured frames:', error);
+        console.error("Error sending captured frames:", error);
       }
     }
-  }
-
+    console.log("after for");
+    setVerifying(false);
+    setVerify(true);
+  };
 
   //  start Recording
   const startRecording = async () => {
@@ -163,11 +200,10 @@ const Reporting = ({ status, userType, username, contactNum }) => {
         setRecordingTime((prevTime) => prevTime + 1); // Update every second (1000 milliseconds)
       }, 1000);
 
-  // Capture frames every second
-  captureIntervalRef.current = setInterval(() => {
-    captureFrame();
-  }, 1000);
-
+      // Capture frames every second
+      captureIntervalRef.current = setInterval(() => {
+        captureFrame();
+      }, 1000);
 
       setTimeout(() => stopRecording(), 5000); // Stop recording after 10 seconds
       setMediaRecorder(recorder);
@@ -189,13 +225,11 @@ const Reporting = ({ status, userType, username, contactNum }) => {
         // Check if videoRef.current is not null before setting srcObject
         if (videoRef.current) {
           videoRef.current.srcObject = null;
-          sendFrames();
         }
-
       }
     }
-      // Clear capture interval
-      clearInterval(captureIntervalRef.current);
+    // Clear capture interval
+    clearInterval(captureIntervalRef.current);
   };
   // end of stop the camera
 
@@ -222,6 +256,7 @@ const Reporting = ({ status, userType, username, contactNum }) => {
   useEffect(() => {
     if (recordingTime === 5) {
       stopRecording();
+      sendFrames();
     }
   }, [recordingTime]);
   //end limit the recording time in to 10 seconds
@@ -238,8 +273,8 @@ const Reporting = ({ status, userType, username, contactNum }) => {
   const captureFrame = () => {
     const video = videoRef.current;
 
-    const canvas = document.createElement('canvas');
-    const context = canvas.getContext('2d');
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d");
 
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
@@ -247,7 +282,7 @@ const Reporting = ({ status, userType, username, contactNum }) => {
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
     // Convert the canvas content to base64 data URL
-    const imageDataUrl = canvas.toDataURL('image/jpeg');
+    const imageDataUrl = canvas.toDataURL("image/jpeg");
 
     // Generate a unique file name using the current timestamp
     const fileName = `frame_${Date.now()}.jpg`;
@@ -275,6 +310,19 @@ const Reporting = ({ status, userType, username, contactNum }) => {
   //     7
   //   )}-${formattedPhoneNumber.slice(7)}`;
   // };
+  
+  const handleDisasterButton = (event) => {
+    setSelectedDisaster(event.target.value);
+    // console.log(selectedDisaster);
+  };setReportMessage
+  const handleReportMessage = (event) => {
+    setReportMessage(event.target.value);
+  };
+  // useEffect(() => {
+  //   console.log(reportMessage);
+  // }, [reportMessage]);
+
+
   return (
     <>
       <div className="bg-white py-5">
@@ -367,9 +415,7 @@ const Reporting = ({ status, userType, username, contactNum }) => {
                   <div className="flex sm:justify-between sm:flex-row flex-col justify-center  ">
                     <div>
                       <p className="font-inter">Username: {username}</p>
-                      <p className="font-inter">
-                        Contact Number: {contactNum}
-                      </p>
+                      <p className="font-inter">Contact Number: {contactNum}</p>
                       <p className="font-inter">
                         Address: {add.formatted_address}
                       </p>
@@ -395,12 +441,13 @@ const Reporting = ({ status, userType, username, contactNum }) => {
                       <input
                         type="radio"
                         name="option"
-                        id="2"
-                        value="2"
+                        id="Flood"
+                        value="Flood"
                         className="peer hidden"
+                        onChange={handleDisasterButton}
                       />
                       <label
-                        htmlFor="2"
+                        htmlFor="Flood"
                         className="block cursor-pointer select-none rounded-xl font-inter border bg-subtlegray p-2 text-center text-black peer-checked:bg-primary peer-checked:font-bold peer-checked:text-white border-gray/20"
                       >
                         Flood
@@ -411,12 +458,13 @@ const Reporting = ({ status, userType, username, contactNum }) => {
                       <input
                         type="radio"
                         name="option"
-                        id="3"
-                        value="3"
+                        id="Fire"
+                        value="Fire"
                         className="peer hidden"
+                        onChange={handleDisasterButton}
                       />
                       <label
-                        htmlFor="3"
+                        htmlFor="Fire"
                         className="block cursor-pointer select-none rounded-xl border font-inter bg-subtlegray p-2 text-center text-black peer-checked:bg-primary peer-checked:font-bold peer-checked:text-white border-gray/20"
                       >
                         Fire
@@ -427,12 +475,13 @@ const Reporting = ({ status, userType, username, contactNum }) => {
                       <input
                         type="radio"
                         name="option"
-                        id="4"
-                        value="3"
+                        id="Landslide"
+                        value="Landslide"
                         className="peer hidden"
+                        onChange={handleDisasterButton}
                       />
                       <label
-                        htmlFor="4"
+                        htmlFor="Landslide"
                         className="block cursor-pointer select-none rounded-xl border font-inter bg-subtlegray p-2 text-center text-black peer-checked:bg-primary peer-checked:font-bold peer-checked:text-white border-gray/20"
                       >
                         Landslide
@@ -442,12 +491,13 @@ const Reporting = ({ status, userType, username, contactNum }) => {
                       <input
                         type="radio"
                         name="option"
-                        id="5"
-                        value="3"
+                        id="Vehicular_Accident"
+                        value="Accident"
                         className="peer hidden"
+                        onChange={handleDisasterButton}
                       />
                       <label
-                        htmlFor="5"
+                        htmlFor="Vehicular_Accident"
                         className="block cursor-pointer select-none rounded-xl border font-inter bg-subtlegray p-2 text-center text-black peer-checked:bg-primary peer-checked:font-bold peer-checked:text-white border-gray/20"
                       >
                         Vehicular Accident
@@ -554,38 +604,45 @@ const Reporting = ({ status, userType, username, contactNum }) => {
                 )}
                 <div className="font-inter">
                   <label
-                    htmlFor="message"
+                    htmlFor="reportMessage"
                     className="block mb-2 text-sm font-medium "
                   >
                     Please provide Additional Information
                   </label>
                   <textarea
-                    id="message"
+                    id="reportMessage"
                     rows="4"
                     className="block p-2.5 w-full text-sm  rounded-lg border border-gray/20 focus:ring-primary focus:border-primary   "
                     placeholder="Give us an Insight on what Happened"
-                  ></textarea>
+                    value={reportMessage}
+                    onChange={handleReportMessage}
+                  ><p>Typed Message: {reportMessage}</p></textarea>
                 </div>
                 <div>
-     
-     {capturedFrames.map(({ imageDataUrl, fileName }, index) => (
-       <div key={index}>
-        <img height="30px" width="30px" src={imageDataUrl} alt={`Frame ${index}`} />
+                  {capturedFrames.map(({ imageDataUrl, fileName }, index) => (
+                    <div hidden key={index}>
+                      <img
+                        height="30px"
+                        width="30px"
+                        src={imageDataUrl}
+                        alt={`Frame ${index}`}
+                      />
 
-       <p>File Name: {fileName}</p>
-             
-       </div>
-     ))}
-
-   </div>
+                      <p>File Name: {fileName}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
               {/* <!-- Modal footer --> */}
               <div className="flex items-center justify-center  sm:justify-start p-6 space-x-2 border-t border-gray/30 bg-subtlegray rounded-b font-inter">
                 <button
                   type="button"
                   className="text-white bg-primary  hover:bg-primarydark focus:ring-4 ring-subtlegray focus:outline-none    font-medium rounded-lg text-sm px-5 py-2.5 text-center  "
+                  onClick={handleReportBtn}
+                  disabled={verify === null}
                 >
-                  Submit
+                  {isRecording ? 'Recording' : verifying ? 'Verifying Video' : 'Submit'}
+                  
                 </button>
                 <button
                   type="button"
@@ -627,10 +684,8 @@ const Reporting = ({ status, userType, username, contactNum }) => {
                 <div className="flex flex-col">
                   <div className="flex sm:justify-between sm:flex-row flex-col justify-center  ">
                     <div>
-                      <p className="font-inter">Name: Joko Gadingan</p>
-                      <p className="font-inter">
-                        Contact Number: 0920-303-3229
-                      </p>
+                      <p className="font-inter">Name: {username}</p>
+                      <p className="font-inter">Contact Number: {contactNum}</p>
                       <p className="font-inter">
                         Address: {add.formatted_address}
                       </p>
