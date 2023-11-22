@@ -994,7 +994,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
               className="bg-transparent  rounded-full text-sm w-8 h-8 absolute top-4 right-4 sm:hidden flex items-center justify-center"
               onClick={onClose}
             >
-              <XMarkIcon className="w-7 h-7 font-bold bg-gray/50 hover:bg-gray rounded-full" />
+              <XMarkIcon className="w-7 h-7 font-bold  rounded-full" />
               <span className="sr-only">Close modal</span>
             </button>
           </div>
@@ -1619,7 +1619,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
               className="bg-transparent  rounded-full text-sm w-8 h-8 absolute top-4 right-4 sm:hidden flex items-center justify-center"
               onClick={onClose}
             >
-              <XMarkIcon className="w-7 h-7 font-bold bg-gray/50 hover:bg-gray rounded-full" />
+              <XMarkIcon className="w-7 h-7 font-bold  rounded-full" />
               <span className="sr-only">Close modal</span>
             </button>
           </div>

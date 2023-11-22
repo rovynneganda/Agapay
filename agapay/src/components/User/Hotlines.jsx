@@ -258,8 +258,8 @@ const Hotlines = () => {
                 </div>
 
                 <div className="flex flex-row">
-                  <button className=" mr-2  cursor-default      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
-                    <PhoneIcon className="h-5 w-5 text-primary font-semibold" />
+                  <button className=" mr-2  cursor-pointer      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                    <PhoneIcon className="h-5 w-5 text-primary font-semibold" onClick={handleCallClick}/>
                   </button>
                   <h3 onClick={handleCallClick} className="text-md cursor-pointer text-gray font-medium font-poppins mb-2 mt-2">
                     +63(2)83649060
@@ -290,8 +290,8 @@ const Hotlines = () => {
                   </h2>
                 </div>
                 <div className="flex flex-row">
-                  <button className=" mr-2  cursor-default      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
-                    <PhoneIcon className="h-5 w-5 text-primary font-semibold" />
+                  <button className=" mr-2  cursor-pointer      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                    <PhoneIcon className="h-5 w-5 text-primary font-semibold" onClick={handleCallClick1}/>
                   </button>
                   <h3 onClick={handleCallClick1} className="text-md cursor-pointer text-gray font-medium font-poppins mb-2 mt-2">
                     324 6527
@@ -322,8 +322,8 @@ const Hotlines = () => {
                   </h2>
                 </div>
                 <div className="flex flex-row">
-                  <button className=" mr-2  cursor-default      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
-                    <PhoneIcon className="h-5 w-5 text-primary font-semibold" />
+                  <button className=" mr-2  cursor-pointer      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                    <PhoneIcon className="h-5 w-5 text-primary font-semibold" onClick={handleCallClick2}/>
                   </button>
                   <h3 onClick={handleCallClick2} className="text-md cursor-pointer text-gray font-medium font-poppins mb-2 mt-2">
                     +63(2)324 6528
@@ -354,8 +354,8 @@ const Hotlines = () => {
                   </h2>
                 </div>
                 <div className="flex flex-row">
-                  <button className=" mr-2  cursor-default      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
-                    <PhoneIcon className="h-5 w-5 text-primary font-semibold" />
+                  <button className=" mr-2  cursor-pointer      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                    <PhoneIcon className="h-5 w-5 text-primary font-semibold" onClick={handleCallClick3}/>
                   </button>
                   <h3 onClick={handleCallClick3} className="text-md cursor-pointer text-gray font-medium font-poppins mb-2 mt-2">
                     +63(2)9623918
@@ -387,8 +387,8 @@ const Hotlines = () => {
                   </h2>
                 </div>
                 <div className="flex flex-row">
-                  <button className=" mr-2  cursor-default      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
-                    <PhoneIcon className="h-5 w-5 text-primary font-semibold" />
+                  <button className=" mr-2  cursor-pointer      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                    <PhoneIcon className="h-5 w-5 text-primary font-semibold" onClick={handleCallClick4}/>
                   </button>
                   <h3 onClick={handleCallClick4} className="text-md cursor-pointer text-gray font-medium font-poppins mb-2 mt-2">
                     02-8424-1724
@@ -419,8 +419,8 @@ const Hotlines = () => {
                   </h2>
                 </div>
                 <div className="flex flex-row">
-                  <button className=" mr-2  cursor-default      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
-                    <PhoneIcon className="h-5 w-5 text-primary font-semibold" />
+                  <button className=" mr-2  cursor-pointer      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                    <PhoneIcon className="h-5 w-5 text-primary font-semibold" onClick={handleCallClick5}/>
                   </button>
                   <h3  onClick={handleCallClick5} className="text-md cursor-pointer text-gray font-medium font-poppins mb-2 mt-2">
                     +63 (2) 310 7920
@@ -446,7 +446,7 @@ const Hotlines = () => {
       {showModal && (
         <div
           tabindex="-1"
-          className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-gray bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
+          className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-black bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
         >
           <div className="relative w-full max-w-md max-h-full">
             <div className="relative bg-white rounded-lg shadow ">
@@ -485,7 +485,7 @@ const Hotlines = () => {
       {showModal1 && (
         <div
           tabindex="-1"
-          className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-gray bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
+          className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-black bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
         >
           <div className="relative w-full max-w-md max-h-full">
             <div className="relative bg-white rounded-lg shadow ">
@@ -524,7 +524,7 @@ const Hotlines = () => {
       {showModal2 && (
         <div
           tabindex="-1"
-          className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-gray bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
+          className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-black bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
         >
           <div className="relative w-full max-w-md max-h-full">
             <div className="relative bg-white rounded-lg shadow ">
@@ -563,7 +563,7 @@ const Hotlines = () => {
       {showModal3 && (
         <div
           tabindex="-1"
-          className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-gray bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
+          className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-black bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
         >
           <div className="relative w-full max-w-md max-h-full">
             <div className="relative bg-white rounded-lg shadow ">
@@ -602,7 +602,7 @@ const Hotlines = () => {
       {showModal4 && (
         <div
           tabindex="-1"
-          className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-gray bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
+          className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-black bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
         >
           <div className="relative w-full max-w-md max-h-full">
             <div className="relative bg-white rounded-lg shadow ">
@@ -641,7 +641,7 @@ const Hotlines = () => {
       {showModal5 && (
         <div
           tabindex="-1"
-          className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-gray bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
+          className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-black bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
         >
           <div className="relative w-full max-w-md max-h-full">
             <div className="relative bg-white rounded-lg shadow ">

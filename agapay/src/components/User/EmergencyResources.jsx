@@ -106,7 +106,7 @@ const EmergencyResources = () => {
         </div>
 </div>
 <Hotlines />
-          <section className='bg-subtlegray pb-10'>
+          <section className=' pb-10'>
       <div className="text-center pt-5  ">
        
         <h3 className="sm:text-2xl text-xl font-medium  font-inter">

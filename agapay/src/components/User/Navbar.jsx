@@ -7,6 +7,7 @@ import Login from "./Login";
 import {
   ArrowRightCircleIcon,
   ArrowDownCircleIcon,
+  PhoneIcon,
   ChevronDownIcon,
   UserCircleIcon,
 } from "@heroicons/react/24/outline";
@@ -311,28 +312,30 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
         </div>
       </nav>
       {/* // phone number for 4th avenue station */}
-      {showModalphone11 && (
-        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75">
-          <div className="bg-white p-8 rounded-lg shadow-lg">
-            <p className="mb-4">
-              Are you sure you want to call {phoneNumber11}?
-            </p>
-            <button
-              className="bg-green-500 hover:bg-green-700 text-black font-bold py-2 px-4 rounded mr-2"
-              onClick={handleConfirmCall11}
-            >
-              Yes
-            </button>
-            <button
-              className="bg-red-500 hover:bg-red-700 text-black font-bold py-2 px-4 rounded"
-              onClick={handleCancelCall11}
-            >
-              No
-            </button>
-          </div>
-        </div>
-      )}
-      {/* // phone number for 4th avenue station */}
+{showModalphone11 && (
+  <div className="fixed top-0 z-50  left-0 w-full  h-full flex items-center justify-center bg-black bg-opacity-50">
+        <div className="relative w-full max-w-md max-h-full p-5">
+        <div className="bg-white p-8 rounded-lg shadow-lg">
+        <PhoneIcon className="h-12 w-12 mb-5 mx-auto text-primary animate-pulse" />
+      <p className="mb-4 font-inter text-center leading-loose">Are you sure you want to call {phoneNumber11}?</p>
+      <div className="flex flex-row  justify-center items-center">
+      <button
+        className="text-white bg-primary hover:bg-primarydark font-inter   focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+        onClick={handleConfirmCall11}
+      >
+        Yes
+      </button>
+      <button
+       className="text-[#c94c05] border border-[#c94c05] font-inter bg-none hover:bg-[#fff8ec] focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+        onClick={handleCancelCall11}
+      >
+        No
+      </button>
+</div>
+    </div>
+</div>
+  </div>
+)}
     </>
   );
 };

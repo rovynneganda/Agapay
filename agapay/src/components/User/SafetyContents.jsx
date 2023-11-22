@@ -14,7 +14,7 @@ const SafetyContents = () => {
     };
   return (
     // ${activeTab === 'fire' ? 'bg-[#fff0f2]' : ''}
-<section className={`sm:my-0 my-10 pt-10 mt-0 bg-subtlegray `}>
+<section className={`sm:my-0 my-10 pt-10 mt-0 `}>
     <div className="p-4 ">
         <div className="flex mx-auto flex-wrap  justify-center sm:gap-5 gap-0 ">
             {[
@@ -42,6 +42,7 @@ const SafetyContents = () => {
             ))}
           </div>
           </div>
+          
           {activeTab === "fire" && (
             <FireContents />
         )}
