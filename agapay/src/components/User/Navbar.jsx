@@ -42,6 +42,10 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
     // Call the function passed from the parent (ParentComponent)
     isLoggedInSessionToParent(data);
   };
+  const logout = (data) => {
+    // Call the function passed from the parent (ParentComponent)
+    isLoggedInSessionToParent(data);
+  };
   // let bool;
   // if(status === "active"){
   //   bool = true;
@@ -93,8 +97,8 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
     setIsOpen(!isOpen);
   };
 
-      //  phone number for Along Hotline
-  const phoneNumber11 = '(888) 25664';
+  //  phone number for Along Hotline
+  const phoneNumber11 = "(888) 25664";
   const [showModalphone11, setShowModalphone11] = useState(false);
 
   const handleCallClick11 = () => {
@@ -114,7 +118,7 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
     window.location.href = `tel:${phoneNumber11}`;
   };
 
-    // end phone number for 4th avenue station
+  // end phone number for 4th avenue station
 
   return (
     <>
@@ -137,7 +141,10 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
             onMouseLeave={() => setIsPopoverHovered(false)}
           >
             <div className="group relative inline-block cursor-pointer">
-              <h1 onClick={handleCallClick11} className="mr-6 text-sm  font-poppins hidden sm:block">
+              <h1
+                onClick={handleCallClick11}
+                className="mr-6 text-sm  font-poppins hidden sm:block"
+              >
                 (888) 25664
               </h1>
               <div className="invisible absolute z-10 mt-2  text-center  rounded-lg  right-32 -bottom-5   opacity-0 group-hover:visible group-hover:opacity-100 transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300">
@@ -196,7 +203,10 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
                       <li>
                         <a
                           href="#"
-                          onClick={() => handleLogout(false, true)}
+                          onClick={() => {
+                            handleLogout(false, true);
+                            logout(true);
+                          }}
                           className="block px-4 py-2 text-sm  text-gray/80 hover:text-black hover:bg-gray/20 "
                         >
                           Sign out
@@ -216,7 +226,12 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
               </button>
             )}
 
-            {isLoginModalVisible && <Login onClose={handleLoginModalToggle} isLoggedInSession={isLoggedInSession} />}
+            {isLoginModalVisible && (
+              <Login
+                onClose={handleLoginModalToggle}
+                isLoggedInSession={isLoggedInSession}
+              />
+            )}
             {/* <Link
               className="text-md font-poppins transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  font-semibold text-primary mr-3 hover:bg-primary hover:text-white px-2 py-2 rounded-lg "
               to=""
@@ -296,26 +311,28 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
         </div>
       </nav>
       {/* // phone number for 4th avenue station */}
-{showModalphone11 && (
-  <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75">
-    <div className="bg-white p-8 rounded-lg shadow-lg">
-      <p className="mb-4">Are you sure you want to call {phoneNumber11}?</p>
-      <button
-        className="bg-green-500 hover:bg-green-700 text-black font-bold py-2 px-4 rounded mr-2"
-        onClick={handleConfirmCall11}
-      >
-        Yes
-      </button>
-      <button
-        className="bg-red-500 hover:bg-red-700 text-black font-bold py-2 px-4 rounded"
-        onClick={handleCancelCall11}
-      >
-        No
-      </button>
-    </div>
-  </div>
-)}
-  {/* // phone number for 4th avenue station */}
+      {showModalphone11 && (
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75">
+          <div className="bg-white p-8 rounded-lg shadow-lg">
+            <p className="mb-4">
+              Are you sure you want to call {phoneNumber11}?
+            </p>
+            <button
+              className="bg-green-500 hover:bg-green-700 text-black font-bold py-2 px-4 rounded mr-2"
+              onClick={handleConfirmCall11}
+            >
+              Yes
+            </button>
+            <button
+              className="bg-red-500 hover:bg-red-700 text-black font-bold py-2 px-4 rounded"
+              onClick={handleCancelCall11}
+            >
+              No
+            </button>
+          </div>
+        </div>
+      )}
+      {/* // phone number for 4th avenue station */}
     </>
   );
 };

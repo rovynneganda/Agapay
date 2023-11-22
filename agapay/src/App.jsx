@@ -18,6 +18,7 @@ const App = () => {
   const [sessionUsertype, setSessionUsertype] = useState("loading");
   const [sessionUsername, setSessionUsername] = useState("loading");
   const [sessionContactNum, setSessionContactNum] = useState("loading");
+  const [sessionUserId, setSessionUserId] = useState(null);
   const [isDefault, setDefault] = useState(true);
   // Function to check/review session every minute
   const checkSession = () => {
@@ -31,15 +32,16 @@ const App = () => {
 
         // Access the 'status' and 'message' properties
         console.log("Status:", response.data.Status);
-        console.log("Message:", response.data.Message);
-        const { Status, UserType, Username, ContactNum } = response.data;
+        // console.log("Message:", response.data.Message);
+        const { Status, UserType, Username, ContactNum, User_id } = response.data;
         setSessionStatus(Status);
         setSessionUsertype(UserType);
         setSessionUsername(Username);
         setSessionContactNum(ContactNum);
         if (Status === "active" && UserType === "User") {
-          console.log("User Type:", UserType);
-          console.log("Username:", Username);
+          setSessionUserId(User_id);
+          // console.log("User Type:", UserType);
+          // console.log("Username:", Username);
         }
       })
       .catch((error) => {
@@ -50,7 +52,7 @@ const App = () => {
     checkSession();
 
     // Set interval to check session every minute (60,000 milliseconds)
-    const interval = setInterval(checkSession, 5000);
+    const interval = setInterval(checkSession, 30000);
 
     // Clear interval when the component is unmounted to prevent memory leaks
     return () => clearInterval(interval);
@@ -114,6 +116,7 @@ const App = () => {
         userType={sessionUsertype}
         username={sessionUsername}
         contactNum={sessionContactNum}
+        userId={sessionUserId}
       />
 
       {currentPath.startsWith("/responder") !== true &&
