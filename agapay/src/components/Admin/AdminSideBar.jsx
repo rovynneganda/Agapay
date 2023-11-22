@@ -168,7 +168,7 @@ const AdminSideBar = ({status, userType, username }) => {
     </li>
     <li>
             <Link to="/admin/usersettings" className={`flex items-center text-white font-poppins p-2 rounded-lg ${
-    location.pathname === '/admin/usersettingss' ? 'bg-primarydark text-opacity-100' : 'hover:bg-primarydark text-opacity-80 hover:text-opacity-100'
+    location.pathname === '/admin/usersettings' ? 'bg-primarydark text-opacity-100' : 'hover:bg-primarydark text-opacity-80 hover:text-opacity-100'
   }`}>
                <UserIcon className='w-5 h-5 text-white '/>
                <span className="ml-3 font-inter text-md font-semibold">User</span>
