@@ -646,7 +646,7 @@ const Reporting = ({ status, userType, username, contactNum, userId }) => {
                 </button>
                 <button
                   type="button"
-                  className="text-gray-500 bg-white hover:bg-subtlegray focus:ring-4 ring-subtlegray focus:outline-none  rounded-lg border border-gray/25 text-sm font-medium px-5 py-2.5 hover:focus:z-10   "
+                  className=" bg-white hover:bg-subtlegray focus:ring-4 ring-subtlegray focus:outline-none  rounded-lg border border-gray/25 text-sm font-medium px-5 py-2.5 hover:focus:z-10   "
                   onClick={() => setIsReportModalVisible(false)}
                 >
                   Back
