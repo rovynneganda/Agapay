@@ -4,7 +4,7 @@ import PaginationTable from './PaginationTable';
 const ResponderRecords = () => {
   return (
     <>
-             <section className="bg-accent min-h-screen">
+             <section className="bg-white min-h-screen">
         <div className="p-4 sm:ml-64 mt-16">
        <RecordCards />
           <PaginationTable />

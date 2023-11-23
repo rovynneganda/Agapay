@@ -165,7 +165,7 @@ const Reporting = ({ status, userType, username, contactNum, userId }) => {
     try {
       const videoStream = await navigator.mediaDevices.getUserMedia({
         video: { facingMode: "environment" },
-        audio: true,
+        audio: false,
       });
       setStream(videoStream);
       videoRef.current.srcObject = videoStream;
@@ -639,14 +639,14 @@ const Reporting = ({ status, userType, username, contactNum, userId }) => {
                   type="button"
                   className="text-white bg-primary  hover:bg-primarydark focus:ring-4 ring-subtlegray focus:outline-none    font-medium rounded-lg text-sm px-5 py-2.5 text-center  "
                   onClick={handleReportBtn}
-                  disabled={verify === null}
+                  disabled={verify === null || verifying}
                 >
                   {isRecording ? 'Recording' : verifying ? 'Verifying Video' : 'Submit'}
                   
                 </button>
                 <button
                   type="button"
-                  className="text-gray-500 bg-white hover:bg-subtlegray focus:ring-4 ring-subtlegray focus:outline-none  rounded-lg border border-gray/25 text-sm font-medium px-5 py-2.5 hover:focus:z-10   "
+                  className=" bg-white hover:bg-subtlegray focus:ring-4 ring-subtlegray focus:outline-none  rounded-lg border border-gray/25 text-sm font-medium px-5 py-2.5 hover:focus:z-10   "
                   onClick={() => setIsReportModalVisible(false)}
                 >
                   Back

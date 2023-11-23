@@ -12,12 +12,12 @@ import {
   UserCircleIcon,
 } from "@heroicons/react/24/outline";
 import { Link, useLocation } from "react-router-dom";
-const SideBarResponder = ({status, userType, username }) => {
+const SideBarResponder = ({ status, userType, username }) => {
   useEffect(() => {
     // alert(status);
-    if(status === "active" && userType === "responder"){
+    if (status === "active" && userType === "responder") {
       console.log("Logged In.");
-    }else{
+    } else {
       window.location.href = "/*";
     }
     // alert(isLoggedIn);
@@ -181,7 +181,7 @@ const SideBarResponder = ({status, userType, username }) => {
             </li>
             <li>
               <Link
-                to=""
+                to="adminLogin"
                 className={`flex items-center text-white font-poppins p-2 rounded-lg ${
                   location.pathname === ""
                     ? "bg-primarydark text-opacity-100"

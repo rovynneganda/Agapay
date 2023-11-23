@@ -20,6 +20,7 @@ import PrivacyPolicy from "./components/User/PrivacyPolicy";
 import TermsConditions from "./components/User/TermsConditions";
 import VideoToImagesConverter from "./components/User/aa";
 import AdminUserSettings from "./components/Admin/AdminUserSettings";
+import AdminReports from "./components/Admin/AdminReports";
 // import ProtectedRoutes from "./components/ProtectedRoutes";
 const AppRoutes = ({ status, userType, username, contactNum, userId }) => {
   return (
@@ -57,6 +58,7 @@ const AppRoutes = ({ status, userType, username, contactNum, userId }) => {
         <Route path="/aa" element={<VideoToImagesConverter />} />
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/adminlogin" element={<AdminLogin />} />
+        <Route path="/admin/reports" element={<AdminReports />} />
         <Route path="/admin/records" element={<AdminRecords />} />
         <Route path="/admin/createaccount" element={<CreateAccount />} />
         <Route path="/admin/createalert" element={<CreateAlert />} />

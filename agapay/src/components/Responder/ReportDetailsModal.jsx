@@ -11,7 +11,7 @@ const ReportDetailsModal = () => {
       <div
         tabindex="-1"
         aria-hidden="true"
-        className="fixed top-0 left-0 right-0 z-50 overflow-y-auto p-5 sm:p-0 hidden  w-full h-full bg-gray bg-opacity-50 flex justify-center items-center"
+        className="fixed top-0 left-0 right-0 z-50 overflow-y-auto p-5 sm:p-0 shadow-xl  w-full h-full bg-black bg-opacity-50 flex justify-center items-center"
       >
         <div className="relative bg-white px-6 pt-10 pb-8 shadow-xl rounded-lg sm:max-w-lg w-full">
           <div className="mx-auto max-w-md">
@@ -102,6 +102,8 @@ const ReportDetailsModal = () => {
           </div>
         </div>
       </div>
+
+
     </>
   );
 };
