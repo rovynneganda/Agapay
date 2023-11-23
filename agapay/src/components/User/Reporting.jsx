@@ -165,7 +165,7 @@ const Reporting = ({ status, userType, username, contactNum, userId }) => {
     try {
       const videoStream = await navigator.mediaDevices.getUserMedia({
         video: { facingMode: "environment" },
-        audio: true,
+        audio: false,
       });
       setStream(videoStream);
       videoRef.current.srcObject = videoStream;
@@ -639,7 +639,7 @@ const Reporting = ({ status, userType, username, contactNum, userId }) => {
                   type="button"
                   className="text-white bg-primary  hover:bg-primarydark focus:ring-4 ring-subtlegray focus:outline-none    font-medium rounded-lg text-sm px-5 py-2.5 text-center  "
                   onClick={handleReportBtn}
-                  disabled={verify === null}
+                  disabled={verify === null || verifying}
                 >
                   {isRecording ? 'Recording' : verifying ? 'Verifying Video' : 'Submit'}
                   

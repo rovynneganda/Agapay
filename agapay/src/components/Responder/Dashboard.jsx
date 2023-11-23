@@ -10,7 +10,7 @@ import {
 const ResponderDashboard = () => {
   return (
     <>
-      <section className="bg-accent min-h-screen">
+      <section className="bg-white min-h-screen">
         <div className="p-4 sm:ml-64 mt-16">
           <h1 className="font-inter text-3xl mt-3">Dashboard</h1>
           <hr className="border-primary mt-3 mb-3" />
