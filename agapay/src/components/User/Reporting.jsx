@@ -49,12 +49,16 @@ const Reporting = ({ status, userType, username, contactNum, userId }) => {
     }
   };
   const [add, setAdd] = useState("");
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
   // `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((pos) => {
       const { latitude, longitude } = pos.coords;
       console.log(latitude, longitude);
+      setLatitude(latitude);
+      setLongitude(longitude);
       const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyDzzi_VBcf2Oef6LTViLU767UPNHlnIze4`;
       fetch(url)
         .then((res) => res.json())
@@ -99,6 +103,8 @@ const Reporting = ({ status, userType, username, contactNum, userId }) => {
           formData.append("video", videoData.blob);
           formData.append("verify", verify);
           formData.append("description", reportMessage);
+          formData.append("latitude", latitude);
+          formData.append("longitude", longitude);
           // console.log("user_id", userId);
           // console.log("disaster", selectedDisaster);
           // console.log("adress", verify);
@@ -118,14 +124,14 @@ const Reporting = ({ status, userType, username, contactNum, userId }) => {
               // // loggedIn(false);
               alert("Response Sent!");
               console.log(response);
+              setSubmitReport(false);
+              setVerify(null);
             })
             .catch((error) => {
               console.error("Error:", error);
             });
         }
       }
-      setSubmitReport(false);
-      setVerify(null);
     }
   }, [videoData, submitReport]);
 
@@ -133,6 +139,7 @@ const Reporting = ({ status, userType, username, contactNum, userId }) => {
     console.log("sa baba:");
     console.log(capturedFrames);
     setVerifying(true);
+    setVerify(false);
     for (const frame of capturedFrames) {
       try {
         // Create a FormData object to send the image data
@@ -147,7 +154,9 @@ const Reporting = ({ status, userType, username, contactNum, userId }) => {
           "http://localhost/Backend/Controller.php",
           formData
         );
-
+        if (response.data.matchedWeb.length !== 0) {
+          setVerify(true);
+        }
         // Handle the response if needed
         console.log(response.data);
       } catch (error) {
@@ -157,7 +166,6 @@ const Reporting = ({ status, userType, username, contactNum, userId }) => {
     }
     console.log("after for");
     setVerifying(false);
-    setVerify(true);
   };
 
   //  start Recording

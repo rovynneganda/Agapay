@@ -24,6 +24,7 @@ const AdminReports = () => {
         // // loggedIn(false);
         // alert("Response Sent!");
         const newData = response.data.reportData.data;
+        console.log(response);
         console.log(newData);
 
         // Update the state with the fetched data
@@ -45,8 +46,11 @@ const AdminReports = () => {
                   <div className="flex justify-between items-center">
                     <div>
                       <h3 className="text-primary font-bold  font-inter text-2xl">
-                        {report.disaster}
+                        {report.disaster} 
                       </h3>
+                      <button disabled className={`px-1 py-1 ${report.ai_verify === '1' ? 'bg-secondary/80 hover:bg-secondary/50' : 'bg-red/80 hover:bg-red/50'} rounded-xl font-inter font-medium text-white text-sm`}>
+                        {report.ai_verify === '1' ? 'Valid Verification by AI' : 'Invalid Verification by AI'}
+                      </button>
                       <p className="text-lg leading-loose font-poppins  font-semibold">
                         {report.user_id} name
                       </p>
