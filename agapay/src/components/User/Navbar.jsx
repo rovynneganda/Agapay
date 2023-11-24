@@ -203,7 +203,7 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
                       </li>
                       <li>
                         <a
-                          href="#"
+                         
                           onClick={() => {
                             handleLogout(false, true);
                             logout(true);
