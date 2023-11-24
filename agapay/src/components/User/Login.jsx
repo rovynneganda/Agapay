@@ -284,7 +284,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
         if (response.data === "You are logged in") {
           // alert("You are Logged In");
           isLoggedInSession(true);
-          setLoginModalVisible(false);
+          onClose();
           // window.location.reload();
           // .then(data => {
           //   // Handle the response data if needed
@@ -483,6 +483,19 @@ const Login = ({ onClose, isLoggedInSession }) => {
   const [isRegisterModalVisible, setRegisterModalVisible] = useState(false);
   const [isForgotPasswordModalVisible, setForgotPasswordModalVisible] =
     useState(false);
+    useEffect(() => {
+      
+      if (isLoginModalVisible || isRegisterModalVisible || isForgotPasswordModalVisible) {
+        document.body.style.overflow = 'hidden';  
+      } else {
+        document.body.style.overflow = 'auto';  
+      }
+  
+      
+      return () => {
+        document.body.style.overflow = 'auto';
+      };
+    }, [isLoginModalVisible, isRegisterModalVisible, isForgotPasswordModalVisible]);
   const showLoginModal = () => {
     setLoginModalVisible(true);
     setRegisterModalVisible(false);
@@ -1220,16 +1233,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       {errors.regCity}
                     </p>
                   )}
-                  {/* <select
-                    id="countries"
-                    className="border font-poppins bg-white   text-sm rounded-lg outline-none  focus:ring-primary focus:border-primary block w-full p-2.5 "
-                  >
-                    <option defaultValue="Choose a Barangay">
-                      Choose a Baranggay
-                    </option>
-                    <option value="US">United States</option>
-                  </select> */}
-
+          
                   <div className="relative">
                     <input
                       type="text"
@@ -1486,7 +1490,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
                       id="termsCheckbox"
                       name="termsCheckbox"
                       type="checkbox"
-                      value=""
+                      // defaultValue=""
                       className="w-4 h-4 text-primary checked:bg-primary   border-gray/30 rounded focus:ring-white focus:ring-2 "
                     />
                     <label
@@ -1560,7 +1564,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
                           <div className="relative">
                             <input
                               type="text"
-                              value=""
+                              // value=""
                               className="block px-2.5 font-poppins border-gray/30  pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-primary focus:ring-0 border  peer"
                               placeholder=""
                             />

@@ -11,7 +11,7 @@ const LoginFirst = ({ onClose }) => {
   const [isLoginVisible, setIsLoginVisible] = useState(false)
   const handleLoginVisibility = () => {
     // handleWarningVisibility();
-    setIsLoginVisible (true);
+    setIsLoginVisible (!isLoginVisible);
   }
   return isLoginVisible ? <Login onClose={onClose} /> : (
     <>
