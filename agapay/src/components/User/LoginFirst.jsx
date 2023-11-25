@@ -11,12 +11,12 @@ const LoginFirst = ({ onClose }) => {
   const [isLoginVisible, setIsLoginVisible] = useState(false)
   const handleLoginVisibility = () => {
     // handleWarningVisibility();
-    setIsLoginVisible (true);
+    setIsLoginVisible (!isLoginVisible);
   }
   return isLoginVisible ? <Login onClose={onClose} /> : (
     <>
         <div
-          tabindex="-1"
+          tabIndex="-1"
           className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-gray bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
         >
           <div className="relative w-full max-w-md max-h-full">

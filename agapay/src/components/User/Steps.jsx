@@ -37,7 +37,7 @@ const Steps = () => {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {stepsData.map((step, index) => (
-              <a key={index} className="group rounded-xl overflow-hidden" href="#">
+              <a key={index} className="group rounded-xl overflow-hidden cursor-pointer">
                 <div className="relative pt-[50%] sm:pt-[70%] rounded-xl overflow-hidden">
                   <img
                     className="w-full h-full absolute top-0 left-0 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out rounded-xl"

@@ -14,30 +14,32 @@ import {
 import axios from "axios";
 
 export const handleLogout = (isLoggedIn, isNavbar) => {
-  const formDataToObject = { fileSelector: "Logout" };
-  axios
-    .post("http://localhost/Backend/Controller.php", formDataToObject, {
-      withCredentials: true,
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-    })
-    .then((response) => {
-      // Handle the response from the API
-      if (response.data === "Session Destroyed.") {
-        // alert(response.data);
-      } else return console.log("error");
-      // console.log("error");
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-  // Here you can implement your logout logic.
-  // For example, you can clear the user session and update the isLoggedIn state to false.
-  // if (isNavbar) {
-  //   setIsLoggedIn(isLoggedIn);
-  // }
+  return new Promise((resolve) => {
+    const formDataToObject = { fileSelector: "Logout" };
+    axios
+      .post("http://localhost/Backend/Controller.php", formDataToObject, {
+        withCredentials: true,
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      })
+      .then((response) => {
+        // Handle the response from the API
+        if (response.data === "Session Destroyed.") {
+          // Additional logout logic can be added here if needed
+          resolve(); // Resolve the promise after successful logout
+        } else {
+          console.log("error");
+          resolve(); // Resolve the promise even in case of an error
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        resolve(); // Resolve the promise in case of an error
+      });
+  });
 };
+
 const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
   const isLoggedInSession = (data) => {
     // Call the function passed from the parent (ParentComponent)
@@ -101,7 +103,19 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
   //  phone number for Along Hotline
   const phoneNumber11 = "(888) 25664";
   const [showModalphone11, setShowModalphone11] = useState(false);
+  useEffect(() => {
+      
+    if (showModalphone11) {
+      document.body.style.overflow = 'hidden';  
+    } else {
+      document.body.style.overflow = 'auto';  
+    }
 
+    
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [showModalphone11]);
   const handleCallClick11 = () => {
     setShowModalphone11(true);
   };
@@ -196,19 +210,21 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
                         <Link
                           to="/user/accountdetails"
                           onClick={isDropdownOpen}
-                          className="block px-4 py-2 text-sm text-gray/80 hover:text-black hover:bg-gray/20  "
+                          className="block px-4 py-2 text-sm text-gray/80 hover:text-black hover:bg-gray/20   "
                         >
                           Account Details
                         </Link>
                       </li>
                       <li>
                         <a
-                          href="#"
-                          onClick={() => {
-                            handleLogout(false, true);
-                            logout(true);
-                          }}
-                          className="block px-4 py-2 text-sm  text-gray/80 hover:text-black hover:bg-gray/20 "
+                         
+                         onClick={async () => {
+                          await handleLogout(false, true);
+                          logout(true);
+                          alert('titi');
+                          toggleDropdown();
+                        }}
+                          className="block px-4 py-2 text-sm cursor-pointer  text-gray/80 hover:text-black hover:bg-gray/20 "
                         >
                           Sign out
                         </a>
@@ -245,9 +261,9 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
       </nav>
       <nav
         className={`fixed top-0 w-full bg-primary
-        ${isDropdownOpen ? "z-[5] " : "z-10"}
+        ${isDropdownOpen ? "z-[5]" : "z-10"}
         ${isLoginModalVisible || isPopoverHovered ? "z-[5]" : "z-10"}
-        ${isLoginModalVisible ? "z-[z-5]" : "z-10"}
+        ${isLoginModalVisible ? "z-[5]" : "z-10"}
         mt-24`}
       >
         <div className="max-w-screen-xl px-4 py-3 mx-auto">

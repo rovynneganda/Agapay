@@ -31,6 +31,19 @@ const Reporting = ({ status, userType, username, contactNum, userId }) => {
   const [isReportModalVisible, setIsReportModalVisible] = useState(false);
   const [isTravelModalVisible, setisTravelModalVisible] = useState(false);
   const [isLogIn, setIsLogIn] = useState(false);
+  useEffect(() => {
+    // Add or remove a class to the body element based on modal visibility
+    if (isReportModalVisible || isTravelModalVisible || isLogIn) {
+      document.body.style.overflow = 'hidden';  
+    } else {
+      document.body.style.overflow = 'auto';  
+    }
+
+    // Cleanup by removing the class when the component unmounts
+    return () => {
+      document.body.style.overflow = 'auto';  
+    };
+  }, [isReportModalVisible, isTravelModalVisible, isLogIn]);
   const handleCloseModal = () => {
     setIsLogIn(false);
   };

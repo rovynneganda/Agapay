@@ -39,10 +39,9 @@ const PersuadingUsers = () => {
           {featureData.map((feature) => (
             <a
               key={feature.id}
-              className="group flex flex-col h-full border border-gray/20 shadow-md hover:border-transparent hover:shadow-lg transition-all duration-300 rounded-xl p-5 dark:border-gray-700 dark:hover:border-transparent dark:hover:shadow-black/[.4]"
-              href="#"
+              className="group flex flex-col h-full cursor-pointer border border-gray/20 shadow-md hover:border-transparent hover:shadow-lg transition-all duration-300 rounded-xl p-5 dark:border-gray-700 dark:hover:border-transparent dark:hover:shadow-black/[.4]"
             >
-              <div className="aspect-w-16 aspect-h-11">
+              <div className="aspect-w-16  aspect-h-11">
                 <img className="w-full object-cover rounded-xl" src={feature.image} alt={feature.alt} />
               </div>
               <div className="my-6">

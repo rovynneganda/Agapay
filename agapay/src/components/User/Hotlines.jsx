@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   PhoneIcon,
   QuestionMarkCircleIcon,
@@ -160,6 +160,7 @@ const Hotlines = () => {
     window.open("https://maps.app.goo.gl/k61F5F3LWuW9d4Xe7", "_blank");
     setShowModal(false);
   };
+  
   const [showModal1, setShowModal1] = useState(false);
 
   const handleShowModal1 = () => {
@@ -225,6 +226,19 @@ const Hotlines = () => {
   const handleCloseModal5 = () => {
     setShowModal5(false);
   };
+  useEffect(() => {
+      
+    if (showModalphone || showModalphone1 || showModalphone2 || showModalphone3 || showModalphone4 || showModalphone5 || showModal || showModal1 || showModal2 || showModal3 || showModal4 ||showModal5 ) {
+      document.body.style.overflow = 'hidden';  
+    } else {
+      document.body.style.overflow = 'auto';  
+    }
+
+    
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [showModalphone , showModalphone1 , showModalphone2 , showModalphone3 , showModalphone4 , showModalphone5 ,showModal , showModal1 , showModal2 , showModal3 , showModal4 ,showModal5]);
 
   const openExternalWebsite5 = () => {
     window.open("https://maps.app.goo.gl/ssfDo5tjYA5fHyoVA", "_blank");
@@ -238,11 +252,11 @@ const Hotlines = () => {
             <h1 className="text-4xl font-semibold mb-3 font-poppins text-primary">
               General Hotlines
             </h1>
-            <p className="lg:w-1/2 w-full text-black leading-relaxed font-poppins text-lg">
-              Emergency Contacts and Support Helplines
+            <p className="lg:w-1/2 w-full text-black leading-relaxed font-poppins text-xl">
+            Find emergency contacts and support helplines below.
             </p>
-            <p className="lg:w-1/2 w-full text-gray leading-relaxed font-poppins text-lg">
-              Press <MapPinIcon className="w-6 h-6 inline-block text-primary"/> to get the Google Map Location
+            <p className="lg:w-1/3 w-full text-gray leading-relaxed font-poppins text-lg">
+            Click the <MapPinIcon className="w-6 h-6 inline-block text-primary"/> icon to view the Google Map location, or tap the <PhoneIcon className="w-6 h-6 inline-block text-primary"/> icon to make a phone call.
             </p>
           </div>
           <div className="flex flex-wrap -m-4  rounded-xl p-0 sm:p-10">
@@ -261,7 +275,7 @@ const Hotlines = () => {
                   <button className=" mr-2  cursor-pointer      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <PhoneIcon className="h-5 w-5 text-primary font-semibold" onClick={handleCallClick}/>
                   </button>
-                  <h3 onClick={handleCallClick} className="text-md cursor-pointer text-gray font-medium font-poppins mb-2 mt-2">
+                  <h3 onClick={handleCallClick} className="text-base cursor-pointer hover:underline text-primarydark/90 font-medium font-poppins mb-2 mt-2">
                     +63(2)83649060
                   </h3>
                 </div>
@@ -271,7 +285,7 @@ const Hotlines = () => {
                   </button>
                   <p
                     onClick={handleShowModal}
-                    className="leading-relaxed text-[#c2410c]  font-poppins cursor-pointer underline decoration-[#fdba74] underline-offset-4"
+                    className="leading-relaxed text-primarydark hover:underline  font-poppins cursor-pointer "
                   >
                     A. Del Mundo Street corner 4th Avenue & 5th Avenue, Barangay
                     51
@@ -293,7 +307,7 @@ const Hotlines = () => {
                   <button className=" mr-2  cursor-pointer      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <PhoneIcon className="h-5 w-5 text-primary font-semibold" onClick={handleCallClick1}/>
                   </button>
-                  <h3 onClick={handleCallClick1} className="text-md cursor-pointer text-gray font-medium font-poppins mb-2 mt-2">
+                  <h3 onClick={handleCallClick1} className="text-base cursor-pointer text-primarydark/90 hover:underline font-medium font-poppins mb-2 mt-2">
                     324 6527
                   </h3>
                 </div>
@@ -304,7 +318,7 @@ const Hotlines = () => {
                   </button>
                   <p
                     onClick={handleShowModal1}
-                    className="leading-relaxed text-[#c2410c]  font-poppins cursor-pointer underline decoration-[#fdba74] underline-offset-4"
+                    className="leading-relaxed text-primarydark hover:underline  font-poppins cursor-pointer  "
                   >
                     Samson Road, Sangandaan Barangay 1 Caloocan, Metro Manila
                   </p>
@@ -325,7 +339,7 @@ const Hotlines = () => {
                   <button className=" mr-2  cursor-pointer      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <PhoneIcon className="h-5 w-5 text-primary font-semibold" onClick={handleCallClick2}/>
                   </button>
-                  <h3 onClick={handleCallClick2} className="text-md cursor-pointer text-gray font-medium font-poppins mb-2 mt-2">
+                  <h3 onClick={handleCallClick2} className="text-base cursor-pointer text-primarydark/90 hover:underline font-medium font-poppins mb-2 mt-2">
                     +63(2)324 6528
                   </h3>
                 </div>
@@ -336,7 +350,7 @@ const Hotlines = () => {
                   </button>
                   <p
                     onClick={handleShowModal2}
-                    className="leading-relaxed  text-[#c2410c] font-poppins cursor-pointer underline decoration-[#fdba74] underline-offset-4"
+                    className="leading-relaxed  text-primarydark hover:underline font-poppins cursor-pointer "
                   >
                     Samson Road, Sangandaan, Caloocan City 1408 Metro Manila
                   </p>
@@ -357,7 +371,7 @@ const Hotlines = () => {
                   <button className=" mr-2  cursor-pointer      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <PhoneIcon className="h-5 w-5 text-primary font-semibold" onClick={handleCallClick3}/>
                   </button>
-                  <h3 onClick={handleCallClick3} className="text-md cursor-pointer text-gray font-medium font-poppins mb-2 mt-2">
+                  <h3 onClick={handleCallClick3} className="text-base cursor-pointer text-primarydark/90 hover:underline font-medium font-poppins mb-2 mt-2">
                     +63(2)9623918
                   </h3>
                 </div>
@@ -368,7 +382,7 @@ const Hotlines = () => {
                   </button>
                   <p
                     onClick={handleShowModal3}
-                    className="leading-relaxed text-[#c2410c]  font-poppins cursor-pointer underline decoration-[#fdba74] underline-offset-4"
+                    className="leading-relaxed text-primarydark hover:underline  font-poppins cursor-pointer "
                   >
                     Cadena De Amor Street, Camarin 1. P.C. 1422 Caloocan City,
                     Metro Manila
@@ -390,7 +404,7 @@ const Hotlines = () => {
                   <button className=" mr-2  cursor-pointer      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <PhoneIcon className="h-5 w-5 text-primary font-semibold" onClick={handleCallClick4}/>
                   </button>
-                  <h3 onClick={handleCallClick4} className="text-md cursor-pointer text-gray font-medium font-poppins mb-2 mt-2">
+                  <h3 onClick={handleCallClick4} className="text-base cursor-pointer text-primarydark/90 hover:underline font-medium font-poppins mb-2 mt-2">
                     02-8424-1724
                   </h3>
                 </div>
@@ -401,7 +415,7 @@ const Hotlines = () => {
                   </button>
                   <p
                     onClick={handleShowModal4}
-                    className="leading-relaxed text-[#c2410c]  font-poppins cursor-pointer underline decoration-[#fdba74] underline-offset-4"
+                    className="leading-relaxed text-primarydark hover:underline  font-poppins cursor-pointer "
                   >
                     Camarin Road, Barangay 177 Caloocan City, Metro Manila
                   </p>
@@ -422,7 +436,7 @@ const Hotlines = () => {
                   <button className=" mr-2  cursor-pointer      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
                     <PhoneIcon className="h-5 w-5 text-primary font-semibold" onClick={handleCallClick5}/>
                   </button>
-                  <h3  onClick={handleCallClick5} className="text-md cursor-pointer text-gray font-medium font-poppins mb-2 mt-2">
+                  <h3  onClick={handleCallClick5} className="text-base cursor-pointer text-primarydark/90 hover:underline font-medium font-poppins mb-2 mt-2">
                     +63 (2) 310 7920
                   </h3>
                 </div>
@@ -433,7 +447,7 @@ const Hotlines = () => {
                   </button>
                   <p
                     onClick={handleShowModal5}
-                    className="leading-relaxed text-[#c2410c] font-poppins cursor-pointer underline decoration-[#fdba74] underline-offset-4"
+                    className="leading-relaxed text-primarydark hover:underline font-poppins cursor-pointer "
                   >
                     450, A. Mabini Street, Poblacion Caloocan City, Metro Manila
                   </p>
@@ -445,7 +459,7 @@ const Hotlines = () => {
       </section>
       {showModal && (
         <div
-          tabindex="-1"
+          tabIndex="-1"
           className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-black bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
         >
           <div className="relative w-full max-w-md max-h-full">
@@ -484,7 +498,7 @@ const Hotlines = () => {
       )}
       {showModal1 && (
         <div
-          tabindex="-1"
+          tabIndex="-1"
           className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-black bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
         >
           <div className="relative w-full max-w-md max-h-full">
@@ -523,7 +537,7 @@ const Hotlines = () => {
       )}
       {showModal2 && (
         <div
-          tabindex="-1"
+          tabIndex="-1"
           className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-black bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
         >
           <div className="relative w-full max-w-md max-h-full">
@@ -562,7 +576,7 @@ const Hotlines = () => {
       )}
       {showModal3 && (
         <div
-          tabindex="-1"
+          tabIndex="-1"
           className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-black bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
         >
           <div className="relative w-full max-w-md max-h-full">
@@ -601,7 +615,7 @@ const Hotlines = () => {
       )}
       {showModal4 && (
         <div
-          tabindex="-1"
+          tabIndex="-1"
           className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-black bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
         >
           <div className="relative w-full max-w-md max-h-full">
@@ -640,7 +654,7 @@ const Hotlines = () => {
       )}
       {showModal5 && (
         <div
-          tabindex="-1"
+          tabIndex="-1"
           className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-black bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
         >
           <div className="relative w-full max-w-md max-h-full">

@@ -107,12 +107,12 @@ const EmergencyResources = () => {
 </div>
 <Hotlines />
           <section className=' pb-10'>
-      <div className="text-center pt-5  ">
+      <div className="flex flex-col justify-center items-center pt-5  ">
        
-        <h3 className="sm:text-2xl text-xl font-medium  font-inter">
-          Find Hospitals, Police Stations, and Fire Stations. 
-        </h3>
-      <p className=' text-gray font-inter text-base'>To ensure you have immediate access to essential emergency services</p>
+      <h1 className="text-4xl font-semibold mb-3 font-poppins text-primary">
+        Emergency Services Locator
+        </h1>
+        <p className="lg:w-1/2 w-full text-black leading-relaxed font-poppins text-xl ">To ensure you have immediate access to essential emergency services</p>
       </div>
       <div className="mx-auto max-w-2xl lg:max-w-4xl gap-2 p-5 ">
       <div className="flex sm:flex-row flex-wrap justify-center items-center gap-3">
