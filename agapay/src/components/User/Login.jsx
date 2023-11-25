@@ -818,15 +818,15 @@ const Login = ({ onClose, isLoggedInSession }) => {
       <div className={`LoginModal ${isLoginModalVisible ? "" : "hidden"}`}>
         <div
           tabIndex="-1"
-          className="fixed top-0 left-0 right-0  flex justify-center z-50 bg-black bg-opacity-50 items-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-0.5rem)] max-h-full "
+          className="fixed top-0 left-0 right-0  flex justify-center z-50 bg-black bg-opacity-50 items-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%)]  sm:h-[calc(100%)]  max-h-full "
         >
           <div className="flex sm:flex-row flex-col items-center w-full max-w-4xl  lg:max-h-[85%] md:max-h-[90%] sm:max-h-[85%]  h-full ">
-            <div className="w-full h-full p-4   sm:rounded-l-lg   bg-white ">
+            <div className="w-full h-full p-4   sm:rounded-l-lg rounded-tl-lg rounded-tr-lg sm:rounded-tr-none    bg-white ">
               <div className="flex flex-col h-full align-center  justify-center">
                 <h2 className="text-center md:text-4xl text-2xl font-semibold text-primary  font-inter leading-9 mb-2 tracking-tight mt-5  ">
                   Welcome to Agapay
                 </h2>
-                <p className="text-center font-poppins mb-3 text-black font-normal">
+                <p className="text-center font-poppins mb-3 text-black font-normal text-base">
                   Log in to access services and contribute to disaster reporting
                   and travel assistance.
                 </p>
@@ -961,15 +961,15 @@ const Login = ({ onClose, isLoggedInSession }) => {
             </div>
 
             <div
-              className="w-full h-full sm:rounded-r-lg bg-primary p-5 flex flex-col align-center justify-center bg-cover relative"
+              className="w-full h-full sm:rounded-r-lg  p-5 flex flex-col align-center justify-center bg-cover relative"
               style={{ backgroundImage: `url(${loginbg})` }}
             >
               <button
                 type="button"
-                className="bg-transparent text-white font-extrabold   text-sm w-8 h-8 md:w-10 md:h-10 absolute top-4 right-4  sm:flex hidden items-center justify-center z-10"
+                className="hover:bg-black/20 bg-black/30 rounded-full  text-white font-extrabold   text-sm w-8 h-8 md:w-10 md:h-10 absolute top-4 right-4  sm:flex hidden items-center justify-center z-10"
                 onClick={onClose}
               >
-                <XMarkIcon className="w-7 h-7 font-bold bg-gray/50 hover:bg-gray rounded-full" />
+                <XMarkIcon className="w-7 h-7 font-bold  rounded-full" />
                 <span className="sr-only">Close modal</span>
               </button>
 
@@ -1007,7 +1007,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
               className="bg-transparent  rounded-full text-sm w-8 h-8 absolute top-4 right-4 sm:hidden flex items-center justify-center"
               onClick={onClose}
             >
-              <XMarkIcon className="w-7 h-7 font-bold  rounded-full" />
+              <XMarkIcon className="w-7 h-7 font-bold   rounded-full" />
               <span className="sr-only">Close modal</span>
             </button>
           </div>
@@ -1018,11 +1018,11 @@ const Login = ({ onClose, isLoggedInSession }) => {
       >
         <div
           tabIndex="-1"
-          className="fixed top-0 left-0 right-0 z-50 flex justify-center bg-black bg-opacity-50 items-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-0.5rem)] max-h-full "
+          className="fixed top-0 left-0 right-0 z-50 flex justify-center bg-black bg-opacity-50 items-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%)]  sm:h-[calc(100%)] max-h-full "
         >
           <div className="flex sm:flex-row flex-col-reverse items-center w-full max-w-4xl overflow-y-auto  lg:max-h-[85%] md:max-h-[90%] sm:max-h-[85%]  h-full ">
             <div
-              className="w-full h-full sm:rounded-l-lg bg-gray p-5 flex flex-col items-center justify-center bg-cover"
+              className="w-full h-full sm:rounded-l-lg rounded-bl-lg rounded-br-lg sm:rounded-br-none  bg-gray p-5 flex flex-col items-center justify-center bg-cover"
               style={{ backgroundImage: `url(${loginbg})` }}
             >
               <h2 className="text-center text-4xl font-bold text-black font-inter leading-9 mb-5 tracking-tight mt-5  ">
@@ -1041,10 +1041,10 @@ const Login = ({ onClose, isLoggedInSession }) => {
               </button>
             </div>
 
-            <div className="relative w-full h-full p-4 sm:rounded-r-lg bg-white">
-              <button
+            <div className="relative w-full h-full p-4 sm:rounded-r-lg rounded-tl-lg rounded-tr-lg sm:rounded-tl-none bg-white">
+            <button
                 type="button"
-                className="bg-transparent hover:bg-gray hover:text-white rounded-full text-sm w-8 h-8 md:w-10 md:h-10 absolute top-4 right-4 flex items-center justify-center z-10"
+                className=" hover:bg-black/10 bg-black/5  rounded-full text-sm w-8 h-8 md:w-10 md:h-10 absolute top-4 right-4 sm:flex  hidden items-center justify-center z-10"
                 onClick={onClose}
               >
                 <XMarkIcon className="w-7 h-7 font-bold  rounded-full" />
@@ -1055,7 +1055,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
                 id="step-1"
                 style={{ display: currentStep === 1 ? "flex" : "none" }}
               >
-                <h2 className="text-center text-xl sm:text-4xl font-semibold text-primary  font-inter leading-9 mb-2 tracking-tight   ">
+                <h2  className="text-center md:text-4xl text-2xl font-semibold text-primary  font-inter leading-9 mb-2 tracking-tight mt-5  ">
                   Personal Information
                 </h2>
                 <div
@@ -1533,6 +1533,14 @@ const Login = ({ onClose, isLoggedInSession }) => {
                 </div>
               </div>
             </div>
+                          <button
+                type="button"
+                className="bg-transparent hover:bg-gray hover:text-white rounded-full text-sm w-8 h-8 md:w-10 md:h-10 absolute top-4 right-4 sm:hidden flex items-center justify-center z-10"
+                onClick={onClose}
+              >
+                <XMarkIcon className="w-7 h-7 font-bold  rounded-full" />
+                <span className="sr-only">Close modal</span>
+              </button>
           </div>
         </div>
       </div>
@@ -1543,10 +1551,10 @@ const Login = ({ onClose, isLoggedInSession }) => {
       >
         <div
           tabIndex="-1"
-          className="fixed top-0 left-0 right-0 z-50  flex justify-center bg-black bg-opacity-50 items-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-0.5rem)] max-h-full "
+          className="fixed top-0 left-0 right-0 z-50  flex justify-center bg-black bg-opacity-50 items-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%)]  sm:h-[calc(100%)] max-h-full "
         >
           <div className="flex sm:flex-row flex-col items-center w-full max-w-4xl  lg:max-h-[85%] md:max-h-[90%] sm:max-h-[85%]  h-full ">
-            <div className="w-full h-full p-4   sm:rounded-l-lg   bg-white ">
+            <div className="w-full h-full p-4   sm:rounded-l-lg rounded-tl-lg rounded-tr-lg sm:rounded-tr-none   bg-white ">
               <div className="flex flex-col h-full align-center  justify-center">
                 <h2 className="text-center md:text-4xl text-2xl font-semibold text-primary  font-inter leading-9 mb-2 tracking-tight mt-5  ">
                   Forgot Password?
@@ -1593,15 +1601,15 @@ const Login = ({ onClose, isLoggedInSession }) => {
             </div>
 
             <div
-              className="w-full h-full sm:rounded-r-lg bg-primary p-5 flex flex-col align-center justify-center bg-cover relative"
+              className="w-full h-full sm:rounded-r-lg rounded-br-lg rounded-bl-lg  sm:rounded-bl-none  bg-primary p-5 flex flex-col align-center justify-center bg-cover relative"
               style={{ backgroundImage: `url(${loginbg})` }}
             >
               <button
                 type="button"
-                className="bg-transparent text-white font-extrabold   text-sm w-8 h-8 md:w-10 md:h-10 absolute top-4 right-4  sm:flex hidden items-center justify-center z-10"
+                className="hover:bg-black/20 bg-black/30 rounded-full text-white font-extrabold   text-sm w-8 h-8 md:w-10 md:h-10 absolute top-4 right-4  sm:flex hidden items-center justify-center z-10"
                 onClick={onClose}
               >
-                <XMarkIcon className="w-7 h-7 font-bold bg-gray/50 hover:bg-gray rounded-full" />
+                <XMarkIcon className="w-7 h-7 font-bold  rounded-full" />
                 <span className="sr-only">Close modal</span>
               </button>
 

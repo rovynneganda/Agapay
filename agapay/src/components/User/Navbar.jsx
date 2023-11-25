@@ -103,7 +103,19 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
   //  phone number for Along Hotline
   const phoneNumber11 = "(888) 25664";
   const [showModalphone11, setShowModalphone11] = useState(false);
+  useEffect(() => {
+      
+    if (showModalphone11) {
+      document.body.style.overflow = 'hidden';  
+    } else {
+      document.body.style.overflow = 'auto';  
+    }
 
+    
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [showModalphone11]);
   const handleCallClick11 = () => {
     setShowModalphone11(true);
   };
@@ -210,9 +222,9 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
                           await handleLogout(false, true);
                           logout(true);
                           alert('titi');
-                          closeDropdown();
+                          toggleDropdown();
                         }}
-                          className="block px-4 py-2 text-sm  text-gray/80 hover:text-black hover:bg-gray/20 "
+                          className="block px-4 py-2 text-sm cursor-pointer  text-gray/80 hover:text-black hover:bg-gray/20 "
                         >
                           Sign out
                         </a>
