@@ -818,7 +818,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
       <div className={`LoginModal ${isLoginModalVisible ? "" : "hidden"}`}>
         <div
           tabIndex="-1"
-          className="fixed top-0 left-0 right-0  flex justify-center z-50 bg-black bg-opacity-50 items-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%)]  sm:h-[calc(100%)]  max-h-full "
+          className="fixed top-0 left-0 right-0  flex justify-center z-50 bg-black bg-opacity-50 items-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%)]    max-h-full "
         >
           <div className="flex sm:flex-row flex-col items-center w-full max-w-4xl  lg:max-h-[85%] md:max-h-[90%] sm:max-h-[85%]  h-full ">
             <div className="w-full h-full p-4   sm:rounded-l-lg rounded-tl-lg rounded-tr-lg sm:rounded-tr-none    bg-white ">
@@ -1018,7 +1018,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
       >
         <div
           tabIndex="-1"
-          className="fixed top-0 left-0 right-0 z-50 flex justify-center bg-black bg-opacity-50 items-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%)]  sm:h-[calc(100%)] max-h-full "
+          className="fixed top-0 left-0 right-0 z-50 flex justify-center bg-black bg-opacity-50 items-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%)]   max-h-full "
         >
           <div className="flex sm:flex-row flex-col-reverse items-center w-full max-w-4xl overflow-y-auto  lg:max-h-[85%] md:max-h-[90%] sm:max-h-[85%]  h-full ">
             <div
@@ -1551,7 +1551,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
       >
         <div
           tabIndex="-1"
-          className="fixed top-0 left-0 right-0 z-50  flex justify-center bg-black bg-opacity-50 items-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%)]  sm:h-[calc(100%)] max-h-full "
+          className="fixed top-0 left-0 right-0 z-50  flex justify-center bg-black bg-opacity-50 items-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%)]   max-h-full "
         >
           <div className="flex sm:flex-row flex-col items-center w-full max-w-4xl  lg:max-h-[85%] md:max-h-[90%] sm:max-h-[85%]  h-full ">
             <div className="w-full h-full p-4   sm:rounded-l-lg rounded-tl-lg rounded-tr-lg sm:rounded-tr-none   bg-white ">
