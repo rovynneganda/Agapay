@@ -25,15 +25,16 @@ const EmergencyResources = () => {
     }
   }, []);
   const fetchNearbyLocations = (type) => {
+    const apiUrl = 'http://localhost:8000/Backend/Server.php';
     // Make an API call to fetch nearby locations based on the user's location
     const apiKey = 'AIzaSyDzzi_VBcf2Oef6LTViLU767UPNHlnIze4';
     const locationParam = `${location.lat},${location.lng}`;
     const radius = 5000; // 5 kilometers
 
     axios
-      .get(
-        `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${locationParam}&radius=${radius}&type=${type}&key=${apiKey}`
-      )
+    .get(
+      `http://localhost/Backend/Server.php?location=${locationParam}&radius=${radius}&type=${type}&key=${apiKey}`
+    )
       .then((response) => {
         setLocations(response.data.results);
       })
@@ -141,6 +142,14 @@ const EmergencyResources = () => {
         zoom={15}
         mapContainerStyle={{ height: '400px', width: '100%',}}
       >
+
+        {/* Display user's location as a marker */}
+        {location && (
+          <Marker
+            position={location}
+            label="You are here"
+          />
+        )}
      
         {/* Display nearby locations as markers and info windows */}
         {locations.map((location) => (
