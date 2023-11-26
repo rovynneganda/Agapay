@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-const API_KEY = 'ffe63745a1e6cbad92e44b2bf6f0ea6a'; // Replace with your API key
-const CITY_NAME = 'Caloocan,PH';
+const API_KEY = "ffe63745a1e6cbad92e44b2bf6f0ea6a"; // Replace with your API key
+const CITY_NAME = "Caloocan,PH";
 
 const TimeAndDate = () => {
   const [timestamp, setTimestamp] = useState(null);
@@ -16,7 +16,7 @@ const TimeAndDate = () => {
 
         setTimestamp(response.data.dt * 1000); // Convert to milliseconds
       } catch (error) {
-        console.error('Error fetching timestamp', error);
+        console.error("Error fetching timestamp", error);
       }
     }
 
@@ -25,13 +25,15 @@ const TimeAndDate = () => {
 
   return (
     <div>
-    
-      <p> Date and Time:&nbsp;
-        {timestamp
-          ? new Date(timestamp).toLocaleString('en-US', {
-              timeZone: 'Asia/Manila', // Set the timezone to Caloocan, Philippines
-            })
-          : 'Loading...'}
+      <p className="font-inter font-semibold">
+        Date and Time:&nbsp;
+        <span className="font-normal">
+          {timestamp
+            ? new Date(timestamp).toLocaleString("en-US", {
+                timeZone: "Asia/Manila", // Set the timezone to Caloocan, Philippines
+              })
+            : "Loading..."}
+        </span>
       </p>
     </div>
   );
