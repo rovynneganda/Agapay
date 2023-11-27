@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
-
+import { CheckBadgeIcon, ExclamationCircleIcon } from "@heroicons/react/24/outline";
 const AdminReports = () => {
   const [reportData, setReportData] = useState([]);
   useEffect(() => {
@@ -50,8 +50,14 @@ const AdminReports = () => {
                         {report.disaster} 
                       
                       </h3>
-                      <button disabled className={`px-3 py-2 ${report.ai_verify === '1' ? 'bg-secondary/95 hover:bg-secondary/90 ' : 'bg-red'} rounded-full font-inter font-medium text-white text-sm`}>
-                        {report.ai_verify === '1' ? 'Valid Verification by AI' : 'Invalid Verification by AI'}
+                      <button disabled className={`${report.ai_verify === '1' ? '  ' : ''} rounded-full font-inter font-medium  text-sm`}>
+                        {report.ai_verify === '1' ? <>
+                        <CheckBadgeIcon className="h-6 w-6 text-secondary rounded-full inline-block "/> <span className="text-secondary font-poppins">Verified</span>
+                        </> : <>
+                        <ExclamationCircleIcon className="h-6 w-6 text-red rounded-full inline-block "/> <span className="text-red font-poppins">    Invalid Verification </span>
+
+                    
+                        </>}
                       </button>
                       </div>
                       <div className="space-y-1">
