@@ -45,27 +45,32 @@ const AdminReports = () => {
                 <div className="p-4 md:p-5">
                   <div className="flex justify-between items-center">
                     <div>
+                      <div className="flex flex-row justify-between">
                       <h3 className="text-primary font-bold  font-inter text-2xl">
                         {report.disaster} 
+                      
                       </h3>
-                      <button disabled className={`px-1 py-1 ${report.ai_verify === '1' ? 'bg-secondary/80 hover:bg-secondary/50' : 'bg-red/80 hover:bg-red/50'} rounded-xl font-inter font-medium text-white text-sm`}>
+                      <button disabled className={`px-3 py-2 ${report.ai_verify === '1' ? 'bg-secondary/95 hover:bg-secondary/90 ' : 'bg-red'} rounded-full font-inter font-medium text-white text-sm`}>
                         {report.ai_verify === '1' ? 'Valid Verification by AI' : 'Invalid Verification by AI'}
                       </button>
-                      <p className="text-lg leading-loose font-poppins  font-semibold">
+                      </div>
+                      <div className="space-y-1">
+                      <p className="text-lg font-poppins   font-semibold">
                         {report.user_id} name
                       </p>
-                      <p className="text-lg leading-loose font-poppins font-medium">
+                      <p className="text-base  font-poppins  font-medium">
                         {report.user_id} contact number
                       </p>
-                      <p className="text-lg  font-poppins font-medium">
+                      <p className="text-base  font-poppins  font-medium">
                         {report.disaster_address}
                       </p>
-                      <p className="text-base  font-poppins border border-dashed rounded-xl p-1 border-gray/20">
+                      <p className="text-base   font-poppins border border-dashed rounded-xl p-1 border-gray/20">
                         {report.description}
                       </p>
                       <p className="text-base  font-poppins text-center mt-3  rounded-xl p-1 text-darkblue font-semibold hover:underline ">
                         {report.video}
                       </p>
+                      </div>
                       <div>
                         <video width="800" height="600" controls>
                           {/* Replace 'your_video_url' with the actual URL of your video */}
@@ -73,7 +78,7 @@ const AdminReports = () => {
                           Your browser does not support the video tag.
                         </video>
                       </div>
-                      <label
+                      {/* <label
                         htmlFor="ambulance"
                         className="block mb-2 text-sm font-medium font-poppins "
                       >
@@ -88,7 +93,7 @@ const AdminReports = () => {
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
-                      </select>
+                      </select> */}
                       <div className="flex flex-row gap-3 justify-center mt-2">
                         <button className="px-2 py-2 bg-primary rounded-xl font-inter font-medium text-white text-sm hover:bg-primarydark">
                           Send Responder

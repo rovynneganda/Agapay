@@ -68,7 +68,7 @@ const AdminSideBar = ({ status, userType, username }) => {
             <li>
               <Link
                 to="/admin"
-                className={`flex items-center text-white font-poppins p-2 rounded-lg ${
+                className={`flex items-center text-white font-poppins sm:mt-0 mt-10 p-2 rounded-lg ${
                   location.pathname === "/admin"
                     ? "bg-primarydark text-opacity-100"
                     : "hover:bg-primarydark text-opacity-80 hover:text-opacity-100"
