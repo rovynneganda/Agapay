@@ -39,7 +39,7 @@ const AppRoutes = ({ status, userType, username, contactNum, userId }) => {
           }
         />
         <Route path="/user/accountdetails" element={<UserDetails />} />
-        <Route path="/nearby-services" element={<EmergencyResources />} />
+        <Route path="/emergencyresources" element={<EmergencyResources />} />
         <Route path="/about" element={<About />} />
         <Route path="/safety-guidelines" element={<SafetyGuidelines />} />
         <Route path="/contact-us" element={<ContactUs />} />

@@ -46,7 +46,7 @@ const AdminLogin = () => {
 
   };
   return (
-    <div className="flex h-full items-center  min-h-screen bg-primary/10">
+    <div className="flex h-full items-center  min-h-screen ">
       <main className="w-full max-w-md mx-auto p-6">
         <div className="mt-7 bg-white border border-gray/20 rounded-xl shadow-md ">
           <div className="p-4 sm:p-7">

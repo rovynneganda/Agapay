@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from "react";
-import {
-  PhoneIcon,
-  QuestionMarkCircleIcon,
-  MapPinIcon,
-  XMarkIcon,
-  FireIcon,
-  BuildingOffice2Icon,
-  ShieldExclamationIcon,
-} from "@heroicons/react/24/outline";
+
+import {PhoneIcon, MapPinIcon,FireIcon,BuildingOffice2Icon,ShieldExclamationIcon,QuestionMarkCircleIcon,XMarkIcon } from "@heroicons/react/20/solid"
 
 const Hotlines = () => {
   const phoneNumber = '+63(2)83649060';
@@ -473,7 +466,7 @@ const Hotlines = () => {
                 <span className="sr-only">Close modal</span>
               </button>
               <div className="p-6 text-center">
-                <QuestionMarkCircleIcon className="h-12 w-12 mb-5 mx-auto text-blue" />
+                <QuestionMarkCircleIcon className="h-12 w-12 mb-5 mx-auto text-primary animate-pulse" />
                 <h3 className="mb-5 text-lg font-normal text-gray font-inter ">
                   Would you like to proceed with opening this on Google Maps?
                 </h3>
@@ -512,7 +505,7 @@ const Hotlines = () => {
                 <span className="sr-only">Close modal</span>
               </button>
               <div className="p-6 text-center">
-                <QuestionMarkCircleIcon className="h-12 w-12 mb-5 mx-auto text-blue" />
+                <QuestionMarkCircleIcon className="h-12 w-12 mb-5 mx-auto text-primary animate-pulse" />
                 <h3 className="mb-5 text-lg font-normal text-gray font-inter ">
                   Would you like to proceed with opening this on Google Maps?
                 </h3>
@@ -551,7 +544,7 @@ const Hotlines = () => {
                 <span className="sr-only">Close modal</span>
               </button>
               <div className="p-6 text-center">
-                <QuestionMarkCircleIcon className="h-12 w-12 mb-5 mx-auto text-blue" />
+                <QuestionMarkCircleIcon className="h-12 w-12 mb-5 mx-auto text-primary animate-pulse" />
                 <h3 className="mb-5 text-lg font-normal text-gray font-inter ">
                   Would you like to proceed with opening this on Google Maps?
                 </h3>
@@ -590,7 +583,7 @@ const Hotlines = () => {
                 <span className="sr-only">Close modal</span>
               </button>
               <div className="p-6 text-center">
-                <QuestionMarkCircleIcon className="h-12 w-12 mb-5 mx-auto text-blue" />
+                <QuestionMarkCircleIcon className="h-12 w-12 mb-5 mx-auto text-primary animate-pulse" />
                 <h3 className="mb-5 text-lg font-normal text-gray font-inter ">
                   Would you like to proceed with opening this on Google Maps?
                 </h3>
@@ -629,7 +622,7 @@ const Hotlines = () => {
                 <span className="sr-only">Close modal</span>
               </button>
               <div className="p-6 text-center">
-                <QuestionMarkCircleIcon className="h-12 w-12 mb-5 mx-auto text-blue" />
+                <QuestionMarkCircleIcon className="h-12 w-12 mb-5 mx-auto text-primary animate-pulse" />
                 <h3 className="mb-5 text-lg font-normal text-gray font-inter ">
                   Would you like to proceed with opening this on Google Maps?
                 </h3>
@@ -668,7 +661,7 @@ const Hotlines = () => {
                 <span className="sr-only">Close modal</span>
               </button>
               <div className="p-6 text-center">
-                <QuestionMarkCircleIcon className="h-12 w-12 mb-5 mx-auto text-blue" />
+                <QuestionMarkCircleIcon className="h-12 w-12 mb-5 mx-auto text-primary animate-pulse" />
                 <h3 className="mb-5 text-lg font-normal text-gray font-inter ">
                   Would you like to proceed with opening this on Google Maps?
                 </h3>

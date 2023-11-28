@@ -1,5 +1,5 @@
 import React from 'react'
-import { weather } from '../../assets'
+import {phoneMockUp } from '../../assets'
 import { ArrowSmallDownIcon } from '@heroicons/react/24/outline'
 const DownloadBanner = () => {
   return (
@@ -23,7 +23,7 @@ const DownloadBanner = () => {
           </div>
         </button>
     <div className="mt-10 relative max-w-5xl mx-auto">
-      <div className="w-full object-cover h-96 sm:h-[480px] bg-no-repeat bg-center bg-cover rounded-xl"> <img src={weather} alt="" /></div>
+      <div className="w-full object-cover h-full  bg-no-repeat bg-center bg-cover rounded-xl"> <img src={phoneMockUp} alt="" /></div>
 
     
 

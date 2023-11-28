@@ -2,12 +2,13 @@ import React, { useState, useRef, useEffect } from "react";
 import { logo, ambulance, report } from "../../assets";
 import {
   MapPinIcon,
-  ArrowRightCircleIcon,
+  
   XMarkIcon,
   VideoCameraIcon,
   XCircleIcon,
   StopIcon,
 } from "@heroicons/react/24/outline";
+import {ArrowRightCircleIcon} from "@heroicons/react/20/solid"
 import LoginFirst from "./LoginFirst";
 import TimeAndDateRepoting from "../../weather/components/DateandTimeReporting";
 import SuccessReportModal from "./SuccessReportModal";

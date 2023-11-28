@@ -92,7 +92,8 @@ import strongcurrents from "./strongcurrents.png"
 import drowning from "./drowning.png"
 import evacuate from "./evacuate.png"
 import respond from "./respond.png"
-
+//
+import phoneMockUp from "./cp.png"
 export {
     logo,
     next,
@@ -180,4 +181,5 @@ export {
     drowning,
     evacuate,
     respond,
+    phoneMockUp,
 };

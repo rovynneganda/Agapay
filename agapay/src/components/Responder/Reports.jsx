@@ -1,5 +1,5 @@
 import React from 'react'
-import { XMarkIcon,ExclamationTriangleIcon } from '@heroicons/react/24/outline'
+import { XMarkIcon,ExclamationTriangleIcon,ArrowPathRoundedSquareIcon,ArrowRightIcon,ShieldCheckIcon } from '@heroicons/react/24/outline'
 const ResponderReports = () => {
   return (
     <>
@@ -16,6 +16,15 @@ const ResponderReports = () => {
             <h3 className="text-primary font-bold  font-inter text-2xl">
                   Travel Assistance
             </h3>
+            <button disabled className="rounded-full font-inter font-medium text-sm">
+                      <ArrowPathRoundedSquareIcon className="w-6 h-6 text-secondary rounded-full inline-block "/> <span className="font-poppins ">Pending</span>
+                    </button>
+                    <button disabled className="rounded-full font-inter font-medium text-sm">
+                      <ArrowRightIcon className="w-6 h-6 text-secondary rounded-full inline-block "/> <span className="font-poppins">On Going</span>
+                    </button>
+                    <button disabled className="rounded-full font-inter font-medium text-sm">
+                      <ShieldCheckIcon className="w-6 h-6 text-secondary rounded-full inline-block "/> <span className="font-poppins">Accomplished</span>
+                    </button>
             <p className="text-lg leading-loose font-poppins  font-semibold">
             Joko Gadingan   
             </p>
@@ -31,17 +40,12 @@ const ResponderReports = () => {
             <p className="text-base  font-poppins text-center mt-3  rounded-xl p-1 text-darkblue font-semibold hover:underline ">
             Picture
             </p>
-            <label htmlFor="ambulance" className="block mb-2 text-sm font-medium font-poppins ">Ambulance</label>
-<select id="ambulance" className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter">
-  <option selected>Send Ambulance</option>
-  <option value="0">0</option>
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-</select>
+
           <div className='flex flex-row gap-3 justify-center mt-2'>
-    <button className='px-2 py-2 bg-primary rounded-xl font-inter font-medium text-white hover:bg-primarydark'>Send Responder</button>
-    <button className='text-[#c94c05] hover:text-white border border-red font-inter bg-none hover:bg-red focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2'>Decline Report</button>
+    <button className='px-2 py-2 bg-primary rounded-xl font-inter font-medium text-white hover:bg-primarydark'>Accept</button>
+    <button className='px-2 py-2 bg-primary rounded-xl font-inter font-medium text-white hover:bg-primarydark'>Mark as Accomplished</button>
+
+    {/* <button className='text-[#c94c05] hover:text-white border border-red font-inter bg-none hover:bg-red focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2'>Decline Report</button> */}
           </div>
           </div>
         </div>
@@ -69,14 +73,6 @@ const ResponderReports = () => {
             <p className="text-base  font-poppins text-center mt-3  rounded-xl p-1 text-darkblue font-semibold hover:underline ">
             Video
             </p>
-            <label htmlFor="ambulance" className="block mb-2 text-sm font-medium font-poppins ">Ambulance</label>
-<select id="ambulance" className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter">
-  <option selected>Send Ambulance</option>
-  <option value="0">0</option>
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-</select>
           <div className='flex flex-row gap-3 justify-center mt-2'>
     <button className='px-2 py-2 bg-primary rounded-xl font-inter font-medium text-white hover:bg-primarydark'>Send Responder</button>
     <button className='text-[#c94c05] hover:text-white border border-red font-inter bg-none hover:bg-red focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2'>Decline Report</button>
