@@ -10,7 +10,7 @@ import {
   ArrowLeftOnRectangleIcon,
   ChevronDownIcon,
   UserCircleIcon,
-} from "@heroicons/react/24/outline";
+} from "@heroicons/react/20/solid";
 import { Link, useLocation } from "react-router-dom";
 const SideBarResponder = ({ status, userType, username }) => {
   useEffect(() => {

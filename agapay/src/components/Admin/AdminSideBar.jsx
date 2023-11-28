@@ -12,7 +12,7 @@ import {
   ChevronDownIcon,
   ArrowLeftCircleIcon,
   ArrowLeftOnRectangleIcon,
-} from "@heroicons/react/24/outline";
+} from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 const AdminSideBar = ({ status, userType, username }) => {
   useEffect(() => {

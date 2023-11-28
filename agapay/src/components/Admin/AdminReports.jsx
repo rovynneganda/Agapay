@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
-import { CheckBadgeIcon, ExclamationCircleIcon } from "@heroicons/react/24/outline";
+import { CheckBadgeIcon, ExclamationCircleIcon, ArrowPathRoundedSquareIcon } from "@heroicons/react/20/solid";
+import { ArrowRightIcon, ShieldCheckIcon } from "@heroicons/react/24/outline";
 const AdminReports = () => {
   const [reportData, setReportData] = useState([]);
   useEffect(() => {
@@ -41,7 +42,7 @@ const AdminReports = () => {
         <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
           <div className="grid sm:grid-cols-1 md:grid-cols-1 xl:grid-cols-3 gap-4 sm:gap-6">
             {reportData.map((report, index) => (
-              <div className=" flex flex-col bg-white border border-gray/20  rounded-xl hover:shadow-md transition shadow-lg ">
+              <div key={index} className=" flex flex-col bg-white border border-gray/20  rounded-xl hover:shadow-md transition shadow-lg ">
                 <div className="p-4 md:p-5">
                   <div className="flex justify-between items-center">
                     <div>
@@ -50,6 +51,7 @@ const AdminReports = () => {
                         {report.disaster} 
                       
                       </h3>
+                    <div className="flex flex-col">
                       <button disabled className={`${report.ai_verify === '1' ? '  ' : ''} rounded-full font-inter font-medium  text-sm`}>
                         {report.ai_verify === '1' ? <>
                         <CheckBadgeIcon className="h-6 w-6 text-secondary rounded-full inline-block "/> <span className="text-secondary font-poppins">Verified</span>
@@ -59,7 +61,18 @@ const AdminReports = () => {
                     
                         </>}
                       </button>
+                    <button disabled className="rounded-full font-inter font-medium text-sm">
+                      <ArrowPathRoundedSquareIcon className="w-6 h-6 text-secondary rounded-full inline-block "/> <span className="font-poppins ">Pending</span>
+                    </button>
+                    <button disabled className="rounded-full font-inter font-medium text-sm">
+                      <ArrowRightIcon className="w-6 h-6 text-secondary rounded-full inline-block "/> <span className="font-poppins">On Going</span>
+                    </button>
+                    <button disabled className="rounded-full font-inter font-medium text-sm">
+                      <ShieldCheckIcon className="w-6 h-6 text-secondary rounded-full inline-block "/> <span className="font-poppins">Accomplished</span>
+                    </button>
                       </div>
+                      </div>
+                    
                       <div className="space-y-1">
                       <p className="text-lg font-poppins   font-semibold">
                         {report.user_id} name
@@ -100,6 +113,116 @@ const AdminReports = () => {
                         <option value="2">2</option>
                         <option value="3">3</option>
                       </select> */}
+                         {report.disaster === 'Flood' && (
+        <div className="mt-4 space-y-3 mb-5">
+          {/* Code to display for a flood */}
+          <select
+    id={`responders-${index}`}
+    className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter"
+  >
+    {/* You can customize the options based on your requirements */}
+    <option value="0">No Rescue Team</option>
+    <option value="1">1 Rescue Team</option>
+    <option value="2">2 Rescue Team</option>
+    <option value="3">3 Rescue Team</option>
+    {/* ... add more options as needed ... */}
+  </select>
+  <select
+    id={`responders-${index}`}
+    className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter"
+  >
+    {/* You can customize the options based on your requirements */}
+    <option value="0">No Ambulance</option>
+    <option value="1">1 Ambulance</option>
+    <option value="2">2 Ambulance</option>
+    <option value="3">3 Ambulance</option>
+    {/* ... add more options as needed ... */}
+  </select>
+        </div>
+      )}
+         {report.disaster === 'Accident' && (
+           <div className="mt-4 space-y-3 mb-5">
+       
+       <select
+     id={`responders-${index}`}
+     className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter"
+   >
+     {/* You can customize the options based on your requirements */}
+     <option value="0">No Ambulance</option>
+     <option value="1">1 Ambulance</option>
+     <option value="2">2 Ambulance</option>
+     <option value="3">3 Ambulance</option>
+     {/* ... add more options as needed ... */}
+   </select>
+           <select
+     id={`responders-${index}`}
+     className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter"
+   >
+     {/* You can customize the options based on your requirements */}
+     <option value="0">No Police Mobile</option>
+     <option value="1">1 Police Mobile</option>
+     <option value="2">2 Police Mobile</option>
+     <option value="3">3 Police Mobile</option>
+     {/* ... add more options as needed ... */}
+   </select>
+
+         </div>
+      )}
+         {report.disaster === 'Fire' && (
+          <div className="mt-4 space-y-3 mb-5">
+       
+          <select
+        id={`responders-${index}`}
+        className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter"
+      >
+        {/* You can customize the options based on your requirements */}
+        <option value="0">No Fire Trucks</option>
+        <option value="1">1 Fire Trucks</option>
+        <option value="2">2 Fire Trucks</option>
+        <option value="3">3 Fire Trucks</option>
+        {/* ... add more options as needed ... */}
+      </select>
+              <select
+        id={`responders-${index}`}
+        className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter"
+      >
+        {/* You can customize the options based on your requirements */}
+        <option value="0">No Ambulance</option>
+        <option value="1">1 Ambulance</option>
+        <option value="2">2 Ambulance</option>
+        <option value="3">3 Ambulance</option>
+        {/* ... add more options as needed ... */}
+      </select>
+   
+            </div>
+      )}
+         {report.disaster === 'Landslide' && (
+                <div className="mt-4 space-y-3 mb-5">
+          {/* Code to display for a flood */}
+          <select
+    id={`responders-${index}`}
+    className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter"
+  >
+    {/* You can customize the options based on your requirements */}
+    <option value="0">No Rescue Team</option>
+    <option value="1">1 Rescue Team</option>
+    <option value="2">2 Rescue Team</option>
+    <option value="3">3 Rescue Team</option>
+    {/* ... add more options as needed ... */}
+  </select>
+  <select
+        id={`responders-${index}`}
+        className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter"
+      >
+        {/* You can customize the options based on your requirements */}
+        <option value="0">No Ambulance</option>
+        <option value="1">1 Ambulance</option>
+        <option value="2">2 Ambulance</option>
+        <option value="3">3 Ambulance</option>
+        {/* ... add more options as needed ... */}
+      </select>
+        </div>
+      )}
                       <div className="flex flex-row gap-3 justify-center mt-2">
                         <button className="px-2 py-2 bg-primary rounded-xl font-inter font-medium text-white text-sm hover:bg-primarydark">
                           Send Responder
