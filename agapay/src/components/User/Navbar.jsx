@@ -5,17 +5,10 @@ import styles from "../../style";
 import { menu, assistance } from "../../assets";
 import Login from "./Login";
 import {
-  ArrowRightCircleIcon,
-  ArrowDownCircleIcon,
-  ShieldExclamationIcon,
-  BookmarkSquareIcon,
-  InformationCircleIcon,
-  HomeIcon,
-  PhoneIcon,
   ChevronDownIcon,
-  UserCircleIcon,
   Bars3BottomLeftIcon
 } from "@heroicons/react/24/outline";
+import {HomeIcon , ShieldExclamationIcon,  BookmarkSquareIcon,  InformationCircleIcon, ArrowRightCircleIcon,UserCircleIcon,PhoneIcon  } from "@heroicons/react/20/solid"
 import axios from "axios";
 
 export const handleLogout = (isLoggedIn, isNavbar) => {
@@ -250,7 +243,7 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
                     </button>
                   </div>
                   <div
-                    onMouseLeave={toggleDropdown}
+                    // onMouseLeave={toggleDropdown}
                     className={` ${
                       isDropdownOpen ? "block" : "hidden"
                     } absolute right-5 top-12 mt-2 z-[20]  list-none bg-white divide-gray/20 divide-y  rounded shadow `}
@@ -280,6 +273,7 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
                           await handleLogout(false, true);
                           logout(true);
                           alert('titi');
+                          console.log('wala na')
                           toggleDropdown();
                         }}
                           className="block px-4 py-2 text-sm cursor-pointer  text-gray/80 hover:text-black hover:bg-gray/20 "
@@ -455,7 +449,7 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
         </button>
       </div>
       <div
-        onMouseLeave={toggleDropdown1}
+        // onMouseLeave={toggleDropdown1}
         className={` ${
           isDropdownOpen1 ? "block" : "hidden"
         } absolute right-5 top-12 mt-[375px] z-[20]  list-none bg-white divide-gray/20 divide-y  rounded shadow `}
