@@ -4,7 +4,7 @@ import { Home, EmergencyResources, About } from "./components/User";
 import ContactUs from "./components/User/ContactUs";
 import ResponderDashboard from "./components/Responder/Dashboard";
 import ResponderRecords from "./components/Responder/Records";
-import ResponderReports from "./components/Responder/Reports";
+import ResponderReports from "./components/Responder/ResponderReports";
 import ResponderUserSettings from "./components/Responder/UserSettings";
 import AdminDashboard from "./components/Admin/Dashboard";
 import AdminRecords from "./components/Admin/Records";
