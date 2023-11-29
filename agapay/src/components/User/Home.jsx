@@ -9,13 +9,15 @@ import Weather from "./Weather";
 import Steps from "./Steps";
 import DownloadBanner from "./DownloadBanner";
 import AccordionSection from "./AccordionSection";
-// import Weather from "./Weather"
+import ReferHotlines from "./ReferHotlines";
+
 export default function Home({ status, userType, username, contactNum, userId }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
     <>
+  <ReferHotlines />
       <Carousel />
       <Reporting status={status} userType={userType} username={username} contactNum={contactNum} userId={userId} />
       <Weather />
