@@ -17,7 +17,7 @@ export default function Home({ status, userType, username, contactNum, userId })
   }, []);
   return (
     <>
-
+  
       <Carousel />
       <Reporting status={status} userType={userType} username={username} contactNum={contactNum} userId={userId} />
       <Weather />

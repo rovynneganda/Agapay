@@ -153,7 +153,15 @@ const AdminSideBar = ({ status, userType, username }) => {
                       to="/admin/createaccount"
                       className="flex items-center p-2 pl-11 w-full text-md text-white font-semibold rounded-lg  hover:bg-primarydark text-opacity-80 hover:text-opacity-100 "
                     >
-                      Creation of Account
+                      Admin Account
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/admin/createresponder"
+                      className="flex items-center p-2 pl-11 w-full text-md text-white font-semibold rounded-lg  hover:bg-primarydark text-opacity-80 hover:text-opacity-100 "
+                    >
+                      Responder Account
                     </Link>
                   </li>
                   <li>
