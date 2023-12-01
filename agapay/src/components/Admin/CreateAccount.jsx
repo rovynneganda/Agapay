@@ -1,7 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import axios from "axios";
 const CreateAccount = () => {
+  const [geolocation, setGeolocation] = useState({
+    latitude: "",
+    longitude: "",
+  });
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((pos) => {
+      const { latitude, longitude } = pos.coords;
+      // console.log(latitude, longitude);
+      setGeolocation({ latitude, longitude });
+    });
+  }, []);
   const [formData, setFormData] = useState({
     adminFirstName: "",
     adminLastName: ""
@@ -24,6 +35,8 @@ const CreateAccount = () => {
     formDataToSend.append("adminEmployeeID", formData.adminEmployeeID);
     formDataToSend.append("adminType", formData.adminType);
     formDataToSend.append("adminUsername", formData.adminUsername);
+    formDataToSend.append("adminLatitude", geolocation.latitude);
+    formDataToSend.append("adminLongitude", geolocation.longitude);
     formDataToSend.append("adminPassword1", formData.adminPassword1);
     formDataToSend.append("adminPassword2", formData.adminPassword2);
 
@@ -109,14 +122,27 @@ const CreateAccount = () => {
                   >
                     Department
                   </label>
-                  <input
+                  {/* <input
                     type="text"
                     id="adminDepartment"
                     name="adminDepartment"
                     onChange={handleInputChange}
                     className=" border bg-variantwhite/80 border-gray/30 text-black  text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5  focus:outline-none"
                     required
-                  />
+                  /> */}
+                  <select
+                    id="adminDepartment"
+                    name="adminDepartment"
+                    onChange={handleInputChange}
+                    className=" border border-gray/30 bg-variantwhite/80 text-black mb-6 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 focus:outline-none"
+                  >
+                    <option defaultValue="">Choose Department</option>
+                    <option value="Police Department">Police Department</option>
+                    <option value="Fire Department">Fire Department</option>
+                    <option value="Rescue Team">Rescue Team</option>
+                    <option value="Ambulance">Ambulance</option>
+                    <option value="Admin">Admin</option>
+                  </select>
                 </div>
                 <div>
                   <label
