@@ -4,8 +4,6 @@ import { CheckBadgeIcon, ExclamationCircleIcon, ArrowPathRoundedSquareIcon } fro
 import { ArrowRightIcon, ShieldCheckIcon } from "@heroicons/react/24/outline";
 const AdminReports = () => {
   const [reportData, setReportData] = useState([]);
-<<<<<<< Updated upstream
-=======
   const [vehicleCounts, setVehicleCounts] = useState({});
 
 
@@ -77,7 +75,6 @@ const AdminReports = () => {
   //   console.log(ambulanceCount);
   // }), [ambulanceCount];
 
->>>>>>> Stashed changes
   useEffect(() => {
     // console.log(1);
     const formData = new FormData();
@@ -171,134 +168,6 @@ const AdminReports = () => {
                           Your browser does not support the video tag.
                         </video>
                       </div>
-<<<<<<< Updated upstream
-                      {/* <label
-                        htmlFor="ambulance"
-                        className="block mb-2 text-sm font-medium font-poppins "
-                      >
-                        Ambulance
-                      </label>
-                      <select
-                        id="ambulance"
-                        className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter"
-                      >
-                        <option selected>Send Ambulance</option>
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                      </select> */}
-                         {report.disaster === 'Flood' && (
-        <div className="mt-4 space-y-3 mb-5">
-          {/* Code to display for a flood */}
-          <select
-    id={`responders-${index}`}
-    className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter"
-  >
-    {/* You can customize the options based on your requirements */}
-    <option value="0">No Rescue Team</option>
-    <option value="1">1 Rescue Team</option>
-    <option value="2">2 Rescue Team</option>
-    <option value="3">3 Rescue Team</option>
-    {/* ... add more options as needed ... */}
-  </select>
-  <select
-    id={`responders-${index}`}
-    className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter"
-  >
-    {/* You can customize the options based on your requirements */}
-    <option value="0">No Ambulance</option>
-    <option value="1">1 Ambulance</option>
-    <option value="2">2 Ambulance</option>
-    <option value="3">3 Ambulance</option>
-    {/* ... add more options as needed ... */}
-  </select>
-        </div>
-      )}
-         {report.disaster === 'Accident' && (
-           <div className="mt-4 space-y-3 mb-5">
-       
-       <select
-     id={`responders-${index}`}
-     className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter"
-   >
-     {/* You can customize the options based on your requirements */}
-     <option value="0">No Ambulance</option>
-     <option value="1">1 Ambulance</option>
-     <option value="2">2 Ambulance</option>
-     <option value="3">3 Ambulance</option>
-     {/* ... add more options as needed ... */}
-   </select>
-           <select
-     id={`responders-${index}`}
-     className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter"
-   >
-     {/* You can customize the options based on your requirements */}
-     <option value="0">No Police Mobile</option>
-     <option value="1">1 Police Mobile</option>
-     <option value="2">2 Police Mobile</option>
-     <option value="3">3 Police Mobile</option>
-     {/* ... add more options as needed ... */}
-   </select>
-
-         </div>
-      )}
-         {report.disaster === 'Fire' && (
-          <div className="mt-4 space-y-3 mb-5">
-       
-          <select
-        id={`responders-${index}`}
-        className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter"
-      >
-        {/* You can customize the options based on your requirements */}
-        <option value="0">No Fire Trucks</option>
-        <option value="1">1 Fire Trucks</option>
-        <option value="2">2 Fire Trucks</option>
-        <option value="3">3 Fire Trucks</option>
-        {/* ... add more options as needed ... */}
-      </select>
-              <select
-        id={`responders-${index}`}
-        className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter"
-      >
-        {/* You can customize the options based on your requirements */}
-        <option value="0">No Ambulance</option>
-        <option value="1">1 Ambulance</option>
-        <option value="2">2 Ambulance</option>
-        <option value="3">3 Ambulance</option>
-        {/* ... add more options as needed ... */}
-      </select>
-   
-            </div>
-      )}
-         {report.disaster === 'Landslide' && (
-                <div className="mt-4 space-y-3 mb-5">
-          {/* Code to display for a flood */}
-          <select
-    id={`responders-${index}`}
-    className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter"
-  >
-    {/* You can customize the options based on your requirements */}
-    <option value="0">No Rescue Team</option>
-    <option value="1">1 Rescue Team</option>
-    <option value="2">2 Rescue Team</option>
-    <option value="3">3 Rescue Team</option>
-    {/* ... add more options as needed ... */}
-  </select>
-  <select
-        id={`responders-${index}`}
-        className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter"
-      >
-        {/* You can customize the options based on your requirements */}
-        <option value="0">No Ambulance</option>
-        <option value="1">1 Ambulance</option>
-        <option value="2">2 Ambulance</option>
-        <option value="3">3 Ambulance</option>
-        {/* ... add more options as needed ... */}
-      </select>
-        </div>
-      )}
-=======
                       {report.disaster !== "" && (
                         <div className="mt-4 space-y-3 mb-5">
                           <div className="flex flex-row gap-3">
@@ -327,7 +196,6 @@ const AdminReports = () => {
                           </div>
                         </div>
                       )}
->>>>>>> Stashed changes
                       <div className="flex flex-row gap-3 justify-center mt-2">
                         <button className="px-2 py-2 bg-primary rounded-xl font-inter font-medium text-white text-sm hover:bg-primarydark">
                           Send Responder
