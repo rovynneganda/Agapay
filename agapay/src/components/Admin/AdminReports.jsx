@@ -4,6 +4,80 @@ import { CheckBadgeIcon, ExclamationCircleIcon, ArrowPathRoundedSquareIcon } fro
 import { ArrowRightIcon, ShieldCheckIcon } from "@heroicons/react/24/outline";
 const AdminReports = () => {
   const [reportData, setReportData] = useState([]);
+<<<<<<< Updated upstream
+=======
+  const [vehicleCounts, setVehicleCounts] = useState({});
+
+
+  useEffect(() => {
+    console.log(vehicleCounts);
+  }), [vehicleCounts];
+
+  const handleIncrementVehicle = (id, vehicleType) => {
+    setVehicleCounts((prevCounts) => ({
+      ...prevCounts,
+      [id]: {
+        ...prevCounts[id],
+        [vehicleType]: (prevCounts[id]?.[vehicleType] || 0) + 1,
+      },
+    }));
+  };
+
+  const handleDecrementVehicle = (id, vehicleType) => {
+    if (vehicleCounts[id]?.[vehicleType] > 0) {
+      setVehicleCounts((prevCounts) => ({
+        ...prevCounts,
+        [id]: {
+          ...prevCounts[id],
+          [vehicleType]: prevCounts[id]?.[vehicleType] - 1,
+        },
+      }));
+    }
+  };
+
+  const sendReport = (id) => {
+    console.log(vehicleCounts[id]);
+    const vehicleCountData = vehicleCounts[id];
+    for (const vehicleType in vehicleCountData) {
+      if (Object.hasOwnProperty.call(vehicleCountData, vehicleType)) {
+        const count = vehicleCountData[vehicleType];
+        if(count !== 0){
+          // Create a new FormData for each vehicle type
+          const formData = new FormData();
+          formData.append("fileSelector", "gis");
+          formData.append("department", vehicleType);
+          formData.append("vehicleCount", count);
+          formData.append("reportId", id);
+      
+          // Send Axios request for each vehicle type
+          axios
+            .post(
+              "http://localhost/Backend/Controller.php",
+              formData,
+              {
+                withCredentials: true,
+                headers: {
+                  "Content-Type": "multipart/form-data",
+                },
+              }
+            )
+            .then((response) => {
+              // Handle the response for each vehicle type as needed
+              console.log(response)
+              console.log(`Request for ${vehicleType} succeeded:`, response.data);
+            })
+            .catch((error) => {
+              console.error(`Error for ${vehicleType}:`, error);
+            });
+        }
+      }
+    }
+  };
+  // useEffect(() => {
+  //   console.log(ambulanceCount);
+  // }), [ambulanceCount];
+
+>>>>>>> Stashed changes
   useEffect(() => {
     // console.log(1);
     const formData = new FormData();
@@ -97,6 +171,7 @@ const AdminReports = () => {
                           Your browser does not support the video tag.
                         </video>
                       </div>
+<<<<<<< Updated upstream
                       {/* <label
                         htmlFor="ambulance"
                         className="block mb-2 text-sm font-medium font-poppins "
@@ -223,6 +298,36 @@ const AdminReports = () => {
       </select>
         </div>
       )}
+=======
+                      {report.disaster !== "" && (
+                        <div className="mt-4 space-y-3 mb-5">
+                          <div className="flex flex-row gap-3">
+                            <div className="font-inter font-semibold">Ambulance</div>
+                            <button onClick={() => handleDecrementVehicle(report.id, "Emergency Medical Ambulance")}>-</button>
+                            <p>{vehicleCounts[report.id]?.['Emergency Medical Ambulance'] || 0}</p>
+                            <button onClick={() => handleIncrementVehicle(report.id, "Emergency Medical Ambulance")}>+</button>
+                          </div>
+                          <div className="flex flex-row gap-3">
+                            <div className="font-inter font-semibold">Police Mobile</div>
+                            <button onClick={() => handleDecrementVehicle(report.id, "Police Department")}>-</button>
+                            <p>{vehicleCounts[report.id]?.['Police Department'] || 0}</p>
+                            <button onClick={() => handleIncrementVehicle(report.id, "Police Department")}>+</button>
+                          </div>
+                          <div className="flex flex-row gap-3">
+                            <div className="font-inter font-semibold">Fire Truck</div>
+                            <button onClick={() => handleDecrementVehicle(report.id, "Fire Department")}>-</button>
+                            <p>{vehicleCounts[report.id]?.['Fire Department'] || 0}</p>
+                            <button onClick={() => handleIncrementVehicle(report.id, "Fire Department")}>+</button>
+                          </div>
+                          <div className="flex flex-row gap-3">
+                            <div className="font-inter font-semibold">Rescue Team</div>
+                            <button onClick={() => handleDecrementVehicle(report.id, "Rescue Department")}>-</button>
+                            <p>{vehicleCounts[report.id]?.['Rescue Department'] || 0}</p>
+                            <button onClick={() => handleIncrementVehicle(report.id, "Rescue Department")}>+</button>
+                          </div>
+                        </div>
+                      )}
+>>>>>>> Stashed changes
                       <div className="flex flex-row gap-3 justify-center mt-2">
                         <button className="px-2 py-2 bg-primary rounded-xl font-inter font-medium text-white text-sm hover:bg-primarydark">
                           Send Responder

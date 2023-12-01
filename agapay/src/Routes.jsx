@@ -49,7 +49,7 @@ const AppRoutes = ({ status, userType, username, contactNum, userId }) => {
 
         <Route path="/responder" element={<ResponderDashboard />} />
         <Route path="/responder/records" element={<ResponderRecords />} />
-        <Route path="/responder/reports" element={<ResponderReports />} />
+        <Route path="/responder/reports" element={<ResponderReports userId={userId} />} />
         <Route
           path="/responder/usersettings"
           element={<ResponderUserSettings />}

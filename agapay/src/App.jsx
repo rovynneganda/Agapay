@@ -38,11 +38,11 @@ const App = () => {
         setSessionUsertype(UserType);
         setSessionUsername(Username);
         setSessionContactNum(ContactNum);
+        setSessionUserId(User_id);
         if (Status === "active" && UserType === "User") {
-          setSessionUserId(User_id);
-          // console.log("User Type:", UserType);
           // console.log("Username:", Username);
         }
+        console.log("User ID:", User_id);
       })
       .catch((error) => {
         console.error("Error checking session:", error);
