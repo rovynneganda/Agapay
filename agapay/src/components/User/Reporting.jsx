@@ -172,9 +172,9 @@ const Reporting = ({ status, userType, username, contactNum, userId }) => {
           "http://localhost/Backend/Controller.php",
           formData
         );
-        if (response.data.matchedWeb.length !== 0) {
-          setVerify(true);
-        }
+        // if (response.data.matchedWeb.length !== 0) {
+        //   setVerify(true);
+        // }
         // Handle the response if needed
         console.log(response.data);
       } catch (error) {
