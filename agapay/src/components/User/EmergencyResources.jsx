@@ -4,7 +4,22 @@ import axios from 'axios';
 import { emergencyResources } from "../../constants";
 import { yellowbg1 } from '../../assets';
 import Footer from "./Footer";
-import Hotlines from "./Hotlines"
+import Hotlines from "./Hotlines";
+import user_icon from '../../assets/user_icon.png';
+import HospitalIcon from '../../assets/hospital.png';
+import fire_station from '../../assets/fire_station.png';
+import police_station from '../../assets/police_station.png';
+const getMarkerIcon = (types) => {
+  if (types.includes('hospital')) {
+    return { url: HospitalIcon, scaledSize: new window.google.maps.Size(40, 40) };
+  } else if (types.includes('police')) {
+    return { url: police_station, scaledSize: new window.google.maps.Size(40, 40) };
+  } else if (types.includes('fire_station')) {
+    return { url: fire_station, scaledSize: new window.google.maps.Size(40, 40) };
+  } else {
+    return null; // Use a default icon or no icon for other types
+  }
+};
 const EmergencyResources = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -148,6 +163,7 @@ const EmergencyResources = () => {
           <Marker
             position={location}
             label="You are here"
+            icon={{ url: user_icon, scaledSize: new window.google.maps.Size(60, 60) }}
           />
         )}
      
@@ -162,6 +178,7 @@ const EmergencyResources = () => {
             onClick={() => {
               setSelectedLocation(location);
             }}
+            icon={getMarkerIcon(location.types)}
           />
         ))}
 
