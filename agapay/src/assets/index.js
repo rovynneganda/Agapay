@@ -94,6 +94,7 @@ import evacuate from "./evacuate.png"
 import respond from "./respond.png"
 //
 import phoneMockUp from "./cp.png"
+import animatedLogin from "./animated.mp4"
 export {
     logo,
     next,
@@ -182,4 +183,5 @@ export {
     evacuate,
     respond,
     phoneMockUp,
+    animatedLogin,
 };

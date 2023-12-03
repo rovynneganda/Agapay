@@ -19,30 +19,73 @@ const AdminReports = () => {
     }
   };
   const [reportData, setReportData] = useState([]);
+  const [vehicleCounts, setVehicleCounts] = useState({});
+
+
+  useEffect(() => {
+    console.log(vehicleCounts);
+  }), [vehicleCounts];
+
+  const handleIncrementVehicle = (id, vehicleType) => {
+    setVehicleCounts((prevCounts) => ({
+      ...prevCounts,
+      [id]: {
+        ...prevCounts[id],
+        [vehicleType]: (prevCounts[id]?.[vehicleType] || 0) + 1,
+      },
+    }));
+  };
+
+  const handleDecrementVehicle = (id, vehicleType) => {
+    if (vehicleCounts[id]?.[vehicleType] > 0) {
+      setVehicleCounts((prevCounts) => ({
+        ...prevCounts,
+        [id]: {
+          ...prevCounts[id],
+          [vehicleType]: prevCounts[id]?.[vehicleType] - 1,
+        },
+      }));
+    }
+  };
+
   const sendReport = (id) => {
-    console.log(ambulanceCount, id);
-    // console.log(1);
-    const formData = new FormData();
-    formData.append("fileSelector", "gis");
-    formData.append("ambulanceCount", ambulanceCount);
-    formData.append("reportId", id);
-    axios
-      .post(
-        "http://localhost/Backend/Controller.php",
-        formData,
-        {
-          withCredentials: true,
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
+    console.log(vehicleCounts[id]);
+    const vehicleCountData = vehicleCounts[id];
+    for (const vehicleType in vehicleCountData) {
+      if (Object.hasOwnProperty.call(vehicleCountData, vehicleType)) {
+        const count = vehicleCountData[vehicleType];
+        if(count !== 0){
+          
         }
-      )
-      .then((response) => {
-        
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+        // Create a new FormData for each vehicle type
+        const formData = new FormData();
+        formData.append("fileSelector", "gis");
+        formData.append("department", vehicleType);
+        formData.append("vehicleCount", count);
+        formData.append("reportId", id);
+    
+        // Send Axios request for each vehicle type
+        axios
+          .post(
+            "http://localhost/Backend/Controller.php",
+            formData,
+            {
+              withCredentials: true,
+              headers: {
+                "Content-Type": "multipart/form-data",
+              },
+            }
+          )
+          .then((response) => {
+            // Handle the response for each vehicle type as needed
+            console.log(response)
+            console.log(`Request for ${vehicleType} succeeded:`, response.data);
+          })
+          .catch((error) => {
+            console.error(`Error for ${vehicleType}:`, error);
+          });
+      }
+    }
   };
   // useEffect(() => {
   //   console.log(ambulanceCount);
@@ -172,134 +215,32 @@ const AdminReports = () => {
                           Your browser does not support the video tag.
                         </video>
                       </div>
-                      {/* <label
-                        htmlFor="ambulance"
-                        className="block mb-2 text-sm font-medium font-poppins "
-                      >
-                        Ambulance
-                      </label>
-                      <select
-                        id="ambulance"
-                        className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter"
-                      >
-                        <option selected>Send Ambulance</option>
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                      </select> */}
-                      {report.disaster === "Flood" && (
+                      {report.disaster !== "" && (
                         <div className="mt-4 space-y-3 mb-5">
-                          {/* Code to display for a flood */}
                           <div className="flex flex-row gap-3">
-                            <div className="font-inter font-semibold">
-                              Ambulance
-                            </div>
-                            <button onClick={handleDecrementAmbulance}>
-                              -
-                            </button>
-                            <p>{ambulanceCount}</p>
-                            <button onClick={handleIncrementAmbulance}>
-                              +
-                            </button>
+                            <div className="font-inter font-semibold">Ambulance</div>
+                            <button onClick={() => handleDecrementVehicle(report.id, "Emergency Medical Ambulance")}>-</button>
+                            <p>{vehicleCounts[report.id]?.['Emergency Medical Ambulance'] || 0}</p>
+                            <button onClick={() => handleIncrementVehicle(report.id, "Emergency Medical Ambulance")}>+</button>
                           </div>
-                          {/* <select
-                            id={`responders-${index}`}
-                            className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter"
-                          >
-                            <option value="0">No Rescue Team</option>
-                            <option value="1">1 Rescue Team</option>
-                            <option value="2">2 Rescue Team</option>
-                            <option value="3">3 Rescue Team</option>
-                          </select>
-                          <select
-                            id={`responders-${index}`}
-                            className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter"
-                          >
-                            <option value="0">No Ambulance</option>
-                            <option value="1">1 Ambulance</option>
-                            <option value="2">2 Ambulance</option>
-                            <option value="3">3 Ambulance</option>
-                          </select> */}
-                        </div>
-                      )}
-                      {report.disaster === "Accident" && (
-                        <div className="mt-4 space-y-3 mb-5">
-                          <select
-                            id={`responders-${index}`}
-                            className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter"
-                          >
-                            {/* You can customize the options based on your requirements */}
-                            <option value="0">No Ambulance</option>
-                            <option value="1">1 Ambulance</option>
-                            <option value="2">2 Ambulance</option>
-                            <option value="3">3 Ambulance</option>
-                            {/* ... add more options as needed ... */}
-                          </select>
-                          <select
-                            id={`responders-${index}`}
-                            className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter"
-                          >
-                            {/* You can customize the options based on your requirements */}
-                            <option value="0">No Police Mobile</option>
-                            <option value="1">1 Police Mobile</option>
-                            <option value="2">2 Police Mobile</option>
-                            <option value="3">3 Police Mobile</option>
-                            {/* ... add more options as needed ... */}
-                          </select>
-                        </div>
-                      )}
-                      {report.disaster === "Fire" && (
-                        <div className="mt-4 space-y-3 mb-5">
-                          <select
-                            id={`responders-${index}`}
-                            className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter"
-                          >
-                            {/* You can customize the options based on your requirements */}
-                            <option value="0">No Fire Trucks</option>
-                            <option value="1">1 Fire Trucks</option>
-                            <option value="2">2 Fire Trucks</option>
-                            <option value="3">3 Fire Trucks</option>
-                            {/* ... add more options as needed ... */}
-                          </select>
-                          <select
-                            id={`responders-${index}`}
-                            className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter"
-                          >
-                            {/* You can customize the options based on your requirements */}
-                            <option value="0">No Ambulance</option>
-                            <option value="1">1 Ambulance</option>
-                            <option value="2">2 Ambulance</option>
-                            <option value="3">3 Ambulance</option>
-                            {/* ... add more options as needed ... */}
-                          </select>
-                        </div>
-                      )}
-                      {report.disaster === "Landslide" && (
-                        <div className="mt-4 space-y-3 mb-5">
-                          {/* Code to display for a flood */}
-                          <select
-                            id={`responders-${index}`}
-                            className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter"
-                          >
-                            {/* You can customize the options based on your requirements */}
-                            <option value="0">No Rescue Team</option>
-                            <option value="1">1 Rescue Team</option>
-                            <option value="2">2 Rescue Team</option>
-                            <option value="3">3 Rescue Team</option>
-                            {/* ... add more options as needed ... */}
-                          </select>
-                          <select
-                            id={`responders-${index}`}
-                            className="bg-subtlegray border border-gray/30 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-inter"
-                          >
-                            {/* You can customize the options based on your requirements */}
-                            <option value="0">No Ambulance</option>
-                            <option value="1">1 Ambulance</option>
-                            <option value="2">2 Ambulance</option>
-                            <option value="3">3 Ambulance</option>
-                            {/* ... add more options as needed ... */}
-                          </select>
+                          <div className="flex flex-row gap-3">
+                            <div className="font-inter font-semibold">Police Mobile</div>
+                            <button onClick={() => handleDecrementVehicle(report.id, "Police Department")}>-</button>
+                            <p>{vehicleCounts[report.id]?.['Police Department'] || 0}</p>
+                            <button onClick={() => handleIncrementVehicle(report.id, "Police Department")}>+</button>
+                          </div>
+                          <div className="flex flex-row gap-3">
+                            <div className="font-inter font-semibold">Fire Truck</div>
+                            <button onClick={() => handleDecrementVehicle(report.id, "Fire Department")}>-</button>
+                            <p>{vehicleCounts[report.id]?.['Fire Department'] || 0}</p>
+                            <button onClick={() => handleIncrementVehicle(report.id, "Fire Department")}>+</button>
+                          </div>
+                          <div className="flex flex-row gap-3">
+                            <div className="font-inter font-semibold">Rescue Team</div>
+                            <button onClick={() => handleDecrementVehicle(report.id, "Rescue Department")}>-</button>
+                            <p>{vehicleCounts[report.id]?.['Rescue Department'] || 0}</p>
+                            <button onClick={() => handleIncrementVehicle(report.id, "Rescue Department")}>+</button>
+                          </div>
                         </div>
                       )}
                       <div className="flex flex-row gap-3 justify-center mt-2">
