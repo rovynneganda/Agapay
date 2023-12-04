@@ -35,9 +35,9 @@ const About = () => {
             </div>
 
             <div className="lg:mt-14 sm:mt-10 mt-12">
-                <img className="lg:block hidden w-full" src="https://i.ibb.co/GvwJnvn/Group-736.png" alt="Group of people Chilling" />
+                {/* <img className="lg:block hidden w-full" src="https://i.ibb.co/GvwJnvn/Group-736.png" alt="Group of people Chilling" />
                 <img className="lg:hidden sm:block hidden w-full" src="https://i.ibb.co/5sZTmHq/Rectangle-116.png" alt="Group of people Chilling" />
-                <img className="sm:hidden block w-full" src="https://i.ibb.co/zSxXJGQ/Rectangle-122.png" alt="Group of people Chilling" />
+                <img className="sm:hidden block w-full" src="https://i.ibb.co/zSxXJGQ/Rectangle-122.png" alt="Group of people Chilling" /> */}
             </div>
 
             <div className="lg:mt-16 sm:mt-12 mt-16 flex lg:flex-row items-center justify-between flex-col lg:gap-8 gap-12">
@@ -46,9 +46,9 @@ const About = () => {
                     <p className="font-normal  leading-6 font-inter mt-4 sm:text-lg text-base">We are a team of ambitious fourth-year college students who embarked on a transformative journey, crafting this project as our capstone endeavor. This project represents not only our academic pursuit but also our collective dedication to pushing boundaries and exploring the limitless possibilities of technology.</p>
                 </div>
                 <div className="lg:flex items-center w-full lg:w-1/2 ">
-                    <img className="lg:block hidden w-full" src="https://i.ibb.co/2kxWpNm/Group-740.png" alt="people discussing on board" />
+                    {/* <img className="lg:block hidden w-full" src="https://i.ibb.co/2kxWpNm/Group-740.png" alt="people discussing on board" />
                     <img className="lg:hidden sm:block hidden w-full h-3/4" src="https://i.ibb.co/ZLgK3NQ/Group-788.png" alt="people discussing on board" />
-                    <img className="sm:hidden block w-full" src="https://i.ibb.co/9g2R7Xr/Group-803.png" alt="people discussing on board" />
+                    <img className="sm:hidden block w-full" src="https://i.ibb.co/9g2R7Xr/Group-803.png" alt="people discussing on board" /> */}
                 </div>
             </div>
             <div className="flex lg:flex-row flex-col items-center md:gap-14 gap-16 justify-between lg:mt-20 mt-16">

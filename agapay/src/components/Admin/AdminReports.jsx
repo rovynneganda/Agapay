@@ -7,6 +7,17 @@ import {
 } from "@heroicons/react/20/solid";
 import { ArrowRightIcon, ShieldCheckIcon } from "@heroicons/react/24/outline";
 const AdminReports = () => {
+  const [ambulanceCount, setAmbulanceCount] = useState(0);
+
+  const handleIncrementAmbulance = () => {
+    setAmbulanceCount(ambulanceCount + 1);
+  };
+
+  const handleDecrementAmbulance = () => {
+    if (ambulanceCount > 0) {
+      setAmbulanceCount(ambulanceCount - 1);
+    }
+  };
   const [reportData, setReportData] = useState([]);
   const [vehicleCounts, setVehicleCounts] = useState({});
 

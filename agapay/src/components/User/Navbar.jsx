@@ -4,11 +4,12 @@ import { logo } from "../../assets";
 import styles from "../../style";
 import { menu, assistance } from "../../assets";
 import Login from "./Login";
+import SignOutAlert from "./SignOutAlert";
 import {
   ChevronDownIcon,
   Bars3BottomLeftIcon
 } from "@heroicons/react/24/outline";
-import {HomeIcon , ShieldExclamationIcon,  BookmarkSquareIcon,  InformationCircleIcon, ArrowRightCircleIcon,UserCircleIcon,PhoneIcon  } from "@heroicons/react/20/solid"
+import {HomeIcon , ShieldExclamationIcon,  BookmarkSquareIcon, ArrowLeftOnRectangleIcon,  InformationCircleIcon, ArrowRightCircleIcon,UserCircleIcon,PhoneIcon  } from "@heroicons/react/20/solid"
 import axios from "axios";
 
 export const handleLogout = (isLoggedIn, isNavbar) => {
@@ -39,6 +40,31 @@ export const handleLogout = (isLoggedIn, isNavbar) => {
 };
 
 const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
+  const [showSignOutModal, setshowSignOutModal] = useState(false);
+
+  const handleShowSignOutModal = () => {
+    setshowSignOutModal(true);
+    setTimeout(() => {
+      handleCloseSignOutModal();
+    }, 2000);
+  };
+
+  const handleCloseSignOutModal = () => {
+    setshowSignOutModal(false);
+  };
+  const [showSignOutModal1, setshowSignOutModal1] = useState(false);
+
+  const handleShowSignOutModal1 = () => {
+    setshowSignOutModal1(true);
+    setTimeout(() => {
+      handleCloseSignOutModal1();
+    }, 2000);
+  };
+
+  const handleCloseSignOutModal1 = () => {
+    setshowSignOutModal1(false);
+  };
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -111,7 +137,7 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
   const [showModalphone11, setShowModalphone11] = useState(false);
   useEffect(() => {
       
-    if (showModalphone11) {
+    if (showModalphone11 || showSignOutModal || showSignOutModal1) {
       document.body.style.overflow = 'hidden';  
     } else {
       document.body.style.overflow = 'auto';  
@@ -121,7 +147,7 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
     return () => {
       document.body.style.overflow = 'auto';
     };
-  }, [showModalphone11]);
+  }, [showModalphone11, showSignOutModal, showSignOutModal1]);
   const handleCallClick11 = () => {
     setShowModalphone11(true);
   };
@@ -253,7 +279,7 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
                         {userType === "User" ? username : "Please Log In."}
                       </p>
                       <p className="text-sm font-medium  truncate font-inter ">
-                        jokoiloveyou@gmail.com
+                        {/* jokoiloveyou@gmail.com */}
                       </p>
                     </div>
                     <ul className="py-1">
@@ -272,8 +298,7 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
                          onClick={async () => {
                           await handleLogout(false, true);
                           logout(true);
-                          alert('titi');
-                          console.log('wala na')
+                          handleShowSignOutModal(true);
                           toggleDropdown();
                         }}
                           className="block px-4 py-2 text-sm cursor-pointer  text-gray/80 hover:text-black hover:bg-gray/20 "
@@ -399,9 +424,14 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
   <div className={`overflow-y-auto py-5 px-3 h-full bg-primary mt-30 transition-opacity ${
     isSidebarOpen ? "opacity-100" : "opacity-0"
   }`}>
+
     {/* <img src={logo} className="w-16 h-16 mx-auto mb-5" alt="Agapay Logo" />   */}
     <ul className="space-y-2 mt-24">
- 
+    {isLoggedIn ? (
+       <>
+       <p className="text-white font-poppins bg-primarydark text-center rounded-xl  py-2 font-medium ">Welcome back, <span>{username}.</span> </p>
+       </>
+       ) : ('') }
     <Link
   className={`${styles.navPhone} flex items-center w-full`}
   to="/"
@@ -429,67 +459,36 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
       <InformationCircleIcon className="w-5 h-5 inline-block mr-3" />
         About
       </Link>
+      {isLoggedIn ? (
+           <>
+      <Link className={`${styles.navPhone} flex items-center w-full`}
+      to="/user/accountdetails"
+      onClick={toggleSidebar}
+      >
+      <UserCircleIcon className="w-5 h-5 inline-block mr-3" />
+        Account Details
+      </Link>
+   </>
+        ) : ''}
     </ul>
     <div className="text-center mt-16">
     {isLoggedIn ? 
-   (
-    <>
-    <div className="flex items-center justify-center ml-3">
-      <div>
-        <button
-          type="button"
-          onClick={toggleDropdown1}
-          className="text-xl font-poppins bg-white  font-semibold transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  text-secondary mr-3   px-2 py-2 rounded-lg"
-          aria-expanded={isDropdownOpen1 ? "true" : "false"}
+   ( <> 
+   <button  
+   className="text-md font-poppins bg-white font-semibold transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  text-secondary mr-3  px-2 py-2 rounded-lg"
+        onClick={async () => {
+          await handleLogout(false, true);
+          logout(true);
+          handleShowSignOutModal1(true);
+          toggleSidebar();
+        }}
         >
-          <span className="sr-only">Open user menu</span>
-          <UserCircleIcon className="w-5 h-5 mb-1 inline-block mr-1" />
-          {userType === "User" ? username : "Please Log In."}
-          <ChevronDownIcon className="w-5 h-5 inline-block ml-1" />
+            <ArrowLeftOnRectangleIcon className="w-6 h-6 inline-block mr-1" />
+          Sign Out
+         
         </button>
-      </div>
-      <div
-        // onMouseLeave={toggleDropdown1}
-        className={` ${
-          isDropdownOpen1 ? "block" : "hidden"
-        } absolute right-5 top-12 mt-[375px] z-[20]  list-none bg-white divide-gray/20 divide-y  rounded shadow `}
-      >
-        <div className="px-4 py-3">
-          <p className="text-sm font-inter text-primary ">
-            {userType === "User" ? username : "Please Log In."}
-          </p>
-          <p className="text-sm font-medium  truncate font-inter ">
-            jokoiloveyou@gmail.com
-          </p>
-        </div>
-        <ul className="py-1">
-          <li>
-            <Link
-              to="/user/accountdetails"
-              onClick={isDropdownOpen1}
-              className="block px-4 py-2 text-sm text-gray/80 hover:text-black hover:bg-gray/20   "
-            >
-              Account Details
-            </Link>
-          </li>
-          <li>
-            <a
-             
-             onClick={async () => {
-              await handleLogout(false, true);
-              logout(true);
-              alert('titi');
-              toggleDropdown1();
-            }}
-              className="block px-4 py-2 text-sm cursor-pointer  text-gray/80 hover:text-black hover:bg-gray/20 "
-            >
-              Sign out
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </>
+       
+   </>
    ) : (
     <button
     className="text-md font-poppins bg-white font-semibold transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  text-secondary mr-3  px-2 py-2 rounded-lg"
@@ -504,7 +503,13 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
   </div>
 </aside>
 
+{showSignOutModal && ( 
+  <SignOutAlert />
+)}
 
+{showSignOutModal1 && (
+  <SignOutAlert/>
+)}
       {isSidebarOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-0"

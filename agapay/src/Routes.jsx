@@ -22,6 +22,7 @@ import VideoToImagesConverter from "./components/User/aa";
 import AdminUserSettings from "./components/Admin/AdminUserSettings";
 import AdminReports from "./components/Admin/AdminReports";
 // import ProtectedRoutes from "./components/ProtectedRoutes";
+import ResponderAccount from "./components/Admin/ResponderAccount";
 const AppRoutes = ({ status, userType, username, contactNum, userId }) => {
   return (
     <ErrorBoundary>
@@ -63,6 +64,8 @@ const AppRoutes = ({ status, userType, username, contactNum, userId }) => {
         <Route path="/admin/createaccount" element={<CreateAccount />} />
         <Route path="/admin/createalert" element={<CreateAlert />} />
         <Route path="/admin/usersettings" element={<AdminUserSettings />} />
+        <Route path="/admin/createresponder" element={<ResponderAccount />} />
+
 
         <Route
           path="/admin/createannouncement"

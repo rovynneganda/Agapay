@@ -26,7 +26,7 @@ const AccordionSection = () => {
 
                 {activeIndex === index && (
                   <div className="p-4 bg-gray/5">
-                    <p className="font-poppins leading-loose tracking-wide">{item.answer}</p>
+                    <p className="font-poppins font-normal leading-loose tracking-wide">{item.answer}</p>
                   </div>
                 )}
               </div>
@@ -38,16 +38,16 @@ const AccordionSection = () => {
     
     const faqData = [
       {
-        question: 'Question 1',
-        answer: 'Mahal ko si joko',
+        question: 'How does the "Find Nearby" button work? Can you show me nearby hospitals or emergency services on the map?',
+        answer: "Certainly! The 'Find Nearby' button uses smart maps to find your location and then shows nearby places like hospitals. It's like having a map that guides you to the closest help during an emergency.",
       },
       {
-        question: 'Question 2',
-        answer: 'ily joko',
+        question: 'How does the system check the videos I record? Does it use some kind of smart technology?',
+        answer: "Yes! The system uses smart technology (like a smart helper) to check the videos you record. It watches the videos and makes sure they're helpful and real. This helps make sure that the information you share is reliable for emergency responders.",
       },
       {
-        question: 'Question 3',
-        answer: 'ako nalang please',
+        question: 'How does the system show the weather forecast? Is it just for display, or does it do more?',
+        answer: "Absolutely! The system displays the weather forecast to keep you informed about what's coming. While it doesn't actively intervene, it serves as a handy visual guide, like checking the weather on your phone. So, it's more about helping you plan ahead and stay aware of the weather conditions in your area.",
       },
     ];
 export default AccordionSection

@@ -6,56 +6,56 @@ const Team = () => {
       id:1,
       name: "John Patrick Yanson",
       position: "Software Engineer",
-      motto: "Joko Buelva Gadingan forever",
+      // motto: "Joko Buelva Gadingan forever",
       link:'',
     },
     {
       id:2,
       name: "Robin A. Reyes",
       position: "UI/UX Designer",
-      motto: "Joko Buelva Gadingan Forever",
+      // motto: "Joko Buelva Gadingan Forever",
       link:'',
     },
     {
       id:3,
       name: "Mhel Christine Duenas",
       position: "Support Consultant",
-      motto: "Joko Buelva Gadingan Forever",
+      // motto: "Joko Buelva Gadingan Forever",
       link:'',
     },
     {
       id:4,
       name: "Mark Hill Mirasol",
       position: "Director of Sales",
-      motto: "Joko Buelva Gadingan Forever",
+      // motto: "Joko Buelva Gadingan Forever",
       link:'',
     },
     {
       id:5,
       name: "Gerald Ancheta",
       position: "Front-end Developer",
-      motto: "Joko Buelva Gadingan Forever",
+      // motto: "Joko Buelva Gadingan Forever",
       link:'',
     },
     {
       id:6,
       name: "Kevin Serrano",
       position: "UI/UX Designer",
-      motto: "Joko Buelva Gadingan Forever",
+      // motto: "Joko Buelva Gadingan Forever",
       link:'',
     },
     {
       id:7,
       name: "John Carl Aguibay",
       position: "Support Consultant",
-      motto: "Joko Buelva Gadingan Forever",
+      // motto: "Joko Buelva Gadingan Forever",
       link:'',
     },
     {
       id:8,
       name: "Carl Bryan Gomez",
       position: "Project Manager",
-      motto: "Joko Buelva Gadingan Forever",
+      // motto: "Joko Buelva Gadingan Forever",
       link:'',
     },
   ];
@@ -87,7 +87,7 @@ const Team = () => {
                 </p>
               </div>
             </div>
-            <p className="mt-3 text-black">{team.motto}</p>
+            {/* <p className="mt-3 text-black">{team.motto}</p> */}
             <div className="mt-3 space-x-1">
               <a
                 className="inline-flex justify-center items-center text-gray border border-gray/20 shadow-md  w-8 h-8 rounded-md hover:text-black font-inter  hover:shadow-sm "
