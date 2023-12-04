@@ -1,5 +1,5 @@
 import React from "react";
-import { CheckCircleIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { CheckCircleIcon } from "@heroicons/react/20/solid";
 const SuccessReportModal = ({closeSuccessModal}) => {
   return (
     <>
