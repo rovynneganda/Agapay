@@ -1,26 +1,24 @@
 import React from 'react';
 import { weather } from '../../assets';
-import { animatedLogin } from "../../assets";
+import { animate1,animate2,animate3 } from "../../assets";
+
 const stepsData = [
   {
-    videoSrc: animatedLogin,
-    posterSrc :weather,
+    videoSrc: animate1,
      altText: 'Step 2 Image Description',
     stepNumber: 1,
     title: 'Sign In',
     description: 'Log in to access your account. Sign in to initiate the process. Once signed in, you can report issues and access our services seamlessly.',
   },
   {
-    videoSrc: animatedLogin,
-    posterSrc :weather,
+    videoSrc: animate2,
    altText: 'Step 2 Image Description',
     stepNumber: 2,
     title: 'Report',
     description: 'Submit your report with a click. Instantly report emergencies, fires, incidents, and request ambulance support with a simple click.',
   },
   {
-    videoSrc: animatedLogin,
-    posterSrc :weather,
+    videoSrc: animate3,
     altText: 'Step 3 Image Description',
     stepNumber: 3,
     title: 'Wait for Response',
@@ -43,12 +41,12 @@ const Steps = () => {
             {stepsData.map((step, index) => (
               <a key={index} className="group rounded-xl overflow-hidden cursor-pointer border border-gray/20 shadow-lg p-2">
                 <div className="relative rounded-xl overflow-hidden">
-                <video autoPlay loop muted playsInline className='w-full h-full top-0 left-0 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out rounded-xl' poster={step.posterSrc} src={step.videoSrc}>
+                <video autoPlay loop muted playsInline className='w-full h-full top-0 left-0 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out rounded-xl' src={step.videoSrc}>
                   </video>
                 </div>
                 <div className="mt-3 p-5">
-                  <p className='mb-3 text-secondary font-semibold font-poppins leading-loose tracking-wider'>{`Step ${step.stepNumber} - ${step.title}`}</p>
-                  <h3 className="text-xl font-semibold text-primary font-inter tracking-wider">{step.title}</h3>
+                  <p className='mb-3 text-primary text-lg font-semibold font-inter leading-loose tracking-wider'>{`Step ${step.stepNumber} - ${step.title}`}</p>
+                  {/* <h3 className="text-xl font-semibold text-primary font-inter tracking-wider">{step.title}</h3> */}
                   <p className="mt-3 font-poppins text-black">{step.description}</p>
                 </div>
               </a>
