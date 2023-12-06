@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from 'react'
 import { ArrowRightIcon, ArrowLeftIcon, StopCircleIcon } from '@heroicons/react/24/outline'
-import { banner1, banner2, banner3, weather, carousel1024p1,carousel1024p2,carousel1024p3,carousel1440p1,carousel1440p2,carousel1440p3,carousel2650p1,carousel2650p2,carousel2650p3, } from '../../assets';
+import { banner1, banner2, banner3, weather,trylang, try2, try3, carousel1024p1,carousel1024p2,carousel1024p3,carousel1440p1,carousel1440p2,carousel1440p3,carousel2650p1,carousel2650p2,carousel2650p3, } from '../../assets';
 const Carousel = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -18,21 +18,21 @@ const Carousel = () => {
   const slides = [
     //pic 1
     {
-      url: windowWidth <= 1024 ? carousel1024p1 :
+      url: windowWidth <= 1024 ? trylang :
          windowWidth <= 1440 ? carousel1440p1 :
-         windowWidth <= 2560 ? carousel2650p1 :
+         windowWidth <= 2560 ? trylang :
         weather
     },//pic2
     {
       url: windowWidth <= 1024 ? carousel1024p2:
       windowWidth <= 1440 ? carousel1440p2 :
-      windowWidth <= 2560 ? carousel2650p2 :
+      windowWidth <= 2560 ? try2 :
      weather
     },//pic3
     {
       url: windowWidth <= 1024 ? carousel1024p3 :
       windowWidth <= 1440 ? carousel1440p3 :
-      windowWidth <= 2560 ? carousel2650p3 :
+      windowWidth <= 2560 ? try3 :
      weather
     },
   ];

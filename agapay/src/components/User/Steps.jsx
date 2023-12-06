@@ -1,6 +1,6 @@
 import React from 'react';
 import { weather } from '../../assets';
-import { animate1,animate2 } from "../../assets";
+import { animate1,animate2,animate3 } from "../../assets";
 
 const stepsData = [
   {
@@ -18,7 +18,7 @@ const stepsData = [
     description: 'Submit your report with a click. Instantly report emergencies, fires, incidents, and request ambulance support with a simple click.',
   },
   {
-    videoSrc: animate2,
+    videoSrc: animate3,
     altText: 'Step 3 Image Description',
     stepNumber: 3,
     title: 'Wait for Response',

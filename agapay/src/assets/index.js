@@ -36,6 +36,9 @@ import carousel2650p2 from "./2650-2.png"
 import carousel2650p3 from "./2650-3.png"
 import ambulance from "./update2.png"
 import report from"./forreport.png"
+import trylang from"./1600x804.png"
+import try2 from"./try2.png"
+import try3 from"./try3.png"
 //fire pics for the safety contents
 import firepic1 from "./firepic1.png"
 import firecause1 from "./firecause1.png"
@@ -96,6 +99,7 @@ import respond from "./respond.png"
 import phoneMockUp from "./cp.png"
 import animate1 from "./animate1.mp4"
 import animate2 from "./animate2.mp4"
+import animate3 from "./animate3.mp4"
 
 export {
     logo,
@@ -187,4 +191,9 @@ export {
     phoneMockUp,
     animate1,
     animate2,
+    animate3,
+    trylang,
+    try2,
+    try3,
+
 };
