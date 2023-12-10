@@ -171,14 +171,14 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
     <>
       <nav className={`fixed top-0 w-full bg-white border-gray z-20   shadow-b shadow-md`}>
         <div className="flex flex-wrap lg:justify-between md:justify-center justify-between items-center mx-auto max-w-screen-xl">
-          <a href="#" className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img src={logo} className="h-24 p-2   flex items-center" alt="Logo" />
             <img
               src={assistance}
               className="h-10  hidden "
               alt="Logo"
             />
-          </a>
+          </Link>
           <div className=" items-center justify-center sm:justify-between flex-wrap hidden md:flex ">
             <ul
               className={`${
@@ -233,7 +233,7 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
             <div className="group relative inline-block cursor-pointer">
               <h1
                 onClick={handleCallClick11}
-                className="mr-6 text-sm  font-poppins "
+                className="mr-6 text-base font-medium  font-poppins transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300 hover:font-semibold"
               >
                 (888) 25664
               </h1>
@@ -312,7 +312,7 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
               </>
             ) : (
               <button
-                className="text-md font-poppins md:block hidden font-semibold transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  text-secondary mr-3 hover:bg-secondary hover:text-white px-2 py-2 rounded-lg"
+                className="text-lg font-poppins md:block hidden font-semibold transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300  text-secondary mr-3 hover:bg-secondary hover:text-white px-2 py-2 rounded-lg"
                 onClick={handleLoginModalToggle}
               >
                 Login
@@ -518,22 +518,26 @@ const Navbar = ({ status, userType, username, isLoggedInSessionToParent }) => {
       )}
 {showModalphone11 && (
   <div className="fixed top-0 z-50  left-0 w-full  h-full flex items-center justify-center bg-black bg-opacity-50">
-        <div className="relative w-full max-w-md max-h-full p-5">
+        <div className="relative w-full max-w-lg max-h-full p-5">
         <div className="bg-white p-8 rounded-lg shadow-lg">
         <PhoneIcon className="h-12 w-12 mb-5 mx-auto text-primary animate-pulse" />
-      <p className="mb-4 font-inter text-center leading-loose">Are you sure you want to call {phoneNumber11}?</p>
+      <p className={`${styles.modalHeader}`}>Are you sure you want to call <span className="text-primary">{phoneNumber11}</span> ?</p>
+    <div className="flex flex-row justify-center items-center mb-5 mt-1">
+
+   <p className={`${styles.modalDisclaimer}`}>  <InformationCircleIcon className="w-7 h-7 mr-1 text-gray/70 inline-block"/> Please note that standard call charges may apply.</p>
+    </div>
       <div className="flex flex-row  justify-center items-center">
       <button
-        className="text-white bg-primary hover:bg-primarydark font-inter   focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+        className={`${styles.modalConfirmation}`}
         onClick={handleConfirmCall11}
       >
-        Yes
+        Call
       </button>
       <button
-       className="text-[#c94c05] border border-[#c94c05] font-inter bg-none hover:bg-[#fff8ec] focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+       className={`${styles.modalClose}`}
         onClick={handleCancelCall11}
       >
-        No
+        Cancel
       </button>
 </div>
     </div>

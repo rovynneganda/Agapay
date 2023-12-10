@@ -8,12 +8,12 @@ const Footer = () => {
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
-            <div className="flex items-center">
+            <Link to="/" className="flex items-center">
               <img src={logo} className="mr-3 h-28 sm:h-36  " alt="Logo" />
               <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
-            </div>
+            </Link>
 
-            <p className="font-semibold font-poppins text-black/50 ">
+            <p className="font-semibold font-poppins text-black/80 ">
               We are dedicated to fortifying communities, <br /> offering timely
               aid, and fostering resilience.{" "}
             </p>
@@ -30,10 +30,10 @@ const Footer = () => {
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             
             <div>
-              <h2 className="mb-6 text-md font-semibold text-primary  font-inter uppercase  ">
+              <h2 className="mb-6 text-md font-bold text-primary  font-inter uppercase  ">
                 Resources
               </h2>
-              <ul className="font-medium">
+              <ul className="font-semibold">
                 <li className="mb-4">
                   <a
                     href=""
@@ -54,10 +54,10 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-md font-semibold text-primary  font-inter uppercase">
+              <h2 className="mb-6 text-md font-bold text-primary  font-inter uppercase">
                 Follow us
               </h2>
-              <ul className="font-medium">
+              <ul className="font-semibold">
                 <li className="mb-4">
                   <a
                     href=""
@@ -77,10 +77,10 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-md font-semibold text-primary  font-inter uppercase">
+              <h2 className="mb-6 text-md font-bold text-primary  font-inter uppercase">
                 Legal
               </h2>
-              <ul className="font-medium">
+              <ul className="font-semibold">
                 <li className="mb-4">
                   <Link to="/privacypolicy"
                     className="hover:underline font-poppins text-secondary text-sm"

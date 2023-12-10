@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import styles from "../../style";
 
-import {PhoneIcon, MapPinIcon,FireIcon,BuildingOffice2Icon,ShieldExclamationIcon,QuestionMarkCircleIcon,XMarkIcon } from "@heroicons/react/20/solid"
+import {PhoneIcon,InformationCircleIcon, MapPinIcon,FireIcon,BuildingOffice2Icon,ShieldExclamationIcon,QuestionMarkCircleIcon,XMarkIcon } from "@heroicons/react/20/solid"
 
 const Hotlines = () => {
   const phoneNumber = '+63(2)83649060';
@@ -240,17 +241,18 @@ const Hotlines = () => {
   return (
     <>
       <section className="">
-        <div className="container px-5 py-9 mx-auto">
-          <div className="flex flex-wrap w-full  flex-col items-center text-center">
+        <div className="container px-5 py-9 mx-auto ">
+          <div className="flex flex-wrap w-full sm:mb-2 mb-5  flex-col items-center text-center">
             <h1 className="text-4xl font-semibold mb-3 font-poppins text-primary">
               General Hotlines
             </h1>
-            <p className="lg:w-1/2 w-full text-black leading-relaxed font-poppins text-xl">
+            <p className="lg:w-1/2 w-full text-black leading-relaxed font-medium font-poppins text-xl">
             Find emergency contacts and support helplines below.
             </p>
             <p className="lg:w-1/3 w-full text-gray leading-relaxed font-poppins text-lg">
-            Click the <MapPinIcon className="w-6 h-6 inline-block text-primary"/> icon to view the Google Map location, or tap the <PhoneIcon className="w-6 h-6 inline-block text-primary"/> icon to make a phone call.
-            </p>
+            Click the  <MapPinIcon className="w-6 h-6 inline-block text-primary"/> icon to view the Google Map location.
+</p>
+<p className="lg:w-1/3 w-full text-gray leading-relaxed font-poppins text-lg">Tap the <PhoneIcon className="w-6 h-6 inline-block text-primary"/> icon to initiate a call.</p>
           </div>
           <div className="flex flex-wrap -m-4  rounded-xl p-0 sm:p-10">
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
@@ -455,21 +457,17 @@ const Hotlines = () => {
           tabIndex="-1"
           className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-black bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
         >
-          <div className="relative w-full max-w-md max-h-full">
+          <div className="relative w-full max-w-lg max-h-full">
             <div className="relative bg-white rounded-lg shadow ">
-              <button
-                type="button"
-                onClick={handleCloseModal}
-                className="absolute top-3 right-2.5 text-gray bg-transparent hover:bg-gray/20 hover:text-gray rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center "
-              >
-                <XMarkIcon className="w-5 h-5" />
-                <span className="sr-only">Close modal</span>
-              </button>
               <div className="p-6 text-center">
-                <QuestionMarkCircleIcon className="h-12 w-12 mb-5 mx-auto text-primary animate-pulse" />
-                <h3 className="mb-5 text-lg font-normal text-gray font-inter ">
-                  Would you like to proceed with opening this on Google Maps?
+                <QuestionMarkCircleIcon className="h-12 w-12 mb-2 mx-auto text-primary animate-pulse" />
+                <h3 className={` ${styles.modalHeader}`}>
+                Proceed to Google Maps?
                 </h3>
+                <div className="flex flex-row justify-center items-center mb-5 mt-1">
+
+   <p className={`${styles.modalDisclaimer}`}> <InformationCircleIcon className="w-7 h-7 mr-1 text-gray/70 inline-block"/> By clicking "Open Maps," you will be redirected to Google Maps</p>
+    </div>
                 <button
                   type="button"
                   onClick={openExternalWebsite}
@@ -494,21 +492,25 @@ const Hotlines = () => {
           tabIndex="-1"
           className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-black bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
         >
-          <div className="relative w-full max-w-md max-h-full">
+          <div className="relative w-full max-w-lg max-h-full">
             <div className="relative bg-white rounded-lg shadow ">
-              <button
+              {/* <button
                 type="button"
                 onClick={handleCloseModal1}
                 className="absolute top-3 right-2.5 text-gray bg-transparent hover:bg-gray/20 hover:text-gray rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center "
               >
                 <XMarkIcon className="w-5 h-5" />
                 <span className="sr-only">Close modal</span>
-              </button>
+              </button> */}
               <div className="p-6 text-center">
-                <QuestionMarkCircleIcon className="h-12 w-12 mb-5 mx-auto text-primary animate-pulse" />
-                <h3 className="mb-5 text-lg font-normal text-gray font-inter ">
-                  Would you like to proceed with opening this on Google Maps?
+                <QuestionMarkCircleIcon className="h-12 w-12 mb-2 mx-auto text-primary animate-pulse" />
+                <h3 className={` ${styles.modalHeader}`}>
+                Proceed to Google Maps?
                 </h3>
+                <div className="flex flex-row justify-center items-center mb-5 mt-1">
+
+<p className={`${styles.modalDisclaimer}`}> <InformationCircleIcon className="w-7 h-7 mr-1 text-gray/70 inline-block"/> By clicking "Open Maps," you will be redirected to Google Maps</p>
+ </div>
                 <button
                   type="button"
                   onClick={openExternalWebsite1}
@@ -533,21 +535,25 @@ const Hotlines = () => {
           tabIndex="-1"
           className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-black bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
         >
-          <div className="relative w-full max-w-md max-h-full">
+          <div className="relative w-full max-w-lg max-h-full">
             <div className="relative bg-white rounded-lg shadow ">
-              <button
+              {/* <button
                 type="button"
                 onClick={handleCloseModal2}
                 className="absolute top-3 right-2.5 text-gray bg-transparent hover:bg-gray/20 hover:text-gray rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center "
               >
                 <XMarkIcon className="w-5 h-5" />
                 <span className="sr-only">Close modal</span>
-              </button>
+              </button> */}
               <div className="p-6 text-center">
-                <QuestionMarkCircleIcon className="h-12 w-12 mb-5 mx-auto text-primary animate-pulse" />
-                <h3 className="mb-5 text-lg font-normal text-gray font-inter ">
-                  Would you like to proceed with opening this on Google Maps?
+                <QuestionMarkCircleIcon className="h-12 w-12 mb-2 mx-auto text-primary animate-pulse" />
+                <h3 className={`${styles.modalHeader}`}>
+                 Proceed to Google Maps
                 </h3>
+                <div className="flex flex-row justify-center items-center mb-5 mt-1">
+
+<p className={`${styles.modalDisclaimer}`}> <InformationCircleIcon className="w-7 h-7 mr-1 text-gray/70 inline-block"/> By clicking "Open Maps," you will be redirected to Google Maps</p>
+ </div>
                 <button
                   type="button"
                   onClick={openExternalWebsite2}
@@ -572,21 +578,25 @@ const Hotlines = () => {
           tabIndex="-1"
           className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-black bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
         >
-          <div className="relative w-full max-w-md max-h-full">
+          <div className="relative w-full max-w-lg max-h-full">
             <div className="relative bg-white rounded-lg shadow ">
-              <button
+              {/* <button
                 type="button"
                 onClick={handleCloseModal3}
                 className="absolute top-3 right-2.5 text-gray bg-transparent hover:bg-gray/20 hover:text-gray rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center "
               >
                 <XMarkIcon className="w-5 h-5" />
                 <span className="sr-only">Close modal</span>
-              </button>
+              </button> */}
               <div className="p-6 text-center">
-                <QuestionMarkCircleIcon className="h-12 w-12 mb-5 mx-auto text-primary animate-pulse" />
-                <h3 className="mb-5 text-lg font-normal text-gray font-inter ">
-                  Would you like to proceed with opening this on Google Maps?
+                <QuestionMarkCircleIcon className="h-12 w-12 mb-2 mx-auto text-primary animate-pulse" />
+                <h3 className={`${styles.modalHeader}`}>
+                Proceed to Google Maps
                 </h3>
+                <div className="flex flex-row justify-center items-center mb-5 mt-1">
+
+<p className={`${styles.modalDisclaimer}`}> <InformationCircleIcon className="w-7 h-7 mr-1 text-gray/70 inline-block"/> By clicking "Open Maps," you will be redirected to Google Maps</p>
+ </div>
                 <button
                   type="button"
                   onClick={openExternalWebsite3}
@@ -611,21 +621,25 @@ const Hotlines = () => {
           tabIndex="-1"
           className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-black bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
         >
-          <div className="relative w-full max-w-md max-h-full">
+          <div className="relative w-full max-w-lg max-h-full">
             <div className="relative bg-white rounded-lg shadow ">
-              <button
+              {/* <button
                 type="button"
                 onClick={handleCloseModal4}
                 className="absolute top-3 right-2.5 text-gray bg-transparent hover:bg-gray/20 hover:text-gray rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center "
               >
                 <XMarkIcon className="w-5 h-5" />
                 <span className="sr-only">Close modal</span>
-              </button>
+              </button> */}
               <div className="p-6 text-center">
-                <QuestionMarkCircleIcon className="h-12 w-12 mb-5 mx-auto text-primary animate-pulse" />
-                <h3 className="mb-5 text-lg font-normal text-gray font-inter ">
-                  Would you like to proceed with opening this on Google Maps?
+                <QuestionMarkCircleIcon className="h-12 w-12 mb-2 mx-auto text-primary animate-pulse" />
+                <h3 className={`${styles.modalHeader}`}>
+                  Proceed to Google Maps?
                 </h3>
+                <div className="flex flex-row justify-center items-center mb-5 mt-1">
+
+<p className={`${styles.modalDisclaimer}`}> <InformationCircleIcon className="w-7 h-7 mr-1 text-gray/70 inline-block"/> By clicking "Open Maps," you will be redirected to Google Maps</p>
+ </div>
                 <button
                   type="button"
                   onClick={openExternalWebsite4}
@@ -650,21 +664,25 @@ const Hotlines = () => {
           tabIndex="-1"
           className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4 overflow-x-hidden   bg-black bg-opacity-50 overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full"
         >
-          <div className="relative w-full max-w-md max-h-full">
+          <div className="relative w-full max-w-lg max-h-full">
             <div className="relative bg-white rounded-lg shadow ">
-              <button
+              {/* <button
                 type="button"
                 onClick={handleCloseModal5}
                 className="absolute top-3 right-2.5 text-gray bg-transparent hover:bg-gray/20 hover:text-gray rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center "
               >
                 <XMarkIcon className="w-5 h-5" />
                 <span className="sr-only">Close modal</span>
-              </button>
+              </button> */}
               <div className="p-6 text-center">
-                <QuestionMarkCircleIcon className="h-12 w-12 mb-5 mx-auto text-primary animate-pulse" />
-                <h3 className="mb-5 text-lg font-normal text-gray font-inter ">
-                  Would you like to proceed with opening this on Google Maps?
+                <QuestionMarkCircleIcon className="h-12 w-12 mb-2 mx-auto text-primary animate-pulse" />
+                <h3 className={`${styles.modalHeader}`}>
+                  Proceed to Google Maps?
                 </h3>
+                <div className="flex flex-row justify-center items-center mb-5 mt-1">
+
+<p className={`${styles.modalDisclaimer}`}> <InformationCircleIcon className="w-7 h-7 mr-1 text-gray/70 inline-block"/> By clicking "Open Maps," you will be redirected to Google Maps</p>
+ </div>
                 <button
                   type="button"
                   onClick={openExternalWebsite5}
@@ -672,6 +690,7 @@ const Hotlines = () => {
                 >
                   Open Maps
                 </button>
+
                 <button
                   type="button"
                   onClick={handleCloseModal5}
@@ -687,24 +706,28 @@ const Hotlines = () => {
        {/* // phone number for 4th avenue station */}
        {showModalphone && (
         <div className="fixed top-0 z-50  left-0 w-full  h-full flex items-center justify-center bg-black bg-opacity-50">
-             <div className="relative w-full max-w-md max-h-full p-5">
-          <div className="bg-white p-8 rounded-lg shadow-lg max-w-sm">
+             <div className="relative w-full max-w-xl max-h-full p-5">
+             <div className="bg-white p-8 rounded-lg shadow-lg">
           <PhoneIcon className="h-12 w-12 mb-5 mx-auto text-primary animate-pulse" />
-            <p className="mb-4 font-inter text-center leading-loose ">Are you sure you want to call <span className="text-primary">{phoneNumber}</span> ?</p>
+            <p className={`${styles.modalHeader}`}>Are you sure you want to call <span className="text-primary">{phoneNumber}</span> ?</p>
+            <div className="flex flex-row justify-center items-center mb-5 mt-1">
+
+   <p className={`${styles.modalDisclaimer}`}> <InformationCircleIcon className="w-7 h-7 mr-1 text-gray/70 inline-block"/> Please note that standard call charges may apply.</p>
+    </div>
            <div className="flex flex-row  justify-center items-center">
             <button
-             className="text-white bg-primary hover:bg-primarydark font-inter   focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+             className={`${styles.modalConfirmation}`}
 
               onClick={handleConfirmCall}
             >
-              Yes
+             Call
             </button>
             <button
-            className="text-[#c94c05] border border-[#c94c05] font-inter bg-none hover:bg-[#fff8ec] focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+            className={`${styles.modalClose}`}
 
               onClick={handleCancelCall}
             >
-              No
+              Cancel
             </button>
             </div>
           </div>
@@ -715,23 +738,26 @@ const Hotlines = () => {
           {/* // phone number for central fire station */}
        {showModalphone1 && (
         <div className="fixed top-0 z-50 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
-             <div className="relative w-full max-w-md max-h-full p-5">
-
-          <div className="bg-white p-8 rounded-lg shadow-lg">
+       <div className="relative w-full max-w-xl max-h-full p-5">
+             <div className="bg-white p-8 rounded-lg shadow-lg">
           <PhoneIcon className="h-12 w-12 mb-5 mx-auto text-primary animate-pulse" />
-            <p className="mb-4 font-inter text-center leading-loose">Are you sure you want to call <span className="font-inter text-primary"> {phoneNumber1}</span> ?</p>
+            <p className={`${styles.modalHeader}`}>Are you sure you want to call <span className="font-inter text-primary"> {phoneNumber1}</span> ?</p>
+            <div className="flex flex-row justify-center items-center mb-5 mt-1">
+  
+   <p className={`${styles.modalDisclaimer}`}>  <InformationCircleIcon className="w-7 h-7 mr-1 text-gray/70 inline-block"/> Please note that standard call charges may apply.</p>
+    </div>
             <div className="flex flex-row  justify-center items-center">
             <button
-              className="text-white bg-primary hover:bg-primarydark font-inter   focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+               className={`${styles.modalConfirmation}`}
               onClick={handleConfirmCall1}
             >
-              Yes
+              Call
             </button>
             <button
-            className="text-[#c94c05] border border-[#c94c05] font-inter bg-none hover:bg-[#fff8ec] focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+            className={`${styles.modalClose}`}
               onClick={handleCancelCall1}
             >
-              No
+              Cancel
             </button>
             </div>
           </div>
@@ -742,22 +768,26 @@ const Hotlines = () => {
           {/* // phone number for Northern Police - Station 1 */}
        {showModalphone2 && (
       <div className="fixed top-0 z-50  left-0 w-full  h-full flex items-center justify-center bg-black bg-opacity-50">
-          <div className="relative w-full max-w-md max-h-full p-5">
+          <div className="relative w-full max-w-xl max-h-full p-5">
           <div className="bg-white p-8 rounded-lg shadow-lg">
-          <PhoneIcon className="h-12 w-12 mb-5 mx-auto text-primary animate-pulse" />
-            <p className="mb-4 font-inter text-center leading-loose">Are you sure you want to call <span className="text-primary font-inter">{phoneNumber2}</span> ?</p>
+          <PhoneIcon className="h-12 w-12 mb-2 mx-auto text-primary animate-pulse" />
+            <p className={`${styles.modalHeader}`}>Are you sure you want to call <span className="text-primary font-inter">{phoneNumber2}</span> ?</p>
+            <div className="flex flex-row justify-center items-center mb-5 mt-1">
+
+   <p className={`${styles.modalDisclaimer}`}>  <InformationCircleIcon className="w-7 h-7 mr-1 text-gray/70 inline-block"/> Please note that standard call charges may apply.</p>
+    </div>
             <div className="flex flex-row  justify-center items-center">
             <button
-            className="text-white bg-primary hover:bg-primarydark font-inter   focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                className={`${styles.modalConfirmation}`}
               onClick={handleConfirmCall2}
             >
-              Yes
+              Call
             </button>
             <button
-                       className="text-[#c94c05] border border-[#c94c05] font-inter bg-none hover:bg-[#fff8ec] focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                          className={`${styles.modalClose}`}
               onClick={handleCancelCall2}
             >
-              No
+              Cancel
             </button>
           </div>
           </div>
@@ -767,23 +797,27 @@ const Hotlines = () => {
         {/* //  end phone number for Northern Police District */}
         {showModalphone3 && (
              <div className="fixed top-0 z-50  left-0 w-full  h-full flex items-center justify-center bg-black bg-opacity-50">
-                           <div className="relative w-full max-w-md max-h-full p-5">
-          <div className="bg-white p-8 rounded-lg shadow-lg">
-          <PhoneIcon className="h-12 w-12 mb-5 mx-auto text-primary animate-pulse" />
-            <p className="mb-4 font-inter text-center leading-loose">Are you sure you want to call <span className="text-primary font-inter"> {phoneNumber3} </span>?</p>
+                           <div className="relative w-full max-w-xl max-h-full p-5">
+         <div className="bg-white p-8 rounded-lg shadow-lg">
+          <PhoneIcon className="h-12 w-12 mb-2 mx-auto text-primary animate-pulse" />
+            <p className={`${styles.modalHeader}`}>Are you sure you want to call <span className="text-primary font-inter"> {phoneNumber3} </span>?</p>
+            <div className="flex flex-row justify-center items-center mb-5 mt-1">
+
+   <p className={`${styles.modalDisclaimer}`}>  <InformationCircleIcon className="w-7 h-7 mr-1 text-gray/70 inline-block"/> Please note that standard call charges may apply.</p>
+    </div>
             <div className="flex flex-row  justify-center items-center">
             <button
-                 className="text-white bg-primary hover:bg-primarydark font-inter   focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                className={`${styles.modalConfirmation}`}
 
               onClick={handleConfirmCall3}
             >
-              Yes
+              Call
             </button>
             <button
-            className="text-[#c94c05] border border-[#c94c05] font-inter bg-none hover:bg-[#fff8ec] focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+            className={`${styles.modalClose}`}
               onClick={handleCancelCall3}
             >
-              No
+              Cancel
             </button>
             </div>
           </div>
@@ -795,22 +829,26 @@ const Hotlines = () => {
           {/* // phone number for North Medical Center */}
           {showModalphone4 && (
         <div className="fixed top-0 z-50  left-0 w-full  h-full flex items-center justify-center bg-black bg-opacity-50">
-                       <div className="relative w-full max-w-md max-h-full p-5">
+                       <div className="relative w-full max-w-xl max-h-full p-5">
           <div className="bg-white p-8 rounded-lg shadow-lg">
-          <PhoneIcon className="h-12 w-12 mb-5 mx-auto text-primary animate-pulse" />
-            <p className="mb-4 font-inter text-center leading-loose">Are you sure you want to call <span className="text-primary font-inter"> {phoneNumber4}</span>?</p>
+          <PhoneIcon className="h-12 w-12 mb-2 mx-auto text-primary animate-pulse" />
+            <p className={`${styles.modalHeader}`}>Are you sure you want to call <span className="text-primary font-inter"> {phoneNumber4}</span>?</p>
+            <div className="flex flex-row justify-center items-center mb-5 mt-1">
+
+   <p className={`${styles.modalDisclaimer}`}>  <InformationCircleIcon className="w-7 h-7 mr-1 text-gray/70 inline-block"/> Please note that standard call charges may apply.</p>
+    </div>
             <div className="flex flex-row  justify-center items-center">
             <button
-               className="text-white bg-primary hover:bg-primarydark font-inter   focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                 className={`${styles.modalConfirmation}`}
               onClick={handleConfirmCall4}
             >
-              Yes
+              Call
             </button>
             <button
-              className="text-[#c94c05] border border-[#c94c05] font-inter bg-none hover:bg-[#fff8ec] focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                  className={`${styles.modalClose}`}
               onClick={handleCancelCall4}
             >
-              No
+              Cancel
             </button>
          
           </div>
@@ -823,22 +861,26 @@ const Hotlines = () => {
          {/* // phone number for South Medical Center */}
          {showModalphone5 && (
         <div className="fixed top-0 z-50  left-0 w-full  h-full flex items-center justify-center bg-black bg-opacity-50">
-                       <div className="relative w-full max-w-md max-h-full p-5">
+                       <div className="relative w-full max-w-xl max-h-full p-5">
           <div className="bg-white p-8 rounded-lg shadow-lg">
-          <PhoneIcon className="h-12 w-12 mb-5 mx-auto text-primary animate-pulse" />
-            <p className="mb-4 font-inter text-center leading-loose">Are you sure you want to call<span className="text-primary font-inter">{phoneNumber5}</span> ?</p>
+          <PhoneIcon className="h-12 w-12 mb-2 mx-auto text-primary animate-pulse" />
+            <p className={`${styles.modalHeader}`}>Are you sure you want to call<span className="text-primary font-inter"> {phoneNumber5}</span> ?</p>
+            <div className="flex flex-row justify-center items-center mb-5 mt-1">
+
+   <p className={`${styles.modalDisclaimer}`}>  <InformationCircleIcon className="w-7 h-7 mr-1 text-gray/70 inline-block"/> Please note that standard call charges may apply.</p>
+    </div>
             <div className="flex flex-row  justify-center items-center">
             <button
-               className="text-white bg-primary hover:bg-primarydark font-inter   focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                  className={`${styles.modalConfirmation}`}
               onClick={handleConfirmCall5}
             >
-              Yes
+              Call
             </button>
             <button
-            className="text-[#c94c05] border border-[#c94c05] font-inter bg-none hover:bg-[#fff8ec] focus:outline-none   font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+               className={`${styles.modalClose}`}
               onClick={handleCancelCall5}
             >
-              No
+              Cancel
             </button>
           </div>
           </div>
