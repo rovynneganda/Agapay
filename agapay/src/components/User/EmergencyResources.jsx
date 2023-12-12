@@ -125,10 +125,10 @@ const EmergencyResources = () => {
           <section className=' pb-10'>
       <div className="flex flex-col justify-center items-center pt-5  ">
        
-      <h1 className="text-4xl font-semibold mb-3 font-poppins text-primary">
+      <h1 className="text-4xl font-semibold mb-3 font-poppins text-primary text-center">
         Emergency Services Locator
         </h1>
-        <p className="lg:w-1/2 w-full text-black leading-relaxed font-poppins text-xl ">To ensure you have immediate access to essential emergency services</p>
+        <p className="lg:w-1/2 w-full text-black font-medium leading-relaxed font-poppins text-xl text-center">To ensure you have immediate access to essential emergency services</p>
       </div>
       <div className="mx-auto max-w-2xl lg:max-w-4xl gap-2 p-5 ">
       <div className="flex sm:flex-row flex-wrap justify-center items-center gap-3">
