@@ -961,7 +961,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
             </div>
 
             <div
-              className="w-full h-full sm:rounded-r-lg  p-5 flex flex-col align-center justify-center bg-cover relative"
+              className="w-full h-full sm:rounded-r-lg rounded-bl-lg rounded-br-lg sm:rounded-bl-none  p-5 flex flex-col align-center justify-center bg-cover relative"
               style={{ backgroundImage: `url(${loginbg})` }}
             >
               <button

@@ -123,7 +123,7 @@ const EmergencyResources = () => {
 </div>
 <Hotlines />
           <section className=' pb-10'>
-      <div className="flex flex-col justify-center items-center pt-5  ">
+      <div className="flex flex-col justify-center items-center pt-5 p-2  ">
        
       <h1 className="text-4xl font-semibold mb-3 font-poppins text-primary text-center">
         Emergency Services Locator
