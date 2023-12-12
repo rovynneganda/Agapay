@@ -18,6 +18,7 @@ export default {
       lightgray:"#90a4ae", //light gray 
       subtlegray:"#f9fafb", // super light na gray, ideal for bg
       blue:"#93C5FD", //blue
+      linkColor:"#0000EE",//blue link color
       darkblue:"#1e3a8a", //dark blue
       red:"#DC2626", //red
       lightblue:'#f6f9fc',

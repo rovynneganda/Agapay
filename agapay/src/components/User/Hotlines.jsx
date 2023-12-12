@@ -252,7 +252,7 @@ const Hotlines = () => {
             <p className="lg:w-1/3 w-full text-gray leading-relaxed font-poppins text-lg">
             Click the  <MapPinIcon className="w-6 h-6 inline-block text-primary"/> icon to view the Google Map location.
 </p>
-<p className="lg:w-1/3 w-full text-gray leading-relaxed font-poppins text-lg">Tap the <PhoneIcon className="w-6 h-6 inline-block text-primary"/> icon to initiate a call.</p>
+<p className="lg:w-1/3 w-full text-gray leading-relaxed font-poppins text-lg sm:hidden block">Tap the <PhoneIcon className="w-6 h-6 inline-block text-primary"/> icon to initiate a call.</p>
           </div>
           <div className="flex flex-wrap -m-4  rounded-xl p-0 sm:p-10">
             <div className="xl:w-1/3 md:w-1/2 p-4 transition ease-in-out  hover:-translate-y-1 hover:scale-100 duration-300 ">
@@ -267,10 +267,14 @@ const Hotlines = () => {
                 </div>
 
                 <div className="flex flex-row">
-                  <button className=" mr-2  cursor-pointer      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
-                    <PhoneIcon className="h-5 w-5 text-primary font-semibold" onClick={handleCallClick}/>
+                  <button className=" mr-2   sm:cursor-default cursor-pointer   capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                    <PhoneIcon className="h-5 w-5 sm:block hidden text-primary font-semibold cursor-default" />
+                    <PhoneIcon className="h-5 w-5 sm:hidden block text-primary font-semibold  cursor-pointer " onClick={handleCallClick}/>
                   </button>
-                  <h3 onClick={handleCallClick} className="text-base cursor-pointer hover:underline text-primarydark/90 font-medium font-poppins mb-2 mt-2">
+                  <h3 className="sm:block hidden  text-base cursor-default text-black font-medium font-poppins mb-2 mt-2 ">
+                    +63(2)83649060
+                  </h3>
+                  <h3 onClick={handleCallClick} className="sm:hidden block  text-base cursor-pointer hover:underline text-black font-medium font-poppins mb-2 mt-2">
                     +63(2)83649060
                   </h3>
                 </div>
@@ -280,7 +284,7 @@ const Hotlines = () => {
                   </button>
                   <p
                     onClick={handleShowModal}
-                    className="leading-relaxed text-primarydark hover:underline  font-poppins cursor-pointer "
+                    className="leading-relaxed text-black/90 hover:underline hover:text-primary hover:font-medium font-poppins cursor-pointer "
                   >
                     A. Del Mundo Street corner 4th Avenue & 5th Avenue, Barangay
                     51
@@ -299,10 +303,14 @@ const Hotlines = () => {
                   </h2>
                 </div>
                 <div className="flex flex-row">
-                  <button className=" mr-2  cursor-pointer      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
-                    <PhoneIcon className="h-5 w-5 text-primary font-semibold" onClick={handleCallClick1}/>
+                  <button className=" mr-2  sm:cursor-default cursor-pointer     capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                    <PhoneIcon className="sm:block hidden h-5 w-5 text-primary font-semibold cursor-default " />
+                    <PhoneIcon className="sm:hidden block h-5 w-5 text-primary font-semibold cursor-pointer " onClick={handleCallClick1}/>
                   </button>
-                  <h3 onClick={handleCallClick1} className="text-base cursor-pointer text-primarydark/90 hover:underline font-medium font-poppins mb-2 mt-2">
+                  <h3 className="sm:block hidden text-base cursor-default text-black font-medium font-poppins mb-2 mt-2">
+                    324 6527
+                  </h3>
+                  <h3 onClick={handleCallClick1} className="sm:hidden block text-base cursor-pointer text-black hover:underline font-medium font-poppins mb-2 mt-2">
                     324 6527
                   </h3>
                 </div>
@@ -313,7 +321,7 @@ const Hotlines = () => {
                   </button>
                   <p
                     onClick={handleShowModal1}
-                    className="leading-relaxed text-primarydark hover:underline  font-poppins cursor-pointer  "
+                    className="leading-relaxed text-black/90 hover:underline hover:text-primary hover:font-medium  font-poppins cursor-pointer  "
                   >
                     Samson Road, Sangandaan Barangay 1 Caloocan, Metro Manila
                   </p>
@@ -331,10 +339,14 @@ const Hotlines = () => {
                   </h2>
                 </div>
                 <div className="flex flex-row">
-                  <button className=" mr-2  cursor-pointer      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
-                    <PhoneIcon className="h-5 w-5 text-primary font-semibold" onClick={handleCallClick2}/>
+                  <button className=" mr-2  sm:cursor-default cursor-pointer      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                    <PhoneIcon className="sm:block hidden h-5 w-5 text-primary font-semibold cursor-default" />
+                    <PhoneIcon className="sm:hidden block h-5 w-5 text-primary font-semibold cursor-pointer" onClick={handleCallClick2}/>
                   </button>
-                  <h3 onClick={handleCallClick2} className="text-base cursor-pointer text-primarydark/90 hover:underline font-medium font-poppins mb-2 mt-2">
+                  <h3 className="sm:block hidden text-base cursor-default text-black font-medium font-poppins mb-2 mt-2">
+                    +63(2)324 6528
+                  </h3>
+                  <h3 onClick={handleCallClick2} className="sm:hidden block text-base cursor-pointer text-black hover:underline font-medium font-poppins mb-2 mt-2">
                     +63(2)324 6528
                   </h3>
                 </div>
@@ -345,7 +357,7 @@ const Hotlines = () => {
                   </button>
                   <p
                     onClick={handleShowModal2}
-                    className="leading-relaxed  text-primarydark hover:underline font-poppins cursor-pointer "
+                    className="leading-relaxed  text-black/90 hover:underline hover:text-primary hover:font-medium font-poppins cursor-pointer "
                   >
                     Samson Road, Sangandaan, Caloocan City 1408 Metro Manila
                   </p>
@@ -363,10 +375,14 @@ const Hotlines = () => {
                   </h2>
                 </div>
                 <div className="flex flex-row">
-                  <button className=" mr-2  cursor-pointer      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
-                    <PhoneIcon className="h-5 w-5 text-primary font-semibold" onClick={handleCallClick3}/>
+                  <button className=" mr-2 sm:cursor-default cursor-pointer     capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                    <PhoneIcon className="sm:block hidden h-5 w-5 text-primary font-semibold  cursor-default " />
+                    <PhoneIcon className="sm:hidden block h-5 w-5 text-primary font-semibold  cursor-pointer " onClick={handleCallClick3}/>
                   </button>
-                  <h3 onClick={handleCallClick3} className="text-base cursor-pointer text-primarydark/90 hover:underline font-medium font-poppins mb-2 mt-2">
+                  <h3  className="sm:block hidden text-base cursor-default text-black  font-medium font-poppins mb-2 mt-2">
+                    +63(2)9623918
+                  </h3>
+                  <h3 onClick={handleCallClick3} className="sm:hidden block text-base cursor-pointer text-black hover:underline font-medium font-poppins mb-2 mt-2">
                     +63(2)9623918
                   </h3>
                 </div>
@@ -377,7 +393,7 @@ const Hotlines = () => {
                   </button>
                   <p
                     onClick={handleShowModal3}
-                    className="leading-relaxed text-primarydark hover:underline  font-poppins cursor-pointer "
+                    className="leading-relaxed text-black/90 hover:underline hover:text-primary hover:font-medium  font-poppins cursor-pointer "
                   >
                     Cadena De Amor Street, Camarin 1. P.C. 1422 Caloocan City,
                     Metro Manila
@@ -396,10 +412,14 @@ const Hotlines = () => {
                   </h2>
                 </div>
                 <div className="flex flex-row">
-                  <button className=" mr-2  cursor-pointer      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
-                    <PhoneIcon className="h-5 w-5 text-primary font-semibold" onClick={handleCallClick4}/>
+                  <button className=" mr-2  sm:cursor-default cursor-pointer    capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                    <PhoneIcon className="sm:block hidden h-5 w-5 text-primary cursor-default font-semibold" />
+                    <PhoneIcon className="sm:hidden block h-5 w-5 text-primary cursor-pointer font-semibold" onClick={handleCallClick4}/>
                   </button>
-                  <h3 onClick={handleCallClick4} className="text-base cursor-pointer text-primarydark/90 hover:underline font-medium font-poppins mb-2 mt-2">
+                  <h3  className="sm:block hidden text-base cursor-default text-black  font-medium font-poppins mb-2 mt-2">
+                    02-8424-1724
+                  </h3>
+                  <h3 onClick={handleCallClick4} className="sm:hidden block text-base cursor-pointer text-black hover:underline font-medium font-poppins mb-2 mt-2">
                     02-8424-1724
                   </h3>
                 </div>
@@ -410,7 +430,7 @@ const Hotlines = () => {
                   </button>
                   <p
                     onClick={handleShowModal4}
-                    className="leading-relaxed text-primarydark hover:underline  font-poppins cursor-pointer "
+                    className="leading-relaxed text-black/90 hover:underline hover:text-primary hover:font-medium  font-poppins cursor-pointer "
                   >
                     Camarin Road, Barangay 177 Caloocan City, Metro Manila
                   </p>
@@ -428,10 +448,14 @@ const Hotlines = () => {
                   </h2>
                 </div>
                 <div className="flex flex-row">
-                  <button className=" mr-2  cursor-pointer      capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
-                    <PhoneIcon className="h-5 w-5 text-primary font-semibold" onClick={handleCallClick5}/>
+                  <button className=" mr-2 sm:cursor-default cursor-pointer     capitalize font-inter focus:outline-none font-medium  text-sm inline-flex items-center px-1 py-1 text-center">
+                    <PhoneIcon className="sm:block hidden h-5 w-5 text-primary font-semibold" />
+                    <PhoneIcon className="sm:hidden block h-5 w-5 text-primary font-semibold" onClick={handleCallClick5}/>
                   </button>
-                  <h3  onClick={handleCallClick5} className="text-base cursor-pointer text-primarydark/90 hover:underline font-medium font-poppins mb-2 mt-2">
+                  <h3 className="sm:block hidden text-base cursor-default text-black  font-medium font-poppins mb-2 mt-2">
+                    +63 (2) 310 7920
+                  </h3>
+                  <h3  onClick={handleCallClick5} className="sm:hidden block text-base cursor-pointer text-black hover:underline font-medium font-poppins mb-2 mt-2">
                     +63 (2) 310 7920
                   </h3>
                 </div>
@@ -442,7 +466,7 @@ const Hotlines = () => {
                   </button>
                   <p
                     onClick={handleShowModal5}
-                    className="leading-relaxed text-primarydark hover:underline font-poppins cursor-pointer "
+                    className="leading-relaxed text-black/90 hover:underline hover:text-primary hover:font-medium font-poppins cursor-pointer "
                   >
                     450, A. Mabini Street, Poblacion Caloocan City, Metro Manila
                   </p>
