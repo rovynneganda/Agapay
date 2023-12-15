@@ -274,7 +274,7 @@ const Hotlines = () => {
                   <h3 className="sm:block hidden  text-base cursor-default text-black font-medium font-poppins mb-2 mt-2 ">
                     +63(2)83649060
                   </h3>
-                  <h3 onClick={handleCallClick} className="sm:hidden block  text-base cursor-pointer hover:underline text-black font-medium font-poppins mb-2 mt-2">
+                  <h3 onClick={handleCallClick} className="sm:hidden block  hover:text-primary hover:font-medium  text-base cursor-pointer hover:underline text-black font-medium font-poppins mb-2 mt-2">
                     +63(2)83649060
                   </h3>
                 </div>
@@ -310,7 +310,7 @@ const Hotlines = () => {
                   <h3 className="sm:block hidden text-base cursor-default text-black font-medium font-poppins mb-2 mt-2">
                     324 6527
                   </h3>
-                  <h3 onClick={handleCallClick1} className="sm:hidden block text-base cursor-pointer text-black hover:underline font-medium font-poppins mb-2 mt-2">
+                  <h3 onClick={handleCallClick1} className="sm:hidden block text-base hover:text-primary hover:font-medium cursor-pointer text-black hover:underline font-medium font-poppins mb-2 mt-2">
                     324 6527
                   </h3>
                 </div>
@@ -346,7 +346,7 @@ const Hotlines = () => {
                   <h3 className="sm:block hidden text-base cursor-default text-black font-medium font-poppins mb-2 mt-2">
                     +63(2)324 6528
                   </h3>
-                  <h3 onClick={handleCallClick2} className="sm:hidden block text-base cursor-pointer text-black hover:underline font-medium font-poppins mb-2 mt-2">
+                  <h3 onClick={handleCallClick2} className="sm:hidden block text-base hover:text-primary hover:font-medium cursor-pointer text-black hover:underline font-medium font-poppins mb-2 mt-2">
                     +63(2)324 6528
                   </h3>
                 </div>
@@ -382,7 +382,7 @@ const Hotlines = () => {
                   <h3  className="sm:block hidden text-base cursor-default text-black  font-medium font-poppins mb-2 mt-2">
                     +63(2)9623918
                   </h3>
-                  <h3 onClick={handleCallClick3} className="sm:hidden block text-base cursor-pointer text-black hover:underline font-medium font-poppins mb-2 mt-2">
+                  <h3 onClick={handleCallClick3} className="sm:hidden block text-base hover:text-primary hover:font-medium cursor-pointer text-black hover:underline font-medium font-poppins mb-2 mt-2">
                     +63(2)9623918
                   </h3>
                 </div>
@@ -419,7 +419,7 @@ const Hotlines = () => {
                   <h3  className="sm:block hidden text-base cursor-default text-black  font-medium font-poppins mb-2 mt-2">
                     02-8424-1724
                   </h3>
-                  <h3 onClick={handleCallClick4} className="sm:hidden block text-base cursor-pointer text-black hover:underline font-medium font-poppins mb-2 mt-2">
+                  <h3 onClick={handleCallClick4} className="sm:hidden block text-base hover:text-primary hover:font-medium cursor-pointer text-black hover:underline font-medium font-poppins mb-2 mt-2">
                     02-8424-1724
                   </h3>
                 </div>
@@ -455,7 +455,7 @@ const Hotlines = () => {
                   <h3 className="sm:block hidden text-base cursor-default text-black  font-medium font-poppins mb-2 mt-2">
                     +63 (2) 310 7920
                   </h3>
-                  <h3  onClick={handleCallClick5} className="sm:hidden block text-base cursor-pointer text-black hover:underline font-medium font-poppins mb-2 mt-2">
+                  <h3  onClick={handleCallClick5} className="sm:hidden block text-base hover:text-primary hover:font-medium cursor-pointer text-black hover:underline font-medium font-poppins mb-2 mt-2">
                     +63 (2) 310 7920
                   </h3>
                 </div>
