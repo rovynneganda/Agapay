@@ -9,6 +9,7 @@ import user_icon from '../../assets/user_icon.png';
 import HospitalIcon from '../../assets/hospital.png';
 import fire_station from '../../assets/fire_station.png';
 import police_station from '../../assets/police_station.png';
+import haversine from 'haversine';
 const getMarkerIcon = (types) => {
   if (types.includes('hospital')) {
     return { url: HospitalIcon, scaledSize: new window.google.maps.Size(40, 40) };
@@ -20,13 +21,60 @@ const getMarkerIcon = (types) => {
     return null; // Use a default icon or no icon for other types
   }
 };
+
+//Nearby Location List component
+const LocationList = ({ locations, onLocationClick,onOpenInGoogleMapsClick }) => (
+  <div className="bg-gray-200 p-4 max-h-screen overflow-y-auto">
+    <h2 className="text-xl font-semibold mb-2">Nearby Locations</h2>
+    <ul>
+      {locations.map((location, index) => (
+        <li key={location.place_id} className={`cursor-pointer mb-4 ${index !== locations.length - 1 ? 'border-b border-gray-300' : ''}`} onClick={() => onLocationClick(location)}>
+          <h3 className="text-lg font-semibold">{location.name}</h3>
+          {location.rating && (
+            <div>
+              <p>Rating: {location.rating} stars</p>
+              {/* Display stars based on the rating */}
+              {Array.from({ length: Math.floor(location.rating) }).map((_, index) => (
+                <span key={index} role="img" aria-label="star" className="text-yellow-500">
+                  ⭐
+                </span>
+              ))}
+            </div>
+          )}
+          <p>{location.vicinity}</p>
+          <p>Distance: {location.distance.toFixed(2)} km</p>
+          
+          {location.opening_hours && (
+            <div>
+              <p>{location.opening_hours.open_now ? 'Open Now' : 'Closed Now'}</p>
+            </div>
+          )}
+          {location.formatted_phone_number && (
+            <p>Phone: {location.formatted_phone_number}</p>
+          )}
+            <li key={location.place_id} className={`cursor-pointer mb-4 ${index !== locations.length - 1 ? 'border-b border-gray-300' : ''}`} onClick={() => onLocationClick(location)}>
+    
+    <button className="text-primary font-inter text-lg font-semibold hover:underline" onClick={() => onOpenInGoogleMapsClick(location.place_id)}>
+      Open in Google Maps
+    </button>
+  </li>
+          
+        </li>
+        
+      ))}
+    </ul>
+  </div>
+);
+// End Nearby Location List component
+
 const EmergencyResources = () => {
-  useEffect(() => {
+   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   const [location, setLocation] = useState(null);
   const [locations, setLocations] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState(null);
+  const [locationType, setLocationType] = useState(null);
 
   useEffect(() => {
     // Get user's location using the geolocation API
@@ -39,23 +87,60 @@ const EmergencyResources = () => {
       alert('Geolocation is not supported by your browser.');
     }
   }, []);
+  // close the information if changed the types of nearby
+  useEffect(() => {
+    if (location && locationType) {
+      fetchNearbyLocations(locationType);
+    }
+  }, [location, locationType]);
+    // end of close the information if changed the types of nearby
+
+    // redirect on googlemaps
+    const handleOpenInGoogleMapsClick = (placeId) => {
+      window.open(`https://www.google.com/maps/place/?q=place_id:${placeId}`);
+    };
+
   const fetchNearbyLocations = (type) => {
-    const apiUrl = 'http://localhost:8000/Backend/Server.php';
-    // Make an API call to fetch nearby locations based on the user's location
+     // close the information if changed the types of nearby
+     setSelectedLocation(null); // Reset selectedLocation when fetching new locations
+     setLocationType(type); // Update the location type 
+      // end of close the information if changed the types of nearby
+    const apiUrl = 'http://localhost/Backend/Server.php';
     const apiKey = 'AIzaSyDzzi_VBcf2Oef6LTViLU767UPNHlnIze4';
     const locationParam = `${location.lat},${location.lng}`;
     const radius = 5000; // 5 kilometers
-
-    axios
-    .get(
-      `http://localhost/Backend/Server.php?location=${locationParam}&radius=${radius}&type=${type}&key=${apiKey}`
+    const fields = 'formatted_address,name,geometry,place_id,types,opening_hours,formatted_phone_number,rating';
+  
+    axios.get(
+      `http://localhost/Backend/Server.php?location=${locationParam}&radius=${radius}&type=${type}&key=${apiKey}&fields=${fields}`
     )
       .then((response) => {
-        setLocations(response.data.results);
+        const updatedLocations = response.data.results.map((result) => {
+          console.log('Location:', location);
+          console.log('Result:', result);
+
+          // for distance result
+          const distance = haversine(
+            { latitude: location.lat, longitude: location.lng },
+            {
+              latitude: result.geometry.location.lat,
+              longitude: result.geometry.location.lng,
+            }
+          );
+  
+          console.log('Distance:', distance);
+          return { ...result, distance };
+        });
+        // for distance result
+  
+        // Ensure that the state is updated after the haversine calculations
+        setLocations(updatedLocations);
       })
+       
       .catch((error) => {
         console.error(error);
       });
+     
   };
 
   const openInGoogleMaps = (placeId) => {
@@ -151,7 +236,21 @@ const EmergencyResources = () => {
 
       </div>
       
-      <div className='w-full max-w-5xl mx-auto border-2 shadow-gray/10 shadow-xl'>
+      <section className='pb-10 flex flex-col lg:flex-row'>
+       {/* for locationlist  */}
+        {/* {locationType && ( */}
+        <div className="lg:w-1/4 w-full overflow-hidden lg:overflow-visible lg:transition-all duration-300">
+          <div className="bg-gray-200 p-4 max-h-screen overflow-y-auto">     
+      <LocationList
+        locations={locations}
+        onLocationClick={setSelectedLocation} 
+        onOpenInGoogleMapsClick={handleOpenInGoogleMapsClick}       
+      />
+       </div>
+        </div> 
+        {/* )}     */}
+         {/* for locationlist  */}
+      <div className="lg:w-3/4 w-full lg:ml-4 lg:transition-all duration-300 max-w-5xl ">     
       <GoogleMap
         center={location || { lat: 0, lng: 0 }}
         zoom={15}
@@ -181,28 +280,30 @@ const EmergencyResources = () => {
             icon={getMarkerIcon(location.types)}
           />
         ))}
-
-        {selectedLocation && (
-          <InfoWindow
-            position={{
-              lat: selectedLocation.geometry.location.lat,
-              lng: selectedLocation.geometry.location.lng,
-            }}
-            onCloseClick={() => {
-              setSelectedLocation(null);
-            }}
-          >
-            <div>
-              <h2 className='font-inter text-md'>{selectedLocation.name}</h2>
-              <p className='font-inter text-md'>{selectedLocation.vicinity}</p>
-              <button className='text-primary font-inter text-lg font-semibold hover:underline' onClick={() => openInGoogleMaps(selectedLocation.place_id)}>
-                Open in Google Maps
-              </button>
-            </div>
-          </InfoWindow>
-        )}
+{selectedLocation && (
+  <InfoWindow
+    position={{
+      lat: selectedLocation.geometry.location.lat,
+      lng: selectedLocation.geometry.location.lng,
+    }}
+    onCloseClick={() => {
+      setSelectedLocation(null);
+    }}
+  >
+    <div>
+    
+      <h2 className='font-inter text-md'>{selectedLocation.name}</h2>
+      <p className='font-inter text-md'>{selectedLocation.vicinity}</p>
+      <p className='font-inter text-md'>Type: {selectedLocation.types.join(', ')}</p>
+      <button className='text-primary font-inter text-lg font-semibold hover:underline' onClick={() => openInGoogleMaps(selectedLocation.place_id)}>
+        Open in Google Maps
+      </button>
+    </div>
+  </InfoWindow>
+)}
       </GoogleMap>
       </div>
+      </section>
    
       </section>    
       <Footer />
