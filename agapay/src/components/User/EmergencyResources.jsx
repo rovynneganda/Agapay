@@ -24,15 +24,15 @@ const getMarkerIcon = (types) => {
 
 //Nearby Location List component
 const LocationList = ({ locations, onLocationClick,onOpenInGoogleMapsClick }) => (
-  <div className="bg-gray-200 p-4 max-h-screen overflow-y-auto">
-    <h2 className="text-xl font-semibold mb-2">Nearby Locations</h2>
+  <div className="bg-gray-200  max-h-screen">
+    <h2 className="text-2xl text-primary  font-semibold font-inter mb-2">Nearby Locations</h2>
     <ul>
       {locations.map((location, index) => (
-        <li key={location.place_id} className={`cursor-pointer mb-4 ${index !== locations.length - 1 ? 'border-b border-gray-300' : ''}`} onClick={() => onLocationClick(location)}>
-          <h3 className="text-lg font-semibold">{location.name}</h3>
+        <li key={location.place_id} className={` font-inter mb-4 ${index !== locations.length - 1 ? '' : ''}`} onClick={() => onLocationClick(location)}>
+          <h3 className="text-lg font-semibold font-inter">{location.name}</h3>
           {location.rating && (
-            <div>
-              <p>Rating: {location.rating} stars</p>
+            <div className='flex flex-row'>
+              <p className='font-inter font-medium'>Rating: {location.rating} stars</p>
               {/* Display stars based on the rating */}
               {Array.from({ length: Math.floor(location.rating) }).map((_, index) => (
                 <span key={index} role="img" aria-label="star" className="text-yellow-500">
@@ -41,20 +41,20 @@ const LocationList = ({ locations, onLocationClick,onOpenInGoogleMapsClick }) =>
               ))}
             </div>
           )}
-          <p>{location.vicinity}</p>
-          <p>Distance: {location.distance.toFixed(2)} km</p>
+          <p className='font-inter font-medium'>Location: {location.vicinity}</p>
+          <p className='font-inter font-medium'>Distance: {location.distance.toFixed(2)} km</p>
           
           {location.opening_hours && (
             <div>
-              <p>{location.opening_hours.open_now ? 'Open Now' : 'Closed Now'}</p>
+              <p className='font-inter font-medium'>{location.opening_hours.open_now ? 'Open Now' : 'Closed Now'}</p>
             </div>
           )}
           {location.formatted_phone_number && (
-            <p>Phone: {location.formatted_phone_number}</p>
+            <p className='font-inter font-medium'>Phone: {location.formatted_phone_number}</p>
           )}
-            <li key={location.place_id} className={`cursor-pointer mb-4 ${index !== locations.length - 1 ? 'border-b border-gray-300' : ''}`} onClick={() => onLocationClick(location)}>
+            <li key={location.place_id} className={`cursor-pointer mb-4 ${index !== locations.length - 1 ? 'border-b border-gray/30' : ''}`} onClick={() => onLocationClick(location)}>
     
-    <button className="text-primary font-inter text-lg font-semibold hover:underline" onClick={() => onOpenInGoogleMapsClick(location.place_id)}>
+    <button className="text-primary font-inter text-lg font-semibold mb-4 hover:underline" onClick={() => onOpenInGoogleMapsClick(location.place_id)}>
       Open in Google Maps
     </button>
   </li>
@@ -236,25 +236,17 @@ const EmergencyResources = () => {
 
       </div>
       
-      <section className='pb-10 flex flex-col lg:flex-row'>
+      <section className='pb-10 flex flex-col lg:flex-col justify-center  items-center'>
        {/* for locationlist  */}
         {/* {locationType && ( */}
-        <div className="lg:w-1/4 w-full overflow-hidden lg:overflow-visible lg:transition-all duration-300">
-          <div className="bg-gray-200 p-4 max-h-screen overflow-y-auto">     
-      <LocationList
-        locations={locations}
-        onLocationClick={setSelectedLocation} 
-        onOpenInGoogleMapsClick={handleOpenInGoogleMapsClick}       
-      />
-       </div>
-        </div> 
+
         {/* )}     */}
          {/* for locationlist  */}
-      <div className="lg:w-3/4 w-full lg:ml-4 lg:transition-all duration-300 max-w-5xl ">     
+      <div className="flex lg:flex-row flex-col  max-w-7xl w-full lg:transition-all duration-300  ">     
       <GoogleMap
         center={location || { lat: 0, lng: 0 }}
         zoom={15}
-        mapContainerStyle={{ height: '400px', width: '100%',}}
+        mapContainerStyle={{ height: '500px', width: '100%',}}
       >
 
         {/* Display user's location as a marker */}
@@ -302,7 +294,21 @@ const EmergencyResources = () => {
   </InfoWindow>
 )}
       </GoogleMap>
+      {location && (
+      <div className='overflow-y-scroll max-h-[500px] p-2'>
+      <LocationList
+        locations={locations}
+        onLocationClick={setSelectedLocation} 
+        onOpenInGoogleMapsClick={handleOpenInGoogleMapsClick}       
+      />
       </div>
+    )} 
+      </div>
+      {/* <div className="lg:w-3/5 mt-3 w-full">
+          <div className="bg-gray-200  p-4  overflow-y-scroll">     
+
+       </div>
+        </div>  */}
       </section>
    
       </section>    
