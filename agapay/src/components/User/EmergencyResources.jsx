@@ -23,9 +23,9 @@ const getMarkerIcon = (types) => {
 };
 
 //Nearby Location List component
-const LocationList = ({ locations, onLocationClick,onOpenInGoogleMapsClick }) => (
+const LocationList = ({ locations, onLocationClick,onOpenInGoogleMapsClick,locationType  }) => (
   <div className="bg-gray-200  max-h-screen">
-    <h2 className="text-2xl text-primary  font-semibold font-inter mb-2">Nearby Locations</h2>
+    <h2 className="text-2xl text-primary  font-semibold font-inter mb-2">Nearby {locationType && locationType.charAt(0).toUpperCase() + locationType.slice(1)} Locations</h2>
     <ul>
       {locations.map((location, index) => (
         <li key={location.place_id} className={` font-inter mb-4 ${index !== locations.length - 1 ? '' : ''}`} onClick={() => onLocationClick(location)}>
@@ -106,7 +106,7 @@ const EmergencyResources = () => {
      setLocationType(type); // Update the location type 
       // end of close the information if changed the types of nearby
     const apiUrl = 'http://localhost/Backend/Server.php';
-    const apiKey = 'AIzaSyDzzi_VBcf2Oef6LTViLU767UPNHlnIze4';
+    const apiKey = 'AIzaSyDQOMaCyapoFRbaagiFUZ3qRGk1UJni7nk';
     const locationParam = `${location.lat},${location.lng}`;
     const radius = 5000; // 5 kilometers
     const fields = 'formatted_address,name,geometry,place_id,types,opening_hours,formatted_phone_number,rating';
@@ -147,7 +147,7 @@ const EmergencyResources = () => {
     window.open(`https://www.google.com/maps/place/?q=place_id:${placeId}`);
   };
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: 'AIzaSyDzzi_VBcf2Oef6LTViLU767UPNHlnIze4',
+    googleMapsApiKey: 'AIzaSyDQOMaCyapoFRbaagiFUZ3qRGk1UJni7nk',
     // Other options, libraries, and modules if needed
   });
 
@@ -238,9 +238,7 @@ const EmergencyResources = () => {
       
       <section className='pb-10 flex flex-col lg:flex-col justify-center  items-center'>
        {/* for locationlist  */}
-        {/* {locationType && ( */}
-
-        {/* )}     */}
+       
          {/* for locationlist  */}
       <div className="flex lg:flex-row flex-col  max-w-7xl w-full lg:transition-all duration-300  ">     
       <GoogleMap
@@ -294,14 +292,21 @@ const EmergencyResources = () => {
   </InfoWindow>
 )}
       </GoogleMap>
+      
       {location && (
       <div className='overflow-y-scroll max-h-[500px] p-2'>
-      <LocationList
-        locations={locations}
-        onLocationClick={setSelectedLocation} 
-        onOpenInGoogleMapsClick={handleOpenInGoogleMapsClick}       
-      />
+         {locationType && (
+
+
+<LocationList
+locations={locations}
+onLocationClick={setSelectedLocation} 
+onOpenInGoogleMapsClick={handleOpenInGoogleMapsClick}
+locationType={locationType} 
+/>
+      )}     
       </div>
+      
     )} 
       </div>
       {/* <div className="lg:w-3/5 mt-3 w-full">
