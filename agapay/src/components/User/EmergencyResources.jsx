@@ -24,8 +24,16 @@ const getMarkerIcon = (types) => {
 
 //Nearby Location List component
 const LocationList = ({ locations, onLocationClick,onOpenInGoogleMapsClick,locationType  }) => (
-  <div className="bg-gray-200  max-h-screen">
-    <h2 className="text-2xl text-primary  font-semibold font-inter mb-2">Nearby {locationType && locationType.charAt(0).toUpperCase() + locationType.slice(1)} Locations</h2>
+  <div className=" max-h-screen w-full max-w-sm">
+<h2 className="text-2xl text-primary font-semibold font-inter mb-2">
+  Nearby {locationType &&
+    (locationType.toLowerCase() === 'police'
+      ? 'Police Stations'
+      : locationType.toLowerCase() === 'fire_station' ? 'Fire Stations' : 
+      locationType.toLowerCase() === 'hospital' ? 'Hospitals' : ''
+    )}
+</h2>
+
     <ul>
       {locations.map((location, index) => (
         <li key={location.place_id} className={` font-inter mb-4 ${index !== locations.length - 1 ? '' : ''}`} onClick={() => onLocationClick(location)}>
@@ -68,6 +76,8 @@ const LocationList = ({ locations, onLocationClick,onOpenInGoogleMapsClick,locat
 // End Nearby Location List component
 
 const EmergencyResources = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
    useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -104,6 +114,7 @@ const EmergencyResources = () => {
      // close the information if changed the types of nearby
      setSelectedLocation(null); // Reset selectedLocation when fetching new locations
      setLocationType(type); // Update the location type 
+     setIsLoading(true); 
       // end of close the information if changed the types of nearby
     const apiUrl = 'http://localhost/Backend/Server.php';
     const apiKey = 'AIzaSyDQOMaCyapoFRbaagiFUZ3qRGk1UJni7nk';
@@ -139,6 +150,9 @@ const EmergencyResources = () => {
        
       .catch((error) => {
         console.error(error);
+      })
+      .finally(() => {
+        setIsLoading(false); // Set loading to false when the fetch is complete
       });
      
   };
@@ -152,47 +166,19 @@ const EmergencyResources = () => {
   });
 
   if (!isLoaded) {
-    return <div>Loading...</div>;
+    return         <div className='w-full max-w-xs flex justify-center items-center'>
+
+    <button disabled type="button" className="text-primary font-inter text-xl animate-pulse  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg  px-5 py-2.5 text-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-flex items-center">
+    <svg aria-hidden="true" role="status" className="inline w-5 h-5 me-3 text-primary animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="#E5E7EB"/>
+    <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentColor"/>
+    </svg>
+    Loading...
+    </button>
+            </div>;
   }
   return (
     <>
-      {/* <div className="bg-white py-16 mt-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base font-semibold leading-7 text-secondary font-poppins">
-              Explore Emergency Resources Instantly
-            </h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight  sm:text-4xl  font-inter">
-              Essential Emergency Information
-            </p>
-            <p className="mt-6 text-lg leading-8 font-poppins ">
-              In times of crisis, access to critical resources can make all the
-              difference. 
-            </p>
-          </div>
-          <div className="mx-auto mt-12 max-w-2xl sm:mt-12 lg:mt-12 lg:max-w-4xl">
-            <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
-              {emergencyResources.map((resources) => (
-                <div key={resources.name} className="relative pl-16">
-                  <dt className=" text-base font-semibold leading-7 font-inter text-primary">
-                    <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-primary transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300">
-                      <div
-                        dangerouslySetInnerHTML={{ __html: resources.icon }}
-                        className="h-6 w-6 text-white  "
-                      />
-                    </div>
-                    {resources.name}
-                  </dt>
-                  <dd className="mt-2 text-base leading-7 font-poppins">
-                    {resources.description}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </div>
-      </div> */}
-
        <div
   className="bg-cover bg-center bg-no-repeat sm:py-40 pt-32 pb-10  p-5" // Add any additional classes you need and adjust height as necessary
   style={{ backgroundImage: `url(${yellowbg1})` }}
@@ -292,22 +278,33 @@ const EmergencyResources = () => {
   </InfoWindow>
 )}
       </GoogleMap>
-      
-      {location && (
-      <div className='overflow-y-scroll max-h-[500px] p-2'>
-         {locationType && (
+      {isLoading ? (
+        <div className='w-full max-w-xs flex justify-center items-center'>
 
-
-<LocationList
-locations={locations}
-onLocationClick={setSelectedLocation} 
-onOpenInGoogleMapsClick={handleOpenInGoogleMapsClick}
-locationType={locationType} 
-/>
-      )}     
-      </div>
-      
-    )} 
+<button disabled type="button" className="text-primary font-inter text-xl animate-pulse  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg  px-5 py-2.5 text-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-flex items-center">
+<svg aria-hidden="true" role="status" className="inline w-5 h-5 me-3 text-primary animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="#E5E7EB"/>
+<path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentColor"/>
+</svg>
+Loading...
+</button>
+        </div>
+      ) : (
+        location && (
+          <>
+            {locationType && (
+              <div className='overflow-y-scroll max-h-[500px] p-2'>
+                <LocationList
+                  locations={locations}
+                  onLocationClick={setSelectedLocation}
+                  onOpenInGoogleMapsClick={handleOpenInGoogleMapsClick}
+                  locationType={locationType}
+                />
+              </div>
+            )}
+          </>
+        )
+      )}
       </div>
       {/* <div className="lg:w-3/5 mt-3 w-full">
           <div className="bg-gray-200  p-4  overflow-y-scroll">     
@@ -318,6 +315,7 @@ locationType={locationType}
    
       </section>    
       <Footer />
+      
     </>
   );
 };
