@@ -1,17 +1,18 @@
 import React from 'react'
 import { ExclamationTriangleIcon,MapPinIcon,ChartBarIcon,MegaphoneIcon } from '@heroicons/react/20/solid'
+import { GoogleMap } from '@react-google-maps/api'
 const FloodAlert = () => {
   return (
     <>
     
 
 
-<div  tabindex="-1" className="flex overflow-y-auto overflow-x-hidden fixed top-0 right-0  left-0 bg-black bg-opacity-50 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-    <div className="relative p-4 w-full max-w-2xl max-h-full ">
+<div  tabindex="-1" className="flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 p-5  left-0 bg-black bg-opacity-50 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%)] max-h-full">
+    <div className="relative w-full max-w-2xl max-h-full  overflow-y-auto rounded-lg">
   
-        <div className="relative bg-white rounded-lg shadow  ">
+        <div className="relative bg-white  shadow  ">
         {/* border-red  border-[3px] */}
-            <div className=" p-4 md:p-5 border-b border-gray/30 rounded-t ">
+            <div className=" p-4 md:p-5 border-b border-gray/30  ">
                 <h3 className="text-3xl font-bold font-inter text-center">
                     Flood Alert
                     <span>
@@ -43,6 +44,14 @@ const FloodAlert = () => {
                   <li>Pack essential items such as medications, important documents, and a first aid kit.</li>
                   <li>Evacuate if instructed by local authorities.</li>
                 </ul>
+                <ul className='list-decimal px-4 sm:px-7 font-inter font-medium '>
+                  <li>Stay indoors and avoid unnecessary travel.</li>
+                  <li>Move to higher ground if you are in a low-lying area.</li>
+                  <li>Listen to local authorities and emergency services for updates.</li>
+                  <li>Pack essential items such as medications, important documents, and a first aid kit.</li>
+                  <li>Evacuate if instructed by local authorities.</li>
+                </ul>
+                
                 <p className="text-xl leading-relaxed font-inter text-center font-medium ">  Stay tuned for further updates.</p>
             </div>
      

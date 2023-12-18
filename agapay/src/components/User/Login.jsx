@@ -246,6 +246,8 @@ const Login = ({ onClose, isLoggedInSession }) => {
   //       asd(false);
   //     }
   // }, [loggedIn, asd]);
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -294,8 +296,8 @@ const Login = ({ onClose, isLoggedInSession }) => {
           //   // Handle errors if needed
           //   console.error('Error occurred:', error);
           // });
-        } else return alert(response.data);
-        // loggedIn(false);
+        } else 
+        setShowErrorMessage(true);
         console.log(response.data);
       })
       .catch((error) => {
@@ -830,7 +832,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
                   Log in to access services and contribute to disaster reporting
                   and travel assistance.
                 </p>
-
+         
                 <div className="space-y-6 p-4 ">
                   <div>
                     <div className="relative">
@@ -881,6 +883,10 @@ const Login = ({ onClose, isLoggedInSession }) => {
                         )}
                       </i>
                     </div>
+                    {showErrorMessage && (
+       <p className="font-inter text-xl mt-3 text-center font-semibold text-red">Wrong Username or Password!</p>
+      )}
+                   
                     <div className="mb-3 mt-7">
                       <button
                         type="submit"
