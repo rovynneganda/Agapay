@@ -9,7 +9,7 @@ import Weather from "./Weather";
 import Steps from "./Steps";
 import DownloadBanner from "./DownloadBanner";
 import AccordionSection from "./AccordionSection";
-
+import FloodAlert from "./FloodAlert";
 
 export default function Home({ status, userType, username, contactNum, userId }) {
   useEffect(() => {
@@ -24,6 +24,7 @@ export default function Home({ status, userType, username, contactNum, userId })
       {/* <Hotlines /> */}
       {/* <Guidelines /> */}
       <Steps />
+      {/* <FloodAlert/> */}
       <PersuadingUsers />
       <DownloadBanner />
       <AccordionSection />

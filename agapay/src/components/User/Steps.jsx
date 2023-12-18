@@ -35,7 +35,7 @@ const Steps = () => {
             <h2 className="text-3xl font-bold md:text-4xl tracking-wide font-inter text-primary">
               Support in <span className='text-secondary'>3 steps</span>
             </h2>
-            <p className="mt-1 text-secondary font-inter">Here's how it Works</p>
+            <p className="leading-loose text-black font-inter font-semibold text-lg">Here's how it Works</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {stepsData.map((step, index) => (

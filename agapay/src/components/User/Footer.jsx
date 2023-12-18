@@ -28,7 +28,29 @@ const Footer = () => {
         </div>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-            
+          <div>
+              <h2 className="mb-6 text-md font-bold text-primary  font-inter uppercase">
+                Follow us
+              </h2>
+              <ul className="font-semibold">
+                <li className="mb-4">
+                  <a
+                    href="https://www.facebook.com/CaloocanDRRMO"
+                    className="hover:underline font-poppins text-secondary text-sm"
+                  >
+                    Facebook
+                  </a>
+                </li>
+                {/* <li>
+                  <a
+                    href=""
+                    className="hover:underline font-poppins text-secondary text-sm"
+                  >
+                    Twitter
+                  </a>
+                </li> */}
+              </ul>
+            </div>
             <div>
               <h2 className="mb-6 text-md font-bold text-primary  font-inter uppercase  ">
                 Resources
@@ -36,7 +58,7 @@ const Footer = () => {
               <ul className="font-semibold">
                 <li className="mb-4">
                   <a
-                    href=""
+                    href="https://www.pagasa.dost.gov.ph/"
                     className="hover:underline text-sm text-secondary font-poppins"
                   >
                     PAGASA
@@ -44,38 +66,16 @@ const Footer = () => {
                 </li>
                 <li className="mb-4">
                   <a
-                    href=""
+                    href="https://ndrrmc.gov.ph/"
                     className="hover:underline text-sm text-secondary font-poppins"
                   >
-                    DRRMO
+                    NDRRMC
                   </a>
                 </li>
 
               </ul>
             </div>
-            <div>
-              <h2 className="mb-6 text-md font-bold text-primary  font-inter uppercase">
-                Follow us
-              </h2>
-              <ul className="font-semibold">
-                <li className="mb-4">
-                  <a
-                    href=""
-                    className="hover:underline font-poppins text-secondary text-sm"
-                  >
-                    Facebook
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href=""
-                    className="hover:underline font-poppins text-secondary text-sm"
-                  >
-                    Twitter
-                  </a>
-                </li>
-              </ul>
-            </div>
+
             <div>
               <h2 className="mb-6 text-md font-bold text-primary  font-inter uppercase">
                 Legal

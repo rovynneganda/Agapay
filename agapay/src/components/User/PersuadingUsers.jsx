@@ -33,7 +33,7 @@ const PersuadingUsers = () => {
           <h2 className="text-2xl font-bold md:text-4xl md:leading-tight font-inter text-primary">
             Discover Our Key Features
           </h2>
-          <p className="mt-1 font-poppins">Explore how our services can benefit you.</p>
+          <p className="mt-1 font-poppins font-medium text-lg">Explore how our services can benefit you.</p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {featureData.map((feature) => (

@@ -35,29 +35,29 @@ const ContactUs = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label for="hs-firstname-contacts-1" className="sr-only">First Name</label>
+                <label htmlFor="hs-firstname-contacts-1" className="sr-only">First Name</label>
                 <input type="text" name="hs-firstname-contacts-1" id="hs-firstname-contacts-1" className="py-3 px-4 block w-full border border-gray/20 rounded-md text-sm focus:border-primary focus:outline-none focus:ring-primary " placeholder="First Name"/>
               </div>
 
               <div>
-                <label for="hs-lastname-contacts-1" className="sr-only">Last Name</label>
+                <label htmlFor="hs-lastname-contacts-1" className="sr-only">Last Name</label>
                 <input type="text" name="hs-lastname-contacts-1" id="hs-lastname-contacts-1" className="py-3 px-4 block w-full border border-gray/20 rounded-md text-sm focus:border-primary focus:outline-none focus:ring-primary " placeholder="Last Name"/>
               </div>
             </div>
 
 
             <div>
-              <label for="hs-email-contacts-1" className="sr-only">Email</label>
-              <input type="email" name="hs-email-contacts-1" id="hs-email-contacts-1" autocomplete="email" className="py-3 px-4 block w-full border border-gray/20 rounded-md text-sm focus:border-primary focus:outline-none focus:ring-primary " placeholder="Email"/>
+              <label htmlFor="hs-email-contacts-1" className="sr-only">Email</label>
+              <input type="email" name="hs-email-contacts-1" id="hs-email-contacts-1" autoComplete="email" className="py-3 px-4 block w-full border border-gray/20 rounded-md text-sm focus:border-primary focus:outline-none focus:ring-primary " placeholder="Email"/>
             </div>
 
             <div>
-              <label for="hs-phone-number-1" className="sr-only">Phone Number</label>
+              <label htmlFor="hs-phone-number-1" className="sr-only">Phone Number</label>
               <input type="text" name="hs-phone-number-1" id="hs-phone-number-1" className="py-3 px-4 block w-full border border-gray/20 rounded-md text-sm focus:border-primary focus:outline-none focus:ring-primary " placeholder="Phone Number"/>
             </div>
 
             <div>
-              <label for="hs-about-contacts-1" className="sr-only">Details</label>
+              <label htmlFor="hs-about-contacts-1" className="sr-only">Details</label>
               <textarea id="hs-about-contacts-1" name="hs-about-contacts-1" rows="4" className="py-3 px-4 block w-full border border-gray/20 rounded-md text-sm focus:border-primary focus:outline-none focus:ring-primary " placeholder="Details"></textarea>
             </div>
           </div>
@@ -101,7 +101,7 @@ const ContactUs = () => {
             <a className="mt-2 inline-flex items-center gap-x-2 text-sm font-medium text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" href="#">
               Visit FAQ
               <svg className="w-2.5 h-2.5 transition ease-in-out group-hover:translate-x-1" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.975821 6.92249C0.43689 6.92249 -3.50468e-07 7.34222 -3.27835e-07 7.85999C-3.05203e-07 8.37775 0.43689 8.79749 0.975821 8.79749L12.7694 8.79748L7.60447 13.7596C7.22339 14.1257 7.22339 14.7193 7.60447 15.0854C7.98555 15.4515 8.60341 15.4515 8.98449 15.0854L15.6427 8.68862C16.1191 8.23098 16.1191 7.48899 15.6427 7.03134L8.98449 0.634573C8.60341 0.268455 7.98555 0.268456 7.60447 0.634573C7.22339 1.00069 7.22339 1.59428 7.60447 1.9604L12.7694 6.92248L0.975821 6.92249Z" fill="currentColor"/>
+                <path fillRule="evenodd" clipRule="evenodd" d="M0.975821 6.92249C0.43689 6.92249 -3.50468e-07 7.34222 -3.27835e-07 7.85999C-3.05203e-07 8.37775 0.43689 8.79749 0.975821 8.79749L12.7694 8.79748L7.60447 13.7596C7.22339 14.1257 7.22339 14.7193 7.60447 15.0854C7.98555 15.4515 8.60341 15.4515 8.98449 15.0854L15.6427 8.68862C16.1191 8.23098 16.1191 7.48899 15.6427 7.03134L8.98449 0.634573C8.60341 0.268455 7.98555 0.268456 7.60447 0.634573C7.22339 1.00069 7.22339 1.59428 7.60447 1.9604L12.7694 6.92248L0.975821 6.92249Z" fill="currentColor"/>
               </svg>
             </a>
           </div>

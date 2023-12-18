@@ -11,7 +11,7 @@ const Weather = () => {
       <h1 className="text-4xl mb-2 text-primary text-center font-poppins font-semibold">
               Weather Updates
             </h1>
-            <p className="mb-8 leading-relaxed text-center font-normal font-inter text-darkblue text-lg">
+            <p className="mb-8 leading-relaxed text-center font-medium font-inter text-black text-lg">
             Stay prepared with clear daily forecasts.
             </p>
             </div>
