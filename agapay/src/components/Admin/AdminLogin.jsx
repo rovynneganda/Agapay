@@ -25,7 +25,7 @@ const AdminLogin = () => {
     });
     console.log(formDataToObject);
     axios
-      .post("http://localhost/Backend/Backend/Controller.php", formDataToObject, {
+      .post("http://localhost/Backend/Controller.php", formDataToObject, {
         withCredentials: true,
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
