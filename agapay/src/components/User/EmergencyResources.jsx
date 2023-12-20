@@ -9,6 +9,7 @@ import user_icon from '../../assets/user_icon.png';
 import HospitalIcon from '../../assets/hospital.png';
 import fire_station from '../../assets/fire_station.png';
 import police_station from '../../assets/police_station.png';
+import { PhoneIcon } from "@heroicons/react/24/outline";
 import haversine from 'haversine';
 const getMarkerIcon = (types) => {
   if (types.includes('hospital')) {
@@ -22,21 +23,21 @@ const getMarkerIcon = (types) => {
   }
 };
 
-//Nearby Location List component
-const LocationList = ({ locations, onLocationClick,onOpenInGoogleMapsClick,locationType  }) => (
-  <div className=" max-h-screen w-full max-w-sm">
-<h2 className="text-2xl text-primary font-semibold font-inter mb-2">
-  Nearby {locationType &&
-    (locationType.toLowerCase() === 'police'
-      ? 'Police Stations'
-      : locationType.toLowerCase() === 'fire_station' ? 'Fire Stations' : 
-      locationType.toLowerCase() === 'hospital' ? 'Hospitals' : ''
-    )}
-</h2>
+//Nearby Location List information component
+const LocationList = ({ locations, onLocationClick, onOpenInGoogleMapsClick, locationType }) => (
+  <div className="max-h-screen w-full max-w-sm">
+    <h2 className="text-2xl text-primary font-semibold font-inter mb-2">
+      Nearby {locationType &&
+        (locationType.toLowerCase() === 'police'
+          ? 'Police Stations'
+          : locationType.toLowerCase() === 'fire_station' ? 'Fire Stations' :
+            locationType.toLowerCase() === 'hospital' ? 'Hospitals' : ''
+        )}
+    </h2>
 
     <ul>
       {locations.map((location, index) => (
-        <li key={location.place_id} className={` font-inter mb-4 ${index !== locations.length - 1 ? '' : ''}`} onClick={() => onLocationClick(location)}>
+        <li key={location.place_id} className={`font-inter mb-4 ${index !== locations.length - 1 ? '' : ''}`} onClick={() => onLocationClick(location)}>
           <h3 className="text-lg font-semibold font-inter">{location.name}</h3>
           {location.rating && (
             <div className='flex flex-row'>
@@ -51,29 +52,33 @@ const LocationList = ({ locations, onLocationClick,onOpenInGoogleMapsClick,locat
           )}
           <p className='font-inter font-medium'>Location: {location.vicinity}</p>
           <p className='font-inter font-medium'>Distance: {location.distance.toFixed(2)} km</p>
-          
+
           {location.opening_hours && (
             <div>
               <p className='font-inter font-medium'>{location.opening_hours.open_now ? 'Open Now' : 'Closed Now'}</p>
             </div>
           )}
-          {location.formatted_phone_number && (
-            <p className='font-inter font-medium'>Phone: {location.formatted_phone_number}</p>
+       {location.details && location.details.formatted_phone_number && (
+            <div>
+              <p className='font-inter font-medium'>Phone: {location.details.formatted_phone_number}</p>
+
+              {/* Add a call icon to trigger the phone call */}
+              <a href={`tel:${location.details.formatted_phone_number}`} className='text-primary font-inter text-lg font-semibold hover:underline'>
+                <PhoneIcon className="inline-block text-lg me-1" />   
+              </a>
+            </div>
           )}
-            <li key={location.place_id} className={`cursor-pointer mb-4 ${index !== locations.length - 1 ? 'border-b border-gray/30' : ''}`} onClick={() => onLocationClick(location)}>
-    
-    <button className="text-primary font-inter text-lg font-semibold mb-4 hover:underline" onClick={() => onOpenInGoogleMapsClick(location.place_id)}>
-      Open in Google Maps
-    </button>
-  </li>
-          
+          <div className={`cursor-pointer ${index !== locations.length - 1 ? 'border-b border-gray/30' : ''}`} onClick={() => onLocationClick(location)}>
+            <button className="text-primary font-inter text-lg font-semibold mb-4 hover:underline" onClick={() => onOpenInGoogleMapsClick(location.place_id)}>
+              Open in Google Maps
+            </button>
+          </div>
         </li>
-        
       ))}
     </ul>
   </div>
 );
-// End Nearby Location List component
+// End Nearby Location List information component
 
 const EmergencyResources = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -97,6 +102,24 @@ const EmergencyResources = () => {
       alert('Geolocation is not supported by your browser.');
     }
   }, []);
+
+  // for phone number in locationlist
+  const fetchPlaceDetails = (placeId) => {
+    const apiKey = 'YOUR_GOOGLE_MAPS_API_KEY';
+    const apiUrl2 = 'http://localhost/Backend/Server2.php';
+  
+    return axios.get(`${apiUrl2}?placeid=${placeId}&fields=formatted_phone_number`)
+      .then((response) => {
+        // Handle the response from your PHP script
+        console.log(response.data);
+        return response.data.result; // Return the details, including the phone number
+      })
+      .catch((error) => {
+        console.error(error);
+        return {}; // Return an empty object in case of an error
+      });
+  };
+   // end for phone number in locationlist
   // close the information if changed the types of nearby
   useEffect(() => {
     if (location && locationType) {
@@ -125,36 +148,28 @@ const EmergencyResources = () => {
     axios.get(
       `http://localhost/Backend/Server.php?location=${locationParam}&radius=${radius}&type=${type}&key=${apiKey}&fields=${fields}`
     )
-      .then((response) => {
-        const updatedLocations = response.data.results.map((result) => {
-          console.log('Location:', location);
-          console.log('Result:', result);
-
-          // for distance result
-          const distance = haversine(
-            { latitude: location.lat, longitude: location.lng },
-            {
-              latitude: result.geometry.location.lat,
-              longitude: result.geometry.location.lng,
-            }
-          );
+    .then((response) => {
+      const updatedLocations = response.data.results.map(async (result) => {
+        const details = await fetchPlaceDetails(result.place_id);
+        const distance = haversine(
+          { latitude: location.lat, longitude: location.lng },
+          { latitude: result.geometry.location.lat, longitude: result.geometry.location.lng }
+        );
   
-          console.log('Distance:', distance);
-          return { ...result, distance };
-        });
-        // for distance result
-  
-        // Ensure that the state is updated after the haversine calculations
-        setLocations(updatedLocations);
-      })
-       
-      .catch((error) => {
-        console.error(error);
-      })
-      .finally(() => {
-        setIsLoading(false); // Set loading to false when the fetch is complete
+        return { ...result, distance, details };
       });
-     
+  
+      Promise.all(updatedLocations)
+        .then((completedLocations) => {
+          setLocations(completedLocations);
+        });
+    })
+    .catch((error) => {
+      console.error('Error fetching nearby locations:', error);
+    })
+    .finally(() => {
+      setIsLoading(false);
+    });
   };
 
   const openInGoogleMaps = (placeId) => {
