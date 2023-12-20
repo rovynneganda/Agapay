@@ -9,7 +9,7 @@ import user_icon from '../../assets/user_icon.png';
 import HospitalIcon from '../../assets/hospital.png';
 import fire_station from '../../assets/fire_station.png';
 import police_station from '../../assets/police_station.png';
-import { PhoneIcon } from "@heroicons/react/24/outline";
+import { PhoneIcon } from "@heroicons/react/20/solid";
 import haversine from 'haversine';
 const getMarkerIcon = (types) => {
   if (types.includes('hospital')) {
@@ -25,7 +25,7 @@ const getMarkerIcon = (types) => {
 
 //Nearby Location List information component
 const LocationList = ({ locations, onLocationClick, onOpenInGoogleMapsClick, locationType }) => (
-  <div className="max-h-screen w-full max-w-sm">
+  <div className="max-h-screen w-full lg:max-w-sm max-w-full">
     <h2 className="text-2xl text-primary font-semibold font-inter mb-2">
       Nearby {locationType &&
         (locationType.toLowerCase() === 'police'
@@ -41,11 +41,11 @@ const LocationList = ({ locations, onLocationClick, onOpenInGoogleMapsClick, loc
           <h3 className="text-lg font-semibold font-inter">{location.name}</h3>
           {location.rating && (
             <div className='flex flex-row'>
-              <p className='font-inter font-medium'>Rating: {location.rating} stars</p>
+              <p className='font-inter font-medium'>Rating: {location.rating} stars </p>
               {/* Display stars based on the rating */}
               {Array.from({ length: Math.floor(location.rating) }).map((_, index) => (
                 <span key={index} role="img" aria-label="star" className="text-yellow-500">
-                  ⭐
+                   ⭐
                 </span>
               ))}
             </div>
@@ -59,13 +59,15 @@ const LocationList = ({ locations, onLocationClick, onOpenInGoogleMapsClick, loc
             </div>
           )}
        {location.details && location.details.formatted_phone_number && (
-            <div>
+            <div className='flex flex-row justify-between'>
               <p className='font-inter font-medium'>Phone: {location.details.formatted_phone_number}</p>
 
               {/* Add a call icon to trigger the phone call */}
-              <a href={`tel:${location.details.formatted_phone_number}`} className='text-primary font-inter text-lg font-semibold hover:underline'>
-                <PhoneIcon className="inline-block text-lg me-1" />   
+              <button className='sm:hidden block text-lg  mr-5'>
+              <a href={`tel:${location.details.formatted_phone_number}`} className='text-primary font-inter font-semibold '>
+                <PhoneIcon className="inline-block text-lg  w-5 h-5 mb-1" />   CALL
               </a>
+              </button>
             </div>
           )}
           <div className={`cursor-pointer ${index !== locations.length - 1 ? 'border-b border-gray/30' : ''}`} onClick={() => onLocationClick(location)}>
