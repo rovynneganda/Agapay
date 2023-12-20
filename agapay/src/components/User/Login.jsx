@@ -522,7 +522,7 @@ const Login = ({ onClose, isLoggedInSession }) => {
       const longitude = position.coords.longitude;
       // console.log(latitude +  '' + longitude)
 
-      const geoApiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyDzzi_VBcf2Oef6LTViLU767UPNHlnIze4`;
+      const geoApiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyAAqEuv_SHtc0ByecPXSQiKH5f2p2t5oP4`;
       fetch(geoApiUrl)
         .then((res) => res.json())
         .then((data) => {
