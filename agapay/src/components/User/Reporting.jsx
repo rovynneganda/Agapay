@@ -74,7 +74,7 @@ const Reporting = ({ status, userType, username, contactNum, userId }) => {
       console.log(latitude, longitude);
       setLatitude(latitude);
       setLongitude(longitude);
-      const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyDzzi_VBcf2Oef6LTViLU767UPNHlnIze4`;
+      const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyAAqEuv_SHtc0ByecPXSQiKH5f2p2t5oP4`;
       fetch(url)
         .then((res) => res.json())
         .then((data) => setAdd(data.results[0]));
